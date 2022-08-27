@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from 'components/App';
-
-import './index.css';
-import './css/normalize.css';
+import { App } from './App';
+import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter /* basename="/kapustaApp_frontend/" */>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
