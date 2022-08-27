@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import AppBar from './components/AppBar';
+import AppBar from './modules/navigation/components/AppBar';
 
 const AuthPage = lazy(() => import('./Views/AuthPage'));
 const HomePage = lazy(() => import('./Views/HomePage'));
