@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import s from './Balance.module.css';
 import CurrencyInput from 'react-currency-input-field';
 import ReportsLink from '../../../reports/components/ReportsLink';
+import Modal from '../Modal';
 
 export default function Balance() {
   const [balance, setBalance] = useState(null);
-  const [isReadable, setIsReadable] = useState(true);
+  //на прод поміняти на true
+  const [isReadable, setIsReadable] = useState(false);
 
   return (
     <form /* onSubmit={handleSubmit} */>
@@ -26,9 +28,11 @@ export default function Balance() {
               /* onValueChange={handleOnValueChange} */
               disabled={!isReadable}
             />
-            <button type="submit" className={s.confirm}>
+            <button type="submit" disabled={!isReadable} className={s.confirm}>
               Confirm
             </button>
+
+            <div className={s.modal}>{!balance && isReadable && <Modal />}</div>
           </div>
         </div>
       </div>
