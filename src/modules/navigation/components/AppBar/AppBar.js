@@ -1,12 +1,16 @@
 import { Outlet } from 'react-router-dom';
 import Navigation from '../Navigation';
 import Container from '../Container';
+import s from './AppBar.module.css';
+import logo from '../../../../images/icons/logo.svg';
 
 export default function AppBar() {
   return (
     <>
       <Container>
-        <header>
+        <header className={s.header}>
+          <img src={logo} alt="Logo" className={s.logo} />
+
           <Navigation />
         </header>
         <main>
