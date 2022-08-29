@@ -36,7 +36,9 @@ export default function LoginView() {
         <h2 className={s.titleLogin}>
           You can log in with your Google Account:
         </h2>
-        <img className={s.googleImage} src={google} alt="google" />
+        <a href="http://localhost:5000/api/auth/google">
+          <img className={s.googleImage} src={google} alt="google" />
+        </a>
         <p className={s.p}>
           <label className={s.labelLogin} htmlFor="email">
             Email
