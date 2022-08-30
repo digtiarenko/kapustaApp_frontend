@@ -1,14 +1,23 @@
 import { NavLink } from 'react-router-dom';
-import s from './Navigation.module.css';
+import '../../../../css/App.css';
+import { Button } from '../../../Button/Button';
+import { LogoutBtn } from '../../../LogoutBtn/LogoutBtn';
+// import s from './AppBar.module.css';
+import logo from '../../../../images/icons/logo.svg';
 
 const Navigation = () => {
+  //  const isLoggedIn = useSelector(getIsLoggedIn);
   return (
     <>
+      {/* <header className="header"> */}
       <nav>
-        <NavLink to="/" className={s.kapusta}>
-          Kapusta
-        </NavLink>
+        {/* <img src={logo} alt="Logo" className="logo" /> */}
+        {/* <Navigation /> */}
+
+        {/* { isLoggedIn && <LogoutBtn />} */}
+        <LogoutBtn />
       </nav>
+      {/* </header> */}
     </>
   );
 };
