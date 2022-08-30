@@ -1,4 +1,5 @@
-import AuthNav from '../../modules/AuthNav/AuthNav';
+import AuthComponen from '../../modules/AuthComponen/AuthComponent';
+
 import React from 'react';
 
 import s from './AuthPage.module.css';
@@ -16,7 +17,7 @@ function AuthPage() {
             <p className={s.slogan}>smart finance</p>
           </div>
           <div className={s.form}>
-            <AuthNav />
+            <AuthComponen />
           </div>
         </div>
       </div>
