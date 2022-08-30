@@ -1,11 +1,11 @@
-import s from './Expenses.module.css';
+import s from './Income.module.css';
 import SliderIncomeExpenses from '../../../modules/reports/components/SliderIncomeExpenses';
 import ExpensesList from '../../../modules/reports/components/ExpensesList';
 
-export default function Expenses() {
+export default function Income() {
   return (
     <div className={s.wrapper}>
-      <SliderIncomeExpenses text="expenses" link="income" />
+      <SliderIncomeExpenses text="income" link="expenses" />
       <ExpensesList />
     </div>
   );
