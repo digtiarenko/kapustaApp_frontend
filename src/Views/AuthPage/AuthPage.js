@@ -1,5 +1,7 @@
 import AuthComponen from '../../modules/AuthComponen/AuthComponent';
 
+import Dropdown from '../../modules/dropDownCategories/Dropdown';
+
 import React from 'react';
 
 import s from './AuthPage.module.css';
@@ -15,6 +17,7 @@ function AuthPage() {
             <div className={s.logoName}></div>
             {/* <h1 className={s.logo}>Kapu$ta</h1> */}
             <p className={s.slogan}>smart finance</p>
+            <Dropdown />
           </div>
           <div className={s.form}>
             <AuthComponen />
