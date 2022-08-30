@@ -8,17 +8,17 @@ import logo from '../../../../images/icons/logo.svg';
 export default function AppBar() {
   return (
     <>
-      <Container>
-        <header className={s.header}>
-          <img src={logo} alt="Logo" className={s.logo} />
-          {/* <LogoutBtn /> */}
-          <Navigation />
-        </header>
+      {/* <Container> */}
+      <header className={s.header}>
+        <img src={logo} alt="Logo" className={s.logo} />
+        {/* <LogoutBtn /> */}
+        <Navigation />
+      </header>
 
-        <main>
-          <Outlet />
-        </main>
-      </Container>
+      <main>
+        <Outlet />
+      </main>
+      {/* </Container> */}
     </>
   );
 }
