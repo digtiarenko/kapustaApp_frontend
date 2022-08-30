@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
-import s from './buttonGoBack.module.css';
+import s from './buttonGoMain.module.css';
 
-export const ButtonGoBack = () => {
+export const ButtonGoMain = () => {
   return (
     <NavLink to={'/home'} className={s.buttonLink}>
       <button type="button" className={s.buttonGoBack}>
