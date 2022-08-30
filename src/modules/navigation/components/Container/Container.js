@@ -1,8 +1,14 @@
-import s from './Container.module.css';
+import '../../../../css/App.css';
 import PropTypes from 'prop-types';
 
 function Container({ children }) {
-  return <div className={s.container}>{children}</div>;
+  return (
+    <>
+      <div className="background-bottom"></div>
+      <div className="background-top background-top_for-mobile"></div>
+      <div className="container">{children}</div>;
+    </>
+  );
 }
 
 Container.propTypes = {

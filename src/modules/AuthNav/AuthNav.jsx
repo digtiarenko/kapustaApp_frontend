@@ -1,12 +1,11 @@
 import { NavLink } from 'react-router-dom';
-import LoginView from '../../Views/LoginViews/LoginView';
+
 import style from '../AuthNav/AuthNav.module.css';
 
 export default function AuthNav() {
   return (
     <>
       <nav>
-        <LoginView />
         <div className="container">
           <button type="button" className="btn">
             <NavLink

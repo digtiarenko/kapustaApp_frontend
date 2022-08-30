@@ -1,4 +1,5 @@
 import { lazy, Suspense } from 'react';
+import './css/App.css';
 import { Routes, Route } from 'react-router-dom';
 import AppBar from './modules/navigation/components/AppBar';
 

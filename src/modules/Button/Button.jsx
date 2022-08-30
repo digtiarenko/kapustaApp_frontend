@@ -1,6 +1,6 @@
 import s from '../Button/button.module.css';
 
-export const Button = ({ text, theme }) => {
+export const Button = ({ text, theme, onClick }) => {
   if (theme === 'orangeTheme') {
     return (
       <button
