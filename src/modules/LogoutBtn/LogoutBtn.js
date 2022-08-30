@@ -1,6 +1,6 @@
 import s from './LogoutBtn.module.css';
 import logoutIcon from '../../images/icons/logout.svg';
-import { Button } from '../Button';
+import { Button } from '../Buttons/Button';
 import Modal from '../Modal/Modal';
 import React, { useState } from 'react';
 
