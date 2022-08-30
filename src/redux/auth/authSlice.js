@@ -3,6 +3,8 @@ import { register, logIn, logOut, fetchCurrentUser } from './auth-operation';
 const initialState = {
   user: { email: null },
   token: null,
+  isLoggedIn: false,
+  isRefreshing: false,
 };
 
 const authSlice = createSlice({
