@@ -9,7 +9,7 @@ const ReportsPage = lazy(() => import('./Views/ReportsPage'));
 export const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<AppBar />}>
+      <Route path="/" element={<AppBar position="fixed" />}>
         <Route
           index
           element={
