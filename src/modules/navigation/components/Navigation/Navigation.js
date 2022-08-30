@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import '../../../../css/App.css';
-import { Button } from '../../../Button/Button';
+import { Button } from '../../../Buttons/Button';
 import { LogoutBtn } from '../../../LogoutBtn/LogoutBtn';
 // import s from './AppBar.module.css';
 import logo from '../../../../images/icons/logo.svg';
