@@ -36,6 +36,7 @@ export const logIn = createAsyncThunk(
       console.log('login=======data', data);
       token.set(data.token);
       alert('Welcome!');
+      console.log(data);
       return data;
     } catch (error) {
       console.log(error);
