@@ -24,7 +24,7 @@ export const App = () => {
       ) : (
         <>
           <Routes>
-            <Route path="/" element={<AppBar />}>
+            <Route path="/" element={<AppBar position="fixed" />}>
               <Route
                 index
                 element={
