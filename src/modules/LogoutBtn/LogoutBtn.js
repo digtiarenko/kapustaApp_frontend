@@ -5,17 +5,20 @@ import Modal from '../Modal/Modal';
 import React, { useState } from 'react';
 
 import { authSelectors } from 'redux/auth';
+
 import logout from '../../redux/auth/auth-operations';
+
 import { useDispatch, useSelector } from 'react-redux';
 
 const LogoutBtn = () => {
   const [showModal, setShowModal] = useState(false);
 
   const dispatch = useDispatch();
+
   // const email = useSelector(authSelectors.getUserEmail);
   // const userName = email[0].toUpperCase() + email.slice(1).split('@')[0];
 
-  const logoutButton = () => {
+  const logoutBtn = () => {
     dispatch(logout());
   };
 
@@ -26,14 +29,11 @@ const LogoutBtn = () => {
           onDeny={() => {
             setShowModal(false);
           }}
-          handleAgreeButtonClick={logoutButton}
+          handleAgreeButtonClick={logoutBtn}
           question="Are you sure?"
         />
       )}
-      <span className={s.avatar}>
-        anasty22@ngff
-        {/* {email[0]} */}
-      </span>
+      {/* <span className={s.avatar}>{email[0]}</span> */}
 
       <p className={s.name}>
         Name
