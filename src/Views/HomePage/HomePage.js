@@ -1,4 +1,6 @@
 import Balance from '../../modules/balance/components/Balance';
+import ReportsLink from '../../modules/reports/components/ReportsLink';
+import s from './HomePage.module.css';
 
 export default function HomePage() {
   return (
@@ -6,7 +8,10 @@ export default function HomePage() {
       <section>
         <h1>Page for Revenue and Expenses</h1>
         <p>Welcome to the best resource for managing budget</p>
-        <Balance />
+        <div className={s.balanceBlock}>
+          <ReportsLink />
+          <Balance />
+        </div>
       </section>
     </>
   );
