@@ -1,11 +1,11 @@
 import s from './LogoutBtn.module.css';
 import logoutIcon from '../../images/icons/logout.svg';
-import { Button } from '../Buttons/Button';
-import Modal from '../Modal/Modal';
-import React, { useState } from 'react';
-
-import { authSelectors } from 'redux/auth';
-import logout from '../../redux/auth/auth-operations';
+im  port { Button } from '../Buttons/Button';
+ im port Modal from '../Modal/Modal';
+  import React, { useState } from 'react';
+  
+ im port { authSelectors } from 'redux/auth';
+  import logout from '../../redux/auth/auth-operations';
 import { useDispatch, useSelector } from 'react-redux';
 
 const LogoutBtn = () => {
@@ -20,19 +20,25 @@ const LogoutBtn = () => {
   };
 
   return (
-    <div className={s.container}>
-      {showModal && (
-        <Modal
+      <div className={s.container}>
+        {showModal && (
+          <Modal
           onDeny={() => {
             setShowModal(false);
           }}
-          handleAgreeButtonClick={logoutButton}
-          question="Are you sure?"
-        />
+            handleAgreeButtonClick={logoutButton}
+            question="Are you sure?"
+          />
       )}
-      {/* <span className={s.avatar}>{email[0]}</span> */}
+      <span className={s.avatar}>
+        anasty22@ngff
+        {/* {email[0]} */}
+      </span>
 
-      {/* <p className={s.name}>{userName}</p> */}
+      <p className={s.name}>
+        Name
+        {/* {userName} */}
+      </p>
       <button
         onClick={() => {
           setShowModal(true);
