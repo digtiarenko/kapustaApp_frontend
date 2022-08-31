@@ -11,7 +11,7 @@ const ReportsPage = lazy(() => import('./Views/ReportsPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
-  const isFetchingCurrentUser = useSelector(authSelectors.isRefreshing);
+  const isFetchingCurrentUser = useSelector(authSelectors.getIsRefreshing);
 
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
