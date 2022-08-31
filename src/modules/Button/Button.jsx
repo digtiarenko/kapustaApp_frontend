@@ -1,10 +1,13 @@
 import s from '../Button/button.module.css';
 
-export const Button = ({ text, theme }) => {
+export const Button = ({ text, theme, type, disabled, onClicked }) => {
   if (theme === 'orangeTheme') {
     return (
       <button
         className={s.button}
+        type={type}
+        disabled={disabled}
+        onClick={onClicked}
         style={{
           background: '#FF751D',
           color: 'white',
@@ -18,6 +21,9 @@ export const Button = ({ text, theme }) => {
   if (theme === 'whiteTheme') {
     return (
       <button
+        type={type}
+        disabled={disabled}
+        onClick={onClicked}
         className={s.button}
         style={{
           background: '#FFFFFF',
