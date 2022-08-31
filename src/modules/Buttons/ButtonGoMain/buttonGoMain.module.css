@@ -1,26 +1,26 @@
 .buttonLink {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    margin-top: 16px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
 }
 
 .buttonGoBack {
-    border: none;
-    border: none;
-    display: flex;
-    height: 26px;
-    align-items: center;
+  border: none;
+  border: none;
+  display: flex;
+  height: 26px;
+  align-items: center;
 }
 
 .buttonText {
-    visibility: hidden;
+  visibility: hidden;
 }
 
-@media screen and (min-width:772px) {
-    .buttonText {
-        visibility: visible;
-        color: #52555F;
-        margin-left: 15px;
-    }
+@media screen and (min-width: 772px) {
+  .buttonText {
+    visibility: visible;
+    color: #52555f;
+    margin-left: 15px;
+  }
 }
