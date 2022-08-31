@@ -78,12 +78,68 @@
   border: 2px solid #ffffff;
   border-left: 0;
   border-radius: 0px 22px 22px 0px;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   color: rgba(82, 85, 95, 0.7);
 }
 
-.confirm:hover {
+.confirm:hover:enabled,
+.confirm:active:enabled,
+.confirm:focus:enabled {
   cursor: pointer;
+  background: #ff751d;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  color: #ffffff;
+}
+.reportButtonStyle {
+  display: none;
+}
+
+h3 {
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+.modal {
+  position: absolute;
+  left: 3px;
+  top: 62px;
+}
+
+.reportInputStyle {
+  border: 2px solid #ffffff;
+  text-align: right;
+  width: 148px;
+  height: 20px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #000000;
+  padding: 15px 16px 15px 19px;
+  background-color: transparent;
+  border-radius: 22px;
+  text-align: center;
+}
+.reportInputStyle::placeholder {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  background-color: transparent;
+  background-color: transparent;
+  color: #000000;
+}
+
+.reportInputStyle:focus {
+  outline: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -117,25 +173,43 @@
     border: 2px solid #ffffff;
     border-radius: 16px;
   }
+  .reportInputStyle {
+    width: 103px;
+    padding: 12px 20px 12px 0;
+    text-align: right;
+  }
 }
 
 @media screen and (min-width: 1280px) {
+  .form {
+    margin: 0 auto;
+  }
   .name {
-    margin-left: 382px;
     margin-right: 20px;
   }
   .input {
     margin-right: 16px;
   }
-}
-h3 {
-  margin: 0;
-}
-p {
-  margin: 0;
-}
-.modal {
-  position: absolute;
-  left: 3px;
-  top: 62px;
+  .reportButtonStyle {
+    display: block;
+    width: 142px;
+
+    padding: 0;
+    background-color: transparent;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+
+    border: 2px solid #ffffff;
+    border-left: 0;
+    border-radius: 0px 22px 22px 0px;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    color: rgba(82, 85, 95, 0.7);
+  }
 }
