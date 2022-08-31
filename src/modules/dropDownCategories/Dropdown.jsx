@@ -33,7 +33,7 @@ export default function Dropdown() {
 
   useEffect(() => {
     const handleKeydown = event => {
-      if (event.target === event.currentTarget) {
+      if (event.target !== event.currentTarget) {
         console.log(event.target);
         console.log(event.currentTarget);
         setIsOpen(false);
