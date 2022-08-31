@@ -1,8 +1,8 @@
-import { Summary } from './Summary/Summary';
+import { Summary } from '../../modules/Summary/Summary';
 import s from './ReportPage.module.css';
 import { ButtonGoMain } from 'modules/Buttons/ButtonGoMain';
 import Balance from 'modules/balance/components/Balance';
-import { CurrentPeriod } from './CurrentPeriod';
+import { CurrentPeriod } from '../../modules/CurrentPeriod/CurrendPeriod.jsx';
 
 export default function ReportPage() {
   return (
