@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import {useState} from 'react';
 import arrowLeft from '../../images/icons/arrow-left.svg';
 import arrowRight from '../../images/icons/arrow-right.svg';
 import s from './currentPeriod.module.css';
@@ -27,26 +26,22 @@ export const CurrentPeriod = () => {
   const [year, setYear] = useState(currentYear)
 
   const onPreviousMonth = () => {
-    console.log(arrayOfMonth.indexOf(month))
-    if (arrayOfMonth.indexOf(month) < 1) {
+   setMonth(prevState => arrayOfMonth[arrayOfMonth.indexOf(prevState) - 1])
+    if (arrayOfMonth.indexOf(month) <= 0) {
       setYear(year - 1)
+      setMonth(arrayOfMonth[11])
     }
-    if (arrayOfMonth.indexOf(month) === -1 || arrayOfMonth.indexOf(month) === 0) {
-     return setMonth(arrayOfMonth[11])
-    }
-    setMonth((prevState) => arrayOfMonth[arrayOfMonth.indexOf(prevState) - 1])
   };
 
-  const onNextMonth = () => {
-    if (month === 'December') {
+  const onNextMonth =  () => {
+    setMonth((prevState) => arrayOfMonth[arrayOfMonth.indexOf(prevState) + 1])
+    if (arrayOfMonth.indexOf(month) >= 11) {
       setYear(year + 1)
+     setMonth(arrayOfMonth[0])
     }
-    if (arrayOfMonth.indexOf(month) > 10) {
-      return setMonth(arrayOfMonth[0])
-    }
-    setMonth(arrayOfMonth[arrayOfMonth.indexOf(month) + 1])
-
   }
+  // const userMonth = 8
+  // const numberOfMonth = arrayOfMonth.indexOf(month) + 1
 
   return (
     <div className={s.container}>
@@ -56,6 +51,7 @@ export const CurrentPeriod = () => {
           type="button"
           className={s.arrowButton}
           onClick={onPreviousMonth}
+          // disabled={  numberOfMonth === userMonth }
         >
           <img className={s.img} src={arrowLeft} alt="" />
         </button>
