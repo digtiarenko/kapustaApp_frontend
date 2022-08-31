@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { register, logIn } from '../../redux/auth/auth-operation';
+import authOperations from '../../redux/auth/auth-operations';
 import { useDispatch } from 'react-redux';
 import AuthForm from '../AuthForm/AuthForm';
 
@@ -24,14 +24,14 @@ export default function Component() {
   };
   const handleRegister = e => {
     e.preventDefault();
-    dispatch(register({ email, password }));
+    dispatch(authOperations.register({ email, password }));
     reset();
   };
 
   const handleLogin = e => {
     e.preventDefault();
     console.log(email, password);
-    dispatch(logIn({ email, password }));
+    dispatch(authOperations.logIn({ email, password }));
     reset();
   };
 
