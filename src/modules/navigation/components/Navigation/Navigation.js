@@ -1,21 +1,19 @@
-import { NavLink } from 'react-router-dom';
 import '../../../../css/App.css';
-import { Button } from '../../../Buttons/Button';
+
 import { LogoutBtn } from '../../../LogoutBtn/LogoutBtn';
-// import s from './AppBar.module.css';
-import logo from '../../../../images/icons/logo.svg';
+
+// import { authSelectors } from '../../../../redux/auth/auth-selectors';
+
+import { useSelector } from 'react-redux';
 
 const Navigation = () => {
-  //  const isLoggedIn = useSelector(getIsLoggedIn);
+  // const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   return (
     <>
-      {/* <header className="header"> */}
       <nav>
-        {/* <img src={logo} alt="Logo" className="logo" /> */}
-        {/* <Navigation /> */}
+        {/* {isLoggedIn ? <UserMenuHeader /> : <LogoutBtn />} */}
 
         {/* { isLoggedIn && <LogoutBtn />} */}
-        <LogoutBtn />
       </nav>
       {/* </header> */}
     </>

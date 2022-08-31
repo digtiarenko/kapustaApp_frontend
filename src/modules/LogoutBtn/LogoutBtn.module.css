@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
 }
+
 .avatar {
   display: flex;
   align-items: center;
@@ -39,11 +40,13 @@
 
   border: none;
 }
+
 .logoutIcon {
   margin-right: 20px;
   width: 16px;
   height: 16px;
 }
+
 .logout {
   display: none;
   font-weight: 400;
@@ -60,16 +63,21 @@
   .name {
     display: inline-block;
   }
+
   .btn {
     padding: 11px 20px;
     border-left: 1px solid #e0e5eb;
+    z-index: 1111111;
   }
+
   .logoutIcon {
     display: none;
   }
+
   .logout {
     display: inline-block;
   }
+
   .avatar {
     margin-right: 10px;
   }

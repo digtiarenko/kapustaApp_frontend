@@ -4,40 +4,44 @@ import { Button } from '../Buttons/Button';
 import Modal from '../Modal/Modal';
 import React, { useState } from 'react';
 
-// import { getUserEmail } from '../../redux/login/auth-selectors';
+import { authSelectors } from 'redux/auth';
 
-// import { fetchLogout } from '../../redux/login/auth-operations';
-// import { useDispatch, useSelector } from 'react-redux';
+import logout from '../../redux/auth/auth-operations';
+
+import { useDispatch, useSelector } from 'react-redux';
 
 const LogoutBtn = () => {
-  // const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
-  // const dispatch = useDispatch();
-  // const email = useSelector(getUserEmail);
+  const dispatch = useDispatch();
+
+  // const email = useSelector(authSelectors.getUserEmail);
   // const userName = email[0].toUpperCase() + email.slice(1).split('@')[0];
 
-  // const logout = () => {
-  //   dispatch(fetchLogout());
-  // };
+  const logoutBtn = () => {
+    dispatch(logout());
+  };
 
   return (
     <div className={s.container}>
-      {/* {showModal && ( */}
-      {/* <Modal
-        onDeny={() => {
-          setShowModal(false);
-        }}
-        handleAgreeButtonClick={logout}
-        question="Are you sure?"
-      />
-       */}
-      <span className={s.avatar}>{/* {email[0]} */}</span>
+      {showModal && (
+        <Modal
+          onDeny={() => {
+            setShowModal(false);
+          }}
+          handleAgreeButtonClick={logoutBtn}
+          question="Are you sure?"
+        />
+      )}
+      {/* <span className={s.avatar}>{email[0]}</span> */}
 
-      <p className={s.name}>{/* {userName} */}Name</p>
-
+      <p className={s.name}>
+        Name
+        {/* {userName} */}
+      </p>
       <button
         onClick={() => {
-          // setShowModal(true);
+          setShowModal(true);
         }}
         className={s.btn}
         type="button"
