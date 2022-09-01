@@ -3,7 +3,12 @@ import s from './ReportPage.module.css';
 import { ButtonGoMain } from 'modules/Buttons/ButtonGoMain';
 import Balance from 'modules/balance/components/Balance';
 import { CurrentPeriod } from '../../modules/CurrentPeriod/CurrentPeriod.jsx';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import Container from 'modules/navigation/components/Container';
+import { useDispatch, useSelector } from 'react-redux';
+import  categoriesOperations from 'redux/categories/categoriesOperations';
+import { getCategoriesList } from '../../redux/categories/categoriesSelectors'
+
 const arrayOfMonth = [
   'January',
   'February',
@@ -20,6 +25,17 @@ const arrayOfMonth = [
 ];
 
 export default function ReportPage() {
+//   const dispatch = useDispatch()
+//   const getCategories = () => dispatch(categoriesOperations.getCategoriesList())
+//   const categoriesList = useSelector(getCategoriesList)
+
+//   useEffect(() => {
+//     getCategories()
+//   }, [])
+
+//   console.log(categoriesList)
+// console.log(categoriesList.filter(category => category.type  === 'expenses'))
+
   const date = new Date();
   let currentYear = date.getFullYear();
   let currentMonth = arrayOfMonth[date.getMonth()];
@@ -51,7 +67,8 @@ export default function ReportPage() {
 
   return (
     <>
-      <section className={s.section}>
+      <Container>
+        <section className={s.section}>
         <div className={s.inlineBlock}>
           <ButtonGoMain />
           <div className={s.inlineBalanceBlock}>
@@ -62,7 +79,8 @@ export default function ReportPage() {
         <Summary></Summary>
         <h1>Page for working with the reports</h1>
         <p>Welcome to the best resource for see how much you earn and spend</p>
-      </section>
+        </section>
+      </Container>
     </>
   );
 }
