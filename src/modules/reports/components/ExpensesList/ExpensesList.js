@@ -6,9 +6,11 @@ export default function ExpensesList() {
   return (
     <ul className={s.list}>
       {icons.map((icon, idx, arr) => (
-        <ExpensesItem key={idx} category="alcohol" sum="200">
-          <img src={icon} alt="icon" className={s.icon} />
-        </ExpensesItem>
+        <div className={s.item}>
+          <ExpensesItem key={idx} category="alcohol" sum="200">
+            <img src={icon} alt="icon" className={s.icon} />
+          </ExpensesItem>
+        </div>
       ))}
     </ul>
   );

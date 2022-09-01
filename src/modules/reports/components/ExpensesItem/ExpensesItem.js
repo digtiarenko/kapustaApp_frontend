@@ -6,7 +6,7 @@ export default function ExpensesItem({ category, sum, children }) {
     <Link to={`/reports/expenses/${category.toLowerCase()}`} className={s.link}>
       <p>{sum}</p>
       {children}
-      <p>{category.toLowerCase()}</p>
+      <p className={s.category}>{category.toLowerCase()}</p>
     </Link>
   );
 }
