@@ -27,24 +27,24 @@ export default function Dropdown() {
   //   console.log('categories:', data);
   // };
 
-  useEffect(() => {
-    console.log(category);
-  }, [category]);
+  // useEffect(() => {
+  //   console.log(category);
+  // }, [category]);
 
-  useEffect(() => {
-    const handleKeydown = event => {
-      if (event.target !== event.currentTarget) {
-        console.log(event.target);
-        console.log(event.currentTarget);
-        setIsOpen(false);
-      }
-    };
-    window.addEventListener('click', handleKeydown);
+  // useEffect(() => {
+  //   const handleKeydown = event => {
+  //     if (event.target !== event.currentTarget) {
+  //       console.log(event.target);
+  //       console.log(event.currentTarget);
+  //       setIsOpen(false);
+  //     }
+  //   };
+  //   window.addEventListener('click', handleKeydown);
 
-    return () => {
-      window.removeEventListener('click', handleKeydown);
-    };
-  });
+  //   return () => {
+  //     window.removeEventListener('click', handleKeydown);
+  //   };
+  // });
 
   return (
     categories && (
