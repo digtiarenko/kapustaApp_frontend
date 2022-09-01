@@ -4,6 +4,7 @@ import { ButtonGoMain } from 'modules/Buttons/ButtonGoMain';
 import Balance from 'modules/balance/components/Balance';
 import { CurrentPeriod } from '../../modules/CurrentPeriod/CurrentPeriod.jsx';
 import { useState } from 'react';
+import Container from 'modules/navigation/components/Container';
 const arrayOfMonth = [
   'January',
   'February',
@@ -51,7 +52,8 @@ export default function ReportPage() {
 
   return (
     <>
-      <section className={s.section}>
+      <Container>
+        <section className={s.section}>
         <div className={s.inlineBlock}>
           <ButtonGoMain />
           <div className={s.inlineBalanceBlock}>
@@ -62,7 +64,8 @@ export default function ReportPage() {
         <Summary></Summary>
         <h1>Page for working with the reports</h1>
         <p>Welcome to the best resource for see how much you earn and spend</p>
-      </section>
+        </section>
+      </Container>
     </>
   );
 }
