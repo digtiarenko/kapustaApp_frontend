@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { Summary } from './Summary/Summary';
-import s from './reportPage.module.css';
+import s from './ReportPage.module.css';
 
 export default function ReportPage() {
   return (
