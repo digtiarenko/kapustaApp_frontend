@@ -3,7 +3,6 @@ import AuthComponen from '../../modules/AuthComponen/AuthComponent';
 import React from 'react';
 
 import s from './AuthPage.module.css';
-import Datepicker from 'modules/DatePicker/Datepicker';
 
 function AuthPage() {
   return (
@@ -19,7 +18,6 @@ function AuthPage() {
           </div>
           <div className={s.form}>
             <AuthComponen />
-            <Datepicker />
           </div>
         </div>
       </div>
