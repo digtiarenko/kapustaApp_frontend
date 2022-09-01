@@ -1,4 +1,4 @@
-import Balance from '../../modules/balance/components/Balance';
+// import Balance from '../../modules/balance/components/Balance';
 
 export default function HomePage() {
   return (
@@ -6,7 +6,7 @@ export default function HomePage() {
       <section>
         <h1>Page for Revenue and Expenses</h1>
         <p>Welcome to the best resource for managing budget</p>
-        <Balance />
+        {/* <Balance /> */}
       </section>
     </>
   );
