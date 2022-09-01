@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import Container from 'modules/navigation/components/Container';
 import { useDispatch, useSelector } from 'react-redux';
 import  categoriesOperations from 'redux/categories/categoriesOperations';
-
+import { getCategoriesList } from '../../redux/categories/categoriesSelectors'
 
 const arrayOfMonth = [
   'January',
@@ -27,16 +27,13 @@ const arrayOfMonth = [
 export default function ReportPage() {
   const dispatch = useDispatch()
   const getCategories = () => dispatch(categoriesOperations.getCategoriesList())
-  const categoriesList = useSelector(state => state.categories.categories)
+  const categoriesList = useSelector(getCategoriesList)
 
   useEffect(() => {
     getCategories()
   }, [])
 
-  
-    console.log(categoriesList)
-  console.log(categoriesList.map(category => category))
-console.log(categoriesList)
+
 
   const date = new Date();
   let currentYear = date.getFullYear();
