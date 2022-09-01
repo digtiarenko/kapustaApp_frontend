@@ -2,12 +2,23 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  color: black;
 }
 .icon {
   /* filter: invert(71%) sepia(65%) saturate(5152%) hue-rotate(345deg)
     brightness(99%) contrast(104%); */
   filter: invert(9%) sepia(34%) saturate(3834%) hue-rotate(198deg)
     brightness(90%) contrast(97%);
+}
+.item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 .item:hover .icon {
   filter: invert(71%) sepia(65%) saturate(5152%) hue-rotate(345deg)

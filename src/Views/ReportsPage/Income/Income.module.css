@@ -5,5 +5,8 @@
   flex-direction: column;
   align-self: center;
 
+  margin-left: auto;
+  margin-right: auto;
+
   width: 320px;
 }
