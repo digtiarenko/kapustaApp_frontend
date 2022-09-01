@@ -11,6 +11,7 @@ import { useLocation } from 'react-router-dom';
 export default function Balance() {
   const [balance, setBalance] = useState(null);
   const [isReadable, setIsReadable] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const location = useLocation();
 
@@ -26,6 +27,8 @@ export default function Balance() {
     if (initialBalance) {
       setBalance(initialBalance);
       setIsReadable(false);
+    } else {
+      setLoading(true);
     }
   }, [initialBalance]);
 
@@ -70,7 +73,9 @@ export default function Balance() {
           </button>
 
           <div className={s.modal}>
-            {isReadable && location.pathname === '/home' && <Modal />}
+            {loading && isReadable && location.pathname === '/home' && (
+              <Modal />
+            )}
           </div>
         </div>
       </div>
