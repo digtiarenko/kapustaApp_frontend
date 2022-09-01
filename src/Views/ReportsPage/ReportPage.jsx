@@ -25,15 +25,16 @@ const arrayOfMonth = [
 ];
 
 export default function ReportPage() {
-  const dispatch = useDispatch()
-  const getCategories = () => dispatch(categoriesOperations.getCategoriesList())
-  const categoriesList = useSelector(getCategoriesList)
+//   const dispatch = useDispatch()
+//   const getCategories = () => dispatch(categoriesOperations.getCategoriesList())
+//   const categoriesList = useSelector(getCategoriesList)
 
-  useEffect(() => {
-    getCategories()
-  }, [])
+//   useEffect(() => {
+//     getCategories()
+//   }, [])
 
-
+//   console.log(categoriesList)
+// console.log(categoriesList.filter(category => category.type  === 'expenses'))
 
   const date = new Date();
   let currentYear = date.getFullYear();

@@ -61,7 +61,6 @@ const fetchCurrentUser = createAsyncThunk(
     token.set(persistedToken);
     try {
       const { data } = await axios.get('/user');
-      console.log(data);
       return data;
     } catch (error) {
       thunkAPI.rejectWithValue(error.message);
