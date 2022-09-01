@@ -3,8 +3,12 @@ import s from './ReportPage.module.css';
 import { ButtonGoMain } from 'modules/Buttons/ButtonGoMain';
 import Balance from 'modules/balance/components/Balance';
 import { CurrentPeriod } from '../../modules/CurrentPeriod/CurrentPeriod.jsx';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Container from 'modules/navigation/components/Container';
+import { useDispatch, useSelector } from 'react-redux';
+import  categoriesOperations from 'redux/categories/categoriesOperations';
+
+
 const arrayOfMonth = [
   'January',
   'February',
@@ -21,6 +25,19 @@ const arrayOfMonth = [
 ];
 
 export default function ReportPage() {
+  const dispatch = useDispatch()
+  const getCategories = () => dispatch(categoriesOperations.getCategoriesList())
+  const categoriesList = useSelector(state => state.categories.categories)
+
+  useEffect(() => {
+    getCategories()
+  }, [])
+
+  
+    console.log(categoriesList)
+  console.log(categoriesList.map(category => category))
+console.log(categoriesList)
+
   const date = new Date();
   let currentYear = date.getFullYear();
   let currentMonth = arrayOfMonth[date.getMonth()];

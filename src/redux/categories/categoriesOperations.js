@@ -6,10 +6,16 @@ export const getCategoriesList = createAsyncThunk(
     async () => {
         try {
             const { data } = await axios.get('/categories')
-            console.log(data)
+            console.log("getCategoriesList DATA", data)
+            return data
         } catch (error) {
             console.log(error)
         }
     }
 )
 
+const categoriesOperations = {
+    getCategoriesList
+}
+
+export default categoriesOperations;

@@ -10,7 +10,7 @@ const categoriesSlice = createSlice({
     initialState,
     extraReducers: {
         [getCategoriesList.fulfilled](state, { payload }) {
-            console.log(payload)
+           state.categories = payload.categoryList
         }
     }
 }
