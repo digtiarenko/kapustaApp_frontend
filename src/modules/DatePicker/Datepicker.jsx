@@ -1,14 +1,23 @@
-import React from 'react';
-import 'antd/dist/antd.css';
+import styles from './Datepicker.module.css';
+import 'antd/dist/antd.min.css';
+import moment from 'moment';
 import { DatePicker, Space } from 'antd';
+import { ReactComponent as Logo } from '../../images/icons/calendar.svg';
 
 const onChange = (date, dateString) => {
-  console.log(date, dateString);
+  console.log(dateString);
 };
 
 const Datepicker = () => (
   <Space direction="vertical">
-    <DatePicker onChange={onChange} />
+    <DatePicker
+      defaultValue={moment()}
+      onChange={onChange}
+      allowClear={false}
+      format={'DD.MM.YYYY'}
+      className={styles.input}
+      suffixIcon={<Logo />}
+    />
   </Space>
 );
 
