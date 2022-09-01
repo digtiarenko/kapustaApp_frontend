@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 
 import { authSelectors } from 'redux/auth';
 
-import logout from '../../redux/auth/auth-operations';
+import authOperations from '../../redux/auth/auth-operations';
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -15,11 +15,11 @@ const LogoutBtn = () => {
 
   const dispatch = useDispatch();
 
-  // const email = useSelector(authSelectors.getUserEmail);
-  // const userName = email[0].toUpperCase() + email.slice(1).split('@')[0];
+  const email = useSelector(authSelectors.getUserEmail);
+  const userName = email[0].toUpperCase() + email.slice(1).split('@')[0];
 
   const logoutBtn = () => {
-    dispatch(logout());
+    dispatch(authOperations.logOut());
   };
 
   return (
@@ -33,12 +33,9 @@ const LogoutBtn = () => {
           question="Are you sure?"
         />
       )}
-      {/* <span className={s.avatar}>{email[0]}</span> */}
+      <span className={s.avatar}>{email[0]}</span>
 
-      <p className={s.name}>
-        Name
-        {/* {userName} */}
-      </p>
+      <p className={s.name}>{userName}</p>
       <button
         onClick={() => {
           setShowModal(true);
