@@ -19,11 +19,17 @@ const getStyledButton = theme => {
   }
 };
 
-export const Button = ({ text, theme, onClick }) => {
+export const Button = ({ text, theme, onClick, type, disabled }) => {
   const style = getStyledButton(theme);
 
   return (
-    <button className={s.button} style={style} onClick={onClick}>
+    <button
+      className={s.button}
+      style={style}
+      onClick={onClick}
+      type={type}
+      disabled={disabled}
+    >
       {text}
     </button>
   );

@@ -2,11 +2,14 @@ import { useState } from 'react';
 import authOperations from '../../redux/auth/auth-operations';
 import { useDispatch } from 'react-redux';
 import AuthForm from '../AuthForm/AuthForm';
+import { Button } from '../Buttons/Button';
+import s from './AuthComponen.module.css';
 
 export default function Component() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [disabled, setDisabled] = useState(false);
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -30,7 +33,6 @@ export default function Component() {
 
   const handleLogin = e => {
     e.preventDefault();
-    console.log(email, password);
     dispatch(authOperations.logIn({ email, password }));
     reset();
   };
@@ -38,26 +40,30 @@ export default function Component() {
   return (
     <>
       <nav>
-        <div className="container">
+        <div className={s.container}>
           <AuthForm
             email={email}
             password={password}
             handleChange={handleChange}
           />
-          <ul>
-            <li>
-              <button type="submit" onClick={handleLogin} className="btn">
-                Login
-              </button>
+          <ul className={s.list}>
+            <li className={s.item}>
+              <Button
+                theme={'orangeTheme'}
+                text={'Login'}
+                type={'submit'}
+                disabled={disabled}
+                onClick={handleLogin}
+              />
             </li>
-            <li>
-              <button
-                type="button"
+            <li className={s.item}>
+              <Button
+                theme={'orangeTheme'}
+                text={'Sign up'}
+                type={'submit'}
+                disabled={disabled}
                 onClick={handleRegister}
-                className="btn btn-info me-3"
-              >
-                Sign up for free
-              </button>
+              />
             </li>
           </ul>
         </div>

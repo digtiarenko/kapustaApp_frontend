@@ -1,11 +1,21 @@
+.container {
+  background-color: white;
+  width: 426px;
+  padding: 70px 50px;
+  border-radius: 4px;
+  box-shadow: 8px -6px 16px -2px #8c8c8c;
+}
+
 .list {
   display: flex;
   list-style: none;
   justify-content: center;
+  align-items: center;
+  margin: 35px auto 0;
 }
 
-.listItem {
-  margin-right: 30px;
+.item {
+  margin-right: 15px;
   font-size: 25px;
 }
 
