@@ -14,7 +14,7 @@ export default function Balance() {
 
   const location = useLocation();
 
-  const initialBalance = useSelector(state => state.balance.balance);
+  const initialBalance = useSelector(state => state.auth.user.user.balance);
 
   const dispatch = useDispatch();
   const getInitialBalance = () => dispatch(balanceOperations.fetchBalance());

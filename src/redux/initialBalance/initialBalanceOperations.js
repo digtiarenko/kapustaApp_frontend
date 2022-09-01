@@ -14,7 +14,7 @@ const fetchBalance = createAsyncThunk(
   'balance/getBalance',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
-    const persistedToken = state.auth.token;
+    const persistedToken = state.token;
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue();
     }
@@ -22,6 +22,7 @@ const fetchBalance = createAsyncThunk(
 
     try {
       const { data } = await axios.get('/user');
+
       return data;
     } catch (error) {
       console.log(error);

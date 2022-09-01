@@ -2,7 +2,7 @@ import { Summary } from '../../modules/Summary/Summary';
 import s from './ReportPage.module.css';
 import { ButtonGoMain } from 'modules/Buttons/ButtonGoMain';
 import Balance from 'modules/balance/components/Balance';
-import { CurrentPeriod } from '../../modules/CurrentPeriod/CurrendPeriod.jsx';
+import { CurrentPeriod } from '../../modules/CurrentPeriod/CurrentPeriod.jsx';
 
 export default function ReportPage() {
   return (
