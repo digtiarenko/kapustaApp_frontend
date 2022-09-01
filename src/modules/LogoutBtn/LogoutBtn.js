@@ -6,9 +6,9 @@ import React, { useState } from 'react';
 
 import { authSelectors } from 'redux/auth';
 
-import logout from '../../redux/auth/auth-operations';
+import authOperations from '../../redux/auth/auth-operations';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 const LogoutBtn = () => {
   const [showModal, setShowModal] = useState(false);
@@ -19,7 +19,7 @@ const LogoutBtn = () => {
   // const userName = email[0].toUpperCase() + email.slice(1).split('@')[0];
 
   const logoutBtn = () => {
-    dispatch(logout());
+    dispatch(authOperations.logOut());
   };
 
   return (
