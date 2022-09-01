@@ -10,7 +10,7 @@ export default function HomePage() {
         <p>Welcome to the best resource for managing budget</p>
         <div className={s.balanceBlock}>
           <ReportsLink />
-          <Balance />
+          <Balance type="home" />
         </div>
       </section>
     </>
