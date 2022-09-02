@@ -1,4 +1,4 @@
-import AuthComponen from '../../modules/AuthComponen/AuthComponent';
+import AuthComponent from '../../modules/AuthComponent/AuthComponent';
 
 import React from 'react';
 
@@ -17,7 +17,7 @@ function AuthPage() {
             <p className={s.slogan}>smart finance</p>
           </div>
           <div className={s.form}>
-            <AuthComponen />
+            <AuthComponent />
           </div>
         </div>
       </div>

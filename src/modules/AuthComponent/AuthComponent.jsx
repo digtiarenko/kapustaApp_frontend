@@ -2,10 +2,9 @@ import { useState } from 'react';
 import authOperations from '../../redux/auth/auth-operations';
 import { useDispatch } from 'react-redux';
 import AuthForm from '../AuthForm/AuthForm';
-import { Button } from '../Buttons/Button';
-import s from './AuthComponen.module.css';
+import s from './AuthComponent.module.css';
 
-export default function Component() {
+export default function AuthComponent() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -21,18 +20,54 @@ export default function Component() {
         return;
     }
   };
+
+  const validate = values => {
+    let errors = {};
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    values.email = email;
+    values.password = password;
+    if (!values.email) {
+      errors.email = 'Email is required';
+      setDisabled(true);
+    } else if (!regex.test(values.email)) {
+      errors.email = 'Invalid email';
+      setDisabled(true);
+    }
+    if (!values.password) {
+      errors.password = 'Password is required';
+      setDisabled(true);
+    } else if (values.password.length < 8) {
+      errors.password = 'Password too short';
+      setDisabled(true);
+    } else if (
+      values.email &&
+      regex.test(values.email) &&
+      values.password &&
+      values.password.length >= 8
+    ) {
+      setDisabled(false);
+    }
+    return errors;
+  };
+
   const reset = () => {
     setEmail('');
     setPassword('');
   };
   const handleRegister = e => {
     e.preventDefault();
+    if (email === '' || password === '') {
+      setDisabled(true);
+    }
     dispatch(authOperations.register({ email, password }));
     reset();
   };
 
   const handleLogin = e => {
     e.preventDefault();
+    if (email === '' || password === '') {
+      setDisabled(true);
+    }
     dispatch(authOperations.logIn({ email, password }));
     reset();
   };
@@ -45,27 +80,11 @@ export default function Component() {
             email={email}
             password={password}
             handleChange={handleChange}
+            handleRegister={handleRegister}
+            handleLogin={handleLogin}
+            disabled={disabled}
+            validate={validate}
           />
-          <ul className={s.list}>
-            <li className={s.item}>
-              <Button
-                theme={'orangeTheme'}
-                text={'Login'}
-                type={'submit'}
-                disabled={disabled}
-                onClick={handleLogin}
-              />
-            </li>
-            <li className={s.item}>
-              <Button
-                theme={'orangeTheme'}
-                text={'Sign up'}
-                type={'submit'}
-                disabled={disabled}
-                onClick={handleRegister}
-              />
-            </li>
-          </ul>
         </div>
       </nav>
     </>

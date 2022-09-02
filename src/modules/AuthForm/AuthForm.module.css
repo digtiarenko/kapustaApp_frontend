@@ -1,7 +1,40 @@
-.input {
+.form {
+  margin: 0 auto;
+}
+
+.form__title {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: #52555f;
+  text-align: center;
+  margin: 0 auto;
+  font-family: 'Roboto';
+}
+
+.googleImage__bachground {
+  display: block;
+  width: 120px;
+  background-color: #f6f7fb;
+  border-radius: 30px;
+  box-shadow: 1px 2px 3px 0px #aab2c533;
+  margin: 20px auto 30px;
+  padding: 10px 0;
+}
+
+.googleImage {
+  display: block;
+  margin: auto;
+}
+
+.form_field {
+  margin: 30px 0;
+}
+
+.form__input {
   display: block;
   box-sizing: border-box;
-  width: 258.92px;
+  width: 240px;
   height: 52px;
   padding: 0 20px;
   outline: none;
@@ -11,10 +44,10 @@
   border-radius: 30px;
 }
 
-.input_error {
+.form__input_error {
   display: block;
   box-sizing: border-box;
-  width: 258.92px;
+  width: 240px;
   height: 52px;
   padding: 0 20px;
   outline: none;
@@ -24,64 +57,54 @@
   border-radius: 30px;
 }
 
-.span {
-  display: block;
-  padding: 2px 5px;
-  color: #667;
-}
-
-.label {
-  color: #667;
-  font-size: 16px;
+.form__label {
   display: inline-block;
-  padding: 4px 100px;
+  padding: 4px 23px;
+  color: #000000;
+  font-style: normal;
   font-weight: 400;
-  background-color: rgba(255, 255, 255, 0);
-  @include transition(color 0.3s, top 0.3s, background-color 0.8s);
-}
-
-.button {
-  border-radius: 4px;
-  padding: 3px 24px;
-  background-color: rgba(148, 186, 101, 0.7);
-  color: grey;
-  width: 100%;
-  text-align: center;
-  vertical-align: middle;
-  font-size: 1rem;
-  cursor: pointer;
-  line-height: 1.6em;
-  margin: 2em 0 0;
-  outline: none;
-
-  text-shadow: 0 1px #68b25b;
-}
-
-.form {
-  margin: 0 auto;
-}
-
-.title {
   font-size: 10px;
-  font-weight: 12px;
+  line-height: 14px;
   letter-spacing: 0.04em;
-  color: #52555f;
-  text-align: center;
-  margin: 0 auto 24px;
-  font-family: 'Roboto';
-}
-.googleImage {
-  display: block;
-  margin: 30px auto;
 }
 
-.p {
-  margin: 0 0 30px 0;
-  position: relative;
-}
-
-.error {
+.form__error {
   color: red;
-  padding: 0 100px;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  padding: 4px 25px;
   margin-top: 5px;
+}
+
+.form__list {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  margin: 40px auto 0;
+}
+
+.form__item {
+  margin-right: 15px;
+}
+
+@media screen and (min-width: 768px) {
+  .form__title {
+    font-size: 12px;
+  }
+  .form__input {
+    width: 258.92px;
+  }
+  .form__input_error {
+    width: 258.92px;
+  }
+  .form__label {
+    font-size: 12px;
+    padding: 4px 85px;
+  }
+  .form__error {
+    font-size: 11px;
+    padding: 4px 85px;
+  }
 }
