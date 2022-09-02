@@ -55,7 +55,12 @@ export default function ReportPage() {
         <div className={s.inlineBlock}>
           <ButtonGoMain />
           <div className={s.inlineBalanceBlock}>
-            <CurrentPeriod onPreviousMonth={onPreviousMonth} onNextMonth={onNextMonth} month={month} year={year} />
+            <CurrentPeriod
+              onPreviousMonth={onPreviousMonth}
+              onNextMonth={onNextMonth}
+              month={month}
+              year={year}
+            />
             <Balance />
           </div>
         </div>
