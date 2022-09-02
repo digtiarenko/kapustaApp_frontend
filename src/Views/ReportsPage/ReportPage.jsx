@@ -6,8 +6,21 @@ import { CurrentPeriod } from '../../modules/CurrentPeriod/CurrentPeriod.jsx';
 import { useEffect, useState } from 'react';
 import Container from 'modules/navigation/components/Container';
 import { useDispatch, useSelector } from 'react-redux';
-import categoriesOperations from 'redux/categories/categoriesOperations';
-import { getCategoriesList } from '../../redux/categories/categoriesSelectors';
+
+// import categoriesOperations from 'redux/categories/categoriesOperations';
+// import { getCategoriesList } from '../../redux/categories/categoriesSelectors';
+// import {
+//   createUserTransaction,
+//   getTransactionsByTypeAndDate,
+// } from 'redux/transactions/transactionsOperations';
+
+// const mockParams = {
+//   date: '2022-8-31',
+//   description: 'Beef',
+//   category: '630d23089692d4e9360ec34d',
+//   value: 300,
+//   type: 'expenses',
+// };
 
 const arrayOfMonth = [
   'January',
@@ -25,16 +38,32 @@ const arrayOfMonth = [
 ];
 
 export default function ReportPage() {
-  //   const dispatch = useDispatch()
-  //   const getCategories = () => dispatch(categoriesOperations.getCategoriesList())
-  //   const categoriesList = useSelector(getCategoriesList)
 
-  //   useEffect(() => {
-  //     getCategories()
-  //   }, [])
+  const dispatch = useDispatch();
+  // Как работать с categories
+  // const getCategories = () =>
+  //   dispatch(categoriesOperations.getCategoriesList());
+  // const categoriesList = useSelector(getCategoriesList);
 
-  //   console.log(categoriesList)
-  // console.log(categoriesList.filter(category => category.type  === 'expenses'))
+  // useEffect(() => {
+  //   getCategories();
+  // }, []);
+
+  // console.log(categoriesList);
+  // console.log(categoriesList.filter(category => category.type === 'expenses'));
+
+  // useEffect(() => {
+  //   dispatch(createUserTransaction(mockParams));
+  //   dispatch(
+  //     getTransactionsByTypeAndDate({
+  //       type: 'expenses',
+  //       date: '2022-8-31',
+  //       page: '1',
+  //       limit: '9',
+  //     })
+  //   );
+  // }, []);
+
 
   const date = new Date();
   let currentYear = date.getFullYear();
