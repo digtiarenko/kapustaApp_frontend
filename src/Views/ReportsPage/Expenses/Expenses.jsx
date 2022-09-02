@@ -5,8 +5,10 @@ import ExpensesList from '../../../modules/reports/components/ExpensesList';
 export default function Expenses() {
   return (
     <div className={s.wrapper}>
-      <SliderIncomeExpenses text="expenses" link="income" />
-      <ExpensesList />
+      <div className={s.wrap}>
+        <SliderIncomeExpenses text="expenses" link="income" />
+        <ExpensesList />
+      </div>
     </div>
   );
 }

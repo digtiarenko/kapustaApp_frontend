@@ -4,11 +4,12 @@
   justify-content: space-between;
   align-items: center;
 
-  width: 85px;
+  /* width: 85px; */
+  min-width: 85px;
 
   text-decoration: none;
 }
-p {
+.text {
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;

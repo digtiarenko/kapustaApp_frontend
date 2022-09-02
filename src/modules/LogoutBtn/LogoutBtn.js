@@ -15,7 +15,8 @@ const LogoutBtn = () => {
 
   const dispatch = useDispatch();
 
-  const email = useSelector(authSelectors.getUserEmail);
+  // const email = useSelector(authSelectors.getUserEmail);
+  const email = 'fggfdgfdhfgh';
   const userName = email[0].toUpperCase() + email.slice(1).split('@')[0];
 
   const logoutBtn = () => {
