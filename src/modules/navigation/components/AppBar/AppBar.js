@@ -8,15 +8,13 @@ import { authSelectors } from 'redux/auth';
 import { useSelector } from 'react-redux';
 
 export function AppBar() {
-  const location = useLocation()
-  
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   return (
     <>
       <header className={s.header}>
         <img src={logo} alt="Logo" className={s.logo} />
 
-        {location.pathname !== '/' && isLoggedIn && <LogoutBtn />}
+        {isLoggedIn && <LogoutBtn />}
         {/* 
         {isLoggedIn && <LogoutBtn />}
         <LogoutBtn /> */}
@@ -28,4 +26,3 @@ export function AppBar() {
     </>
   );
 }
-
