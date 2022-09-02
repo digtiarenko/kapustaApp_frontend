@@ -5,6 +5,7 @@ import authOperations from './redux/auth/auth-operations';
 import authSelectors from './redux/auth/auth-selectors';
 import AppBar from './modules/navigation/components/AppBar';
 import Spinner from './modules/Spinner';
+import { ToastContainer, toast } from 'react-toastify';
 
 const AuthPage = lazy(() => import('./Views/AuthPage/AuthPage'));
 const HomePage = lazy(() => import('./Views/HomePage'));
@@ -73,6 +74,19 @@ export const App = () => {
               />
             </Route>
           </Routes>
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
+          ;{/* Same as */}
+          <ToastContainer />;
         </>
       )}
     </>

@@ -1,5 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 axios.defaults.baseURL = process.env.REACT_APP_BASE_API_URL;
 console.log('process.env.BASE_API_URL', process.env.REACT_APP_BASE_API_URL);
@@ -32,10 +34,29 @@ const logIn = createAsyncThunk('auth/login', async (credentials, thunkAPI) => {
   try {
     const { data } = await axios.post('/auth/login', credentials);
     token.set(data.token);
-    alert('Request is success');
+
+    toast.success('Success,login is correct!', {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+
     return data;
   } catch (error) {
-    alert('Error. Try other credentials');
+    toast.warn('Error. Try other credentials!', {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+
     thunkAPI.rejectWithValue();
   }
 });
@@ -44,9 +65,27 @@ const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     await axios.post('/auth/logout');
     token.unset();
-    alert('Request is success');
+
+    toast.success('Goodbye!', {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   } catch (error) {
-    alert('Logout is success');
+    toast.warn('Error!', {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+
     thunkAPI.rejectWithValue();
   }
 });
@@ -65,7 +104,15 @@ const fetchCurrentUser = createAsyncThunk(
       const { data } = await axios.get('/user');
       return data;
     } catch (error) {
-      alert('Try Login');
+      toast.warn('Try Login!', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       thunkAPI.rejectWithValue();
     }
   }
