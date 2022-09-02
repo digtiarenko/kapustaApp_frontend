@@ -1,10 +1,28 @@
-export default function AuthPage() {
+import AuthComponen from '../../modules/AuthComponen/AuthComponent';
+
+import React from 'react';
+
+import s from './AuthPage.module.css';
+
+function AuthPage() {
   return (
     <>
-      <section>
-        <h1>Page for Authorization</h1>
-        <p>Welcome to the best resource for doing registration</p>
-      </section>
+      <div className={s.backgroundElements}></div>
+      <div className="background-top"></div>
+      <div className={s.container}>
+        <div className={s.wrapper}>
+          <div className={s.header}>
+            <div className={s.logoName}></div>
+            {/* <h1 className={s.logo}>Kapu$ta</h1> */}
+            <p className={s.slogan}>smart finance</p>
+          </div>
+          <div className={s.form}>
+            <AuthComponen />
+          </div>
+        </div>
+      </div>
     </>
   );
 }
+
+export default AuthPage;

@@ -1,14 +1,21 @@
-import { NavLink } from 'react-router-dom';
-import s from './Navigation.module.css';
+import '../../../../css/App.css';
+
+import { LogoutBtn } from '../../../LogoutBtn/LogoutBtn';
+
+// import { authSelectors } from '../../../../redux/auth/auth-selectors';
+
+import { useSelector } from 'react-redux';
 
 const Navigation = () => {
+  // const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   return (
     <>
       <nav>
-        <NavLink to="/" className={s.kapusta}>
-          Kapusta
-        </NavLink>
+        {/* {isLoggedIn ? <UserMenuHeader /> : <LogoutBtn />} */}
+
+        {/* { isLoggedIn && <LogoutBtn />} */}
       </nav>
+      {/* </header> */}
     </>
   );
 };
