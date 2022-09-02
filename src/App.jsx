@@ -3,7 +3,9 @@ import { Routes, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import authOperations from './redux/auth/auth-operations';
 import authSelectors from './redux/auth/auth-selectors';
-import { AppBar } from './modules/navigation/components/AppBar';
+
+import AppBar from './modules/navigation/components/AppBar';
+import Spinner from './modules/Spinner';
 
 const AuthPage = lazy(() => import('./Views/AuthPage/AuthPage'));
 const HomePage = lazy(() => import('./Views/HomePage'));
@@ -46,6 +48,19 @@ export const App = () => {
                 element={
                   <Suspense fallback={<div>Loading...</div>}>
                     <ReportsPage />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="google-redirect"
+                element={
+                  <Suspense fallback={<div>Loading...</div>}>
+                    {
+                      <div>
+                        <p> Google redirect page</p>
+                        <Spinner />
+                      </div>
+                    }
                   </Suspense>
                 }
               />

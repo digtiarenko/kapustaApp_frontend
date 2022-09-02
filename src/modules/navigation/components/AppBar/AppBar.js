@@ -7,7 +7,7 @@ import { LogoutBtn } from '../../../LogoutBtn/LogoutBtn';
 import { authSelectors } from 'redux/auth';
 import { useSelector } from 'react-redux';
 
-export function AppBar() {
+function AppBar() {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   return (
     <>
@@ -26,3 +26,5 @@ export function AppBar() {
     </>
   );
 }
+
+export default AppBar;
