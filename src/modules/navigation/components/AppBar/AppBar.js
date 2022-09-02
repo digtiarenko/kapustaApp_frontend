@@ -14,10 +14,10 @@ export default function AppBar() {
       <header className={s.header}>
         <img src={logo} alt="Logo" className={s.logo} />
 
-        {isLoggedIn && <LogoutBtn />}
-        {/* 
-        {isLoggedIn && <LogoutBtn />}
-        <LogoutBtn /> */}
+        {/* {isLoggedIn && <LogoutBtn />} */}
+
+        {/* // {isLoggedIn && <LogoutBtn />} */}
+        {/* <LogoutBtn /> */}
       </header>
 
       <main>
