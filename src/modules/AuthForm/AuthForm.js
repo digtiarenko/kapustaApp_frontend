@@ -35,7 +35,7 @@ export default function AuthForm({ email, password, handleChange }) {
               <h2 className={s.title}>
                 You can log in with your Google Account:
               </h2>
-              <a href="http://localhost:5000/api/auth/google">
+              <a href={`${process.env.REACT_APP_BASE_API_URL}/auth/google`}>
                 <img className={s.googleImage} src={google} alt="google" />
               </a>
               <div className={s.p}>

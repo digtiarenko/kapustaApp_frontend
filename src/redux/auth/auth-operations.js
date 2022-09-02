@@ -22,7 +22,8 @@ const register = createAsyncThunk(
       alert('Request is success');
       return data;
     } catch (error) {
-      thunkAPI.rejectWithValue(error.message);
+      alert('Error. Try other email');
+      thunkAPI.rejectWithValue();
     }
   }
 );
@@ -34,7 +35,8 @@ const logIn = createAsyncThunk('auth/login', async (credentials, thunkAPI) => {
     alert('Request is success');
     return data;
   } catch (error) {
-    thunkAPI.rejectWithValue(error.message);
+    alert('Error. Try other credentials');
+    thunkAPI.rejectWithValue();
   }
 });
 
@@ -44,7 +46,8 @@ const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
     token.unset();
     alert('Request is success');
   } catch (error) {
-    thunkAPI.rejectWithValue(error.message);
+    alert('Logout is success');
+    thunkAPI.rejectWithValue();
   }
 });
 
@@ -57,13 +60,13 @@ const fetchCurrentUser = createAsyncThunk(
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue();
     }
-
     token.set(persistedToken);
     try {
       const { data } = await axios.get('/user');
       return data;
     } catch (error) {
-      thunkAPI.rejectWithValue(error.message);
+      alert('Try Login');
+      thunkAPI.rejectWithValue();
     }
   }
 );
