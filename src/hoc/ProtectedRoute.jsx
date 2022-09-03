@@ -11,7 +11,7 @@ export const ProtectedRoute = ({ isAllowed, redirectPath = '/', children }) => {
 };
 
 ProtectedRoute.propTypes = {
-  isAllowed: PropTypes.bool,
+  isAllowed: PropTypes.bool.isRequired,
   redirectPath: PropTypes.string.isRequired,
   children: PropTypes.node,
 };
