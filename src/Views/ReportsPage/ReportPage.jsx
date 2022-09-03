@@ -9,10 +9,10 @@ import Container from 'modules/navigation/components/Container';
 import { useDispatch, useSelector } from 'react-redux';
 import categoriesOperations from 'redux/categories/categoriesOperations';
 import { getCategoriesList } from '../../redux/categories/categoriesSelectors';
-// import {
-//   createUserTransaction,
-//   getTransactionsByTypeAndDate,
-// } from 'redux/transactions/transactionsOperations';
+import {
+  getTransactionsByTypeAndDate,
+  deleteTransactionById,
+} from 'redux/transactions/transactionsOperations';
 
 // const mockParams = {
 //   date: '2022-8-31',
@@ -46,8 +46,15 @@ export default function ReportPage() {
   console.log(categoriesList);
 
   useEffect(() => {
-    getCategories();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    dispatch(
+      getTransactionsByTypeAndDate({
+        type: 'expenses',
+        date: '2022-8-31',
+        page: '1',
+        limit: '9',
+      })
+    );
+    dispatch(deleteTransactionById({ _id: '631224a08b68d8fc22005df7' }));
   }, []);
 
   // console.log(categoriesList);
