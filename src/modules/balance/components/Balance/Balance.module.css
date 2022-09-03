@@ -124,6 +124,7 @@ p {
   background-color: transparent;
   border-radius: 22px;
   text-align: center;
+  pointer-events: none;
 }
 .reportInputStyle::placeholder {
   font-family: 'Roboto';
@@ -187,6 +188,10 @@ p {
   .name {
     margin-right: 20px;
   }
+  .reportInputStyle {
+    margin-right: 16px;
+    pointer-events: auto;
+  }
   .input {
     margin-right: 16px;
   }
@@ -207,9 +212,17 @@ p {
 
     border: 2px solid #ffffff;
     border-left: 0;
-    border-radius: 0px 22px 22px 0px;
+    border-radius: 22px;
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
     color: rgba(82, 85, 95, 0.7);
+  }
+  .reportButtonStyle:hover:enabled,
+  .reportButtonStyle:active:enabled,
+  .reportButtonStyle:focus:enabled {
+    cursor: pointer;
+    background: #ff751d;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: #ffffff;
   }
 }
