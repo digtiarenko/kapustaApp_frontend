@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 import s from './AppBar.module.css';
 import logo from '../../../../images/icons/logo.svg';
 import { LogoutBtn } from '../../../LogoutBtn/LogoutBtn';
@@ -12,8 +12,9 @@ function AppBar() {
   return (
     <>
       <header className={s.header}>
-        <img src={logo} alt="Logo" className={s.logo} />
-
+        <Link to="/">
+          <img src={logo} alt="Logo" className={s.logo} />
+        </Link>
         {isAuth && <LogoutBtn />}
       </header>
 
