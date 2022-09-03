@@ -54,8 +54,8 @@ export default function ReportPage() {
         limit: '9',
       })
     );
-    dispatch(deleteTransactionById({ _id: '631224a08b68d8fc22005df7' }));
-  }, []);
+    dispatch(deleteTransactionById('63122e618b68d8fc22005f63'));
+  }, [dispatch]);
 
   // console.log(categoriesList);
   // console.log(categoriesList.filter(category => category.type === 'expenses'));

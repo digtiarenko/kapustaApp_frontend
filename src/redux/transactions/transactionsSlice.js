@@ -31,10 +31,10 @@ const transactionsSlice = createSlice({
     [getTransactionsByTypeAndDate.rejected](state, { payload }) {
       state.message = 'Incorrect date or transaction type specified';
     },
-    [deleteTransactionById.fulfilled](state, { payload }) {
-      // state.filter(({ _id }) => _id !== payload.transaction._id);
-      state.message = payload.message;
-      console.log(payload);
+    [deleteTransactionById.fulfilled](state, action) {
+      state.transactions.filter(
+        ({ _id }) => _id !== action.payload.transaction._id
+      );
     },
   },
 });
