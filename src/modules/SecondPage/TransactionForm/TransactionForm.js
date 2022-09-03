@@ -1,12 +1,13 @@
 import s from './TransactionForm.module.css';
 import { ReactComponent as Calc } from '../../../images/icons/calculator.svg';
-
+import Datepicker from 'modules/DatePicker/Datepicker';
+import Dropdown from 'modules/dropDownCategories/Dropdown';
 function TransactionForm() {
   return (
     <div>
       <form className={s.form}>
         <div className={s.calendarWrapper}>
-          <span className={s.watch}></span>
+          <Datepicker />
         </div>
 
         <input
@@ -16,7 +17,8 @@ function TransactionForm() {
         />
 
         <div className={s.category}>
-          <p className={s.text}>Product category</p>
+          {/* <p className={s.text}>Product category</p> */}
+          <Dropdown />
         </div>
 
         <di className={s.calc}>
