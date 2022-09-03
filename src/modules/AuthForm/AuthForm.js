@@ -42,7 +42,7 @@ export default function AuthForm({
               </h2>
               <a
                 className={s.googleImage__bachground}
-                href="http://localhost:5000/api/auth/google"
+                href={`${process.env.REACT_APP_BASE_API_URL}/auth/google`}
               >
                 <img className={s.googleImage} src={google} alt="google" />
               </a>
