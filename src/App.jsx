@@ -61,16 +61,6 @@ export const App = () => {
                     </Suspense>
                   </ProtectedRoute>
                 }
-              />
-              <Route
-                path="google-redirect"
-                element={
-                  <ProtectedRoute redirectPath={'/home'} isAllowed={!isAuth}>
-                    <Suspense fallback={<div>Loading...</div>}>
-                      <GoogleRedirectPage />
-                    </Suspense>
-                  </ProtectedRoute>
-                }
               >
                 <Route
                   path="expenses"
@@ -89,6 +79,16 @@ export const App = () => {
                   }
                 />
               </Route>
+              <Route
+                path="google-redirect"
+                element={
+                  <ProtectedRoute redirectPath={'/home'} isAllowed={!isAuth}>
+                    <Suspense fallback={<div>Loading...</div>}>
+                      <GoogleRedirectPage />
+                    </Suspense>
+                  </ProtectedRoute>
+                }
+              />
               <Route
                 path="*"
                 element={
