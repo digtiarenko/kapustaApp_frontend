@@ -3,6 +3,7 @@ import 'antd/dist/antd.min.css';
 import moment from 'moment';
 import { DatePicker, Space } from 'antd';
 import { ReactComponent as Logo } from '../../images/icons/calendar.svg';
+import './DatePicker.css';
 
 const onChange = (date, dateString) => {
   console.log(dateString);
