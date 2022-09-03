@@ -6,7 +6,7 @@ function Container({ children }) {
     <>
       <div className="background-bottom"></div>
       <div className="background-top background-top_for-mobile"></div>
-      <div className="container">{children}</div>;
+      <div className="container">{children}</div>
     </>
   );
 }

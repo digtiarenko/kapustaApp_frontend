@@ -20,7 +20,6 @@ const fetchBalance = createAsyncThunk(
 
     try {
       const { data } = await axios.get('/user');
-
       return data;
     } catch (error) {
       console.log(error);

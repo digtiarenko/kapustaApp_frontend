@@ -11,7 +11,7 @@ export default function Balance({ type }) {
   const [isReadable, setIsReadable] = useState(true);
   const [loading, setLoading] = useState(false);
 
-  const initialBalance = useSelector(state => state.auth.user.user.balance);
+  const initialBalance = useSelector(state => state.balance.balance);
 
   const dispatch = useDispatch();
   const getInitialBalance = () => dispatch(balanceOperations.fetchBalance());
@@ -26,6 +26,7 @@ export default function Balance({ type }) {
     } else {
       setLoading(true);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialBalance]);
 
   const handleOnValueChange = event => {
@@ -42,34 +43,36 @@ export default function Balance({ type }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={s.form}>
-      <div className={s.balanceBlock}>
-        <h2 className={s.name}>Balance:</h2>
-        <div className={s.balanceInputBlock}>
-          <NumberFormat
-            className={type === 'home' ? s.input : s.reportInputStyle}
-            fixedDecimalScale={'true'}
-            decimalScale={'2'}
-            value={balance}
-            placeholder={'00.00 UAH'}
-            suffix={' UAH'}
-            onValueChange={handleOnValueChange}
-            disabled={!isReadable || type === 'report'}
-          />
-          <button
-            type="submit"
-            disabled={!isReadable}
-            className={type === 'home' ? s.confirm : s.reportButtonStyle}
-          >
-            Confirm
-          </button>
+    balance && (
+      <form onSubmit={handleSubmit} className={s.form}>
+        <div className={s.balanceBlock}>
+          <h2 className={s.name}>Balance:</h2>
+          <div className={s.balanceInputBlock}>
+            <NumberFormat
+              className={type === 'home' ? s.input : s.reportInputStyle}
+              fixedDecimalScale={'true'}
+              decimalScale={'2'}
+              value={balance}
+              placeholder={'00.00 UAH'}
+              suffix={' UAH'}
+              onValueChange={handleOnValueChange}
+              disabled={!isReadable || type === 'report'}
+            />
+            <button
+              type="submit"
+              disabled={!isReadable}
+              className={type === 'home' ? s.confirm : s.reportButtonStyle}
+            >
+              Confirm
+            </button>
 
-          <div className={s.modal}>
-            {loading && isReadable && type === 'home' && <Modal />}
+            <div className={s.modal}>
+              {loading && isReadable && type === 'home' && <Modal />}
+            </div>
           </div>
         </div>
-      </div>
-    </form>
+      </form>
+    )
   );
 }
 Balance.propType = {

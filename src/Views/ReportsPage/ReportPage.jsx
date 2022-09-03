@@ -6,8 +6,8 @@ import { CurrentPeriod } from '../../modules/CurrentPeriod/CurrentPeriod.jsx';
 import { useEffect, useState } from 'react';
 import Container from 'modules/navigation/components/Container';
 import { useDispatch, useSelector } from 'react-redux';
-// import categoriesOperations from 'redux/categories/categoriesOperations';
-// import { getCategoriesList } from '../../redux/categories/categoriesSelectors';
+import categoriesOperations from 'redux/categories/categoriesOperations';
+import { getCategoriesList } from '../../redux/categories/categoriesSelectors';
 // import {
 //   createUserTransaction,
 //   getTransactionsByTypeAndDate,
@@ -39,13 +39,15 @@ const arrayOfMonth = [
 export default function ReportPage() {
   const dispatch = useDispatch();
   // Как работать с categories
-  // const getCategories = () =>
-  //   dispatch(categoriesOperations.getCategoriesList());
-  // const categoriesList = useSelector(getCategoriesList);
+  const getCategories = () =>
+    dispatch(categoriesOperations.getCategoriesList());
+  const categoriesList = useSelector(getCategoriesList);
+  console.log(categoriesList);
 
-  // useEffect(() => {
-  //   getCategories();
-  // }, []);
+  useEffect(() => {
+    getCategories();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // console.log(categoriesList);
   // console.log(categoriesList.filter(category => category.type === 'expenses'));
