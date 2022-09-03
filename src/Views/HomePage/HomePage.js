@@ -13,6 +13,7 @@ export default function HomePage() {
           <ReportsLink />
           <Balance type="home" />
         </div>
+
         <div>
           <Page />
         </div>

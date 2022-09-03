@@ -18,6 +18,7 @@ function TransactionForm() {
         />
 
         <div className={s.category}>
+          {/* <p className={s.text}>Product category</p> */}
           <Dropdown />
         </div>
 

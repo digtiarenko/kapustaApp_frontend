@@ -9,18 +9,6 @@
   border-radius: 16px 0px 0px 0px;
 }
 
-/* .product input::placeholder { 
-  
-  padding-left: 40px;
-    font-weight: 400;
-font-size: 12px;
-line-height: 14px;
-align-items: center;
-letter-spacing: 0.02em;
-
-color: #e62c1c;
-  } */
-
 .category {
   box-sizing: border-box;
   width: 169px;
@@ -111,7 +99,7 @@ color: #e62c1c;
   width: 20px;
   height: 20px;
   color: inherit;
-  background-image: url('../svg-icons/calendar.svg');
+  background-image: url('../../../images/icons/calendar.svg');
 }
 
 .datePicker {
