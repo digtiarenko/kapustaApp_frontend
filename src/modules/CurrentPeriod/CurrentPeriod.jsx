@@ -4,9 +4,12 @@ import arrowLeft from '../../images/icons/arrow-left.svg';
 import arrowRight from '../../images/icons/arrow-right.svg';
 import s from './currentPeriod.module.css';
 
-
-
-export const CurrentPeriod = ({onPreviousMonth, onNextMonth, month, year}) => {
+export const CurrentPeriod = ({
+  onPreviousMonth,
+  onNextMonth,
+  month,
+  year,
+}) => {
   return (
     <div className={s.container}>
       <p className={s.currentPeriod}>Current period:</p>

@@ -1,3 +1,4 @@
+import { Outlet } from 'react-router-dom';
 import { Summary } from '../../modules/Summary/Summary';
 import s from './ReportPage.module.css';
 import { ButtonGoMain } from 'modules/Buttons/ButtonGoMain';
@@ -110,6 +111,7 @@ export default function ReportPage() {
             </div>
           </div>
           <Summary></Summary>
+          <Outlet />
           <h1>Page for working with the reports</h1>
           <p>
             Welcome to the best resource for see how much you earn and spend

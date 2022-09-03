@@ -1,1 +1,1 @@
-export {default as categoriesSlice} from './categoriesSlice'
+export { default as categoriesSlice } from './categoriesSlice';
