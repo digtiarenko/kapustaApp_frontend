@@ -8,8 +8,7 @@ import { useSelector } from 'react-redux';
 
 function AppBar() {
   const isAuth = !!useSelector(authSelectors.getAuthUser);
-  const user = useSelector(authSelectors.getUserEmail);
-  console.log(user);
+
   return (
     <>
       <header className={s.header}>
