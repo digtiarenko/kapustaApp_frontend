@@ -14,7 +14,8 @@ import {
 } from 'redux-persist';
 import { authReducer } from './auth';
 import { balanceReducers } from './initialBalance';
-
+import { categoriesSlice } from './categories';
+import { transactionsSlice } from './transactions';
 const authPersistConfig = {
   key: 'auth',
   storage,
@@ -24,7 +25,9 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    balance: persistReducer(authPersistConfig, balanceReducers),
+    balance: balanceReducers,
+    categories: categoriesSlice,
+    transactions: transactionsSlice,
   },
 
   middleware: getDefaultMiddleware =>
