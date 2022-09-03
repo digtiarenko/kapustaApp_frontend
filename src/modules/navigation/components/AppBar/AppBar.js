@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import Navigation from '../Navigation';
 import Container from '../Container';
 import s from './AppBar.module.css';
@@ -7,7 +7,7 @@ import { LogoutBtn } from '../../../LogoutBtn/LogoutBtn';
 import { authSelectors } from 'redux/auth';
 import { useSelector } from 'react-redux';
 
-export default function AppBar() {
+function AppBar() {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   return (
     <>
@@ -26,3 +26,5 @@ export default function AppBar() {
     </>
   );
 }
+
+export default AppBar;
