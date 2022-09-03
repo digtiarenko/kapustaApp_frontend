@@ -1,8 +1,12 @@
 .ant-picker .ant-picker-input span.ant-picker-suffix,
 .ant-picker.ant-picker-range span.ant-picker-suffix {
   margin-left: 1px;
-  font-weight: 800;
 
   margin-right: 18px;
   order: -1;
+}
+
+.ant-picker-input > input::placeholder {
+  color: red !important;
+  font-weight: 800;
 }
