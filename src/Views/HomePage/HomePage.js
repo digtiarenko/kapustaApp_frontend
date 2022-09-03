@@ -1,3 +1,4 @@
+import Datepicker from 'modules/DatePicker/Datepicker';
 import Balance from '../../modules/balance/components/Balance';
 import ReportsLink from '../../modules/reports/components/ReportsLink';
 import s from './HomePage.module.css';
@@ -12,6 +13,7 @@ export default function HomePage() {
           <ReportsLink />
           <Balance type="home" />
         </div>
+        <Datepicker />
       </section>
     </>
   );

@@ -14,7 +14,7 @@ const Datepicker = () => (
       defaultValue={moment()}
       onChange={onChange}
       allowClear={false}
-      format={'DD.MM.YYYY'}
+      format={'YYYY-M-D'}
       className={styles.input}
       suffixIcon={<Logo />}
     />
