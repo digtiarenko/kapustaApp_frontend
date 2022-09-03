@@ -11,10 +11,6 @@ const initialBalanceSlice = createSlice({
   extraReducers: {
     [balanceOperations.fetchBalance.fulfilled](state, action) {
       state.balance = action.payload.user.balance;
-      console.log(
-        'action.payload.user.user.balance',
-        action.payload.user.balance
-      );
     },
     [balanceOperations.addInitialBalance.fulfilled](state, action) {
       state.balance = action.payload.balance;

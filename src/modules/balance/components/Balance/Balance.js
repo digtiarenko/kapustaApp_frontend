@@ -11,7 +11,7 @@ export default function Balance({ type }) {
   const [isReadable, setIsReadable] = useState(true);
   const [loading, setLoading] = useState(false);
 
-  const initialBalance = useSelector(state => state.auth.user.user.balance);
+  const initialBalance = useSelector(state => state.balance.balance);
 
   const dispatch = useDispatch();
   const getInitialBalance = () => dispatch(balanceOperations.fetchBalance());
@@ -26,6 +26,7 @@ export default function Balance({ type }) {
     } else {
       setLoading(true);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialBalance]);
 
   const handleOnValueChange = event => {
