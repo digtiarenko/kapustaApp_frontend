@@ -7,7 +7,7 @@ import { authSelectors } from 'redux/auth';
 import { useSelector } from 'react-redux';
 
 function AppBar() {
-  const isAuth = !!useSelector(authSelectors.getAuthUser);
+  const isAuth = !!useSelector(authSelectors.getUserEmail);
 
   return (
     <>

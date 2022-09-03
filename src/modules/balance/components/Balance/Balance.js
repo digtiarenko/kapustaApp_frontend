@@ -43,36 +43,34 @@ export default function Balance({ type }) {
   };
 
   return (
-    balance && (
-      <form onSubmit={handleSubmit} className={s.form}>
-        <div className={s.balanceBlock}>
-          <h2 className={s.name}>Balance:</h2>
-          <div className={s.balanceInputBlock}>
-            <NumberFormat
-              className={type === 'home' ? s.input : s.reportInputStyle}
-              fixedDecimalScale={'true'}
-              decimalScale={'2'}
-              value={balance}
-              placeholder={'00.00 UAH'}
-              suffix={' UAH'}
-              onValueChange={handleOnValueChange}
-              disabled={!isReadable || type === 'report'}
-            />
-            <button
-              type="submit"
-              disabled={!isReadable}
-              className={type === 'home' ? s.confirm : s.reportButtonStyle}
-            >
-              Confirm
-            </button>
+    <form onSubmit={handleSubmit} className={s.form}>
+      <div className={s.balanceBlock}>
+        <h2 className={s.name}>Balance:</h2>
+        <div className={s.balanceInputBlock}>
+          <NumberFormat
+            className={type === 'home' ? s.input : s.reportInputStyle}
+            fixedDecimalScale={'true'}
+            decimalScale={'2'}
+            value={balance}
+            placeholder={'00.00 UAH'}
+            suffix={' UAH'}
+            onValueChange={handleOnValueChange}
+            disabled={!isReadable || type === 'report'}
+          />
+          <button
+            type="submit"
+            disabled={!isReadable}
+            className={type === 'home' ? s.confirm : s.reportButtonStyle}
+          >
+            Confirm
+          </button>
 
-            <div className={s.modal}>
-              {loading && isReadable && type === 'home' && <Modal />}
-            </div>
+          <div className={s.modal}>
+            {loading && isReadable && type === 'home' && <Modal />}
           </div>
         </div>
-      </form>
-    )
+      </div>
+    </form>
   );
 }
 Balance.propType = {
