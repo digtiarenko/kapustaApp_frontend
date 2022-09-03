@@ -9,6 +9,8 @@ import Container from 'modules/navigation/components/Container';
 import { useDispatch, useSelector } from 'react-redux';
 import categoriesOperations from 'redux/categories/categoriesOperations';
 import { getCategoriesList } from '../../redux/categories/categoriesSelectors';
+import ReportChartMobile from 'modules/reports/components/ReportChart/ReportChartMobile';
+
 // import {
 //   createUserTransaction,
 //   getTransactionsByTypeAndDate,
@@ -112,10 +114,6 @@ export default function ReportPage() {
           </div>
           <Summary></Summary>
           <Outlet />
-          <h1>Page for working with the reports</h1>
-          <p>
-            Welcome to the best resource for see how much you earn and spend
-          </p>
         </section>
       </Container>
     </>

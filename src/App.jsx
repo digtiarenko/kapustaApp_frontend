@@ -7,7 +7,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import AppBar from './modules/navigation/components/AppBar';
-import Spinner from './modules/Spinner';
+import Spinner from './modules/LoaderPage';
 import GoogleRedirectPage from 'Views/GoogleRedirectPage/GoogleRedirectPage';
 import { ProtectedRoute } from 'hoc/ProtectedRoute';
 
