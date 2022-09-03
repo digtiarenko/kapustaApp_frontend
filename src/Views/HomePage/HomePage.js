@@ -14,9 +14,9 @@ export default function HomePage() {
           <Balance type="home" />
         </div>
 
-        <di>
+        <div>
           <Page />
-        </di>
+        </div>
       </section>
     </>
   );

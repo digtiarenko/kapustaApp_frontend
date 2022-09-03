@@ -21,10 +21,10 @@ function TransactionForm() {
           <Dropdown />
         </div>
 
-        <di className={s.calc}>
+        <div className={s.calc}>
           <input className={s.sammy} type="text" placeholder="0,00" />
           <Calc className={s.svg} width="20" height="20" />
-        </di>
+        </div>
 
         <div className={s.btnWrapper}>
           <button type="submit" className={s.btn}>
