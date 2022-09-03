@@ -45,6 +45,15 @@ export const App = () => {
                 }
               />
               <Route
+                element={
+                  <ProtectedRoute redirectPath={'/home'} isAllowed={!isAuth}>
+                    <Suspense fallback={<div>Loading...</div>}>
+                      <AuthPage />
+                    </Suspense>
+                  </ProtectedRoute>
+                }
+              />
+              <Route
                 path="home"
                 element={
                   <ProtectedRoute redirectPath={'/'} isAllowed={isAuth}>
@@ -94,9 +103,11 @@ export const App = () => {
               <Route
                 path="*"
                 element={
-                  <Suspense fallback={<div>Loading...</div>}>
-                    <AuthPage />
-                  </Suspense>
+                  <ProtectedRoute redirectPath={'/'} isAllowed={!isAuth}>
+                    <Suspense fallback={<div>Loading...</div>}>
+                      <AuthPage />
+                    </Suspense>
+                  </ProtectedRoute>
                 }
               />
             </Route>
@@ -105,7 +116,7 @@ export const App = () => {
       )}
       <ToastContainer
         position="top-right"
-        autoClose={5000}
+        autoClose={1500}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
