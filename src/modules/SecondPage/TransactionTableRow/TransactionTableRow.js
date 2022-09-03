@@ -2,7 +2,7 @@ import React from 'react';
 import { ReactComponent as Delete } from '../../../images/icons/delete.svg';
 import s from './TransactionTableRow.module.css';
 
-function TransactionTableRow({ date, description, category, sum }) {
+function TransactionTableRow({ date, description, category, sum, onDelete }) {
   return (
     <tr className={s.tableRow}>
       <td>{date}</td>
@@ -10,7 +10,7 @@ function TransactionTableRow({ date, description, category, sum }) {
       <td>{category}</td>
       <td className={s.sum}>{sum}</td>
       <td>
-        <button type="button" className={s.button}>
+        <button type="button" className={s.button} onClick={onDelete}>
           <Delete className={s.svg} />
         </button>
       </td>
