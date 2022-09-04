@@ -2,15 +2,22 @@ import s from './TransactionForm.module.css';
 import React, { useState } from 'react';
 import { ReactComponent as CalendarLogo } from '../../../images/icons/calendar.svg';
 import { ReactComponent as CalculatorLogo } from '../../../images/icons/calculator.svg';
+
 import moment from 'moment';
-
 import Dropdown from 'modules/dropDownCategories/Dropdown';
+import { useDispatch } from 'react-redux';
+import {
+  createUserTransaction,
+  getTransactionsByTypeAndDate,
+  deleteTransactionById,
+} from 'redux/transactions/transactionsOperations';
 
-function TransactionForm() {
-  const [date, setDate] = useState(moment().format('DD-MM-YYYY'));
+function TransactionForm({ date, setDate, type, setType }) {
   const [description, setDescription] = useState('');
-  const [category, setCategory] = useState('');
-  const [amount, setAmount] = useState('');
+  const [categoryName, setCategoryName] = useState(null);
+  const [categoryID, setCategoryID] = useState(null);
+  const [value, setValue] = useState('');
+  const dispatch = useDispatch();
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -21,7 +28,7 @@ function TransactionForm() {
         setDescription(value);
         break;
       case 'amount':
-        setAmount(Number(value));
+        setValue(Number(value));
         break;
 
       default:
@@ -29,44 +36,61 @@ function TransactionForm() {
     }
   };
 
+  const onCategorySet = value => {
+    setCategoryID(value._id);
+    setCategoryName(value.name);
+  };
+
   const handleSubmit = e => {
     e.preventDefault();
+    dispatch(
+      createUserTransaction({
+        date,
+        description,
+        category: categoryID,
+        value,
+        type,
+      })
+    );
+    console.log({ date, description, categoryID, value, type });
 
-    const transactionsList = {
-      description: description,
-      date: date,
-      category: category,
-      amount: amount,
-    };
-    if (
-      !transactionsList.category ||
-      !transactionsList.description ||
-      !transactionsList.amount
-    ) {
-      return alert('Please fill in all fields');
-    }
-
-    // dispatch
+    setDescription('');
+    setCategoryName('');
+    setValue('');
   };
 
   const onHandleResetForm = () => {
     setDate(moment(new Date()).format('YYYY-MM-DD'));
     setDescription('');
-    setCategory('');
-    setAmount('');
+    setCategoryName('');
+    setValue('');
   };
+
   return (
-    <form className={s.wrap} onSubmit={handleSubmit} autoComplete="off">
-      <div className={s.wrapInput}>
-        <div className={s.dateWrapper}>
+    <>
+      <form className={s.wrap} onSubmit={handleSubmit} autoComplete="off">
+        <div className={s.wrapInput}>
+          <div className={s.dateWrapper}>
+            <input
+              aria-label="Date"
+              name="date"
+              onChange={handleChange}
+              type="date"
+              className={s.datePicker}
+              value={date}
+            />
+            <CalendarLogo className={s.calendarIcon} />
+          </div>
           <input
-            aria-label="Date"
-            name="date"
+            aria-label="Text"
             onChange={handleChange}
-            type="date"
-            className={s.datePicker}
-            value={date}
+            className={s.description}
+            name="description"
+            type="text"
+            placeholder="Product description"
+            value={description}
           />
+
           <CalendarLogo className={s.calendarIcon} />
         </div>
         <input
@@ -78,7 +102,7 @@ function TransactionForm() {
           placeholder="Product description"
           value={description}
         />
-        <Dropdown />
+        <Dropdown onCategorySet={onCategorySet} categoryName={categoryName} />
         {/* <Select
           aria-label="Select"
           placeholder={<div>Product category</div>}
@@ -97,7 +121,7 @@ function TransactionForm() {
             name="amount"
             className={s.inputCount}
             placeholder="00.00"
-            value={amount}
+            value={value}
           />
         </div>{' '}
         <CalculatorLogo />

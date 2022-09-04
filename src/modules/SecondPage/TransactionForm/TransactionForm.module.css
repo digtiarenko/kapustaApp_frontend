@@ -8,6 +8,39 @@
     width: 100%;
   }
 
+  /* .form {
+  
+  padding-top: 32px;
+} */
+
+  @media screen and (min-width: 768px) {
+    .formControl {
+      display: flex;
+    }
+  }
+
+  @media screen and (max-width: 778px) {
+    .formControl {
+      display: flex;
+      padding-top: 24px;
+    }
+  }
+  .containerForm {
+    padding-top: 32px;
+  }
+  @media screen and (min-width: 768px) {
+    .containerForm {
+      display: flex;
+    }
+  }
+
+  .product {
+    border: 2px solid #f6f7fc;
+    width: 288px;
+    height: 38px;
+    border-radius: 16px 0px 0px 0px;
+  }
+
   .wrapInput {
     padding-top: 20px;
     padding-left: 20px;
@@ -46,6 +79,29 @@
     color: #c7ccdc;
   }
 
+  .text {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+    padding-left: 20px;
+    color: #c7ccdc;
+  }
+  .svg {
+    position: relative;
+    right: 35px;
+    bottom: -4px;
+  }
+  @media screen and (max-width: 768px) {
+    .svg {
+      position: relative;
+      right: -79px;
+      bottom: 31px;
+    }
+  }
+
   .inputCountWrapper {
     position: relative;
     width: 183px;
@@ -75,6 +131,16 @@
 
   .inputCount::placeholder {
     color: #000;
+  }
+  .btnWrapper {
+    display: flex;
+    align-items: center;
+  }
+  @media screen and (max-width: 768px) {
+    .btnWrapper {
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   .dateWrapper {
