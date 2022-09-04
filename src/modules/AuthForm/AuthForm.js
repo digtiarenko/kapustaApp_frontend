@@ -13,7 +13,7 @@ export default function AuthForm({
   disabled,
   submitError,
 }) {
-  const getStyledButton = disabled => {
+  /*  const getStyledButton = disabled => {
     switch (disabled) {
       case false:
         return 'orangeTheme';
@@ -22,7 +22,7 @@ export default function AuthForm({
       default:
         return;
     }
-  };
+  }; */
 
   return (
     <>
@@ -37,18 +37,18 @@ export default function AuthForm({
           const { errors, touched, handleBlur } = formik;
           return (
             <Form className={s.form}>
-              <h2 className={s.form__title}>
+              <h2 className={s.form__title_first}>
                 You can log in with your Google Account:
               </h2>
               <a
-                className={s.googleImage__bachground}
+                className={s.googleImage__background}
                 href={`${process.env.REACT_APP_BASE_API_URL}/auth/google`}
               >
                 <img className={s.googleImage} src={google} alt="google" />
               </a>
-              <h2 className={s.form__title}>
+              <h3 className={s.form__title}>
                 Or log in using an email and password, after registering:
-              </h2>
+              </h3>
               <div className={s.form_field}>
                 <label className={s.form__label} htmlFor="email">
                   Email:
@@ -66,11 +66,11 @@ export default function AuthForm({
                       : s.form__input
                   }
                 />
-                {errors.email && touched.email && (
-                  <span className={s.form__error}>{errors.email}</span>
-                )}
-                {submitError && (
+
+                {submitError ? (
                   <span className={s.form__error}>Email is required</span>
+                ) : (
+                  <span className={s.form__error}>{errors.email}</span>
                 )}
               </div>
 
@@ -101,18 +101,16 @@ export default function AuthForm({
               <ul className={s.form__list}>
                 <li className={s.form__item}>
                   <Button
-                    theme={getStyledButton(disabled)}
-                    text={'Sign in'}
-                    type={'submit'}
+                    text={'Log in'}
+                    type="submit"
                     disabled={disabled}
                     onClick={handleLogin}
                   />
                 </li>
                 <li className={s.form__item}>
                   <Button
-                    theme={getStyledButton(disabled)}
-                    text={'Sign up'}
-                    type={'submit'}
+                    text={'Registration'}
+                    type="submit"
                     disabled={disabled}
                     onClick={handleRegister}
                   />
