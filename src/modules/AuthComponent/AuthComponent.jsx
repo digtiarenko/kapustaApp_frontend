@@ -28,24 +28,17 @@ export default function AuthComponent() {
     values.email = email;
     values.password = password;
     setSubmitError(false);
-    if (!values.email) {
-      errors.email = 'Email is required';
-      setDisabled(true);
-    } else if (!regex.test(values.email)) {
+    if (!regex.test(values.email)) {
       errors.email = 'Invalid email';
-      setDisabled(true);
-    }
-    if (!values.password) {
-      errors.password = 'Password is required';
-      setDisabled(true);
-    } else if (values.password.length < 8) {
+    } else if (!values.email) {
+      errors.email = 'Email is required';
+    } else if (values.password.length < 7 && values.password.length > 0) {
       errors.password = 'Password too short';
-      setDisabled(true);
     } else if (
       values.email &&
       regex.test(values.email) &&
       values.password &&
-      values.password.length >= 8
+      values.password.length >= 7
     ) {
       setDisabled(false);
     }
@@ -59,22 +52,22 @@ export default function AuthComponent() {
   const handleRegister = e => {
     e.preventDefault();
     if (email === '' || password === '') {
-      setDisabled(true);
       setSubmitError(true);
       return;
     }
     dispatch(authOperations.register({ email, password }));
+
     reset();
   };
 
   const handleLogin = e => {
     e.preventDefault();
     if (email === '' || password === '') {
-      setDisabled(true);
       setSubmitError(true);
       return;
     }
     dispatch(authOperations.logIn({ email, password }));
+    setDisabled(true);
     reset();
   };
 
