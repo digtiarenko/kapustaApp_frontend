@@ -1,3 +1,5 @@
+import HomeTable from 'modules/tables/components/HomeTable/HomeTable';
+import InputArea from 'modules/tables/components/InputArea/InputArea';
 import Balance from '../../modules/balance/components/Balance';
 import ReportsLink from '../../modules/reports/components/ReportsLink';
 import Page from 'modules/SecondPage/Page/Page';
@@ -13,9 +15,14 @@ export default function HomePage() {
           <ReportsLink />
           <Balance type="home" />
         </div>
-        <di>
+
+        <div>
           <Page />
-        </di>
+        </div>
+        <div>
+          <InputArea></InputArea>
+          <HomeTable></HomeTable>
+        </div>
       </section>
     </>
   );

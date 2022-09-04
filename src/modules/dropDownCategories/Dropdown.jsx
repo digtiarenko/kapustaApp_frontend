@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from './Dropdown.module.css';
 import { ReactComponent as Arrowdown } from '../../images/icons/arrow-bottom.svg';
 // import axios from 'axios';
@@ -14,37 +14,15 @@ export default function Dropdown() {
   const [isOpen, setIsOpen] = useState(false);
   const [category, setCategory] = useState(null);
 
-  const toggling = () => setIsOpen(!isOpen);
+  const toggling = e => {
+    e.preventDefault();
+    setIsOpen(!isOpen);
+  };
 
   const onOptionClicked = value => () => {
     setCategory(value);
     setIsOpen(false);
   };
-  // const categories = async () => {
-  //   const data = await axios.get(
-  //     'https://kapustaapplication.herokuapp.com/api/categories'
-  //   );
-  //   console.log('categories:', data);
-  // };
-
-  // useEffect(() => {
-  //   console.log(category);
-  // }, [category]);
-
-  // useEffect(() => {
-  //   const handleKeydown = event => {
-  //     if (event.target !== event.currentTarget) {
-  //       console.log(event.target);
-  //       console.log(event.currentTarget);
-  //       setIsOpen(false);
-  //     }
-  //   };
-  //   window.addEventListener('click', handleKeydown);
-
-  //   return () => {
-  //     window.removeEventListener('click', handleKeydown);
-  //   };
-  // });
 
   return (
     categories && (
@@ -72,3 +50,29 @@ export default function Dropdown() {
     )
   );
 }
+
+// const categories = async () => {
+//   const data = await axios.get(
+//     'https://kapustaapplication.herokuapp.com/api/categories'
+//   );
+//   console.log('categories:', data);
+// };
+
+// useEffect(() => {
+//   console.log(category);
+// }, [category]);
+
+// useEffect(() => {
+//   const handleKeydown = event => {
+//     if (event.target !== event.currentTarget) {
+//       console.log(event.target);
+//       console.log(event.currentTarget);
+//       setIsOpen(false);
+//     }
+//   };
+//   window.addEventListener('click', handleKeydown);
+
+//   return () => {
+//     window.removeEventListener('click', handleKeydown);
+//   };
+// });

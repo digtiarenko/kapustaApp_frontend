@@ -1,3 +1,14 @@
+ul {
+  list-style-type: none;
+}
+.Question {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.02em;
+  color: #52555f;
+}
+
 .Overlay {
   position: fixed;
   top: 0;
@@ -60,12 +71,9 @@
 }
 
 .ModalContainerBtn {
-  margin-top: 20px;
   display: flex;
-}
-
-.ModalContainerBtn:last-child {
-  margin-left: 15px;
+  padding: 0;
+  margin: 20px 0 0 0;
 }
 
 .ModalBtn {
