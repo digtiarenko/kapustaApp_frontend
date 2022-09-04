@@ -12,7 +12,7 @@ const TransactionTable = ({ date, type }) => {
   const onDelete = id => () => {
     dispatch(deleteTransactionById(id));
   };
-
+  const transactions = useSelector(getTransactions);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(
@@ -23,11 +23,7 @@ const TransactionTable = ({ date, type }) => {
         limit: '9',
       })
     );
-    console.log('ttt');
-  }, [date, dispatch, type]);
-
-  const transactions = useSelector(getTransactions);
-  console.log(transactions.map(transaction => transaction.date));
+  }, [date, dispatch, type, transactions]);
 
   return (
     <div className={s.container_table}>
