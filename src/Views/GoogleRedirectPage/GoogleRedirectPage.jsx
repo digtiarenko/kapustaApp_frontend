@@ -15,9 +15,7 @@ const GoogleRedirectPage = () => {
 
   useEffect(() => {
     dispatch(setToken({ token }));
-    setTimeout(() => {
-      navigate('/home', { replace: true });
-    }, 1000);
+    navigate('/home', { replace: true });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
