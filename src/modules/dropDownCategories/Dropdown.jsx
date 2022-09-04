@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Dropdown.module.css';
 import { ReactComponent as Arrowdown } from '../../images/icons/arrow-bottom.svg';
+import { useDispatch, useSelector } from 'react-redux';
+import categoriesOperations from 'redux/categories/categoriesOperations';
+import { getCategoriesList } from '../../redux/categories/categoriesSelectors';
 // import axios from 'axios';
 
 const categories = [
@@ -10,9 +13,14 @@ const categories = [
   { _id: '630d5145c0670a69b1b72a7f', name: 'Transport' },
 ];
 
-export default function Dropdown() {
+export default function Dropdown({ onCategorySet, categoryName }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [category, setCategory] = useState(null);
+  const dispatch = useDispatch();
+  const categoriesList = useSelector(getCategoriesList);
+
+  useEffect(() => {
+    dispatch(categoriesOperations.getCategoriesList());
+  }, [dispatch, isOpen]);
 
   const toggling = e => {
     e.preventDefault();
@@ -20,34 +28,33 @@ export default function Dropdown() {
   };
 
   const onOptionClicked = value => () => {
-    setCategory(value);
+    onCategorySet(value);
     setIsOpen(false);
   };
 
   return (
-    categories && (
-      <>
-        <div className={styles.dropdown}>
-          <button onClick={toggling} className={styles.dropbtn}>
-            {category || 'Product category'}
-            <Arrowdown />
-          </button>
-          {isOpen && (
-            <ul className={styles.dropdownContent}>
-              {categories.map(item => (
+    <>
+      <div className={styles.dropdown}>
+        <button onClick={toggling} className={styles.dropbtn}>
+          {categoryName || 'Product category'}
+          <Arrowdown />
+        </button>
+        {isOpen && (
+          <ul className={styles.dropdownContent}>
+            {categoriesList &&
+              categoriesList.map(item => (
                 <li
-                  key={Math.random()}
-                  onClick={onOptionClicked(item.name)}
+                  key={item._id}
+                  onClick={onOptionClicked(item)}
                   className={styles.dropdownItem}
                 >
                   {item.name}
                 </li>
               ))}
-            </ul>
-          )}
-        </div>
-      </>
-    )
+          </ul>
+        )}
+      </div>
+    </>
   );
 }
 
