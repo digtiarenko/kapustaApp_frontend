@@ -4,15 +4,17 @@ import s from './ReportPage.module.css';
 import { ButtonGoMain } from 'modules/Buttons/ButtonGoMain';
 import Balance from 'modules/balance/components/Balance';
 import { CurrentPeriod } from '../../modules/CurrentPeriod/CurrentPeriod.jsx';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Container from 'modules/navigation/components/Container';
 import { useDispatch, useSelector } from 'react-redux';
 import categoriesOperations from 'redux/categories/categoriesOperations';
 import { getCategoriesList } from '../../redux/categories/categoriesSelectors';
 import {
+  createUserTransaction,
   getTransactionsByTypeAndDate,
   deleteTransactionById,
 } from 'redux/transactions/transactionsOperations';
+import { getTransactions } from '../../redux/transactions/transactionsSelectors';
 
 // const mockParams = {
 //   date: '2022-8-31',
@@ -39,24 +41,29 @@ const arrayOfMonth = [
 
 export default function ReportPage() {
   const dispatch = useDispatch();
+
   // Как работать с categories
-  const getCategories = () =>
-    dispatch(categoriesOperations.getCategoriesList());
-  const categoriesList = useSelector(getCategoriesList);
-  console.log(categoriesList);
+  // const getCategories = () =>
+  //   dispatch(categoriesOperations.getCategoriesList());
+  // const categoriesList = useSelector(getCategoriesList);
+  // console.log(categoriesList);
 
   useEffect(() => {
     dispatch(
       getTransactionsByTypeAndDate({
         type: 'expenses',
-        date: '2022-8-31',
+        date: '2022-8-30',
         page: '1',
         limit: '9',
       })
     );
-    dispatch(deleteTransactionById('63122e618b68d8fc22005f63'));
-  }, [dispatch]);
+  }, []);
 
+  const transactions = useSelector(getTransactions);
+
+  const deleteId = id => () => {
+    dispatch(deleteTransactionById(id));
+  };
   // console.log(categoriesList);
   // console.log(categoriesList.filter(category => category.type === 'expenses'));
 
@@ -105,6 +112,15 @@ export default function ReportPage() {
     <>
       <Container>
         <section className={s.section}>
+          <ul>
+            {transactions &&
+              transactions.map(transaction => (
+                <li key={transaction._id}>
+                  <button onClick={deleteId(transaction._id)}></button>
+                  {transaction._id}
+                </li>
+              ))}
+          </ul>
           <div className={s.inlineBlock}>
             <ButtonGoMain />
             <div className={s.inlineBalanceBlock}>

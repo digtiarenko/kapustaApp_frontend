@@ -49,11 +49,11 @@ export const getTransactionsByTypeAndDate = createAsyncThunk(
 
 export const deleteTransactionById = createAsyncThunk(
   'transactions/deleteTransaction',
-  async (_id, thunkAPI) => {
-    const state = thunkAPI.getState();
+  async (_id, { getState, rejectWithValue }) => {
+    const state = getState();
     const persistedToken = state.auth.token;
     if (persistedToken === null) {
-      return thunkAPI.rejectWithValue();
+      return rejectWithValue();
     }
     token.set(persistedToken);
 
@@ -62,7 +62,7 @@ export const deleteTransactionById = createAsyncThunk(
 
       return data;
     } catch (error) {
-      console.log(error);
+      return rejectWithValue();
     }
   }
 );
