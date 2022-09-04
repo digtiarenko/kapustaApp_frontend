@@ -131,7 +131,7 @@ export const App = () => {
         </>
       )}
       <ToastContainer
-        position="top-right"
+        position="top-left"
         autoClose={1500}
         hideProgressBar={false}
         newestOnTop={false}
@@ -141,8 +141,6 @@ export const App = () => {
         draggable
         pauseOnHover
       />
-
-      <ToastContainer />
     </>
   );
 };
