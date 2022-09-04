@@ -40,6 +40,10 @@ const authSlice = createSlice({
     },
     [authOperations.fetchCurrentUser.rejected](state) {
       state.isRefreshing = false;
+      state.user = { name: null, email: null };
+      state.token = null;
+      state.isLoggedIn = false;
+      state.error = 'Unautorized';
     },
   },
 });
