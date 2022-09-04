@@ -23,7 +23,7 @@ const TransactionTable = ({ date, type }) => {
         limit: '9',
       })
     );
-  }, [date, dispatch, type, transactions]);
+  }, [date, dispatch, type]);
 
   return (
     <div className={s.container_table}>
