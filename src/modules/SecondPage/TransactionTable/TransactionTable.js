@@ -30,7 +30,7 @@ const TransactionTable = ({ date, type }) => {
   console.log(transactions.map(transaction => transaction.date));
 
   return (
-    <div>
+    <div className={s.container_table}>
       <table className={s.table}>
         <thead>
           <tr>

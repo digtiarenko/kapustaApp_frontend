@@ -31,8 +31,8 @@ ul {
   flex-direction: column;
   justify-content: space-around;
   min-height: 195px;
-  max-width: 380px;
-  width: 100%;
+  width: 280px;
+
   padding: 12px;
   background-color: #fff;
   border-radius: 30px;
@@ -109,3 +109,8 @@ ul {
 /* .ModalBtn:last-child {
   margin-right: 0px;
 } */
+@media screen and (min-width: 420px) {
+  .Modal {
+    width: 380px;
+  }
+}
