@@ -15,8 +15,6 @@ import {
 import { authReducer } from './auth';
 import { balanceReducers } from './initialBalance';
 
-import tableReducer from './table/tableSlice';
-
 import { categoriesSlice } from './categories';
 import { transactionsSlice } from './transactions';
 const authPersistConfig = {
@@ -25,12 +23,9 @@ const authPersistConfig = {
   whitelist: ['token'],
 };
 
-const tablePersistConfig = { key: 'tableForm', storage };
-
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    tableForm: persistReducer(tablePersistConfig, tableReducer),
     balance: balanceReducers,
     categories: categoriesSlice,
     transactions: transactionsSlice,

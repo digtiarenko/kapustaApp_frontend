@@ -6,9 +6,13 @@ import {
   deleteTransactionById,
 } from '../../../redux/transactions/transactionsOperations';
 import { getTransactions } from '../../../redux/transactions/transactionsSelectors';
+import { TransactionTableRow } from '../TransactionTableRow/TransactionTableRow';
 
-function TransactionTable({ date, type }) {
-  console.log(date);
+const TransactionTable = ({ date, type }) => {
+  const onDelete = id => () => {
+    dispatch(deleteTransactionById(id));
+  };
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(
@@ -19,11 +23,11 @@ function TransactionTable({ date, type }) {
         limit: '9',
       })
     );
+    console.log('ttt');
   }, [date, dispatch, type]);
 
   const transactions = useSelector(getTransactions);
-
-  console.log(transactions);
+  console.log(transactions.map(transaction => transaction.date));
 
   return (
     <div>
@@ -38,73 +42,23 @@ function TransactionTable({ date, type }) {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
+          {transactions &&
+            transactions.map(transaction => (
+              <TransactionTableRow
+                key={transaction._id}
+                id={transaction._id}
+                date={transaction.date}
+                description={transaction.description}
+                type={transaction.type}
+                value={transaction.value}
+                category={transaction.category.name}
+                onDelete={onDelete}
+              />
+            ))}
         </tbody>
       </table>
     </div>
   );
-}
+};
 
 export default TransactionTable;
