@@ -2,7 +2,7 @@ import React from 'react';
 import s from './TransactionTable.module.css';
 function TransactionTable() {
   return (
-    <div>
+    <div className={s.container_table}>
       <table className={s.table}>
         <thead>
           <tr>

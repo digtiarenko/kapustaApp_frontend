@@ -2,6 +2,7 @@ import s from './TransactionForm.module.css';
 import React, { useState } from 'react';
 import { ReactComponent as CalendarLogo } from '../../../images/icons/calendar.svg';
 import { ReactComponent as CalculatorLogo } from '../../../images/icons/calculator.svg';
+
 import moment from 'moment';
 
 import Dropdown from 'modules/dropDownCategories/Dropdown';
@@ -56,30 +57,30 @@ function TransactionForm() {
     setAmount('');
   };
   return (
-    <form className={s.wrap} onSubmit={handleSubmit} autoComplete="off">
-      <div className={s.wrapInput}>
-        <div className={s.dateWrapper}>
+    <>
+      <form className={s.wrap} onSubmit={handleSubmit} autoComplete="off">
+        <div className={s.wrapInput}>
+          <div className={s.dateWrapper}>
+            <input
+              aria-label="Date"
+              name="date"
+              onChange={handleChange}
+              type="date"
+              className={s.datePicker}
+              value={date}
+            />
+            <CalendarLogo className={s.calendarIcon} />
+          </div>
           <input
-            aria-label="Date"
-            name="date"
+            aria-label="Text"
             onChange={handleChange}
-            type="date"
-            className={s.datePicker}
-            value={date}
+            className={s.description}
+            name="description"
+            type="text"
+            placeholder="Product description"
+            value={description}
           />
-          <CalendarLogo className={s.calendarIcon} />
-        </div>
-        <input
-          aria-label="Text"
-          onChange={handleChange}
-          className={s.description}
-          name="description"
-          type="text"
-          placeholder="Product description"
-          value={description}
-        />
-        <Dropdown />
-        {/* <Select
+          {/* <Select
           aria-label="Select"
           placeholder={<div>Product category</div>}
           width="200px"
@@ -89,33 +90,65 @@ function TransactionForm() {
           options={selectOptions()}
           className={s.select}
         /> */}
-        <div className={s.inputCountWrapper}>
-          <input
-            aria-label="Number"
-            onChange={handleChange}
-            type="number"
-            name="amount"
-            className={s.inputCount}
-            placeholder="00.00"
-            value={amount}
-          />
-        </div>{' '}
-        <CalculatorLogo />
+          <div className={s.inputCountWrapper}>
+            <input
+              aria-label="Number"
+              onChange={handleChange}
+              type="number"
+              name="amount"
+              className={s.inputCount}
+              placeholder="00.00"
+              value={amount}
+            />
+          </div>{' '}
+          <CalculatorLogo />
+        </div>
+        <div className={s.buttonWrap}>
+          <button aria-label="Input" type="submit" className={s.btnInput}>
+            input
+          </button>
+          <button
+            aria-label="Clear"
+            type="button"
+            className={s.btnClear}
+            onClick={onHandleResetForm}
+          >
+            clear
+          </button>
+        </div>
+      </form>
+      <div className={s.containerForm}>
+        <form className={s.form}>
+          <div className={s.formControl}>
+            <div className={s.calendarWrapper}></div>
+
+            <input
+              className={s.product}
+              type="text"
+              placeholder="Product description"
+            />
+
+            <div className={s.category}>
+              {/* <p className={s.text}>Product category</p> */}
+              <Dropdown />
+            </div>
+
+            <div className={s.calc}>
+              <input className={s.sammy} type="text" placeholder="0,00" />
+            </div>
+          </div>
+        </form>
+        <div className={s.btnWrapper}>
+          <button type="submit" className={s.btn}>
+            input
+          </button>
+
+          <button type="button" className={s.btn}>
+            clear
+          </button>
+        </div>
       </div>
-      <div className={s.buttonWrap}>
-        <button aria-label="Input" type="submit" className={s.btnInput}>
-          input
-        </button>
-        <button
-          aria-label="Clear"
-          type="button"
-          className={s.btnClear}
-          onClick={onHandleResetForm}
-        >
-          clear
-        </button>
-      </div>
-    </form>
+    </>
   );
 }
 export default TransactionForm;
