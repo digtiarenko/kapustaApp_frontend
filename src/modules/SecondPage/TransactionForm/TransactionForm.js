@@ -2,6 +2,7 @@ import s from './TransactionForm.module.css';
 import { ReactComponent as Calc } from '../../../images/icons/calculator.svg';
 import Datepicker from 'modules/DatePicker/Datepicker';
 import Dropdown from 'modules/dropDownCategories/Dropdown';
+
 function TransactionForm() {
   return (
     <div>
