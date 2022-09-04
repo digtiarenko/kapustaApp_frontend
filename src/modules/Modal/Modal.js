@@ -38,23 +38,15 @@ function Modal({ onDeny, handleAgreeButtonClick, question }) {
         </span>
         <div className={s.ModalContainer}>
           <div className={s.ModalItems}>
-            <p>{question}</p>
+            <p className={s.Question}>{question} </p>
           </div>
 
           <ul className={s.ModalContainerBtn}>
             <li className={s.ModalBtn}>
-              <Button
-                theme="orangeTheme"
-                text="Yes"
-                onClick={handleButtonClick}
-              />
+              <Button type="exit" text="Yes" onClick={handleButtonClick} />
             </li>
             <li>
-              <Button
-                theme="orangeTheme"
-                text="No"
-                onClick={handleBackdropClick}
-              />
+              <Button type="exit" text="No" onClick={handleBackdropClick} />
             </li>
           </ul>
         </div>
