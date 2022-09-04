@@ -1,5 +1,5 @@
 import s from './TransactionForm.module.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ReactComponent as CalendarLogo } from '../../../images/icons/calendar.svg';
 import { ReactComponent as CalculatorLogo } from '../../../images/icons/calculator.svg';
 import moment from 'moment';

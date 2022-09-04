@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from './Dropdown.module.css';
 import { ReactComponent as Arrowdown } from '../../images/icons/arrow-bottom.svg';
 // import axios from 'axios';
