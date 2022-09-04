@@ -58,7 +58,7 @@ export default function Balance({ type }) {
             placeholder={'00.00 UAH'}
             suffix={' UAH'}
             onValueChange={handleOnValueChange}
-            disabled={!isReadable || type === 'report'}
+            disabled={!isReadable}
           />
           <button
             type="submit"

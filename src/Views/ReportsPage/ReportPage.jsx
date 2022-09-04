@@ -130,7 +130,7 @@ export default function ReportPage() {
                 month={month}
                 year={year}
               />
-              <Balance />
+              <Balance type="report" />
             </div>
           </div>
           <Summary></Summary>

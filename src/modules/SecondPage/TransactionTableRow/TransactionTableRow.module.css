@@ -1,0 +1,27 @@
+.tableRow {
+  border: none;
+  border-bottom: 2px solid #f2f8f8;
+  width: 746px;
+  height: 32px;
+
+  font-size: 12px;
+  color: #52555f;
+}
+
+.button {
+  width: 32px;
+  height: 32px;
+  padding: 7px;
+  border: none;
+  background-color: transparent;
+}
+
+.button:hover {
+  border-radius: 50%;
+  background-color: #f5f6fb;
+  cursor: pointer;
+}
+
+.sum {
+  font-weight: 700;
+}

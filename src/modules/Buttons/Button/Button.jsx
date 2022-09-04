@@ -14,6 +14,7 @@ const getStyledButton = theme => {
         color: '#52555F',
         border: '2px solid #F6F7FC',
       };
+
     default:
       return {};
   }
@@ -24,7 +25,7 @@ export const Button = ({ text, theme, onClick, type, disabled }) => {
 
   return (
     <button
-      className={s.button}
+      className={(type = 'exit' ? s.exit : s.button)}
       style={style}
       onClick={onClick}
       type={type}
