@@ -3,7 +3,7 @@ import reportsOperations from './reportsOperations';
 
 const initialState = {
   full: null,
-  monthExpense: null,
+  monthExpenses: null,
   monthIncome: null,
 };
 
@@ -14,11 +14,14 @@ const reportsSlice = createSlice({
     [reportsOperations.getReportsFull.fulfilled](state, { payload }) {
       state.full = payload;
     },
-    [reportsOperations.getReportsMonthlyExpense.fulfilled](state, { payload }) {
-      state.monthExpense = payload;
+    [reportsOperations.getReportsMonthlyExpenses.fulfilled](
+      state,
+      { payload }
+    ) {
+      state.monthExpenses = payload.expensesByMonth;
     },
     [reportsOperations.getReportsMonthlyIncome.fulfilled](state, { payload }) {
-      state.monthIncome = payload;
+      state.monthIncome = payload.incomeByMonth;
     },
   },
 });

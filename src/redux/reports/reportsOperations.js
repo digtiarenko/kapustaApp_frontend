@@ -10,12 +10,11 @@ const getReportsFull = createAsyncThunk('reports/getFull', async () => {
   }
 });
 
-const getReportsMonthlyExpense = createAsyncThunk(
-  'reports/getMonthlyExpense',
+const getReportsMonthlyExpenses = createAsyncThunk(
+  'reports/getMonthlyExpenses',
   async () => {
     try {
-      const { data } = await axios.get('/reports/monthly-expense');
-      // const { data } = await axios.get('/categories');
+      const { data } = await axios.get('/reports/monthly-expenses');
       return data;
     } catch (error) {
       console.log(error);
@@ -37,7 +36,7 @@ const getReportsMonthlyIncome = createAsyncThunk(
 
 const reportsOperations = {
   getReportsFull,
-  getReportsMonthlyExpense,
+  getReportsMonthlyExpenses,
   getReportsMonthlyIncome,
 };
 
