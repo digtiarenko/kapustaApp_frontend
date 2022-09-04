@@ -1,7 +1,29 @@
-.form {
-  display: flex;
+/* .form {
+  
+  padding-top: 32px;
+} */
+
+@media screen and (min-width: 768px) {
+  .formControl {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 778px) {
+  .formControl {
+    display: flex;
+    padding-top: 24px;
+  }
+}
+.containerForm {
   padding-top: 32px;
 }
+@media screen and (min-width: 768px) {
+  .containerForm {
+    display: flex;
+  }
+}
+
 .product {
   border: 2px solid #f6f7fc;
   width: 288px;
@@ -32,6 +54,13 @@
   position: relative;
   right: 35px;
   bottom: -4px;
+}
+@media screen and (max-width: 768px) {
+  .svg {
+    position: relative;
+    right: -79px;
+    bottom: 31px;
+  }
 }
 
 .sammy {
@@ -70,7 +99,12 @@
 .btnWrapper {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+}
+@media screen and (max-width: 768px) {
+  .btnWrapper {
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .calendarWrapper {
