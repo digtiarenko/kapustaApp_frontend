@@ -4,23 +4,17 @@ import s from './ReportPage.module.css';
 import { ButtonGoMain } from 'modules/Buttons/ButtonGoMain';
 import Balance from 'modules/balance/components/Balance';
 import { CurrentPeriod } from '../../modules/CurrentPeriod/CurrentPeriod.jsx';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Container from 'modules/navigation/components/Container';
 import { useDispatch, useSelector } from 'react-redux';
 import categoriesOperations from 'redux/categories/categoriesOperations';
 import { getCategoriesList } from '../../redux/categories/categoriesSelectors';
-// import {
-//   createUserTransaction,
-//   getTransactionsByTypeAndDate,
-// } from 'redux/transactions/transactionsOperations';
-
-// const mockParams = {
-//   date: '2022-8-31',
-//   description: 'Beef',
-//   category: '630d23089692d4e9360ec34d',
-//   value: 300,
-//   type: 'expenses',
-// };
+import {
+  createUserTransaction,
+  getTransactionsByTypeAndDate,
+  deleteTransactionById,
+} from 'redux/transactions/transactionsOperations';
+import { getTransactions } from '../../redux/transactions/transactionsSelectors';
 
 const arrayOfMonth = [
   'January',
@@ -39,31 +33,32 @@ const arrayOfMonth = [
 
 export default function ReportPage() {
   const dispatch = useDispatch();
-  // Как работать с categories
-  const getCategories = () =>
-    dispatch(categoriesOperations.getCategoriesList());
-  const categoriesList = useSelector(getCategoriesList);
-  console.log(categoriesList);
 
   useEffect(() => {
-    getCategories();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    dispatch(
+      createUserTransaction({
+        date: '2022-8-31',
+        description: 'Beef',
+        category: '630d23089692d4e9360ec34d',
+        value: 300,
+        type: 'expenses',
+      })
+    );
+    dispatch(
+      getTransactionsByTypeAndDate({
+        type: 'expenses',
+        date: '2022-8-31',
+        page: '1',
+        limit: '9',
+      })
+    );
   }, []);
 
-  // console.log(categoriesList);
-  // console.log(categoriesList.filter(category => category.type === 'expenses'));
+  const transactions = useSelector(getTransactions);
 
-  // useEffect(() => {
-  //   dispatch(createUserTransaction(mockParams));
-  //   dispatch(
-  //     getTransactionsByTypeAndDate({
-  //       type: 'expenses',
-  //       date: '2022-8-31',
-  //       page: '1',
-  //       limit: '9',
-  //     })
-  //   );
-  // }, []);
+  const deleteId = id => () => {
+    dispatch(deleteTransactionById(id));
+  };
 
   const date = new Date();
   let currentYear = date.getFullYear();
@@ -98,6 +93,15 @@ export default function ReportPage() {
     <>
       <Container>
         <section className={s.section}>
+          <ul>
+            {transactions &&
+              transactions.map(transaction => (
+                <li key={transaction._id}>
+                  <button onClick={deleteId(transaction._id)}></button>
+                  {transaction._id}
+                </li>
+              ))}
+          </ul>
           <div className={s.inlineBlock}>
             <ButtonGoMain />
             <div className={s.inlineBalanceBlock}>
@@ -107,15 +111,11 @@ export default function ReportPage() {
                 month={month}
                 year={year}
               />
-              <Balance />
+              <Balance type="report" />
             </div>
           </div>
           <Summary></Summary>
           <Outlet />
-          <h1>Page for working with the reports</h1>
-          <p>
-            Welcome to the best resource for see how much you earn and spend
-          </p>
         </section>
       </Container>
     </>

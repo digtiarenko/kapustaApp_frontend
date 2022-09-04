@@ -10,6 +10,7 @@ function TransactionTable() {
             <th>описание</th>
             <th>категория</th>
             <th>сумма</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -18,20 +19,10 @@ function TransactionTable() {
             <td></td>
             <td></td>
             <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
             <td></td>
           </tr>
           <tr>
             <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
             <td></td>
             <td></td>
             <td></td>
@@ -42,11 +33,6 @@ function TransactionTable() {
             <td></td>
             <td></td>
             <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
             <td></td>
           </tr>
           <tr>
@@ -54,14 +40,38 @@ function TransactionTable() {
             <td></td>
             <td></td>
             <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
           <tr>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
+            <td></td>
           </tr>
           <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
             <td></td>
             <td></td>
             <td></td>
