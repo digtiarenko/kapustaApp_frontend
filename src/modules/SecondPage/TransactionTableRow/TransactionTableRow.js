@@ -24,14 +24,14 @@ function TransactionTableRow({ transactionData, onDelete }) {
 
   return (
     <tr className={s.tableRow}>
-      <td>{date}</td>
-      <td>{description}</td>
-      <td>{category}</td>
-      <td className={s.sum} style={sumStyle}>
-        {type === 'expenses' && sum > 0 && <span>-</span>}
-        {sum}
+      <td className={s.tableDataDate}>{date}</td>
+      <td className={s.tableDataDescription}>{description}</td>
+      <td className={s.tableDataCategory}>{category}</td>
+      <td className={s.tableDataSum} style={sumStyle}>
+        {type === 'expenses' && sum > 0 && <span className={s.minus}>-</span>}
+        {sum} грн
       </td>
-      <td>
+      <td className={s.tableDataBtn}>
         <button type="button" className={s.button} onClick={onDelete}>
           <Delete className={s.svg} />
         </button>
