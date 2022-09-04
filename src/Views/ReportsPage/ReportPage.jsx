@@ -7,8 +7,6 @@ import { CurrentPeriod } from '../../modules/CurrentPeriod/CurrentPeriod.jsx';
 import { useCallback, useEffect, useState } from 'react';
 import Container from 'modules/navigation/components/Container';
 import { useDispatch, useSelector } from 'react-redux';
-import categoriesOperations from 'redux/categories/categoriesOperations';
-import { getCategoriesList } from '../../redux/categories/categoriesSelectors';
 import {
   createUserTransaction,
   getTransactionsByTypeAndDate,

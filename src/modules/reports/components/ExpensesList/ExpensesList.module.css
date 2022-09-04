@@ -8,8 +8,8 @@
     to bottom,
     transparent,
     transparent 143px,
-    #e1e1e1 143px,
-    #e1e1e1 144px
+    #e0e5eb 143px,
+    #e0e5eb 144px
   );
 }
 .icon {
@@ -23,8 +23,6 @@
 
   margin-top: 20px;
   margin-bottom: 20px;
-  margin-left: 10px;
-  margin-right: 10px;
 
   background-image: url('../../../../images/icons/category/background/normal.svg');
   background-repeat: no-repeat;
