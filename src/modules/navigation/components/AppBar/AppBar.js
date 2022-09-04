@@ -1,26 +1,21 @@
 import { Outlet } from 'react-router-dom';
-import Navigation from '../Navigation';
-import Container from '../Container';
+import { Link } from 'react-router-dom';
 import s from './AppBar.module.css';
 import logo from '../../../../images/icons/logo.svg';
 import { LogoutBtn } from '../../../LogoutBtn/LogoutBtn';
 import { authSelectors } from 'redux/auth';
 import { useSelector } from 'react-redux';
 
-export default function AppBar() {
-  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+function AppBar() {
+  const isAuth = !!useSelector(authSelectors.getUserEmail);
+
   return (
     <>
       <header className={s.header}>
-        <img src={logo} alt="Logo" className={s.logo} />
-
-        {/* {isLoggedIn  */}
-        {/* && */}
-        <LogoutBtn />
-        {/* } */}
-        {/* 
-        {isLoggedIn && <LogoutBtn />}
-        <LogoutBtn /> */}
+        <Link to="/">
+          <img src={logo} alt="Logo" className={s.logo} />
+        </Link>
+        {isAuth && <LogoutBtn />}
       </header>
 
       <main>
@@ -29,3 +24,5 @@ export default function AppBar() {
     </>
   );
 }
+
+export default AppBar;

@@ -3,15 +3,24 @@ import { Routes, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import authOperations from './redux/auth/auth-operations';
 import authSelectors from './redux/auth/auth-selectors';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import AppBar from './modules/navigation/components/AppBar';
+import Spinner from './modules/Spinner';
+import GoogleRedirectPage from 'Views/GoogleRedirectPage/GoogleRedirectPage';
+import { ProtectedRoute } from 'hoc/ProtectedRoute';
 
 const AuthPage = lazy(() => import('./Views/AuthPage/AuthPage'));
 const HomePage = lazy(() => import('./Views/HomePage'));
 const ReportsPage = lazy(() => import('./Views/ReportsPage'));
+const Expenses = lazy(() => import('./Views/ReportsPage/Expenses/Expenses'));
+const Income = lazy(() => import('./Views/ReportsPage/Income/Income'));
 
 export const App = () => {
   const dispatch = useDispatch();
   const isFetchingCurrentUser = useSelector(authSelectors.getIsRefreshing);
+  const isAuth = !!useSelector(authSelectors.getAuthToken);
 
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
@@ -20,7 +29,7 @@ export const App = () => {
   return (
     <>
       {isFetchingCurrentUser ? (
-        <p>loading...</p>
+        <Spinner />
       ) : (
         <>
           <Routes>
@@ -28,39 +37,96 @@ export const App = () => {
               <Route
                 index
                 element={
-                  <Suspense fallback={<div>Loading...</div>}>
-                    <AuthPage />
-                  </Suspense>
+                  <ProtectedRoute redirectPath={'/home'} isAllowed={!isAuth}>
+                    <Suspense fallback={<div>Loading...</div>}>
+                      <AuthPage />
+                    </Suspense>
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                element={
+                  <ProtectedRoute redirectPath={'/home'} isAllowed={!isAuth}>
+                    <Suspense fallback={<div>Loading...</div>}>
+                      <AuthPage />
+                    </Suspense>
+                  </ProtectedRoute>
                 }
               />
               <Route
                 path="home"
                 element={
-                  <Suspense fallback={<div>Loading...</div>}>
-                    <HomePage />
-                  </Suspense>
+                  <ProtectedRoute redirectPath={'/'} isAllowed={isAuth}>
+                    <Suspense fallback={<div>Loading...</div>}>
+                      <HomePage />
+                    </Suspense>
+                  </ProtectedRoute>
                 }
               />
               <Route
                 path="reports"
                 element={
-                  <Suspense fallback={<div>Loading...</div>}>
-                    <ReportsPage />
-                  </Suspense>
+                  <ProtectedRoute redirectPath={'/'} isAllowed={isAuth}>
+                    <Suspense fallback={<div>Loading...</div>}>
+                      <ReportsPage />
+                    </Suspense>
+                  </ProtectedRoute>
+                }
+              >
+                <Route
+                  path="expenses"
+                  element={
+                    <Suspense fallback={<div>Loading...</div>}>
+                      <Expenses />
+                    </Suspense>
+                  }
+                />
+                <Route
+                  path="income"
+                  element={
+                    <Suspense fallback={<div>Loading...</div>}>
+                      <Income />
+                    </Suspense>
+                  }
+                />
+              </Route>
+              <Route
+                path="google-redirect"
+                element={
+                  <ProtectedRoute redirectPath={'/home'} isAllowed={!isAuth}>
+                    <Suspense fallback={<div>Loading...</div>}>
+                      <GoogleRedirectPage />
+                    </Suspense>
+                  </ProtectedRoute>
                 }
               />
               <Route
                 path="*"
                 element={
-                  <Suspense fallback={<div>Loading...</div>}>
-                    <AuthPage />
-                  </Suspense>
+                  <ProtectedRoute redirectPath={'/'} isAllowed={!isAuth}>
+                    <Suspense fallback={<div>Loading...</div>}>
+                      <AuthPage />
+                    </Suspense>
+                  </ProtectedRoute>
                 }
               />
             </Route>
           </Routes>
         </>
       )}
+      <ToastContainer
+        position="top-right"
+        autoClose={1500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+
+      <ToastContainer />
     </>
   );
 };

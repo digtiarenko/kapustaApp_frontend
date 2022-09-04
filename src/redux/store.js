@@ -17,6 +17,8 @@ import { balanceReducers } from './initialBalance';
 
 import tableReducer from './table/tableSlice';
 
+import { categoriesSlice } from './categories';
+import { transactionsSlice } from './transactions';
 const authPersistConfig = {
   key: 'auth',
   storage,
@@ -28,8 +30,10 @@ const tablePersistConfig = { key: 'tableForm', storage };
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    balance: persistReducer(authPersistConfig, balanceReducers),
     tableForm: persistReducer(tablePersistConfig, tableReducer),
+    balance: balanceReducers,
+    categories: categoriesSlice,
+    transactions: transactionsSlice,
   },
 
   middleware: getDefaultMiddleware =>
