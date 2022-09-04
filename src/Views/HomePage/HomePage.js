@@ -1,3 +1,5 @@
+import HomeTable from 'modules/tables/components/HomeTable/HomeTable';
+import InputArea from 'modules/tables/components/InputArea/InputArea';
 import Balance from '../../modules/balance/components/Balance';
 import ReportsLink from '../../modules/reports/components/ReportsLink';
 import s from './HomePage.module.css';
@@ -11,6 +13,10 @@ export default function HomePage() {
         <div className={s.balanceBlock}>
           <ReportsLink />
           <Balance />
+        </div>
+        <div>
+          <InputArea></InputArea>
+          <HomeTable></HomeTable>
         </div>
       </section>
     </>

@@ -15,16 +15,21 @@ import {
 import { authReducer } from './auth';
 import { balanceReducers } from './initialBalance';
 
+import tableReducer from './table/tableSlice';
+
 const authPersistConfig = {
   key: 'auth',
   storage,
   whitelist: ['token'],
 };
 
+const tablePersistConfig = { key: 'tableForm', storage };
+
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     balance: persistReducer(authPersistConfig, balanceReducers),
+    tableForm: persistReducer(tablePersistConfig, tableReducer),
   },
 
   middleware: getDefaultMiddleware =>
