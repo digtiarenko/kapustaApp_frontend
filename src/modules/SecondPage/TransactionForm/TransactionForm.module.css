@@ -1,169 +1,375 @@
-.form {
-  display: flex;
-  padding-top: 32px;
-}
-.product {
-  border: 2px solid #f6f7fc;
-  width: 288px;
-  height: 44px;
-  border-radius: 16px 0px 0px 0px;
-}
-
-.category {
-  box-sizing: border-box;
-  width: 169px;
-  height: 44px;
-
-  border: 2px solid #f5f6fb;
-  border-radius: 0px;
-}
-
-.text {
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 14px;
-  display: flex;
-  align-items: center;
-  letter-spacing: 0.02em;
-  padding-left: 20px;
-  color: #c7ccdc;
-}
-.svg {
-  position: relative;
-  right: 35px;
-  bottom: -4px;
-}
-
-.sammy {
-  box-sizing: border-box;
-  width: 121px;
-  height: 44px;
-  border: 2px solid #f6f7fc;
-  border-radius: 0px 16px 16px 0px;
-}
-
-.btn {
-  padding: 12px 25px;
-  width: 125px;
-  height: 44px;
-  margin-right: 16px;
-  font-weight: bold;
-  font-size: 12px;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  cursor: pointer;
-  color: var(--primary-text-color);
-  background: #ffffff;
-  box-shadow: 1px 2px 5px rgba(170, 178, 197, 0.4);
-  border-radius: 16px;
-  border: none;
-  filter: drop-shadow(1px 3px 5px rgba(82, 85, 95, 0.15));
-  transition: background-color #ff751d;
-}
-
-.btn:hover,
-.btn:focus {
-  color: #ffffff;
-  background-color: #ff751d;
-}
-
-.btnWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.calendarWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 60px;
-}
-
-@media screen and (min-width: 320px) {
-  .calendarWrapper {
-    margin-top: 50px;
-  }
-}
-/* .calendarWrapper > div {
-  width: auto;
-} */
-
-.calendarWrapper input {
-  width: 86px;
-  background-color: transparent;
-}
-
-.watch {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  color: inherit;
-  background-image: url('../../../images/icons/calendar.svg');
-}
-
-.datePicker {
-  margin: 0;
-  padding: 0;
-  font-weight: 700;
-  line-height: 1.67;
-  letter-spacing: 0.04em;
-  margin-left: 10px;
-  color: inherit;
-  border: none;
-}
-
-@media screen and (min-width: 768px) {
-  .calendarWrapper {
+@media screen and (max-width: 767px) {
+  .wrap {
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
     align-items: center;
-    justify-content: center;
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-left: 25px;
+    flex-direction: column;
+    width: 100%;
   }
 
-  .calendarWrapper input {
-    width: 74px;
+  .wrapInput {
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 258px;
+    background-color: var(--trans-dropdown-border-color);
+    border-bottom-left-radius: 30%;
+  }
+
+  .description {
+    width: 280px;
+    height: 44px;
+    border-top-left-radius: 16px;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: start;
     background-color: transparent;
+    padding-left: 30px;
+    border: 2px solid #52555f;
+    color: var(--table-description-text-color);
   }
 
-  .datePicker {
-    font-family: Roboto;
-    font-style: normal;
+  .description::placeholder {
+    font-weight: 400;
+    color: var(--trans-form-input-placeholder-color);
+  }
+  .select {
+    width: 280px;
+    height: 44px;
+    border: 2px solid var(--trans-dropdown-background-color);
+    border-bottom-right-radius: 16px;
+    color: var(--trans-form-input-placeholder-color);
+  }
+
+  .inputCountWrapper {
+    position: relative;
+    width: 183px;
+  }
+
+  .calculatorIcon {
+    position: absolute;
+    right: 30px;
+    top: 44px;
+  }
+
+  .inputCount {
+    width: 183px;
+    height: 44px;
+    border: 2px solid var(--trans-dropdown-background-color);
+    padding-right: 55px;
+    padding-left: 55px;
+    border-radius: 22px;
     font-weight: 900;
     font-size: 12px;
     line-height: 14px;
-    letter-spacing: 0.04em;
+    text-align: center;
+    margin-top: 32px;
+    background-color: transparent;
+    color: var(--table-description-text-color);
+  }
+
+  .inputCount::placeholder {
+    color: var(--general-header-color);
+  }
+
+  .dateWrapper {
+    position: relative;
+  }
+
+  .calendarIcon {
+    position: absolute;
+    z-index: 2;
+    left: -2px;
+    top: 12px;
+  }
+
+  .datePicker {
+    font-weight: 900;
+    font-size: 12px;
+    line-height: 14px;
+    color: var(--general-text-color);
+    background-color: transparent;
+    border: none;
+    width: 110px;
+    height: 44px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 9;
+  }
+
+  .datePicker:focus {
+    outline-color: transparent;
+  }
+
+  .datePicker::-webkit-calendar-picker-indicator {
+    color: rgba(0, 0, 0, 0);
+    z-index: 9;
+    width: 110px;
+    height: 44px;
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+  }
+
+  .btnInput {
+    width: 130px;
+    height: 44px;
+    background: var(--general-accent-background-color);
+    border: none;
+    border-radius: 16px;
+    margin-right: 15px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    letter-spacing: 0.02em;
     text-transform: uppercase;
+
+    color: var(--modal-background-color);
+    box-shadow: 8px 2px 22px 0px rgba(0, 0, 0, 0.38);
+    cursor: pointer;
+  }
+
+  .btnClear {
+    width: 130px;
+    height: 44px;
+    background-color: transparent;
+    border: 2px solid var(--trans-form-clear-button-border-color);
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+
+    color: var(--general-text-color);
+    box-shadow: 2px 2px 22px 0px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+  .buttonWrap {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    margin-top: 32px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .wrap {
+    width: 100%;
+    margin: 0 auto;
+    width: 624px;
+    height: 44px;
+  }
+
+  .wrapInput {
+    display: flex;
+    align-items: center;
+  }
+
+  .dateWrapper {
+    position: relative;
+  }
+
+  .calendarIcon {
+    position: absolute;
+    z-index: 2;
+    left: -5px;
+    top: 2px;
+    cursor: pointer;
+  }
+
+  .datePicker {
+    font-weight: 900;
+    font-size: 12px;
+    line-height: 14px;
+    color: var(--table-description-text-color);
+    background-color: transparent;
+    border: none;
+    width: 90px;
+    height: 100%;
+    margin-right: 44px;
+    text-align: end;
+    position: relative;
+    z-index: 9;
+  }
+
+  .datePicker:focus {
+    outline-color: transparent;
+  }
+
+  .datePicker::-webkit-calendar-picker-indicator {
+    color: rgba(0, 0, 0, 0);
+    z-index: 9;
+    width: 90px;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+  }
+
+  .description {
+    width: 184px;
+    height: 44px;
+    border: 2px solid var(--modal-button-border-color);
+    border-top-left-radius: 16px;
+    font-size: 12px;
+    line-height: 14px;
+    padding-left: 19px;
+    background-color: transparent;
+    color: var(--table-description-text-color);
+  }
+
+  .description::placeholder {
+    color: var(--trans-form-input-placeholder-color);
+  }
+
+  .select {
+    width: 184px;
+    height: 44px;
+    margin-bottom: 0;
+    border: 2px solid var(--modal-button-border-color);
+  }
+
+  .inputCountWrapper {
+    position: relative;
+    width: 110px;
+  }
+
+  .calculatorIcon {
+    position: absolute;
+    right: 16px;
+    top: 12px;
+  }
+
+  .inputCount {
+    width: 110px;
+    height: 44px;
+    padding-right: 45px;
+    padding-left: 10px;
+    border: 2px solid var(--modal-button-border-color);
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    font-weight: 900;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    background-color: transparent;
+
+    color: var(--table-description-text-color);
+  }
+
+  .btnInput {
+    width: 125px;
+    height: 44px;
+    background: var(--general-accent-background-color);
+    border: none;
+    border-radius: 16px;
+    margin-right: 15px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+
+    color: var(--trans-background-color);
+    box-shadow: 2px 2px 22px 0px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+
+  .btnClear {
+    width: 125px;
+    height: 44px;
+    background-color: transparent;
+
+    border: 2px solid #f6f7fc;
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+
+    color: var(--general-text-color);
+    box-shadow: 2px 2px 22px 0px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+  .buttonWrap {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    margin-top: 32px;
   }
 }
 
 @media screen and (min-width: 1280px) {
-  .calendarWrapper {
-    margin-right: 23px;
+  .wrap {
+    width: 1120px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 0;
   }
-}
 
-.calc input::placeholder {
-  padding-left: 40px;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 14px;
-  align-items: center;
-  letter-spacing: 0.02em;
+  .wrapInput {
+    display: flex;
+    align-items: center;
+  }
+  .datePicker {
+    width: 104px;
+    text-align: center;
+  }
 
-  color: #c7ccdc;
-}
+  .description {
+    width: 238px;
+  }
+  .select {
+    width: 169px;
+  }
 
-input[type='text']::placeholder {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 14px;
+  .inputCountWrapper {
+    position: relative;
+    width: 121px;
+  }
 
-  align-items: center;
+  .calculatorIcon {
+    position: absolute;
+    right: 17px;
+    top: 12px;
+  }
 
-  letter-spacing: 0.02em;
+  .inputCount {
+    width: 121px;
+  }
 
-  color: #c7ccdc;
+  .btnInput {
+    width: 136px;
+  }
+
+  .btnClear {
+    width: 136px;
+  }
+  .buttonWrap {
+    margin-left: 32px;
+    margin-top: 0;
+  }
+
+  .inputWrap {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+  }
 }
