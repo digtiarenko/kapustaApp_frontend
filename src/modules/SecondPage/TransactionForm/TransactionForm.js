@@ -117,37 +117,6 @@ function TransactionForm() {
           </button>
         </div>
       </form>
-      <div className={s.containerForm}>
-        <form className={s.form}>
-          <div className={s.formControl}>
-            <div className={s.calendarWrapper}></div>
-
-            <input
-              className={s.product}
-              type="text"
-              placeholder="Product description"
-            />
-
-            <div className={s.category}>
-              {/* <p className={s.text}>Product category</p> */}
-              <Dropdown />
-            </div>
-
-            <div className={s.calc}>
-              <input className={s.sammy} type="text" placeholder="0,00" />
-            </div>
-          </div>
-        </form>
-        <div className={s.btnWrapper}>
-          <button type="submit" className={s.btn}>
-            input
-          </button>
-
-          <button type="button" className={s.btn}>
-            clear
-          </button>
-        </div>
-      </div>
     </>
   );
 }
