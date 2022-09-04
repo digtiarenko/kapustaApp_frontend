@@ -25,29 +25,29 @@
 //   <UtilityBillsSVG />,
 // ];
 import alcohol from './alcohol.svg';
-import appliances from './tools.svg';
+import communalcommunication from './tools.svg';
 import education from './education.svg';
 import entertainment from './entertainment.svg';
 import health from './health.svg';
-import home from './home.svg';
+import housing from './home.svg';
 import other from './other.svg';
 import products from './food.svg';
-import sportHobby from './hobbies.svg';
+import sportshobbies from './hobbies.svg';
 import transport from './transport.svg';
-import utilityBills from './utilities.svg';
+import technique from './utilities.svg';
 
-const icons = [
+const icons = {
   alcohol,
-  appliances,
+  communalcommunication,
   education,
   entertainment,
   health,
-  home,
+  housing,
   other,
   products,
-  sportHobby,
+  sportshobbies,
   transport,
-  utilityBills,
-];
+  technique,
+};
 
 export default icons;

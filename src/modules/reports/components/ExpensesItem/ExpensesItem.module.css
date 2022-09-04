@@ -5,7 +5,8 @@
   align-items: center;
 
   /* width: 85px; */
-  min-width: 85px;
+  /* min-width: 85px; */
+  /* max-width: 105px; */
 
   text-decoration: none;
 }

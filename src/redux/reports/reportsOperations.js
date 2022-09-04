@@ -15,6 +15,7 @@ const getReportsMonthlyExpense = createAsyncThunk(
   async () => {
     try {
       const { data } = await axios.get('/reports/monthly-expense');
+      // const { data } = await axios.get('/categories');
       return data;
     } catch (error) {
       console.log(error);
