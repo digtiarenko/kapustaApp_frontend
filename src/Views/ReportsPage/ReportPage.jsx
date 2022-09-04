@@ -54,10 +54,6 @@ export default function ReportPage() {
 
   const transactions = useSelector(getTransactions);
 
-  const deleteId = id => () => {
-    dispatch(deleteTransactionById(id));
-  };
-
   const date = new Date();
   let currentYear = date.getFullYear();
   let currentMonth = arrayOfMonth[date.getMonth()];
@@ -91,7 +87,7 @@ export default function ReportPage() {
     <>
       <Container>
         <section className={s.section}>
-          <ul>
+          {/* <ul>
             {transactions &&
               transactions.map(transaction => (
                 <li key={transaction._id}>
@@ -99,7 +95,7 @@ export default function ReportPage() {
                   {transaction._id}
                 </li>
               ))}
-          </ul>
+          </ul> */}
           <div className={s.inlineBlock}>
             <ButtonGoMain />
             <div className={s.inlineBalanceBlock}>
