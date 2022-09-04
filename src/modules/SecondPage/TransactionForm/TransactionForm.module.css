@@ -17,7 +17,7 @@
     flex-direction: column;
     width: 100vw;
     height: 258px;
-    background-color: var(--trans-dropdown-border-color);
+    background-color: #f5f6fb;
     border-bottom-left-radius: 30%;
   }
 
@@ -31,19 +31,19 @@
     background-color: transparent;
     padding-left: 30px;
     border: 2px solid #52555f;
-    color: var(--table-description-text-color);
+    color: #52555f;
   }
 
   .description::placeholder {
     font-weight: 400;
-    color: var(--trans-form-input-placeholder-color);
+    color: #c7ccdc;
   }
   .select {
     width: 280px;
     height: 44px;
-    border: 2px solid var(--trans-dropdown-background-color);
+    border: 2px solid #fff;
     border-bottom-right-radius: 16px;
-    color: var(--trans-form-input-placeholder-color);
+    color: #c7ccdc;
   }
 
   .inputCountWrapper {
@@ -60,7 +60,7 @@
   .inputCount {
     width: 183px;
     height: 44px;
-    border: 2px solid var(--trans-dropdown-background-color);
+    border: 2px solid #fff;
     padding-right: 55px;
     padding-left: 55px;
     border-radius: 22px;
@@ -70,11 +70,11 @@
     text-align: center;
     margin-top: 32px;
     background-color: transparent;
-    color: var(--table-description-text-color);
+    color: #52555f;
   }
 
   .inputCount::placeholder {
-    color: var(--general-header-color);
+    color: #000;
   }
 
   .dateWrapper {
@@ -92,7 +92,7 @@
     font-weight: 900;
     font-size: 12px;
     line-height: 14px;
-    color: var(--general-text-color);
+    color: #2e2f30;
     background-color: transparent;
     border: none;
     width: 110px;
@@ -122,7 +122,7 @@
   .btnInput {
     width: 130px;
     height: 44px;
-    background: var(--general-accent-background-color);
+    background: #ff751d;
     border: none;
     border-radius: 16px;
     margin-right: 15px;
@@ -133,7 +133,7 @@
     letter-spacing: 0.02em;
     text-transform: uppercase;
 
-    color: var(--modal-background-color);
+    color: #fff;
     box-shadow: 8px 2px 22px 0px rgba(0, 0, 0, 0.38);
     cursor: pointer;
   }
@@ -142,7 +142,7 @@
     width: 130px;
     height: 44px;
     background-color: transparent;
-    border: 2px solid var(--trans-form-clear-button-border-color);
+    border: 2px solid #f6f7fc;
     border-radius: 16px;
     font-weight: 700;
     font-size: 12px;
@@ -151,7 +151,7 @@
     letter-spacing: 0.02em;
     text-transform: uppercase;
 
-    color: var(--general-text-color);
+    color: #2e2f30;
     box-shadow: 2px 2px 22px 0px rgba(0, 0, 0, 0.2);
     cursor: pointer;
   }
@@ -192,7 +192,7 @@
     font-weight: 900;
     font-size: 12px;
     line-height: 14px;
-    color: var(--table-description-text-color);
+    color: #52555f;
     background-color: transparent;
     border: none;
     width: 90px;
@@ -222,24 +222,24 @@
   .description {
     width: 184px;
     height: 44px;
-    border: 2px solid var(--modal-button-border-color);
+    border: 2px solid #f5f6fb;
     border-top-left-radius: 16px;
     font-size: 12px;
     line-height: 14px;
     padding-left: 19px;
     background-color: transparent;
-    color: var(--table-description-text-color);
+    color: #52555f;
   }
 
   .description::placeholder {
-    color: var(--trans-form-input-placeholder-color);
+    color: #c7ccdc;
   }
 
   .select {
     width: 184px;
     height: 44px;
     margin-bottom: 0;
-    border: 2px solid var(--modal-button-border-color);
+    border: 2px solid #f5f6fb;
   }
 
   .inputCountWrapper {
@@ -258,7 +258,7 @@
     height: 44px;
     padding-right: 45px;
     padding-left: 10px;
-    border: 2px solid var(--modal-button-border-color);
+    border: 2px solid #f5f6fb;
     border-top-right-radius: 16px;
     border-bottom-right-radius: 16px;
     font-weight: 900;
@@ -267,13 +267,13 @@
     text-align: center;
     background-color: transparent;
 
-    color: var(--table-description-text-color);
+    color: #52555f;
   }
 
   .btnInput {
     width: 125px;
     height: 44px;
-    background: var(--general-accent-background-color);
+    background: #ff751d;
     border: none;
     border-radius: 16px;
     margin-right: 15px;
@@ -284,7 +284,7 @@
     letter-spacing: 0.02em;
     text-transform: uppercase;
 
-    color: var(--trans-background-color);
+    color: #fff;
     box-shadow: 2px 2px 22px 0px rgba(0, 0, 0, 0.2);
     cursor: pointer;
   }
@@ -303,7 +303,7 @@
     letter-spacing: 0.02em;
     text-transform: uppercase;
 
-    color: var(--general-text-color);
+    color: #2e2f30;
     box-shadow: 2px 2px 22px 0px rgba(0, 0, 0, 0.2);
     cursor: pointer;
   }

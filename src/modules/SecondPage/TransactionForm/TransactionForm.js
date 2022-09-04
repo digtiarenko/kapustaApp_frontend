@@ -7,7 +7,7 @@ import moment from 'moment';
 import Dropdown from 'modules/dropDownCategories/Dropdown';
 
 function TransactionForm() {
-  const [date, setDate] = useState(moment(new Date()).format('YYYY-MM-DD'));
+  const [date, setDate] = useState(moment().format('DD-MM-YYYY'));
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
   const [amount, setAmount] = useState('');
@@ -35,7 +35,7 @@ function TransactionForm() {
     const transactionsList = {
       description: description,
       date: date,
-      category: category.value,
+      category: category,
       amount: amount,
     };
     if (
@@ -46,7 +46,7 @@ function TransactionForm() {
       return alert('Please fill in all fields');
     }
 
-    // dispatch(authOperations.sendExpenseTransaction(transactionsList));
+    // dispatch
   };
 
   const onHandleResetForm = () => {
