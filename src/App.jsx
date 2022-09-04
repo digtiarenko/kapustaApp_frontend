@@ -7,9 +7,10 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import AppBar from './modules/navigation/components/AppBar';
-import Spinner from './modules/LoaderPage';
 import GoogleRedirectPage from 'Views/GoogleRedirectPage/GoogleRedirectPage';
 import { ProtectedRoute } from 'hoc/ProtectedRoute';
+import LoaderPage from './modules/LoaderPage';
+import LoaderSection from 'modules/LoaderSection';
 
 const AuthPage = lazy(() => import('./Views/AuthPage/AuthPage'));
 const HomePage = lazy(() => import('./Views/HomePage'));
@@ -33,7 +34,7 @@ export const App = () => {
   return (
     <>
       {isFetchingCurrentUser ? (
-        <Spinner />
+        <LoaderPage />
       ) : (
         <>
           <Routes>
@@ -51,12 +52,13 @@ export const App = () => {
               <Route
                 element={
                   <ProtectedRoute redirectPath={'/home'} isAllowed={!isAuth}>
-                    <Suspense fallback={<div>Loading...</div>}>
+                    <Suspense fallback={<LoaderPage />}>
                       <AuthPage />
                     </Suspense>
                   </ProtectedRoute>
                 }
               />
+
               <Route
                 path="home"
                 element={
@@ -66,12 +68,21 @@ export const App = () => {
                     </Suspense>
                   </ProtectedRoute>
                 }
-              />
+              >
+                <Route
+                  path=":type"
+                  element={
+                    <Suspense fallback={<LoaderSection />}>
+                      <Category />
+                    </Suspense>
+                  }
+                />
+              </Route>
               <Route
                 path="reports"
                 element={
                   <ProtectedRoute redirectPath={'/'} isAllowed={isAuth}>
-                    <Suspense fallback={<div>Loading...</div>}>
+                    <Suspense fallback={<LoaderPage />}>
                       <ReportsPage />
                     </Suspense>
                   </ProtectedRoute>
@@ -80,7 +91,7 @@ export const App = () => {
                 <Route
                   path=":type"
                   element={
-                    <Suspense fallback={<div>Loading...</div>}>
+                    <Suspense fallback={<LoaderSection />}>
                       <Category />
                     </Suspense>
                   }
@@ -88,7 +99,7 @@ export const App = () => {
                   <Route
                     path=":category"
                     element={
-                      <Suspense fallback={<div>Loading...</div>}>
+                      <Suspense fallback={<LoaderSection />}>
                         <ReportChart />
                       </Suspense>
                     }
@@ -99,7 +110,7 @@ export const App = () => {
                 path="google-redirect"
                 element={
                   <ProtectedRoute redirectPath={'/home'} isAllowed={!isAuth}>
-                    <Suspense fallback={<div>Loading...</div>}>
+                    <Suspense fallback={<LoaderPage />}>
                       <GoogleRedirectPage />
                     </Suspense>
                   </ProtectedRoute>
@@ -109,7 +120,7 @@ export const App = () => {
                 path="*"
                 element={
                   <ProtectedRoute redirectPath={'/'} isAllowed={!isAuth}>
-                    <Suspense fallback={<div>Loading...</div>}>
+                    <Suspense fallback={<LoaderPage />}>
                       <AuthPage />
                     </Suspense>
                   </ProtectedRoute>
