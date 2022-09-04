@@ -28,6 +28,7 @@ function TransactionTableRow({ transactionData, onDelete }) {
       <td>{description}</td>
       <td>{category}</td>
       <td className={s.sum} style={sumStyle}>
+        {type === 'expenses' && sum > 0 && <span>-</span>}
         {sum}
       </td>
       <td>
