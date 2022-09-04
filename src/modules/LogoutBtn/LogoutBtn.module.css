@@ -76,6 +76,7 @@
 
   .logout {
     display: inline-block;
+    cursor: pointer;
   }
 
   .avatar {
