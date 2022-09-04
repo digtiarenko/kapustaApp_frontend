@@ -1,3 +1,29 @@
+
+.table {
+  width: 746px;
+  height: 38px;
+  margin-left: 32px;
+  margin-top: 60px;
+
+  border-collapse: collapse;
+}
+@media screen and (max-width: 768px) {
+  .table {
+    max-width: 624px;
+    max-height: 38px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+.table th {
+  width: 746px;
+  height: 38px;
+  font-weight: bold;
+  padding: 5px;
+  background: #f5f6fb;
+  border: none;
+  border-bottom: 5px solid #f2f8f8;
+
 /* table{
     text-align: left;
     border-collapse: separate;
@@ -28,6 +54,7 @@ border-collapse:collapse;
   .table th {
     display: none;
   }
+
 }
 
 @media screen and (min-width: 768px) {
@@ -58,6 +85,33 @@ border-collapse:collapse;
     letter-spacing: 0.02em;
     text-transform: uppercase;
 
+
+.table td {
+  border: none;
+  border-bottom: 2px solid #f2f8f8;
+  width: 746px;
+  height: 32px;
+}
+@media screen and (max-width: 768px) {
+  .table td {
+    max-width: 624px;
+    max-height: 38px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+tbody {
+  text-align: center;
+  border: 2px solid #f2f8f8;
+  overflow: scroll;
+}
+.table thead tr th:first-child {
+  border-radius: 20px 0 0 0;
+}
+.table thead tr th:last-child {
+  border-radius: 0 20px 0 0;
+
     color: #000000;
   }
 
@@ -78,4 +132,5 @@ border-collapse:collapse;
   .table thead tr th:last-child {
     border-radius: 0 20px 0 0;
   }
+
 }

@@ -2,6 +2,7 @@ import s from './TransactionForm.module.css';
 import React, { useState } from 'react';
 import { ReactComponent as CalendarLogo } from '../../../images/icons/calendar.svg';
 import { ReactComponent as CalculatorLogo } from '../../../images/icons/calculator.svg';
+
 import moment from 'moment';
 import Dropdown from 'modules/dropDownCategories/Dropdown';
 import { useDispatch } from 'react-redux';
@@ -66,17 +67,30 @@ function TransactionForm({ date, setDate, type, setType }) {
   };
 
   return (
-    <form className={s.wrap} onSubmit={handleSubmit} autoComplete="off">
-      <div className={s.wrapInput}>
-        <div className={s.dateWrapper}>
+    <>
+      <form className={s.wrap} onSubmit={handleSubmit} autoComplete="off">
+        <div className={s.wrapInput}>
+          <div className={s.dateWrapper}>
+            <input
+              aria-label="Date"
+              name="date"
+              onChange={handleChange}
+              type="date"
+              className={s.datePicker}
+              value={date}
+            />
+            <CalendarLogo className={s.calendarIcon} />
+          </div>
           <input
-            aria-label="Date"
-            name="date"
+            aria-label="Text"
             onChange={handleChange}
-            type="date"
-            className={s.datePicker}
-            value={date}
+            className={s.description}
+            name="description"
+            type="text"
+            placeholder="Product description"
+            value={description}
           />
+
           <CalendarLogo className={s.calendarIcon} />
         </div>
         <input

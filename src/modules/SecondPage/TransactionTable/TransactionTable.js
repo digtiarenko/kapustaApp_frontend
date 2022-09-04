@@ -26,7 +26,7 @@ function TransactionTable({ date, type }) {
   console.log(transactions);
 
   return (
-    <div>
+    <div className={s.container_table}>
       <table className={s.table}>
         <thead>
           <tr>
