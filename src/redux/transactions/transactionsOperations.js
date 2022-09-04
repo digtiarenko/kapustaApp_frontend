@@ -70,6 +70,7 @@ export const deleteTransactionById = createAsyncThunk(
 const transactionsOperations = {
   createUserTransaction,
   getTransactionsByTypeAndDate,
+  deleteTransactionById,
 };
 
 export default transactionsOperations;
