@@ -25,7 +25,7 @@ export const Button = ({ text, theme, onClick, type, disabled }) => {
 
   return (
     <button
-      className={(type = 'exit' ? s.exit : s.button)}
+      className={(type === 'exit' && s.exit) || (type === 'submit' && s.submit)}
       style={style}
       onClick={onClick}
       type={type}
