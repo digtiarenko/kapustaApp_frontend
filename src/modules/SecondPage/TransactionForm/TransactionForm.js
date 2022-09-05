@@ -5,11 +5,7 @@ import { ReactComponent as CalculatorLogo } from '../../../images/icons/calculat
 import moment from 'moment';
 import Dropdown from 'modules/dropDownCategories/Dropdown';
 import { useDispatch } from 'react-redux';
-import {
-  createUserTransaction,
-  getTransactionsByTypeAndDate,
-  deleteTransactionById,
-} from 'redux/transactions/transactionsOperations';
+import { createUserTransaction } from 'redux/transactions/transactionsOperations';
 
 function TransactionForm({ date, setDate, type, setType }) {
   const [description, setDescription] = useState('');
@@ -17,7 +13,7 @@ function TransactionForm({ date, setDate, type, setType }) {
   const [categoryID, setCategoryID] = useState(null);
   const [value, setValue] = useState('');
   const dispatch = useDispatch();
-
+  console.log(date);
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
       case 'date':
