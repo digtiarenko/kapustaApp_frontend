@@ -21,6 +21,7 @@ export default function Page({ balance, setBalance }) {
     ) {
       navigation('/home/expenses');
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
