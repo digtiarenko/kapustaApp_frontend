@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = process.env.REACT_APP_BASE_API_URL;
 console.log('process.env.BASE_API_URL', process.env.REACT_APP_BASE_API_URL);
@@ -19,10 +20,12 @@ const register = createAsyncThunk(
     try {
       const { data } = await axios.post('/auth/register', credentials);
       token.set(data.token);
-      alert('Request is success');
+      toast.success('Register is success. Login please.');
+
       return data;
     } catch (error) {
-      alert('Error. Try other email');
+      toast.error('Error. Try other email!');
+
       return thunkAPI.rejectWithValue();
     }
   }
@@ -32,10 +35,12 @@ const logIn = createAsyncThunk('auth/login', async (credentials, thunkAPI) => {
   try {
     const { data } = await axios.post('/auth/login', credentials);
     token.set(data.token);
-    alert('Request is success');
+    toast.success('Authentification success!');
+
     return data;
   } catch (error) {
-    alert('Error. Try other credentials');
+    toast.error('Error. Try other credentials!');
+
     return thunkAPI.rejectWithValue();
   }
 });
@@ -44,9 +49,9 @@ const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     await axios.get('/auth/logout');
     token.unset();
-    alert('Request is success');
+    toast.success('Goodbye to the next session!');
   } catch (error) {
-    alert('Logout is success');
+    toast.success('Error. Try again!');
     return thunkAPI.rejectWithValue();
   }
 });

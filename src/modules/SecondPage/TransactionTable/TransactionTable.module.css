@@ -1,0 +1,70 @@
+@media screen and (max-width: 767px) {
+  .table {
+    width: 280px;
+  }
+  .table th {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .table {
+    max-width: 624px;
+    max-height: 38px;
+    margin-top: 50px;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-collapse: collapse;
+    overflow: scroll;
+  }
+
+  .table th {
+    width: 746px;
+    height: 38px;
+    font-weight: bold;
+    padding: 5px;
+    background: #f5f6fb;
+    border: none;
+    border-bottom: 5px solid #f2f8f8;
+  }
+
+  thead {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+
+    align-items: center;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+
+    color: #000000;
+  }
+
+  .table td {
+    border: none;
+    border-bottom: 2px solid #f2f8f8;
+    width: 746px;
+    height: 32px;
+  }
+
+  tbody {
+    text-align: center;
+    border: 2px solid #f2f8f8;
+    overflow: scroll;
+  }
+  .table thead tr th:first-child {
+    border-radius: 20px 0 0 0;
+  }
+  .table thead tr th:last-child {
+    border-radius: 0 20px 0 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .table {
+    width: 746px;
+    height: 38px;
+    margin-left: 32px;
+    margin-top: 60px;
+  }
+}

@@ -2,11 +2,12 @@ import { createSlice } from '@reduxjs/toolkit';
 import {
   createUserTransaction,
   getTransactionsByTypeAndDate,
+  deleteTransactionById,
 } from './transactionsOperations';
 
 const initialState = {
   message: null,
-  transaction: null,
+  transactions: [],
 };
 
 const transactionsSlice = createSlice({
@@ -14,12 +15,23 @@ const transactionsSlice = createSlice({
   initialState,
   extraReducers: {
     [createUserTransaction.fulfilled](state, { payload }) {
-      console.log('transactions PAYLOAD', payload);
       state.message = payload.message;
-      state.transaction = payload.transaction;
+      state.transactions.push(payload.transaction);
+    },
+    [createUserTransaction.rejected](state, { payload }) {
+      state.message = 'Transaction with such data is incorrect';
     },
     [getTransactionsByTypeAndDate.fulfilled](state, { payload }) {
-      console.log('PAYLOAD', payload);
+      state.message = payload.message;
+      state.transactions = payload.transactions;
+    },
+    [getTransactionsByTypeAndDate.rejected](state, { payload }) {
+      state.message = 'Incorrect date or transaction type specified';
+    },
+    [deleteTransactionById.fulfilled](state, { payload }) {
+      state.transactions = state.transactions.filter(
+        ({ _id }) => _id !== payload.transaction._id
+      );
     },
   },
 });

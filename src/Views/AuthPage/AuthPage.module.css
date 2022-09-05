@@ -1,4 +1,13 @@
+.authBlock {
+  position: relative;
+}
+.container {
+  display: flex;
+  justify-content: center;
+}
 .wrapper {
+  padding-left: 12px;
+  padding-right: 12px;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -14,14 +23,14 @@
   position: absolute;
   bottom: 0;
   height: 100%;
-  width: 100%;
+  width: 97%;
   z-index: 0;
 }
 
 .header {
-  margin-top: 46px;
-  margin-bottom: 50px;
-  margin-left: auto;
+  margin-top: 86px;
+  margin-bottom: 37px;
+
   margin-right: auto;
   padding-right: 25px;
 }
@@ -41,6 +50,7 @@
   letter-spacing: 0.15em;
   text-transform: uppercase;
   margin-left: 12px;
+  color: #52555f;
 }
 
 @media screen and (max-width: 767px) {
@@ -57,7 +67,7 @@
     width: 183.52px;
     height: 46.62px;
     color: #000000;
-    background: url('../../images/KapustaLogoMob.png') no-repeat; /* Путь к фото*/
+    background: url('../../images/KapustaLogoMob.png') no-repeat;
   }
 }
 
@@ -78,7 +88,7 @@
 
   .header {
     margin-top: 90px;
-    margin-bottom: 50px;
+
     margin-left: 0;
     margin-right: 0;
     padding-right: 0;

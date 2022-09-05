@@ -1,8 +1,17 @@
-import { Formik } from 'formik';
+import { Formik, Form } from 'formik';
+import { Button } from '../Buttons/Button';
 import s from './AuthForm.module.css';
 import google from '../../images/icons/google.svg';
 
-export default function AuthForm({ email, password, handleChange }) {
+export default function AuthForm({
+  email,
+  password,
+  handleChange,
+  handleRegister,
+  handleLogin,
+  validateByFormik,
+  errorsSubmit,
+}) {
   return (
     <>
       <Formik
@@ -10,37 +19,27 @@ export default function AuthForm({ email, password, handleChange }) {
           email: '',
           password: '',
         }}
-        validate={values => {
-          let errors = {};
-          const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-          values.email = email;
-          values.password = password;
-          if (!values.email) {
-            errors.email = 'Email is required';
-          } else if (!regex.test(values.email)) {
-            errors.email = 'Invalid Email';
-          }
-          if (!values.password) {
-            errors.password = 'Password is required';
-          } else if (values.password.length < 8) {
-            errors.password = 'Password too short';
-          }
-          return errors;
-        }}
+        validate={validateByFormik}
       >
         {formik => {
-          const { errors, touched, handleBlur, isValid, dirty } = formik;
+          const { errors, touched, handleBlur } = formik;
           return (
-            <form className={s.form}>
-              <h2 className={s.title}>
+            <Form className={s.form}>
+              <h2 className={s.form__title_first}>
                 You can log in with your Google Account:
               </h2>
-              <a href={`${process.env.REACT_APP_BASE_API_URL}/auth/google`}>
+              <a
+                className={s.googleImage__background}
+                href={`${process.env.REACT_APP_BASE_API_URL}/auth/google`}
+              >
                 <img className={s.googleImage} src={google} alt="google" />
               </a>
-              <div className={s.p}>
-                <label className={s.label} htmlFor="email">
-                  Email
+              <h3 className={s.form__title}>
+                Or log in using an email and password, after registering:
+              </h3>
+              <div className={s.form_field}>
+                <label className={s.form__label} htmlFor="email">
+                  Email:
                 </label>
                 <input
                   id="email"
@@ -50,17 +49,30 @@ export default function AuthForm({ email, password, handleChange }) {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   className={
-                    errors.email && touched.email ? s.input_error : s.input
+                    (errors.email && touched.email) ||
+                    errorsSubmit.email !== '' ||
+                    errorsSubmit.password !== ''
+                      ? s.form__input_error
+                      : s.form__input
                   }
                 />
-                {errors.email && touched.email && (
-                  <span className={s.error}>{errors.email}</span>
+                {errors.email &&
+                  touched.email &&
+                  errorsSubmit.email === '' &&
+                  errorsSubmit.password === '' && (
+                    <span className={s.form__error}>{errors.email}</span>
+                  )}
+                {errorsSubmit.email === 'required' && (
+                  <span className={s.form__error}>Email is required</span>
+                )}
+                {errorsSubmit.email === 'wrong' && (
+                  <span className={s.form__error}>Invalid email</span>
                 )}
               </div>
 
-              <div className={s.p}>
-                <label className={s.label} htmlFor="password">
-                  Password
+              <div className={s.form_field}>
+                <label className={s.form__label} htmlFor="password">
+                  Password:
                 </label>
                 <input
                   id="password"
@@ -70,16 +82,45 @@ export default function AuthForm({ email, password, handleChange }) {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   className={
-                    errors.password && touched.password
-                      ? s.input_error
-                      : s.input
+                    (errors.password && touched.password) ||
+                    errorsSubmit.email !== '' ||
+                    errorsSubmit.password !== ''
+                      ? s.form__input_error
+                      : s.form__input
                   }
                 />
-                {errors.password && touched.password && (
-                  <span className={s.error}>{errors.password}</span>
+                {errors.password &&
+                  touched.password &&
+                  errorsSubmit.email === '' &&
+                  errorsSubmit.password === '' && (
+                    <span className={s.form__error}>{errors.password}</span>
+                  )}
+                {errorsSubmit.password === 'required' && (
+                  <span className={s.form__error}>Password is required</span>
+                )}
+                {errorsSubmit.password === 'wrong' && (
+                  <span className={s.form__error}>Password is too short!</span>
                 )}
               </div>
-            </form>
+              <ul className={s.form__list}>
+                <li className={s.form__item}>
+                  <Button
+                    text={'Log in'}
+                    type="submit"
+                    /*   disabled={disabled} */
+                    onClick={handleLogin}
+                  />
+                </li>
+                <li className={s.form__item}>
+                  <Button
+                    text={'Registration'}
+                    type="submit"
+                    /*    disabled={disabled} */
+                    onClick={handleRegister}
+                  />
+                </li>
+              </ul>
+            </Form>
           );
         }}
       </Formik>

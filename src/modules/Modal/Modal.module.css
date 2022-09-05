@@ -1,3 +1,14 @@
+ul {
+  list-style-type: none;
+}
+.Question {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.02em;
+  color: #52555f;
+}
+
 .Overlay {
   position: fixed;
   top: 0;
@@ -20,8 +31,8 @@
   flex-direction: column;
   justify-content: space-around;
   min-height: 195px;
-  max-width: 380px;
-  width: 100%;
+  width: 280px;
+
   padding: 12px;
   background-color: #fff;
   border-radius: 30px;
@@ -60,12 +71,9 @@
 }
 
 .ModalContainerBtn {
-  margin-top: 20px;
   display: flex;
-}
-
-.ModalContainerBtn:last-child {
-  margin-left: 15px;
+  padding: 0;
+  margin: 20px 0 0 0;
 }
 
 .ModalBtn {
@@ -101,3 +109,8 @@
 /* .ModalBtn:last-child {
   margin-right: 0px;
 } */
+@media screen and (min-width: 420px) {
+  .Modal {
+    width: 380px;
+  }
+}

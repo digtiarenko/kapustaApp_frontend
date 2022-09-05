@@ -24,7 +24,10 @@ export default function Balance({ type }) {
       setBalance(initialBalance);
       setIsReadable(false);
     } else {
-      setLoading(true);
+      //setTimeout to avoid blinking the modal when page rendering
+      setTimeout(() => {
+        setLoading(true);
+      }, 500);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialBalance]);
@@ -55,7 +58,7 @@ export default function Balance({ type }) {
             placeholder={'00.00 UAH'}
             suffix={' UAH'}
             onValueChange={handleOnValueChange}
-            disabled={!isReadable || type === 'report'}
+            disabled={!isReadable}
           />
           <button
             type="submit"
