@@ -8,10 +8,10 @@ import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import TransactionForm from '../TransactionForm/TransactionForm';
 
-export default function Page() {
+export default function Page({ balance, setBalance }) {
   const location = useLocation();
   const [date, setDate] = useState(moment().format('YYYY-MM-DD'));
-  const [type, setType] = useState('');
+  const [type, setType] = useState('expenses');
 
   useEffect(() => {
     if (location.pathname === '/home/expenses') {
@@ -30,7 +30,8 @@ export default function Page() {
           date={date}
           setDate={setDate}
           type={type}
-          setType={setType}
+          balance={balance}
+          setBalance={setBalance}
         />
         <div className={s.tables}>
           <TransactionTable date={date} type={type} />

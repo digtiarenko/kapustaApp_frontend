@@ -18,7 +18,7 @@ export const createUserTransaction = createAsyncThunk(
     token.set(persistedToken);
     try {
       const { data } = await axios.post('/transactions', transactionBody);
-      console.log(data);
+
       return data;
     } catch (error) {
       return rejectWithValue();

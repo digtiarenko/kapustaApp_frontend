@@ -6,13 +6,25 @@ import moment from 'moment';
 import Dropdown from 'modules/dropDownCategories/Dropdown';
 import { useDispatch } from 'react-redux';
 import { createUserTransaction } from 'redux/transactions/transactionsOperations';
+import NumberFormat from 'react-number-format';
 
-function TransactionForm({ date, setDate, type, setType }) {
+function TransactionForm({ date, setDate, type, balance, setBalance }) {
   const [description, setDescription] = useState('');
   const [categoryName, setCategoryName] = useState(null);
   const [categoryID, setCategoryID] = useState(null);
   const [value, setValue] = useState('');
   const dispatch = useDispatch();
+
+  const getUpdatedBalance = typeOfTransaction => {
+    switch (typeOfTransaction) {
+      case 'expenses':
+        return setBalance(balance - value);
+      case 'income':
+        return setBalance(balance + value);
+      default:
+        return balance;
+    }
+  };
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -47,6 +59,7 @@ function TransactionForm({ date, setDate, type, setType }) {
         type,
       })
     );
+    getUpdatedBalance(type);
     setDescription('');
     setCategoryName('');
     setValue('');
@@ -104,7 +117,7 @@ function TransactionForm({ date, setDate, type, setType }) {
             type="number"
             name="amount"
             className={s.inputCount}
-            placeholder="00.00"
+            placeholder="0.00"
             value={value}
           />
         </div>{' '}
