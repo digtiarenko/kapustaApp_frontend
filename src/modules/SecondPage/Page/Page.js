@@ -4,14 +4,24 @@ import TransactionTable from '../TransactionTable/TransactionTable';
 import Summary from '../Summary/Summary';
 import s from './Page.module.css';
 import moment from 'moment';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import TransactionForm from '../TransactionForm/TransactionForm';
 
 export default function Page({ balance, setBalance }) {
   const location = useLocation();
+  const navigation = useNavigate();
   const [date, setDate] = useState(moment().format('YYYY-MM-DD'));
   const [type, setType] = useState('');
+
+  useEffect(() => {
+    if (
+      location.pathname === '/home' ||
+      location.pathname === '/home/expenses'
+    ) {
+      navigation('/home/expenses');
+    }
+  }, []);
 
   useEffect(() => {
     if (location.pathname === '/home/expenses') {
