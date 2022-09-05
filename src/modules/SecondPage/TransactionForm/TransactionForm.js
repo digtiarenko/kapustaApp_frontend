@@ -13,7 +13,7 @@ function TransactionForm({ date, setDate, type, setType }) {
   const [categoryID, setCategoryID] = useState(null);
   const [value, setValue] = useState('');
   const dispatch = useDispatch();
-  console.log(date);
+
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
       case 'date':
@@ -82,7 +82,11 @@ function TransactionForm({ date, setDate, type, setType }) {
           placeholder="Product description"
           value={description}
         />
-        <Dropdown onCategorySet={onCategorySet} categoryName={categoryName} />
+        <Dropdown
+          type={type}
+          onCategorySet={onCategorySet}
+          categoryName={categoryName}
+        />
         {/* <Select
           aria-label="Select"
           placeholder={<div>Product category</div>}

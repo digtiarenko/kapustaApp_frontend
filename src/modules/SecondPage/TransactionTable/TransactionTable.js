@@ -15,15 +15,17 @@ const TransactionTable = ({ date, type }) => {
   const transactions = useSelector(getTransactions);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(
-      getTransactionsByTypeAndDate({
-        type,
-        date,
-        page: '1',
-        limit: '9',
-      })
-    );
-  }, [date, dispatch, type]);
+    transactions &&
+      dispatch(
+        getTransactionsByTypeAndDate({
+          type,
+          date,
+          page: '1',
+          limit: '9',
+        })
+      );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [date, type]);
 
   return (
     <div className={s.container_table}>

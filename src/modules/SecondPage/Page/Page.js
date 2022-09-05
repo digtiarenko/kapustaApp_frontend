@@ -6,12 +6,10 @@ import s from './Page.module.css';
 import moment from 'moment';
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-
 import TransactionForm from '../TransactionForm/TransactionForm';
 
 export default function Page() {
   const location = useLocation();
-
   const [date, setDate] = useState(moment().format('YYYY-MM-DD'));
   const [type, setType] = useState('');
 
