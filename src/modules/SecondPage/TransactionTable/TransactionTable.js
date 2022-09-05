@@ -23,6 +23,7 @@ const TransactionTable = ({ date, type }) => {
         limit: '9',
       })
     );
+
   }, [date, dispatch, type]);
 
   return (
