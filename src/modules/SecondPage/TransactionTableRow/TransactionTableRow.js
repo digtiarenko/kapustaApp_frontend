@@ -28,7 +28,7 @@ export function TransactionTableRow({
   onDelete,
 }) {
   const sumStyle = getSumTypeStyle(type);
-  console.log(id);
+
   return (
     <tr key={id} className={s.tableRow}>
       <td className={s.tableDataDate}>{date}</td>
