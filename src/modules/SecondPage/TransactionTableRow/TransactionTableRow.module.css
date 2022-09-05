@@ -1,6 +1,4 @@
 .tableRow {
-  position: relative;
-
   border-bottom: 2px solid #f2f8f8;
 
   font-family: Roboto, sans-serif;
@@ -25,6 +23,8 @@
 
 @media screen and (max-width: 767px) {
   .tableRow {
+    position: relative;
+
     width: 280px;
   }
 
