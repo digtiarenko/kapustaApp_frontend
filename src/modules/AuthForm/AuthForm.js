@@ -9,21 +9,9 @@ export default function AuthForm({
   handleChange,
   handleRegister,
   handleLogin,
-  validate,
-  disabled,
-  submitError,
+  validateByFormik,
+  errorsSubmit,
 }) {
-  /*  const getStyledButton = disabled => {
-    switch (disabled) {
-      case false:
-        return 'orangeTheme';
-      case true:
-        return 'whiteTheme';
-      default:
-        return;
-    }
-  }; */
-
   return (
     <>
       <Formik
@@ -31,7 +19,7 @@ export default function AuthForm({
           email: '',
           password: '',
         }}
-        validate={validate}
+        validate={validateByFormik}
       >
         {formik => {
           const { errors, touched, handleBlur } = formik;
@@ -61,16 +49,24 @@ export default function AuthForm({
                   onChange={handleChange}
                   onBlur={handleBlur}
                   className={
-                    (errors.email && touched.email) || submitError
+                    (errors.email && touched.email) ||
+                    errorsSubmit.email !== '' ||
+                    errorsSubmit.password !== ''
                       ? s.form__input_error
                       : s.form__input
                   }
                 />
-
-                {submitError ? (
+                {errors.email &&
+                  touched.email &&
+                  errorsSubmit.email === '' &&
+                  errorsSubmit.password === '' && (
+                    <span className={s.form__error}>{errors.email}</span>
+                  )}
+                {errorsSubmit.email === 'required' && (
                   <span className={s.form__error}>Email is required</span>
-                ) : (
-                  <span className={s.form__error}>{errors.email}</span>
+                )}
+                {errorsSubmit.email === 'wrong' && (
+                  <span className={s.form__error}>Invalid email</span>
                 )}
               </div>
 
@@ -86,16 +82,24 @@ export default function AuthForm({
                   onChange={handleChange}
                   onBlur={handleBlur}
                   className={
-                    (errors.password && touched.password) || submitError
+                    (errors.password && touched.password) ||
+                    errorsSubmit.email !== '' ||
+                    errorsSubmit.password !== ''
                       ? s.form__input_error
                       : s.form__input
                   }
                 />
-                {errors.password && touched.password && (
-                  <span className={s.form__error}>{errors.password}</span>
-                )}
-                {submitError && (
+                {errors.password &&
+                  touched.password &&
+                  errorsSubmit.email === '' &&
+                  errorsSubmit.password === '' && (
+                    <span className={s.form__error}>{errors.password}</span>
+                  )}
+                {errorsSubmit.password === 'required' && (
                   <span className={s.form__error}>Password is required</span>
+                )}
+                {errorsSubmit.password === 'wrong' && (
+                  <span className={s.form__error}>Password is too short!</span>
                 )}
               </div>
               <ul className={s.form__list}>
@@ -103,7 +107,7 @@ export default function AuthForm({
                   <Button
                     text={'Log in'}
                     type="submit"
-                    disabled={disabled}
+                    /*   disabled={disabled} */
                     onClick={handleLogin}
                   />
                 </li>
@@ -111,7 +115,7 @@ export default function AuthForm({
                   <Button
                     text={'Registration'}
                     type="submit"
-                    disabled={disabled}
+                    /*    disabled={disabled} */
                     onClick={handleRegister}
                   />
                 </li>
