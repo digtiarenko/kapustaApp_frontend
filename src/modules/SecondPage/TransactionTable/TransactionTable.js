@@ -12,11 +12,11 @@ const TransactionTable = ({ date, type }) => {
   const onDelete = id => () => {
     dispatch(deleteTransactionById(id));
   };
-
   const transactions = useSelector(getTransactions);
   const dispatch = useDispatch();
   useEffect(() => {
     transactions &&
+      type &&
       dispatch(
         getTransactionsByTypeAndDate({
           type,
