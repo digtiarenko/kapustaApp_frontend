@@ -7,12 +7,15 @@ import { CurrentPeriod } from '../../modules/CurrentPeriod/CurrentPeriod.jsx';
 import { useCallback, useEffect, useState } from 'react';
 import Container from 'modules/navigation/components/Container';
 import { useDispatch, useSelector } from 'react-redux';
+
 import {
   createUserTransaction,
   getTransactionsByTypeAndDate,
   deleteTransactionById,
 } from 'redux/transactions/transactionsOperations';
 import { getTransactions } from '../../redux/transactions/transactionsSelectors';
+
+
 
 const arrayOfMonth = [
   'January',
@@ -30,6 +33,7 @@ const arrayOfMonth = [
 ];
 
 export default function ReportPage() {
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -53,6 +57,7 @@ export default function ReportPage() {
   }, []);
 
   const transactions = useSelector(getTransactions);
+
 
   const date = new Date();
   let currentYear = date.getFullYear();
