@@ -4,13 +4,12 @@
   padding: 40px 0;
   border-radius: 4px;
   border-radius: 30px;
-  box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
+  box-shadow: 8px -6px 16px -2px #8c8c8c;
 }
 
 @media screen and (min-width: 768px) {
   .container {
     width: 426px;
     padding: 70px 10px;
-    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   }
 }
