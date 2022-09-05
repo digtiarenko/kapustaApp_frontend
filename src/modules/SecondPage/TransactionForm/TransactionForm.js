@@ -6,7 +6,7 @@ import moment from 'moment';
 import Dropdown from 'modules/dropDownCategories/Dropdown';
 import { useDispatch } from 'react-redux';
 import { createUserTransaction } from 'redux/transactions/transactionsOperations';
-import NumberFormat from 'react-number-format';
+import balanceOperations from 'redux/initialBalance/initialBalanceOperations';
 
 function TransactionForm({ date, setDate, type, balance, setBalance }) {
   const [description, setDescription] = useState('');
@@ -14,13 +14,19 @@ function TransactionForm({ date, setDate, type, balance, setBalance }) {
   const [categoryID, setCategoryID] = useState(null);
   const [value, setValue] = useState('');
   const dispatch = useDispatch();
+  const addInitialBalance = data =>
+    dispatch(balanceOperations.addInitialBalance(data));
 
   const getUpdatedBalance = typeOfTransaction => {
     switch (typeOfTransaction) {
       case 'expenses':
-        return setBalance(balance - value);
+        const resultOfExpenses = balance - Math.abs(value);
+        addInitialBalance({ balance: resultOfExpenses });
+        return;
       case 'income':
-        return setBalance(balance + value);
+        const resultOfIncome = balance + Math.abs(value);
+        addInitialBalance({ balance: resultOfIncome });
+        return;
       default:
         return balance;
     }
@@ -59,7 +65,7 @@ function TransactionForm({ date, setDate, type, balance, setBalance }) {
         type,
       })
     );
-    getUpdatedBalance(type);
+    console.log(getUpdatedBalance(type));
     setDescription('');
     setCategoryName('');
     setValue('');

@@ -11,7 +11,7 @@ import TransactionForm from '../TransactionForm/TransactionForm';
 export default function Page({ balance, setBalance }) {
   const location = useLocation();
   const [date, setDate] = useState(moment().format('YYYY-MM-DD'));
-  const [type, setType] = useState('expenses');
+  const [type, setType] = useState('');
 
   useEffect(() => {
     if (location.pathname === '/home/expenses') {

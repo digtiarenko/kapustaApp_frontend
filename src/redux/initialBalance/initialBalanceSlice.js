@@ -13,6 +13,7 @@ const initialBalanceSlice = createSlice({
       state.balance = action.payload.user.balance;
     },
     [balanceOperations.addInitialBalance.fulfilled](state, action) {
+      console.log(action.payload);
       state.balance = action.payload.balance;
     },
   },
