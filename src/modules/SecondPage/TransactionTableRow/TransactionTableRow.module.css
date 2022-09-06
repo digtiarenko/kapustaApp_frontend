@@ -5,6 +5,7 @@
   font-size: 8px;
   line-height: 1.16;
   color: #52555f;
+  cursor: default;
 }
 
 .minus {
@@ -63,7 +64,7 @@
 
 @media screen and (min-width: 768px) {
   .tableRow {
-    width: 746px;
+    width: 624px;
     height: 32px;
 
     font-size: 12px;
@@ -98,5 +99,15 @@
     border-radius: 50%;
     background-color: #f5f6fb;
     cursor: pointer;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .tableDataDate {
+    max-width: 25px;
+  }
+
+  .tableDataSum {
+    text-align: center;
   }
 }

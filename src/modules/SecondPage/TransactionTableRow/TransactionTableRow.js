@@ -59,7 +59,9 @@ export function TransactionTableRow({
   return (
     <tr key={id} className={s.tableRow}>
       <td className={s.tableDataDate}>{date}</td>
-      <td className={s.tableDataDescription}>{description}</td>
+      <td title={description} className={s.tableDataDescription}>
+        {description}
+      </td>
       <td className={s.tableDataCategory}>{category}</td>
       <td className={s.tableDataSum} style={sumStyle}>
         {type === 'expenses' && value > 0 && <span className={s.minus}>-</span>}
