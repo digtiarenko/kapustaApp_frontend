@@ -13,14 +13,14 @@ const ReportChart = () => {
   // const { year, month } = useOutletContext();
   const { category, type } = useParams();
 
-  const fullData = useSelector(getReportsFull);
+  // const fullData = useSelector(getReportsFull);
   // const dataMonth = useSelector(getDataByMonth);
-  // const dataType = useSelector(getDataByType(type));
+  const dataType = useSelector(getDataByType(type));
 
   const dataCategory = useSelector(getDataByCategory(type, category));
   const data = dataCategory.arrOfTransactions;
 
-  console.log('data:', data);
+  console.log('data:', dataType);
 
   // console.log('dataByMonth:', dataMonth);
   // console.log('dataByType:', dataType);
