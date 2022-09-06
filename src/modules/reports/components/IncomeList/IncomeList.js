@@ -1,14 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
-import s from './ExpensesList.module.css';
+import s from './IncomeList.module.css';
 import ExpensesItem from '../ExpensesItem';
-import icons from '../../../../images/icons/category/expenses/categoryIcons';
+import icons from '../../../../images/icons/category/income/icons';
 
 import categoriesOperations from 'redux/categories/categoriesOperations';
 import { getCategoriesList } from '../../../../redux/categories/categoriesSelectors';
 
-export default function ExpensesList() {
+export default function IncomeList() {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -16,21 +16,23 @@ export default function ExpensesList() {
   }, [dispatch]);
 
   const categoriesList = useSelector(getCategoriesList);
-  let expensesList;
+  let incomeList;
   if (categoriesList) {
-    expensesList = categoriesList.filter(value => value.type === 'expenses');
-    console.log(expensesList);
+    incomeList = categoriesList.filter(value => value.type === 'income');
+    console.log(incomeList);
     console.log(icons['alcohol']);
-    console.log(expensesList[8].name.split(', ').join('').toLowerCase());
-    console.log(expensesList[0].category_id);
+    console.log(
+      incomeList[0].name.split(', ').join('').split(' ').join('').toLowerCase()
+    );
+    console.log(incomeList[0].category_id);
   }
 
   return (
     <ul className={s.list}>
-      {expensesList &&
-        expensesList.map(item => (
+      {incomeList &&
+        incomeList.map(item => (
           <div className={s.item} key={item.name}>
-            <ExpensesItem category={item.name} sum="200">
+            <ExpensesItem category={item.name} sum="40000">
               <img
                 src={
                   icons[

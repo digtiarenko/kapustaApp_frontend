@@ -1,9 +1,9 @@
 import React from 'react';
 import { ReactComponent as Delete } from '../../../images/icons/delete.svg';
 import s from './TransactionTableRow.module.css';
-import { deleteTransactionById } from '../../../redux/transactions/transactionsOperations';
-import { useDispatch, useSelector } from 'react-redux';
 import balanceOperations from 'redux/initialBalance/initialBalanceOperations';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteTransactionById } from '../../../redux/transactions/transactionsOperations';
 
 const getSumTypeStyle = type => {
   switch (type) {
@@ -55,6 +55,7 @@ export function TransactionTableRow({
   };
 
   const sumStyle = getSumTypeStyle(type);
+
   return (
     <tr key={id} className={s.tableRow}>
       <td className={s.tableDataDate}>{date}</td>

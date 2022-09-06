@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import arrowLeft from '../../images/icons/arrow-left.svg';
 import arrowRight from '../../images/icons/arrow-right.svg';
 import s from './currentPeriod.module.css';

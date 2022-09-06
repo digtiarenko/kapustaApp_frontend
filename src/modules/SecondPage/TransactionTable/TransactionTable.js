@@ -61,13 +61,3 @@ const TransactionTable = ({ date, type }) => {
 };
 
 export default TransactionTable;
-
-//  <TransactionTableRow
-//                 key={transaction._id}
-//                 id={transaction._id}
-//                 date={transaction.date}
-//                 description={transaction.description}
-//                 type={transaction.type}
-//                 value={transaction.value}
-//                 category={transaction.category.name}
-//               />

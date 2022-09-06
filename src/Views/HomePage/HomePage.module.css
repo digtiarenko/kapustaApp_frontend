@@ -27,11 +27,13 @@
   flex-direction: column;
   align-items: center;
 }
+
 .pageName {
   display: none;
 }
 
 @media screen and (min-width: 768px) {
+
   /* .rel{
     position:unset ;
   } */
@@ -40,6 +42,7 @@
     flex-direction: row-reverse;
     justify-content: space-between;
   }
+
   .container {
     height: 100vh;
     background-color: #fff;
@@ -51,9 +54,11 @@
   .stats {
     margin-top: 48px;
   }
+
   .buttonCont {
     display: block;
   }
+
   .ab {
     position: relative;
 
@@ -63,6 +68,7 @@
     z-index: inherit;
   }
 }
+
 @media screen and (min-width: 1280px) {
   .container {
     /* display: flex; */

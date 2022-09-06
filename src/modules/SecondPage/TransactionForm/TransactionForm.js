@@ -34,24 +34,6 @@ function TransactionForm({ date, setDate, type }) {
     }
   };
 
-  // const addInitialBalance = data =>
-  //   dispatch(balanceOperations.addInitialBalance(data));
-
-  // const getUpdatedBalance = typeOfTransaction => {
-  //   switch (typeOfTransaction) {
-  //     case 'expenses':
-  //       const resultOfExpenses = balance - Math.abs(value);
-  //       addInitialBalance({ balance: resultOfExpenses });
-  //       return;
-  //     case 'income':
-  //       const resultOfIncome = balance + Math.abs(value);
-  //       addInitialBalance({ balance: resultOfIncome });
-  //       return;
-  //     default:
-  //       return balance;
-  //   }
-  // };
-
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
       case 'date':

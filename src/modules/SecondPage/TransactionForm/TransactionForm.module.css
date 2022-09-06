@@ -102,9 +102,11 @@
   .formControl {
     display: flex;
   }
+
   .containerForm {
     display: flex;
   }
+
   .svg {
     position: relative;
     right: -79px;
@@ -119,6 +121,7 @@
     /* padding: 13px 10px px; */
     width: 80px;
   }
+
   .description {
     width: 181px;
     height: 44px;
@@ -131,15 +134,18 @@
     border: 2px solid #52555f;
     color: #52555f;
   }
+
   .dateWrapper {
     display: block;
     /* flex-direction: row-reverse; */
   }
+
   .wrapInput {
     display: flex;
     /* align-items: center; */
     flex-direction: column;
   }
+
   .blockButton {
     display: flex;
     align-items: center;
@@ -162,6 +168,7 @@ outline: red;
       padding-top: 24px;
     } */
 }
+
 .containerForm {
   padding-top: 32px;
 }
@@ -177,6 +184,7 @@ outline: red;
   font-weight: 400;
   color: #c7ccdc;
 }
+
 .select {
   width: 280px;
   height: 44px;
@@ -195,6 +203,7 @@ outline: red;
   padding-left: 20px;
   color: #c7ccdc;
 }
+
 .svg {
   position: relative;
   right: 35px;
@@ -231,16 +240,19 @@ outline: red;
 .inputCount::placeholder {
   color: #000;
 }
+
 .btnWrapper {
   display: flex;
   align-items: center;
 }
+
 @media screen and (min-width: 1280px) {
   .blockButton {
     display: flex;
     align-items: center;
     /* justify-content: baseline; */
   }
+
   .wrap {
     width: 1120px;
     display: flex;
@@ -248,27 +260,34 @@ outline: red;
     flex-wrap: nowrap;
     padding: 0;
   }
+
   .wrapInput {
     display: flex;
     align-items: center;
   }
+
   .datePicker {
     width: 104px;
     text-align: center;
   }
+
   .description {
     width: 238px;
   }
+
   .inputCountWrapper {
     position: relative;
     width: 121px;
   }
+
   .inputCount {
     width: 121px;
   }
+
   .btnInput {
     width: 136px;
   }
+
   .btnClear {
     width: 136px;
   }
@@ -370,6 +389,7 @@ outline: red;
   box-shadow: 2px 2px 22px 0px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
+
 .buttonWrap {
   display: flex;
   justify-content: center;
