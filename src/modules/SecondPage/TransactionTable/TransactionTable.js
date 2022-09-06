@@ -1,29 +1,26 @@
 import React, { useEffect } from 'react';
 import s from './TransactionTable.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  getTransactionsByTypeAndDate,
-  deleteTransactionById,
-} from '../../../redux/transactions/transactionsOperations';
+import { getTransactionsByTypeAndDate } from '../../../redux/transactions/transactionsOperations';
 import { getTransactions } from '../../../redux/transactions/transactionsSelectors';
 import { TransactionTableRow } from '../TransactionTableRow/TransactionTableRow';
 
 const TransactionTable = ({ date, type }) => {
-  const onDelete = id => () => {
-    dispatch(deleteTransactionById(id));
-  };
   const transactions = useSelector(getTransactions);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(
-      getTransactionsByTypeAndDate({
-        type,
-        date,
-        page: '1',
-        limit: '9',
-      })
-    );
-  }, [date, dispatch, type]);
+    transactions &&
+      type &&
+      dispatch(
+        getTransactionsByTypeAndDate({
+          type,
+          date,
+          page: '1',
+          limit: '9',
+        })
+      );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [date, type]);
 
   return (
     <div className={s.container_table}>
@@ -47,8 +44,6 @@ const TransactionTable = ({ date, type }) => {
                 description={transaction.description}
                 type={transaction.type}
                 value={transaction.value}
-                category={transaction.category.name}
-                onDelete={onDelete}
               />
             ))}
         </tbody>
