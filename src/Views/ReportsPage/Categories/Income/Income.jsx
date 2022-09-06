@@ -1,8 +1,8 @@
 import s from './Income.module.css';
 
-import SliderIncomeExpenses from '../../../../modules/reports/components/SliderIncomeExpenses';
-import IncomeList from '../../../../modules/reports/components/IncomeList';
 import { Outlet, useOutletContext } from 'react-router-dom';
+import IncomeList from 'modules/reports/IncomeList';
+import SliderIncomeExpenses from 'modules/reports/components/SliderIncomeExpenses';
 
 export default function Income() {
   const { year, month } = useOutletContext();
