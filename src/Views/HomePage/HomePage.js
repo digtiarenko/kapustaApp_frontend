@@ -7,7 +7,7 @@ import { useState } from 'react';
 import TransactionTable from '../../modules/SecondPage/TransactionTable/TransactionTable';
 import TransactionForm from '../../modules/SecondPage/TransactionForm/TransactionForm';
 import moment from 'moment';
-import { Summary } from '../../modules/Summary/Summary';
+import Summary from '../../modules/SecondPage/Summary/Summary';
 import { ReactComponent as CalendarLogo } from '../../images/icons/calendar.svg';
 import MobileForm from '../../modules/MobileModal/MobileForm';
 import { useMediaQuery } from 'react-responsive';
@@ -64,6 +64,13 @@ export default function HomePage() {
                       </>
                     )}
                   </div>
+                </div>
+                <div>
+                  {isTablet && (
+                    <>
+                      <Summary type="home" />
+                    </>
+                  )}
                 </div>
               </div>
             </>
