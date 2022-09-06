@@ -49,56 +49,54 @@ export default function HomePage() {
   return (
     <Container>
       <section>
-        <div className={s.c}>
-          {showForm ? (
-            <MobileForm onClick={handleShowForm} date={date} />
-          ) : (
-            <>
-              <div className={s.rel}>
-                <h1 className={s.pageName}>Page for Revenue and Expenses</h1>
-                <p className={s.pageName}>
-                  Welcome to the best resource for managing budget
-                </p>
-                <div className={s.balanceBlock}>
-                  <ReportsLink />
-                  <Balance type="home" />
-                </div>
+        {showForm ? (
+          <MobileForm onClick={handleShowForm} date={date} />
+        ) : (
+          <>
+            <div className={s.rel}>
+              <h1 className={s.pageName}>Page for Revenue and Expenses</h1>
+              <p className={s.pageName}>
+                Welcome to the best resource for managing budget
+              </p>
+              <div className={s.balanceBlock}>
+                <ReportsLink />
+                <Balance type="home" />
               </div>
+            </div>
 
-              <div className={s.buttonCont}>
-                <div className={s.ab}>
-                  <IncomeExpense />
-                </div>
-                <div className={s.container}>
-                  {notMobile && (
-                    <>
-                      {' '}
-                      <TransactionForm
-                        date={date}
-                        setDate={setDate}
-                        type={type}
-                      />
-                    </>
-                  )}
-                  <div className={s.stats}>
-                    {isTablet && (
-                      <>
-                        <TransactionTable date={date} type={type} />
-                      </>
-                    )}
-                  </div>
-                </div>
-                <div>
+            <div className={s.buttonCont}>
+              <div className={s.ab}>
+                <IncomeExpense />
+              </div>
+              <div className={s.container}>
+                {notMobile && (
+                  <>
+                    {' '}
+                    <TransactionForm
+                      date={date}
+                      setDate={setDate}
+                      type={type}
+                    />
+                  </>
+                )}
+                <div className={s.stats}>
                   {isTablet && (
                     <>
-                      <SummaryTest />
+                      <TransactionTable date={date} type={type} />
                     </>
                   )}
                 </div>
               </div>
-            </>
-          )}
-        </div>
+              <div>
+                {isTablet && (
+                  <>
+                    <SummaryTest />
+                  </>
+                )}
+              </div>
+            </div>
+          </>
+        )}
 
         {/* 
         <div className={s.container}>
