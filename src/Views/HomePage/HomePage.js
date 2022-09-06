@@ -11,6 +11,7 @@ import SummaryTest from '../../modules/Summary/Summary_test';
 import MobileForm from '../../modules/MobileModal/MobileForm';
 import { useMediaQuery } from 'react-responsive';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 export default function HomePage() {
   const [showForm, setShowForm] = useState(false);
@@ -44,7 +45,6 @@ export default function HomePage() {
   const handleShowForm = value => {
     setShowForm(value);
   };
-
   return (
     <Container>
       <section>

@@ -4,17 +4,13 @@ import s from './ReportPage.module.css';
 import { ButtonGoMain } from 'modules/Buttons/ButtonGoMain';
 import Balance from 'modules/balance/components/Balance';
 import { CurrentPeriod } from '../../modules/CurrentPeriod/CurrentPeriod.jsx';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Container from 'modules/navigation/components/Container';
-import { useDispatch, useSelector } from 'react-redux';
-import categoriesOperations from 'redux/categories/categoriesOperations';
-import { getCategoriesList } from '../../redux/categories/categoriesSelectors';
+import { useDispatch } from 'react-redux';
 import {
   createUserTransaction,
   getTransactionsByTypeAndDate,
-  deleteTransactionById,
 } from 'redux/transactions/transactionsOperations';
-import { getTransactions } from '../../redux/transactions/transactionsSelectors';
 
 const arrayOfMonth = [
   'January',
@@ -54,12 +50,6 @@ export default function ReportPage() {
     );
   }, []);
 
-  const transactions = useSelector(getTransactions);
-
-  const deleteId = id => () => {
-    dispatch(deleteTransactionById(id));
-  };
-
   const date = new Date();
   let currentYear = date.getFullYear();
   let currentMonth = arrayOfMonth[date.getMonth()];
@@ -93,15 +83,6 @@ export default function ReportPage() {
     <>
       <Container>
         <section className={s.section}>
-          <ul>
-            {transactions &&
-              transactions.map(transaction => (
-                <li key={transaction._id}>
-                  <button onClick={deleteId(transaction._id)}></button>
-                  {transaction._id}
-                </li>
-              ))}
-          </ul>
           <div className={s.inlineBlock}>
             <ButtonGoMain />
             <div className={s.inlineBalanceBlock}>

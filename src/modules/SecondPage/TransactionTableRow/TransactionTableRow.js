@@ -64,7 +64,11 @@ export function TransactionTableRow({
         {value} грн
       </td>
       <td className={s.tableDataBtn}>
-        <button type="button" className={s.button} onClick={onDelete(id)}>
+        <button
+          type="button"
+          className={s.button}
+          onClick={onDelete(id, type, value)}
+        >
           <Delete className={s.svg} />
         </button>
       </td>

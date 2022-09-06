@@ -44,6 +44,7 @@ const TransactionTable = ({ date, type }) => {
                 description={transaction.description}
                 type={transaction.type}
                 value={transaction.value}
+                category={transaction.category.name}
               />
             ))}
         </tbody>
