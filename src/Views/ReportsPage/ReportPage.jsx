@@ -7,6 +7,8 @@ import { CurrentPeriod } from '../../modules/CurrentPeriod/CurrentPeriod.jsx';
 import { useCallback, useEffect, useState } from 'react';
 import Container from 'modules/navigation/components/Container';
 import { useDispatch, useSelector } from 'react-redux';
+import categoriesOperations from 'redux/categories/categoriesOperations';
+import { getCategoriesList } from '../../redux/categories/categoriesSelectors';
 import {
   createUserTransaction,
   getTransactionsByTypeAndDate,
@@ -54,6 +56,10 @@ export default function ReportPage() {
 
   const transactions = useSelector(getTransactions);
 
+  const deleteId = id => () => {
+    dispatch(deleteTransactionById(id));
+  };
+
   const date = new Date();
   let currentYear = date.getFullYear();
   let currentMonth = arrayOfMonth[date.getMonth()];
@@ -87,7 +93,7 @@ export default function ReportPage() {
     <>
       <Container>
         <section className={s.section}>
-          {/* <ul>
+          <ul>
             {transactions &&
               transactions.map(transaction => (
                 <li key={transaction._id}>
@@ -95,7 +101,7 @@ export default function ReportPage() {
                   {transaction._id}
                 </li>
               ))}
-          </ul> */}
+          </ul>
           <div className={s.inlineBlock}>
             <ButtonGoMain />
             <div className={s.inlineBalanceBlock}>

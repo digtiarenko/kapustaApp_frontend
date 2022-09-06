@@ -1,21 +1,62 @@
-@media screen and (max-width: 767px) {
+.table {
+  width: 746px;
+  height: 38px;
+  margin-left: 32px;
+  margin-top: 60px;
+
+  border-collapse: collapse;
+}
+
+@media screen and (max-width: 768px) {
   .table {
     width: 280px;
-  }
-  .table th {
-    display: none;
+    max-width: 624px;
+    max-height: 38px;
+    padding-left: 40px;
+    padding-right: 40px;
   }
 }
 
-@media screen and (min-width: 768px) {
+.table th {
+  display: none;
+  width: 746px;
+  height: 38px;
+  font-weight: bold;
+  padding: 5px;
+  background: #f5f6fb;
+  border: none;
+  border-bottom: 5px solid #f2f8f8;
+}
+
+/* table{
+    text-align: left;
+    border-collapse: separate;
+    border-spacing: 5px;
+}
+th{
+    font-weight: 700;
+font-size: 12px;
+line-height: 14px;
+align-items: center;
+text-align: center;
+letter-spacing: 0.02em;
+text-transform: uppercase;
+padding: 10px;
+color: #000000;
+background:green;
+border-collapse:collapse;
+}
+ */
+
+@media screen and (min-width: 767px) {
   .table {
-    max-width: 624px;
-    max-height: 38px;
-    margin-top: 50px;
-    padding-left: 40px;
-    padding-right: 40px;
+    width: 746px;
+    height: 38px;
+    margin-left: 32px;
+    margin-top: 60px;
+    /* border: 2px solid #F2F8F8; */
+    /* border-top: 5px solid #F2F8F8; */
     border-collapse: collapse;
-    overflow: scroll;
   }
 
   .table th {
@@ -36,6 +77,36 @@
     align-items: center;
     letter-spacing: 0.02em;
     text-transform: uppercase;
+  }
+
+  .table td {
+    border: none;
+    border-bottom: 2px solid #f2f8f8;
+    width: 746px;
+    height: 32px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .table td {
+      max-width: 624px;
+      max-height: 38px;
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+  }
+
+  tbody {
+    text-align: center;
+    border: 2px solid #f2f8f8;
+    overflow: scroll;
+  }
+
+  .table thead tr th:first-child {
+    border-radius: 20px 0 0 0;
+  }
+
+  .table thead tr th:last-child {
+    border-radius: 0 20px 0 0;
 
     color: #000000;
   }
@@ -52,19 +123,12 @@
     border: 2px solid #f2f8f8;
     overflow: scroll;
   }
+
   .table thead tr th:first-child {
     border-radius: 20px 0 0 0;
   }
+
   .table thead tr th:last-child {
     border-radius: 0 20px 0 0;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .table {
-    width: 746px;
-    height: 38px;
-    margin-left: 32px;
-    margin-top: 60px;
   }
 }

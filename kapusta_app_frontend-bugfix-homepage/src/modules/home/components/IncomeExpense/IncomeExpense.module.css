@@ -1,0 +1,38 @@
+.nav {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+}
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7px 32px;
+  background: #fafbfd;
+  border: none;
+}
+.button:hover,
+.button:active {
+  background: #ff751d;
+}
+.button:not(:last-child) {
+  margin-right: 10px;
+}
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  text-decoration: none;
+  line-height: 1.16;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  width: 94px;
+  height: 40px;
+}
+
+.activeLink {
+  cursor: default;
+  /* composes: link; */
+  color: #e61e17;
+}

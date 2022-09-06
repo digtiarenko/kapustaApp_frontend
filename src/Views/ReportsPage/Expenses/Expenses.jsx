@@ -1,6 +1,6 @@
 import s from './Expenses.module.css';
 import SliderIncomeExpenses from '../../../modules/reports/components/SliderIncomeExpenses';
-import ExpensesList from '../../../modules/reports/components/ExpensesList';
+import ExpensesList from '../../../modules/reports/ExpensesList';
 import { Outlet } from 'react-router-dom';
 
 export default function Expenses() {

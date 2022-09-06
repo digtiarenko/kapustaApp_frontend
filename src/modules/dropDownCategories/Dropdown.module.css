@@ -1,5 +1,6 @@
 .dropbtn {
-  display: flex;
+  display: none;
+
   align-items: center;
   justify-content: space-between;
   width: 170px;
