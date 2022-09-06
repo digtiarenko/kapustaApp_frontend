@@ -121,7 +121,6 @@ function TransactionForm({ date, setDate, type }) {
           <input
             aria-label="Number"
             onChange={handleChange}
-            type="number"
             name="amount"
             className={s.inputCount}
             placeholder="0.00"
