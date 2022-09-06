@@ -1,35 +1,46 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
-const getReportsFull = createAsyncThunk('reports/getFull', async () => {
-  try {
-    const { data } = await axios.get('/reports');
-    return data;
-  } catch (error) {
-    console.log(error);
+const getReportsFull = createAsyncThunk(
+  'reports/getFull',
+  async (queryParams, thunkAPI) => {
+    const params = queryParams;
+
+    try {
+      const { data } = await axios.get('/reports', { params });
+      return data;
+    } catch (error) {
+      toast.error('Error. Server not answered!');
+      return thunkAPI.rejectWithValue();
+    }
   }
-});
+);
 
 const getReportsMonthlyExpenses = createAsyncThunk(
   'reports/getMonthlyExpenses',
-  async () => {
+  async (queryParams, thunkAPI) => {
+    const params = queryParams;
     try {
-      const { data } = await axios.get('/reports/monthly-expenses');
+      const { data } = await axios.get('/reports/monthly-expenses', { params });
       return data;
     } catch (error) {
-      console.log(error);
+      toast.error('Error. Server not answered!');
+      return thunkAPI.rejectWithValue();
     }
   }
 );
 
 const getReportsMonthlyIncome = createAsyncThunk(
   'reports/getMonthlyIncome',
-  async () => {
+  async (queryParams, thunkAPI) => {
+    const params = queryParams;
     try {
-      const { data } = await axios.get('/reports/monthly-income');
+      const { data } = await axios.get('/reports/monthly-income', { params });
       return data;
     } catch (error) {
-      console.log(error);
+      toast.error('Error. Server not answered!');
+      return thunkAPI.rejectWithValue();
     }
   }
 );
