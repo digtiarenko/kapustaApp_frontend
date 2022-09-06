@@ -1,4 +1,4 @@
-import Balance from '../../modules/balance/components/Balance';
+import Balance from '../../modules/balance/components/Balance/Balance';
 import ReportsLink from '../../modules/reports/components/ReportsLink';
 import Container from 'modules/navigation/components/Container';
 import s from './HomePage.module.css';
@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import TransactionTable from '../../modules/SecondPage/TransactionTable/TransactionTable';
 import TransactionForm from '../../modules/SecondPage/TransactionForm/TransactionForm';
 import moment from 'moment';
-// import SummaryTest from '../../modules/Summary/Summary_test';
+import SummaryTest from '../../modules/Summary/SummaryTest';
 // import MobileForm from '../../modules/MobileModal/MobileForm';
 import { useMediaQuery } from 'react-responsive';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -95,13 +95,13 @@ export default function HomePage() {
                   )}
                 </div>
               </div>
-              {/* <div>
-                  {isTablet && (
-                    <>
-                      <SummaryTest />
-                    </>
-                  )}
-                </div> */}
+              <div>
+                {isTablet && (
+                  <>
+                    <SummaryTest />
+                  </>
+                )}
+              </div>
             </div>
           </>
         </div>

@@ -4,10 +4,12 @@
   justify-content: space-between;
   align-items: center;
 
-  width: 93px;
+  /* width: 85px; */
+  min-width: 85px;
 
   text-decoration: none;
 }
+
 .text {
   font-weight: 400;
   font-size: 12px;
@@ -15,13 +17,12 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
 
-  text-align: center;
-
   margin-top: 5px;
   margin-bottom: 5px;
 
   color: #52555f;
 }
+
 .category {
   letter-spacing: 0.02em;
 }

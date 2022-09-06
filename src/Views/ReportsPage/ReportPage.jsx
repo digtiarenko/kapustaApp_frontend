@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 import { Summary } from '../../modules/Summary/Summary';
 import s from './ReportPage.module.css';
 import { ButtonGoMain } from 'modules/Buttons/ButtonGoMain';
-import Balance from 'modules/balance/components/Balance';
+import Balance from '../../modules/balance/components/Balance/Balance';
 import { CurrentPeriod } from '../../modules/CurrentPeriod/CurrentPeriod.jsx';
 import { useState } from 'react';
 import Container from 'modules/navigation/components/Container';
