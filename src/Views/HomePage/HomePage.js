@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import TransactionTable from '../../modules/SecondPage/TransactionTable/TransactionTable';
 import TransactionForm from '../../modules/SecondPage/TransactionForm/TransactionForm';
 import moment from 'moment';
-import { Summary } from '../../modules/Summary/Summary';
+import Summary_test from '../../modules/Summary/Summary_test';
 import { ReactComponent as CalendarLogo } from '../../images/icons/calendar.svg';
 import MobileForm from '../../modules/MobileModal/MobileForm';
 import { useMediaQuery } from 'react-responsive';
@@ -50,7 +50,7 @@ export default function HomePage() {
   return (
     <Container>
       <section>
-        <div>
+        <div className={s.c}>
           {showForm ? (
             <MobileForm onClick={handleShowForm} date={date} />
           ) : (
@@ -66,7 +66,6 @@ export default function HomePage() {
                 </div>
               </div>
               <div className={s.buttonCont}>
-                {' '}
                 <div className={s.ab}>
                   <IncomeExpense />
                 </div>
@@ -85,6 +84,13 @@ export default function HomePage() {
                       </>
                     )}
                   </div>
+                </div>
+                <div>
+                  {isTablet && (
+                    <>
+                      <Summary_test />
+                    </>
+                  )}
                 </div>
               </div>
             </>
