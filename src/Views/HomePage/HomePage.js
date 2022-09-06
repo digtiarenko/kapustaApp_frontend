@@ -3,10 +3,8 @@ import ReportsLink from '../../modules/reports/components/ReportsLink';
 import Page from 'modules/SecondPage/Page/Page';
 import Container from 'modules/navigation/components/Container';
 import s from './HomePage.module.css';
-import { useState } from 'react';
 
 export default function HomePage() {
-  const [balance, setBalance] = useState(null);
   return (
     <>
       <Container>
@@ -17,10 +15,10 @@ export default function HomePage() {
           </p>
           <div className={s.balanceBlock}>
             <ReportsLink />
-            <Balance type="home" balance={balance} setBalance={setBalance} />
+            <Balance type="home" />
           </div>
           <div>
-            <Page balance={balance} setBalance={setBalance} />
+            <Page />
           </div>
         </section>
       </Container>

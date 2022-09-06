@@ -6,31 +6,32 @@ import moment from 'moment';
 import Dropdown from 'modules/dropDownCategories/Dropdown';
 import { useDispatch } from 'react-redux';
 import { createUserTransaction } from 'redux/transactions/transactionsOperations';
-import balanceOperations from 'redux/initialBalance/initialBalanceOperations';
+// import balanceOperations from 'redux/initialBalance/initialBalanceOperations';
 
-function TransactionForm({ date, setDate, type, balance, setBalance }) {
+function TransactionForm({ date, setDate, type }) {
   const [description, setDescription] = useState('');
   const [categoryName, setCategoryName] = useState(null);
   const [categoryID, setCategoryID] = useState(null);
   const [value, setValue] = useState('');
   const dispatch = useDispatch();
-  const addInitialBalance = data =>
-    dispatch(balanceOperations.addInitialBalance(data));
 
-  const getUpdatedBalance = typeOfTransaction => {
-    switch (typeOfTransaction) {
-      case 'expenses':
-        const resultOfExpenses = balance - Math.abs(value);
-        addInitialBalance({ balance: resultOfExpenses });
-        return;
-      case 'income':
-        const resultOfIncome = balance + Math.abs(value);
-        addInitialBalance({ balance: resultOfIncome });
-        return;
-      default:
-        return balance;
-    }
-  };
+  // const addInitialBalance = data =>
+  //   dispatch(balanceOperations.addInitialBalance(data));
+
+  // const getUpdatedBalance = typeOfTransaction => {
+  //   switch (typeOfTransaction) {
+  //     case 'expenses':
+  //       const resultOfExpenses = balance - Math.abs(value);
+  //       addInitialBalance({ balance: resultOfExpenses });
+  //       return;
+  //     case 'income':
+  //       const resultOfIncome = balance + Math.abs(value);
+  //       addInitialBalance({ balance: resultOfIncome });
+  //       return;
+  //     default:
+  //       return balance;
+  //   }
+  // };
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -65,7 +66,7 @@ function TransactionForm({ date, setDate, type, balance, setBalance }) {
         type,
       })
     );
-    console.log(getUpdatedBalance(type));
+    // console.log(getUpdatedBalance(type));
     setDescription('');
     setCategoryName('');
     setValue('');

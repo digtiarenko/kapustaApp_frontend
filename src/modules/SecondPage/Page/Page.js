@@ -8,7 +8,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import TransactionForm from '../TransactionForm/TransactionForm';
 
-export default function Page({ balance, setBalance }) {
+export default function Page() {
   const location = useLocation();
   const navigation = useNavigate();
   const [date, setDate] = useState(moment().format('YYYY-MM-DD'));
@@ -37,13 +37,7 @@ export default function Page({ balance, setBalance }) {
     <>
       <IncomeExpense />
       <div className={s.container}>
-        <TransactionForm
-          date={date}
-          setDate={setDate}
-          type={type}
-          balance={balance}
-          setBalance={setBalance}
-        />
+        <TransactionForm date={date} setDate={setDate} type={type} />
         <div className={s.tables}>
           <TransactionTable date={date} type={type} />
           <Summary />

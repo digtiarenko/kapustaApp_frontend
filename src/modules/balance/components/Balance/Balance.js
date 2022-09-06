@@ -6,9 +6,10 @@ import s from './Balance.module.css';
 import Modal from '../Modal';
 import balanceOperations from 'redux/initialBalance/initialBalanceOperations';
 
-export default function Balance({ type, balance, setBalance }) {
+export default function Balance({ type }) {
   const [isReadable, setIsReadable] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [balance, setBalance] = useState(null);
 
   const initialBalance = useSelector(state => state.balance.balance);
 
