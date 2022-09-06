@@ -2,8 +2,5 @@
   "compilerOptions": {
     "baseUrl": "src"
   },
-  "include": [
-    "src",
-    "kapusta_app_frontend-bugfix-homepage"
-  ]
+  "include": ["src"]
 }
