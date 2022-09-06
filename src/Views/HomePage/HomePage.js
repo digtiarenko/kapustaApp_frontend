@@ -7,8 +7,8 @@ import { useEffect, useState } from 'react';
 import TransactionTable from '../../modules/SecondPage/TransactionTable/TransactionTable';
 import TransactionForm from '../../modules/SecondPage/TransactionForm/TransactionForm';
 import moment from 'moment';
-import SummaryTest from '../../modules/Summary/Summary_test';
-import MobileForm from '../../modules/MobileModal/MobileForm';
+// import SummaryTest from '../../modules/Summary/Summary_test';
+// import MobileForm from '../../modules/MobileModal/MobileForm';
 import { useMediaQuery } from 'react-responsive';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -50,61 +50,60 @@ export default function HomePage() {
     <Container>
       <section>
         <div className={s.c}>
-          {showForm ? (
+          {/* {showForm ? (
             <MobileForm onClick={handleShowForm} date={date} />
-          ) : (
-            <>
-              <div className={s.rel}>
-                <h1 className={s.pageName}>Page for Revenue and Expenses</h1>
-                <p className={s.pageName}>
-                  Welcome to the best resource for managing budget
-                </p>
-                <div className={s.balanceBlock}>
-                  <ReportsLink />
-                  <Balance type="home" />
-                </div>
+          ) : ( */}
+          <>
+            <div className={s.rel}>
+              <h1 className={s.pageName}>Page for Revenue and Expenses</h1>
+              <p className={s.pageName}>
+                Welcome to the best resource for managing budget
+              </p>
+              <div className={s.balanceBlock}>
+                <ReportsLink />
+                <Balance type="home" />
               </div>
+            </div>
 
-              <div className={s.buttonCont}>
-                <div className={s.ab}>
-                  <IncomeExpense />
-                </div>
-                <div className={s.container}>
-                  {notMobile && (
+            <div className={s.buttonCont}>
+              <div className={s.ab}>
+                <IncomeExpense />
+              </div>
+              <div className={s.container}>
+                {notMobile && (
+                  <>
+                    {' '}
+                    <TransactionForm
+                      date={date}
+                      setDate={setDate}
+                      type={type}
+                    />
+                  </>
+                )}
+                <div className={s.stats}>
+                  {isTablet && (
                     <>
-                      {' '}
-                      <TransactionForm
-                        date={date}
-                        setDate={setDate}
-                        type={type}
-                      />
+                      <TransactionTable date={date} type={type} />
                     </>
                   )}
-                  <div className={s.stats}>
-                    {isTablet && (
-                      <>
-                        <TransactionTable date={date} type={type} />
-                      </>
-                    )}
-                  </div>
-                  <div className={s.stats}>
-                    {isDesktop && (
-                      <>
-                        <TransactionTable date={date} type={type} />
-                      </>
-                    )}
-                  </div>
                 </div>
-                <div>
+                <div className={s.stats}>
+                  {isDesktop && (
+                    <>
+                      <TransactionTable date={date} type={type} />
+                    </>
+                  )}
+                </div>
+              </div>
+              {/* <div>
                   {isTablet && (
                     <>
                       <SummaryTest />
                     </>
                   )}
-                </div>
-              </div>
-            </>
-          )}
+                </div> */}
+            </div>
+          </>
         </div>
       </section>
     </Container>
