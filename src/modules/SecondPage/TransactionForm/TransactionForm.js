@@ -6,14 +6,32 @@ import moment from 'moment';
 import Dropdown from 'modules/dropDownCategories/Dropdown';
 import { useDispatch } from 'react-redux';
 import { createUserTransaction } from 'redux/transactions/transactionsOperations';
+import balanceOperations from 'redux/initialBalance/initialBalanceOperations';
 
-function TransactionForm({ date, setDate, type, setType }) {
+function TransactionForm({ date, setDate, type, balance, setBalance }) {
   const [description, setDescription] = useState('');
   const [categoryName, setCategoryName] = useState(null);
   const [categoryID, setCategoryID] = useState(null);
   const [value, setValue] = useState('');
   const dispatch = useDispatch();
-  console.log(date);
+  const addInitialBalance = data =>
+    dispatch(balanceOperations.addInitialBalance(data));
+
+  const getUpdatedBalance = typeOfTransaction => {
+    switch (typeOfTransaction) {
+      case 'expenses':
+        const resultOfExpenses = balance - Math.abs(value);
+        addInitialBalance({ balance: resultOfExpenses });
+        return;
+      case 'income':
+        const resultOfIncome = balance + Math.abs(value);
+        addInitialBalance({ balance: resultOfIncome });
+        return;
+      default:
+        return balance;
+    }
+  };
+
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
       case 'date':
@@ -47,6 +65,7 @@ function TransactionForm({ date, setDate, type, setType }) {
         type,
       })
     );
+    console.log(getUpdatedBalance(type));
     setDescription('');
     setCategoryName('');
     setValue('');
@@ -82,7 +101,11 @@ function TransactionForm({ date, setDate, type, setType }) {
           placeholder="Product description"
           value={description}
         />
-        <Dropdown onCategorySet={onCategorySet} categoryName={categoryName} />
+        <Dropdown
+          type={type}
+          onCategorySet={onCategorySet}
+          categoryName={categoryName}
+        />
         {/* <Select
           aria-label="Select"
           placeholder={<div>Product category</div>}
@@ -100,7 +123,7 @@ function TransactionForm({ date, setDate, type, setType }) {
             type="number"
             name="amount"
             className={s.inputCount}
-            placeholder="00.00"
+            placeholder="0.00"
             value={value}
           />
         </div>{' '}
