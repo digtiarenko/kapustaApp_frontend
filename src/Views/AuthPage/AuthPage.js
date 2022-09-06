@@ -1,8 +1,8 @@
 import AuthComponent from '../../modules/AuthComponent/AuthComponent';
 
 import React from 'react';
-
 import s from './AuthPage.module.css';
+import Container from 'modules/navigation/components/Container';
 
 function AuthPage() {
   return (
