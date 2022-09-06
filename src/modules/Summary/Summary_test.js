@@ -1,4 +1,4 @@
-import s from './Summary_test.module.scss';
+import s from './Summary_test.module.css';
 
 function Summary() {
   return (
