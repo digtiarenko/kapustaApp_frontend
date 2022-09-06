@@ -4,7 +4,6 @@ import { ReactComponent as CalendarLogo } from 'images/icons/calendar.svg';
 import calculator from '../../../images/icons/calculator.svg';
 import moment from 'moment';
 import Dropdown from 'modules/dropDownCategories/Dropdown';
-import { ReactComponent as CalculatorLogo } from '../../../images/icons/calculator.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { createUserTransaction } from 'redux/transactions/transactionsOperations';
 import balanceOperations from 'redux/initialBalance/initialBalanceOperations';
@@ -33,24 +32,6 @@ function TransactionForm({ date, setDate, type }) {
         return initialBalance;
     }
   };
-
-  // const addInitialBalance = data =>
-  //   dispatch(balanceOperations.addInitialBalance(data));
-
-  // const getUpdatedBalance = typeOfTransaction => {
-  //   switch (typeOfTransaction) {
-  //     case 'expenses':
-  //       const resultOfExpenses = balance - Math.abs(value);
-  //       addInitialBalance({ balance: resultOfExpenses });
-  //       return;
-  //     case 'income':
-  //       const resultOfIncome = balance + Math.abs(value);
-  //       addInitialBalance({ balance: resultOfIncome });
-  //       return;
-  //     default:
-  //       return balance;
-  //   }
-  // };
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
