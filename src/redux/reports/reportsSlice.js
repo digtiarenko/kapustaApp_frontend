@@ -2,6 +2,10 @@ import { createSlice } from '@reduxjs/toolkit';
 import reportsOperations from './reportsOperations';
 
 const initialState = {
+  date: {
+    year: null,
+    month: null,
+  },
   full: null,
   monthExpenses: null,
   monthIncome: null,
@@ -10,9 +14,15 @@ const initialState = {
 const reportsSlice = createSlice({
   name: 'reports',
   initialState,
+  reducers: {
+    setReportsDate(state, { payload }) {
+      state.date.year = payload.year;
+      state.date.month = payload.month;
+    },
+  },
   extraReducers: {
     [reportsOperations.getReportsFull.fulfilled](state, { payload }) {
-      state.full = payload;
+      state.full = payload.fullReportByMonth;
     },
     [reportsOperations.getReportsMonthlyExpenses.fulfilled](
       state,
@@ -27,3 +37,4 @@ const reportsSlice = createSlice({
 });
 
 export default reportsSlice.reducer;
+export const { setReportsDate } = reportsSlice.actions;
