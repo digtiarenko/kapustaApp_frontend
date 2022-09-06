@@ -5,11 +5,11 @@
   font-size: 8px;
   line-height: 1.16;
   color: #52555f;
+  cursor: default;
 }
 
-.button {
-  border: none;
-  background-color: transparent;
+.minus {
+  margin-right: 5px;
 }
 
 .tableDataSum {
@@ -17,8 +17,9 @@
   font-weight: 700;
 }
 
-.minus {
-  margin-right: 5px;
+.button {
+  border: none;
+  background-color: transparent;
 }
 
 @media screen and (max-width: 767px) {
@@ -37,17 +38,16 @@
     vertical-align: bottom;
   }
 
-  /* .tableDataDescription {
+  .tableDataDescription {
     position: absolute;
     top: 15%;
     left: 0;
     padding: 0;
     font-size: 12px;
     font-weight: 700;
-  } */
+  }
 
   .tableDataCategory {
-    text-align: left;
     vertical-align: bottom;
     width: 82px;
   }
@@ -64,10 +64,29 @@
 
 @media screen and (min-width: 768px) {
   .tableRow {
-    width: 746px;
+    width: 624px;
     height: 32px;
-    /* position: absolute; */
+
     font-size: 12px;
+  }
+
+  .tableDataDate {
+    max-width: 40px;
+    padding-left: 15px;
+    text-align: left;
+  }
+
+  .tableDataDescription {
+    width: 150px;
+
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .tableDataSum {
+    text-align: right;
   }
 
   .button {
@@ -81,13 +100,14 @@
     background-color: #f5f6fb;
     cursor: pointer;
   }
+}
 
-  /* .tableDataDescription {
-          position: absolute;
-          top: 15%;
-          left: 0;
-          padding: 0;
-          font-size: 12px;
-          font-weight: 700;
-        } */
+@media screen and (min-width: 1024px) {
+  .tableDataDate {
+    max-width: 25px;
+  }
+
+  .tableDataSum {
+    text-align: center;
+  }
 }
