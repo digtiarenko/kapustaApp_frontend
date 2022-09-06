@@ -23,7 +23,7 @@ const TransactionTable = ({ date, type }) => {
   }, [date, type]);
 
   return (
-    <div className={s.container_table}>
+    <div className={s.container}>
       <table className={s.table}>
         <thead>
           <tr>
@@ -34,23 +34,37 @@ const TransactionTable = ({ date, type }) => {
             <th></th>
           </tr>
         </thead>
-        <tbody>
-          {transactions &&
-            transactions.map(transaction => (
-              <TransactionTableRow
-                key={transaction._id}
-                id={transaction._id}
-                date={transaction.date}
-                description={transaction.description}
-                type={transaction.type}
-                value={transaction.value}
-                category={transaction.category.name}
-              />
-            ))}
-        </tbody>
       </table>
+      <div className={s.scroll}>
+        <table className={s.secondTable}>
+          <tbody>
+            {transactions &&
+              transactions.map(transaction => (
+                <TransactionTableRow
+                  key={transaction._id}
+                  id={transaction._id}
+                  date={transaction.date}
+                  description={transaction.description}
+                  type={transaction.type}
+                  value={transaction.value}
+                  category={transaction.category.name}
+                />
+              ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
 
 export default TransactionTable;
+
+//  <TransactionTableRow
+//                 key={transaction._id}
+//                 id={transaction._id}
+//                 date={transaction.date}
+//                 description={transaction.description}
+//                 type={transaction.type}
+//                 value={transaction.value}
+//                 category={transaction.category.name}
+//               />

@@ -1,48 +1,56 @@
-import React, { useState } from 'react';
-import IncomeExpense from '../IncomeExpense/IncomeExpense';
-import TransactionTable from '../TransactionTable/TransactionTable';
-import Summary from '../Summary/Summary';
-import s from './Page.module.css';
-import moment from 'moment';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
-import TransactionForm from '../TransactionForm/TransactionForm';
+// import React, { useState } from 'react';
+// import IncomeExpense from '../IncomeExpense/IncomeExpense';
+// import TransactionTable from '../TransactionTable/TransactionTable';
+// import Summary from '../Summary/Summary';
+// import s from './Page.module.css';
+// import moment from 'moment';
+// import ReportLink from '../../../modules/reports/components/ReportsLink/ReportsLink';
+// import Balance from 'modules/balance/components/Balance';
+// import { useMediaQuery } from 'react-responsive';
 
-export default function Page() {
-  const location = useLocation();
-  const navigation = useNavigate();
-  const [date, setDate] = useState(moment().format('YYYY-MM-DD'));
-  const [type, setType] = useState('');
+// import TransactionForm from '../TransactionForm/TransactionForm';
+// import MobileForm from '../../MobileModal/MobileForm';
 
-  useEffect(() => {
-    if (
-      location.pathname === '/home' ||
-      location.pathname === '/home/expenses'
-    ) {
-      navigation('/home/expenses');
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+// export default function Page() {
+//   const [date, setDate] = useState(moment().format('YYYY-MM-DD'));
+//   const [type, setType] = useState('expenses');
+//   const [showForm, setShowForm] = useState(false);
+//   const notMobile = useMediaQuery({ minWidth: 768 });
+//   const isDesktop = useMediaQuery({ minWidth: 1280 });
+//   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1279.98 });
 
-  useEffect(() => {
-    if (location.pathname === '/home/expenses') {
-      setType('expenses');
-    }
-    if (location.pathname === '/home/income') {
-      setType('income');
-    }
-  }, [location.pathname]);
+//   const handleShowForm = value => {
+//     setShowForm(value);
+//   };
+//   return (
+//     <div className={s.container}>
+//       {showForm ? (
+//         <MobileForm onClick={handleShowForm} date={date} />
+//       ) : (
+//         <>
+//           {/* <ReportLink /> */}
+//           {/* <Balance type="home" /> */}
+//           {notMobile && (
+//             <TransactionForm
+//               date={date}
+//               setDate={setDate}
+//               type={type}
+//               setType={setType}
+//             />
+//           )}
+//           <div className={s.stats}>
+//             <div className={s.tables}>
+//               <TransactionTable date={date} type={type} />
 
-  return (
-    <>
-      <IncomeExpense />
-      <div className={s.container}>
-        <TransactionForm date={date} setDate={setDate} type={type} />
-        <div className={s.tables}>
-          <TransactionTable date={date} type={type} />
-          <Summary />
-        </div>
-      </div>
-    </>
-  );
-}
+//               {isDesktop && <Summary />}
+//             </div>
+//           </div>
+
+//           {isTablet && <Summary />}
+//           <IncomeExpense />
+//           {/* </div> */}
+//         </>
+//       )}
+//     </div>
+//   );
+// }

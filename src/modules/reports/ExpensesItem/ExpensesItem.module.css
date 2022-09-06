@@ -4,7 +4,8 @@
   justify-content: space-between;
   align-items: center;
 
-  width: 93px;
+  /* width: 85px; */
+  min-width: 85px;
 
   text-decoration: none;
 }
@@ -14,8 +15,6 @@
   line-height: 14px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-
-  text-align: center;
 
   margin-top: 5px;
   margin-bottom: 5px;

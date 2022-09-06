@@ -1,6 +1,6 @@
-import additionalincome from './additional.svg';
+import additional from './additional.svg';
 import salary from './salary.svg';
 
-const icons = { additionalincome, salary };
+const icons = [additional, salary];
 
 export default icons;
