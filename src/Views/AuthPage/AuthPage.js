@@ -1,5 +1,4 @@
 import AuthComponent from '../../modules/AuthComponent/AuthComponent';
-import Container from 'modules/navigation/components/Container';
 
 import React from 'react';
 

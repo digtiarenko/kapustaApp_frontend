@@ -4,6 +4,7 @@ import s from './TransactionTableRow.module.css';
 import { deleteTransactionById } from '../../../redux/transactions/transactionsOperations';
 import { useDispatch, useSelector } from 'react-redux';
 import balanceOperations from 'redux/initialBalance/initialBalanceOperations';
+
 const getSumTypeStyle = type => {
   switch (type) {
     case 'income':

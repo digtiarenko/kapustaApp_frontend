@@ -4,13 +4,8 @@ import s from './ReportPage.module.css';
 import { ButtonGoMain } from 'modules/Buttons/ButtonGoMain';
 import Balance from 'modules/balance/components/Balance';
 import { CurrentPeriod } from '../../modules/CurrentPeriod/CurrentPeriod.jsx';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Container from 'modules/navigation/components/Container';
-import { useDispatch } from 'react-redux';
-import {
-  createUserTransaction,
-  getTransactionsByTypeAndDate,
-} from 'redux/transactions/transactionsOperations';
 
 const arrayOfMonth = [
   'January',
@@ -28,28 +23,6 @@ const arrayOfMonth = [
 ];
 
 export default function ReportPage() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(
-      createUserTransaction({
-        date: '2022-8-31',
-        description: 'Beef',
-        category: '630d23089692d4e9360ec34d',
-        value: 300,
-        type: 'expenses',
-      })
-    );
-    dispatch(
-      getTransactionsByTypeAndDate({
-        type: 'expenses',
-        date: '2022-8-31',
-        page: '1',
-        limit: '9',
-      })
-    );
-  }, []);
-
   const date = new Date();
   let currentYear = date.getFullYear();
   let currentMonth = arrayOfMonth[date.getMonth()];
@@ -95,7 +68,8 @@ export default function ReportPage() {
               <Balance type="report" />
             </div>
           </div>
-          <Summary></Summary>
+          <Summary />
+
           <Outlet />
         </section>
       </Container>

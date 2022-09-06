@@ -4,7 +4,6 @@ import { ReactComponent as Arrowdown } from '../../images/icons/arrow-bottom.svg
 import { useDispatch, useSelector } from 'react-redux';
 import categoriesOperations from 'redux/categories/categoriesOperations';
 import { getCategoriesList } from '../../redux/categories/categoriesSelectors';
-// import axios from 'axios';
 
 export default function Dropdown({ type, onCategorySet, categoryName }) {
   const [isOpen, setIsOpen] = useState(false);

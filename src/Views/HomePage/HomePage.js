@@ -87,6 +87,13 @@ export default function HomePage() {
                       </>
                     )}
                   </div>
+                  <div className={s.stats}>
+                    {isDesktop && (
+                      <>
+                        <TransactionTable date={date} type={type} />
+                      </>
+                    )}
+                  </div>
                 </div>
                 <div>
                   {isTablet && (
@@ -99,20 +106,6 @@ export default function HomePage() {
             </>
           )}
         </div>
-
-        {/* 
-        <div className={s.container}>
-          <TransactionForm
-            date={date}
-            setDate={setDate}
-            type={type}
-            setType={setType}
-          />
-          <div className={s.tables}>
-            <TransactionTable date={date} type={type} />
-            <Summary />
-          </div>
-        </div> */}
       </section>
     </Container>
   );
