@@ -28,7 +28,7 @@ export default function HomePage() {
   return (
     <Container>
       <section>
-        <div>
+        <div className={s.c}>
           {showForm ? (
             <MobileForm onClick={handleShowForm} date={date} />
           ) : (

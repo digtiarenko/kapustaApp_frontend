@@ -56,8 +56,6 @@
   }
   .ab {
     position: relative;
-    /* display: block; */
-    /* position: absolute; */
 
     align-items: center;
     height: 40px;
@@ -67,11 +65,12 @@
 }
 @media screen and (min-width: 1280px) {
   .container {
+    /* display: flex; */
     width: 1034px;
     height: 100vh;
-    background-color: #fff;
+    /* background-color: #fff;
     border-radius: 0 30px 30px 30px;
     box-shadow: 0 10px 60px rgb(170 178 197 / 20%);
-    padding: 28px 30px 48px 31px;
+    padding: 28px 30px 48px 31px; */
   }
 }

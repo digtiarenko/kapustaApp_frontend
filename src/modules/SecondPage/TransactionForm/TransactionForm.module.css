@@ -239,7 +239,7 @@ outline: red;
   .blockButton {
     display: flex;
     align-items: center;
-    justify-content: baseline;
+    /* justify-content: baseline; */
   }
   .wrap {
     width: 1120px;
