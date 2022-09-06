@@ -3,7 +3,7 @@ import ReportsLink from '../../modules/reports/components/ReportsLink';
 import Container from 'modules/navigation/components/Container';
 import s from './HomePage.module.css';
 import IncomeExpense from '../../modules/SecondPage/IncomeExpense/IncomeExpense';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import TransactionTable from '../../modules/SecondPage/TransactionTable/TransactionTable';
 import TransactionForm from '../../modules/SecondPage/TransactionForm/TransactionForm';
 import moment from 'moment';
@@ -12,14 +12,36 @@ import { ReactComponent as CalendarLogo } from '../../images/icons/calendar.svg'
 import MobileForm from '../../modules/MobileModal/MobileForm';
 import { useMediaQuery } from 'react-responsive';
 import DropDown from '../../modules/dropDownCategories/Dropdown';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function HomePage() {
-  const [date, setDate] = useState(moment().format('YYYY-MM-DD'));
-  const [type, setType] = useState('expenses');
   const [showForm, setShowForm] = useState(false);
   const notMobile = useMediaQuery({ minWidth: 768 });
   const isDesktop = useMediaQuery({ minWidth: 1280 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1279.98 });
+  const location = useLocation();
+  const navigation = useNavigate();
+  const [date, setDate] = useState(moment().format('YYYY-MM-DD'));
+  const [type, setType] = useState('');
+
+  useEffect(() => {
+    if (
+      location.pathname === '/home' ||
+      location.pathname === '/home/expenses'
+    ) {
+      navigation('/home/expenses');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    if (location.pathname === '/home/expenses') {
+      setType('expenses');
+    }
+    if (location.pathname === '/home/income') {
+      setType('income');
+    }
+  }, [location.pathname]);
 
   const handleShowForm = value => {
     setShowForm(value);
@@ -54,13 +76,12 @@ export default function HomePage() {
                       date={date}
                       setDate={setDate}
                       type={type}
-                      setType={setType}
                     />
                   )}
                   <div className={s.stats}>
                     {isTablet && (
                       <>
-                        <TransactionTable />
+                        <TransactionTable date={date} type={type} />
                       </>
                     )}
                   </div>
