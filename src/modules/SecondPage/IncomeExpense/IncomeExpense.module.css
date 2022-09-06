@@ -1,13 +1,11 @@
 .nav {
   flex-shrink: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
 }
 
 .button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 7px 32px;
   background: #fafbfd;
   border: none;
@@ -45,6 +43,7 @@
 @media screen and (min-width: 768px) {
   .nav {
     align-items: center;
+
     /* flex-direction: row; */
     height: 40px;
     justify-content: flex-start;

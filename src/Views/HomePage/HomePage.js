@@ -11,6 +11,7 @@ import { Summary } from '../../modules/Summary/Summary';
 import { ReactComponent as CalendarLogo } from '../../images/icons/calendar.svg';
 import MobileForm from '../../modules/MobileModal/MobileForm';
 import { useMediaQuery } from 'react-responsive';
+import DropDown from '../../modules/dropDownCategories/Dropdown';
 
 export default function HomePage() {
   const [date, setDate] = useState(moment().format('YYYY-MM-DD'));
@@ -48,7 +49,6 @@ export default function HomePage() {
                   <IncomeExpense />
                 </div>
                 <div className={s.container}>
-                  {/* <CalendarLogo className={s.calendarIcon} /> */}
                   {notMobile && (
                     <TransactionForm
                       date={date}
@@ -61,7 +61,7 @@ export default function HomePage() {
               </div>
               <div className={s.stats}>
                 <TransactionTable />
-                {isTablet && <Summary />}
+                {isTablet && <>{/* <DropDown /> */}</>}
               </div>
             </>
           )}

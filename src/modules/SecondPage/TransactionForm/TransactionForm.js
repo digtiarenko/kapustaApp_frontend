@@ -1,7 +1,7 @@
 import s from './TransactionForm.module.css';
 import React, { useState } from 'react';
 import { ReactComponent as CalendarLogo } from 'images/icons/calendar.svg';
-import { ReactComponent as CalculatorLogo } from 'images/icons/calculator.svg';
+import calculator from '../../../images/icons/calculator.svg';
 
 import moment from 'moment';
 import Dropdown from 'modules/dropDownCategories/Dropdown';
@@ -69,28 +69,29 @@ function TransactionForm({ date, setDate, type, setType }) {
   return (
     <form className={s.wrap} onSubmit={handleSubmit} autoComplete="off">
       <div className={s.wrapInput}>
-        <div className={s.dateWrapper}>
+        <div className={s.blockButton}>
+          <div className={s.dateWrapper}>
+            <input
+              aria-label="Date"
+              name="date"
+              onChange={handleChange}
+              type="date"
+              className={s.datePicker}
+              value={date}
+            />
+            <CalendarLogo className={s.calendarIcon} />
+          </div>
           <input
-            aria-label="Date"
-            name="date"
+            aria-label="Text"
             onChange={handleChange}
-            type="date"
-            className={s.datePicker}
-            value={date}
+            className={s.description}
+            name="description"
+            type="text"
+            placeholder="Product description"
+            value={description}
           />
-          <CalendarLogo className={s.calendarIcon} />
-        </div>
-        <input
-          aria-label="Text"
-          onChange={handleChange}
-          className={s.description}
-          name="description"
-          type="text"
-          placeholder="Product description"
-          value={description}
-        />
-        <Dropdown onCategorySet={onCategorySet} categoryName={categoryName} />
-        {/* <Select
+          <Dropdown onCategorySet={onCategorySet} categoryName={categoryName} />
+          {/* <Select
           aria-label="Select"
           placeholder={<div>Product category</div>}
           width="200px"
@@ -100,16 +101,21 @@ function TransactionForm({ date, setDate, type, setType }) {
           options={selectOptions()}
           className={s.select}
         /> */}
-        <input
-          aria-label="Number"
-          onChange={handleChange}
-          type="number"
-          name="amount"
-          className={s.inputCount}
-          placeholder="00.00"
-          value={value}
-        />
-        {/* <CalculatorLogo /> */}
+
+          <input
+            aria-label="Number"
+            onChange={handleChange}
+            type="number"
+            name="amount"
+            className={s.inputCount}
+            placeholder="00.00"
+            value={value}
+          />
+
+          <span className={s.iconCalculator}>
+            <img src={calculator} alt="calculator" />
+          </span>
+        </div>
         <div className={s.buttonWrap}>
           <button aria-label="Input" type="submit" className={s.btnInput}>
             input
