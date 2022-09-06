@@ -235,6 +235,56 @@ outline: red;
   display: flex;
   align-items: center;
 }
+@media screen and (min-width: 1280px) {
+  .blockButton {
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+  }
+  .wrap {
+    width: 1120px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 0;
+  }
+  .wrapInput {
+    display: flex;
+    align-items: center;
+  }
+  .datePicker {
+    width: 104px;
+    text-align: center;
+  }
+  .description {
+    width: 238px;
+  }
+  .inputCountWrapper {
+    position: relative;
+    width: 121px;
+  }
+  .inputCount {
+    width: 121px;
+  }
+  .btnInput {
+    width: 136px;
+  }
+  .btnClear {
+    width: 136px;
+  }
+
+  .buttonWrap {
+    margin-left: 32px;
+    margin-top: 0;
+  }
+
+  .inputWrap {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .btnWrapper {
     align-items: center;

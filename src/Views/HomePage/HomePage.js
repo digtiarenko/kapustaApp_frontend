@@ -44,7 +44,6 @@ export default function HomePage() {
                 </div>
               </div>
               <div className={s.buttonCont}>
-                {' '}
                 <div className={s.ab}>
                   <IncomeExpense />
                 </div>
