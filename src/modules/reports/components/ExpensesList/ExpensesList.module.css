@@ -8,8 +8,8 @@
     to bottom,
     transparent,
     transparent 143px,
-    #e1e1e1 143px,
-    #e1e1e1 144px
+    #e0e5eb 143px,
+    #e0e5eb 144px
   );
 }
 .icon {
@@ -23,15 +23,13 @@
 
   margin-top: 20px;
   margin-bottom: 20px;
-  margin-left: 10px;
-  margin-right: 10px;
 
-  /* background-image: url('../../../../images/'); */
+  background-image: url('../../../../images/icons/category/background/normal.svg');
   background-repeat: no-repeat;
   background-position: 50% 55%;
 }
 .item:hover {
-  /* background-image: url('../../../../images/icons/category/background/onHover.svg'); */
+  background-image: url('../../../../images/icons/category/background/onHover.svg');
 }
 .item:hover .icon {
   filter: invert(71%) sepia(65%) saturate(5152%) hue-rotate(345deg)

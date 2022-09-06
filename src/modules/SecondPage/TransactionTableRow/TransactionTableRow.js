@@ -55,6 +55,7 @@ export function TransactionTableRow({
   };
 
   const sumStyle = getSumTypeStyle(type);
+
   return (
     <tr key={id} className={s.tableRow}>
       <td className={s.tableDataDate}>{date}</td>
