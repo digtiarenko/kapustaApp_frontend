@@ -68,7 +68,8 @@ export default function ReportPage() {
               <Balance type="report" />
             </div>
           </div>
-          <Summary></Summary>
+          <Summary />
+
           <Outlet />
         </section>
       </Container>
