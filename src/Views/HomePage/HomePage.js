@@ -12,6 +12,7 @@ import MobileForm from '../../modules/MobileModal/MobileForm';
 import { useMediaQuery } from 'react-responsive';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import TransactionTableRow from 'modules/SecondPage/TransactionTableRow/TransactionTableRow';
 
 export default function HomePage() {
   const [showForm, setShowForm] = useState(false);
@@ -63,17 +64,21 @@ export default function HomePage() {
                   <Balance type="home" />
                 </div>
               </div>
+
               <div className={s.buttonCont}>
                 <div className={s.ab}>
                   <IncomeExpense />
                 </div>
                 <div className={s.container}>
                   {notMobile && (
-                    <TransactionForm
-                      date={date}
-                      setDate={setDate}
-                      type={type}
-                    />
+                    <>
+                      {' '}
+                      <TransactionForm
+                        date={date}
+                        setDate={setDate}
+                        type={type}
+                      />
+                    </>
                   )}
                   <div className={s.stats}>
                     {isTablet && (
