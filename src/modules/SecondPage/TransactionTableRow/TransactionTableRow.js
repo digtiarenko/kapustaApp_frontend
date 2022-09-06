@@ -4,6 +4,7 @@ import s from './TransactionTableRow.module.css';
 import balanceOperations from 'redux/initialBalance/initialBalanceOperations';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteTransactionById } from '../../../redux/transactions/transactionsOperations';
+
 const getSumTypeStyle = type => {
   switch (type) {
     case 'income':
@@ -54,7 +55,6 @@ export function TransactionTableRow({
   };
 
   const sumStyle = getSumTypeStyle(type);
-
   return (
     <tr key={id} className={s.tableRow}>
       <td className={s.tableDataDate}>{date}</td>

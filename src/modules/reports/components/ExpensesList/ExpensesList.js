@@ -19,10 +19,10 @@ export default function ExpensesList() {
   let expensesList;
   if (categoriesList) {
     expensesList = categoriesList.filter(value => value.type === 'expenses');
-    console.log(expensesList);
-    console.log(icons['alcohol']);
-    console.log(expensesList[8].name.split(', ').join('').toLowerCase());
-    console.log(expensesList[0].category_id);
+    // console.log(expensesList);
+    // console.log(icons['alcohol']);
+    // console.log(expensesList[8].name.split(', ').join('').toLowerCase());
+    // console.log(expensesList[0].category_id);
   }
 
   return (

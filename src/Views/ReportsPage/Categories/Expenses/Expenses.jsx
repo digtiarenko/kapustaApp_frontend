@@ -1,9 +1,11 @@
 import s from './Expenses.module.css';
+
 import SliderIncomeExpenses from '../../../../modules/reports/components/SliderIncomeExpenses';
 import ExpensesList from '../../../../modules/reports/components/ExpensesList';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useOutletContext } from 'react-router-dom';
 
 export default function Expenses() {
+  const { year, month } = useOutletContext();
   return (
     <>
       <div className={s.wrapper}>
@@ -12,7 +14,7 @@ export default function Expenses() {
           <ExpensesList />
         </div>
       </div>
-      <Outlet />
+      <Outlet context={{ year: year, month: month }} />
     </>
   );
 }
