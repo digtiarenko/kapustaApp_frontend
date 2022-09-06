@@ -36,15 +36,17 @@ export default function Dropdown({ type, onCategorySet, categoryName }) {
         {isOpen && (
           <ul className={styles.dropdownContent}>
             {categoriesList &&
-              categoriesList.map(item => (
-                <li
-                  key={item._id}
-                  onClick={onOptionClicked(item)}
-                  className={styles.dropdownItem}
-                >
-                  {item.name}
-                </li>
-              ))}
+              categoriesList
+                .filter(category => category.type === type)
+                .map(category => (
+                  <li
+                    key={category._id}
+                    onClick={onOptionClicked(category)}
+                    className={styles.dropdownItem}
+                  >
+                    {category.name}
+                  </li>
+                ))}
           </ul>
         )}
       </div>

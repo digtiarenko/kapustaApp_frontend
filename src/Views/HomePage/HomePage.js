@@ -7,11 +7,9 @@ import { useEffect, useState } from 'react';
 import TransactionTable from '../../modules/SecondPage/TransactionTable/TransactionTable';
 import TransactionForm from '../../modules/SecondPage/TransactionForm/TransactionForm';
 import moment from 'moment';
-import Summary_test from '../../modules/Summary/Summary_test';
-import { ReactComponent as CalendarLogo } from '../../images/icons/calendar.svg';
+import SummaryTest from '../../modules/Summary/Summary_test';
 import MobileForm from '../../modules/MobileModal/MobileForm';
 import { useMediaQuery } from 'react-responsive';
-import DropDown from '../../modules/dropDownCategories/Dropdown';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function HomePage() {
@@ -88,7 +86,7 @@ export default function HomePage() {
                 <div>
                   {isTablet && (
                     <>
-                      <Summary_test />
+                      <SummaryTest />
                     </>
                   )}
                 </div>
