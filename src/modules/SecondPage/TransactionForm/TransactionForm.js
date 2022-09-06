@@ -105,7 +105,11 @@ function TransactionForm({ date, setDate, type }) {
             placeholder="Product description"
             value={description}
           />
-          <Dropdown onCategorySet={onCategorySet} categoryName={categoryName} />
+          <Dropdown
+            type={type}
+            onCategorySet={onCategorySet}
+            categoryName={categoryName}
+          />
           {/* <Select
           aria-label="Select"
           placeholder={<div>Product category</div>}
