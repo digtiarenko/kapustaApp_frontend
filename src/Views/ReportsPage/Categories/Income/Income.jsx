@@ -1,6 +1,7 @@
 import s from './Income.module.css';
-import SliderIncomeExpenses from '../../../../modules/reports/components/SliderIncomeExpenses';
-import IncomeList from '../../../../modules/reports/components/IncomeList';
+
+import SliderIncomeExpenses from 'modules/reports/components/SliderIncomeExpenses';
+import IncomeList from 'modules/reports/IncomeList';
 
 export default function Income() {
   return (

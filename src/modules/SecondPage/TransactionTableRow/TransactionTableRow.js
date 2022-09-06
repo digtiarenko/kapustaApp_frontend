@@ -1,6 +1,9 @@
 import React from 'react';
 import { ReactComponent as Delete } from '../../../images/icons/delete.svg';
 import s from './TransactionTableRow.module.css';
+import { deleteTransactionById } from '../../../redux/transactions/transactionsOperations';
+import { useDispatch, useSelector } from 'react-redux';
+import balanceOperations from 'redux/initialBalance/initialBalanceOperations';
 
 const getSumTypeStyle = type => {
   switch (type) {
@@ -24,10 +27,34 @@ export function TransactionTableRow({
   category,
   value,
   type,
-  onDelete,
 }) {
-  const sumStyle = getSumTypeStyle(type);
+  const dispatch = useDispatch();
 
+  const initialBalance = useSelector(state => state.balance.balance);
+  const addInitialBalance = data =>
+    dispatch(balanceOperations.addInitialBalance(data));
+
+  const getUpdatedBalance = (typeOfTransaction, value) => {
+    switch (typeOfTransaction) {
+      case 'expenses':
+        const resultOfExpenses = initialBalance + Math.abs(value);
+        addInitialBalance({ balance: resultOfExpenses });
+        return;
+      case 'income':
+        const resultOfIncome = initialBalance - Math.abs(value);
+        addInitialBalance({ balance: resultOfIncome });
+        return;
+      default:
+        return initialBalance;
+    }
+  };
+
+  const onDelete = (id, type, value) => () => {
+    getUpdatedBalance(type, value);
+    dispatch(deleteTransactionById(id));
+  };
+
+  const sumStyle = getSumTypeStyle(type);
   return (
     <tr key={id} className={s.tableRow}>
       <td className={s.tableDataDate}>{date}</td>
@@ -38,7 +65,11 @@ export function TransactionTableRow({
         {value} грн
       </td>
       <td className={s.tableDataBtn}>
-        <button type="button" className={s.button} onClick={onDelete(id)}>
+        <button
+          type="button"
+          className={s.button}
+          onClick={onDelete(id, type, value)}
+        >
           <Delete className={s.svg} />
         </button>
       </td>

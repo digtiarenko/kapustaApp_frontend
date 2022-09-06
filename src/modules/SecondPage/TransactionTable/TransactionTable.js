@@ -1,17 +1,11 @@
 import React, { useEffect } from 'react';
 import s from './TransactionTable.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  getTransactionsByTypeAndDate,
-  deleteTransactionById,
-} from '../../../redux/transactions/transactionsOperations';
+import { getTransactionsByTypeAndDate } from '../../../redux/transactions/transactionsOperations';
 import { getTransactions } from '../../../redux/transactions/transactionsSelectors';
 import { TransactionTableRow } from '../TransactionTableRow/TransactionTableRow';
 
 const TransactionTable = ({ date, type }) => {
-  const onDelete = id => () => {
-    dispatch(deleteTransactionById(id));
-  };
   const transactions = useSelector(getTransactions);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -29,7 +23,7 @@ const TransactionTable = ({ date, type }) => {
   }, [date, type]);
 
   return (
-    <div className={s.container_table}>
+    <div className={s.container}>
       <table className={s.table}>
         <thead>
           <tr>
@@ -40,24 +34,38 @@ const TransactionTable = ({ date, type }) => {
             <th></th>
           </tr>
         </thead>
-        <tbody>
-          {transactions &&
-            transactions.map(transaction => (
-              <TransactionTableRow
-                key={transaction._id}
-                id={transaction._id}
-                date={transaction.date}
-                description={transaction.description}
-                type={transaction.type}
-                value={transaction.value}
-                category={transaction.category.name}
-                onDelete={onDelete}
-              />
-            ))}
-        </tbody>
       </table>
+
+      <div className={s.scroll}>
+        <table className={s.secondTable}>
+          <tbody>
+            {transactions &&
+              transactions.map(transaction => (
+                <TransactionTableRow
+                  key={transaction._id}
+                  id={transaction._id}
+                  date={transaction.date}
+                  description={transaction.description}
+                  type={transaction.type}
+                  value={transaction.value}
+                  category={transaction.category.name}
+                />
+              ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
 
 export default TransactionTable;
+
+//  <TransactionTableRow
+//                 key={transaction._id}
+//                 id={transaction._id}
+//                 date={transaction.date}
+//                 description={transaction.description}
+//                 type={transaction.type}
+//                 value={transaction.value}
+//                 category={transaction.category.name}
+//               />
