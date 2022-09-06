@@ -2,22 +2,37 @@ import s from './TransactionForm.module.css';
 import React, { useState } from 'react';
 import { ReactComponent as CalendarLogo } from 'images/icons/calendar.svg';
 import calculator from '../../../images/icons/calculator.svg';
-
 import moment from 'moment';
 import Dropdown from 'modules/dropDownCategories/Dropdown';
-import { useDispatch } from 'react-redux';
-import {
-  createUserTransaction,
-  getTransactionsByTypeAndDate,
-  deleteTransactionById,
-} from 'redux/transactions/transactionsOperations';
+import { ReactComponent as CalculatorLogo } from '../../../images/icons/calculator.svg';
+import { useDispatch, useSelector } from 'react-redux';
+import { createUserTransaction } from 'redux/transactions/transactionsOperations';
+import balanceOperations from 'redux/initialBalance/initialBalanceOperations';
 
-function TransactionForm({ date, setDate, type, setType }) {
+function TransactionForm({ date, setDate, type }) {
   const [description, setDescription] = useState('');
   const [categoryName, setCategoryName] = useState(null);
   const [categoryID, setCategoryID] = useState(null);
   const [value, setValue] = useState('');
   const dispatch = useDispatch();
+  const initialBalance = useSelector(state => state.balance.balance);
+  const addInitialBalance = data =>
+    dispatch(balanceOperations.addInitialBalance(data));
+
+  const getUpdatedBalance = typeOfTransaction => {
+    switch (typeOfTransaction) {
+      case 'expenses':
+        const resultOfExpenses = initialBalance - Math.abs(value);
+        addInitialBalance({ balance: resultOfExpenses });
+        return;
+      case 'income':
+        const resultOfIncome = initialBalance + Math.abs(value);
+        addInitialBalance({ balance: resultOfIncome });
+        return;
+      default:
+        return initialBalance;
+    }
+  };
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -52,8 +67,7 @@ function TransactionForm({ date, setDate, type, setType }) {
         type,
       })
     );
-    console.log({ date, description, categoryID, value, type });
-
+    getUpdatedBalance(type);
     setDescription('');
     setCategoryName('');
     setValue('');
