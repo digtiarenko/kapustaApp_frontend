@@ -4,9 +4,9 @@ import { ReactComponent as CalendarLogo } from '../../../images/icons/calendar.s
 import { ReactComponent as CalculatorLogo } from '../../../images/icons/calculator.svg';
 import moment from 'moment';
 import Dropdown from 'modules/dropDownCategories/Dropdown';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { createUserTransaction } from 'redux/transactions/transactionsOperations';
-// import balanceOperations from 'redux/initialBalance/initialBalanceOperations';
+import balanceOperations from 'redux/initialBalance/initialBalanceOperations';
 
 function TransactionForm({ date, setDate, type }) {
   const [description, setDescription] = useState('');
@@ -14,24 +14,24 @@ function TransactionForm({ date, setDate, type }) {
   const [categoryID, setCategoryID] = useState(null);
   const [value, setValue] = useState('');
   const dispatch = useDispatch();
+  const initialBalance = useSelector(state => state.balance.balance);
+  const addInitialBalance = data =>
+    dispatch(balanceOperations.addInitialBalance(data));
 
-  // const addInitialBalance = data =>
-  //   dispatch(balanceOperations.addInitialBalance(data));
-
-  // const getUpdatedBalance = typeOfTransaction => {
-  //   switch (typeOfTransaction) {
-  //     case 'expenses':
-  //       const resultOfExpenses = balance - Math.abs(value);
-  //       addInitialBalance({ balance: resultOfExpenses });
-  //       return;
-  //     case 'income':
-  //       const resultOfIncome = balance + Math.abs(value);
-  //       addInitialBalance({ balance: resultOfIncome });
-  //       return;
-  //     default:
-  //       return balance;
-  //   }
-  // };
+  const getUpdatedBalance = typeOfTransaction => {
+    switch (typeOfTransaction) {
+      case 'expenses':
+        const resultOfExpenses = initialBalance - Math.abs(value);
+        addInitialBalance({ balance: resultOfExpenses });
+        return;
+      case 'income':
+        const resultOfIncome = initialBalance + Math.abs(value);
+        addInitialBalance({ balance: resultOfIncome });
+        return;
+      default:
+        return initialBalance;
+    }
+  };
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -66,7 +66,7 @@ function TransactionForm({ date, setDate, type }) {
         type,
       })
     );
-    // console.log(getUpdatedBalance(type));
+    getUpdatedBalance(type);
     setDescription('');
     setCategoryName('');
     setValue('');
