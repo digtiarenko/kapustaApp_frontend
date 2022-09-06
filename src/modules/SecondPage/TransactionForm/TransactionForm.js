@@ -81,6 +81,7 @@ function TransactionForm({ date, setDate, type, setType }) {
             />
             <CalendarLogo className={s.calendarIcon} />
           </div>
+
           <input
             aria-label="Text"
             onChange={handleChange}
@@ -101,7 +102,6 @@ function TransactionForm({ date, setDate, type, setType }) {
           options={selectOptions()}
           className={s.select}
         /> */}
-
           <input
             aria-label="Number"
             onChange={handleChange}
@@ -111,11 +111,11 @@ function TransactionForm({ date, setDate, type, setType }) {
             placeholder="00.00"
             value={value}
           />
-
           <span className={s.iconCalculator}>
             <img src={calculator} alt="calculator" />
           </span>
         </div>
+
         <div className={s.buttonWrap}>
           <button aria-label="Input" type="submit" className={s.btnInput}>
             input

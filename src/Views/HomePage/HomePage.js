@@ -57,11 +57,14 @@ export default function HomePage() {
                       setType={setType}
                     />
                   )}
+                  <div className={s.stats}>
+                    {isTablet && (
+                      <>
+                        <TransactionTable />
+                      </>
+                    )}
+                  </div>
                 </div>
-              </div>
-              <div className={s.stats}>
-                <TransactionTable />
-                {isTablet && <>{/* <DropDown /> */}</>}
               </div>
             </>
           )}

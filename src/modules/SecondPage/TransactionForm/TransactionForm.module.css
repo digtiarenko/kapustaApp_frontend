@@ -144,7 +144,11 @@
     display: flex;
     align-items: center;
   }
+
   .iconCalculator {
+    /* .blockInput{
+outline: red;
+  } */
     border-left: none;
     border-radius: 0 16px 16px 0;
     padding: 9px 12px 11px 0;

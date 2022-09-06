@@ -3,6 +3,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  bottom: 0;
+  display: flex;
+  height: auto;
+  justify-content: space-between;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
 }
 
 .button {
@@ -10,6 +19,7 @@
   background: #fafbfd;
   border: none;
   color: #52555f;
+  /* position: fixed; */
 }
 
 .button:hover,

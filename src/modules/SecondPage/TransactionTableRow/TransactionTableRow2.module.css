@@ -1,6 +1,8 @@
 .tableRow {
-  border-bottom: 2px solid #f2f8f8;
   position: relative;
+
+  border-bottom: 2px solid #f2f8f8;
+  background: #fff;
   font-family: Roboto, sans-serif;
   font-size: 8px;
   line-height: 1.16;
@@ -23,8 +25,6 @@
 
 @media screen and (max-width: 767px) {
   .tableRow {
-    position: relative;
-
     width: 280px;
   }
 
@@ -37,14 +37,14 @@
     vertical-align: bottom;
   }
 
-  /* .tableDataDescription {
+  .tableDataDescription {
     position: absolute;
     top: 15%;
     left: 0;
     padding: 0;
     font-size: 12px;
     font-weight: 700;
-  } */
+  }
 
   .tableDataCategory {
     text-align: left;
@@ -66,7 +66,7 @@
   .tableRow {
     width: 746px;
     height: 32px;
-    position: absolute;
+
     font-size: 12px;
   }
 
@@ -81,12 +81,4 @@
     background-color: #f5f6fb;
     cursor: pointer;
   }
-  /* .tableDataDescription {
-          position: absolute;
-          top: 15%;
-          left: 0;
-          padding: 0;
-          font-size: 12px;
-          font-weight: 700;
-        } */
 }
