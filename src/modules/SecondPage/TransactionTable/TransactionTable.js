@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getTransactionsByTypeAndDate } from '../../../redux/transactions/transactionsOperations';
 import { getTransactions } from '../../../redux/transactions/transactionsSelectors';
 import { TransactionTableRow } from '../TransactionTableRow/TransactionTableRow';
+import EmptyRows from './EmptyRows';
 
 const TransactionTable = ({ date, type }) => {
   const transactions = useSelector(getTransactions);
@@ -23,14 +24,14 @@ const TransactionTable = ({ date, type }) => {
   }, [date, type]);
 
   return (
-    <div className={s.container}>
+    <>
       <table className={s.table}>
         <thead>
           <tr>
-            <th>дата</th>
-            <th>описание</th>
-            <th>категория</th>
-            <th>сумма</th>
+            <th>date</th>
+            <th>description</th>
+            <th>category</th>
+            <th>sum</th>
             <th></th>
           </tr>
         </thead>
@@ -51,10 +52,11 @@ const TransactionTable = ({ date, type }) => {
                   category={transaction.category.name}
                 />
               ))}
+            <EmptyRows />
           </tbody>
         </table>
       </div>
-    </div>
+    </>
   );
 };
 

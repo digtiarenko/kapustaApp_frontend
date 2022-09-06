@@ -7,9 +7,8 @@
   color: #52555f;
 }
 
-.button {
-  border: none;
-  background-color: transparent;
+.minus {
+  margin-right: 5px;
 }
 
 .tableDataSum {
@@ -17,8 +16,9 @@
   font-weight: 700;
 }
 
-.minus {
-  margin-right: 5px;
+.button {
+  border: none;
+  background-color: transparent;
 }
 
 @media screen and (max-width: 767px) {
@@ -37,17 +37,16 @@
     vertical-align: bottom;
   }
 
-  /* .tableDataDescription {
+  .tableDataDescription {
     position: absolute;
     top: 15%;
     left: 0;
     padding: 0;
     font-size: 12px;
     font-weight: 700;
-  } */
+  }
 
   .tableDataCategory {
-    text-align: left;
     vertical-align: bottom;
     width: 82px;
   }
@@ -66,8 +65,27 @@
   .tableRow {
     width: 746px;
     height: 32px;
-    /* position: absolute; */
+
     font-size: 12px;
+  }
+
+  .tableDataDate {
+    max-width: 40px;
+    padding-left: 15px;
+    text-align: left;
+  }
+
+  .tableDataDescription {
+    width: 150px;
+
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .tableDataSum {
+    text-align: right;
   }
 
   .button {
@@ -81,12 +99,4 @@
     background-color: #f5f6fb;
     cursor: pointer;
   }
-  /* .tableDataDescription {
-          position: absolute;
-          top: 15%;
-          left: 0;
-          padding: 0;
-          font-size: 12px;
-          font-weight: 700;
-        } */
 }
