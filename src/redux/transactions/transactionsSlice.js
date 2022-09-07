@@ -22,6 +22,7 @@ const transactionsSlice = createSlice({
       state.message = 'Transaction with such data is incorrect';
     },
     [getTransactionsByTypeAndDate.fulfilled](state, { payload }) {
+      console.log(payload);
       state.message = payload.message;
       state.transactions = payload.transactions;
     },

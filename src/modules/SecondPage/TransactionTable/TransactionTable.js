@@ -8,16 +8,15 @@ import EmptyRows from './EmptyRows';
 
 const TransactionTable = ({ date, type }) => {
   const transactions = useSelector(getTransactions);
+  console.log(type);
   const dispatch = useDispatch();
   useEffect(() => {
     transactions &&
       type &&
       dispatch(
         getTransactionsByTypeAndDate({
-          type,
           date,
-          page: '1',
-          limit: '9',
+          type,
         })
       );
     // eslint-disable-next-line react-hooks/exhaustive-deps
