@@ -82,18 +82,7 @@ export default function HomePage() {
                   </>
                 )}
                 <div className={s.stats}>
-                  {isTablet && (
-                    <>
-                      <TransactionTable date={date} type={type} />
-                    </>
-                  )}
-                </div>
-                <div className={s.stats}>
-                  {isDesktop && (
-                    <>
-                      <TransactionTable date={date} type={type} />
-                    </>
-                  )}
+                  <TransactionTable date={date} type={type} />
                 </div>
               </div>
               {/* <div>
