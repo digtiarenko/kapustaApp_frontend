@@ -110,32 +110,33 @@ function TransactionForm({ date, setDate, type }) {
             onCategorySet={onCategorySet}
             categoryName={categoryName}
           />
-          <input
-            aria-label="Number"
-            onChange={handleChange}
-            name="amount"
-            className={s.inputCount}
-            placeholder="0.00"
-            value={value}
-          />
-          <span className={s.iconCalculator}>
-            <img src={calculator} alt="calculator" />
-          </span>
+          <div className={s.inputWrapper}>
+            <input
+              aria-label="Number"
+              onChange={handleChange}
+              name="amount"
+              className={s.inputCount}
+              placeholder="0.00"
+              value={value}
+            />
+            <span className={s.iconCalculator}>
+              <img src={calculator} alt="calculator" />
+            </span>
+          </div>
         </div>
-
-        <div className={s.buttonWrap}>
-          <button aria-label="Input" type="submit" className={s.btnInput}>
-            input
-          </button>
-          <button
-            aria-label="Clear"
-            type="button"
-            className={s.btnClear}
-            onClick={onHandleResetForm}
-          >
-            clear
-          </button>
-        </div>
+      </div>
+      <div className={s.buttonWrap}>
+        <button aria-label="Input" type="submit" className={s.btnInput}>
+          input
+        </button>
+        <button
+          aria-label="Clear"
+          type="button"
+          className={s.btnClear}
+          onClick={onHandleResetForm}
+        >
+          clear
+        </button>
       </div>
     </form>
   );

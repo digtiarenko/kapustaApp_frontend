@@ -1,13 +1,12 @@
-.nav {
-  margin-left: 91px;
-}
 .button {
   width: 138px;
   height: 40px;
   background: #fafbfd;
-  border-radius: 20px;
+  border-radius: 20px 20px 0px 0px;
   border: none;
+  color: #ffffff;
 }
+
 .link {
   font-weight: 700;
   text-decoration: none;
