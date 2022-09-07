@@ -150,6 +150,8 @@
     /* .blockInput{
 outline: red;
   } */
+    position: absolute;
+    right: 0;
     border-left: none;
     border-radius: 0 16px 16px 0;
     padding: 9px 12px 11px 0;
@@ -245,6 +247,9 @@ outline: red;
 }
 
 @media screen and (min-width: 1280px) {
+  .inputCountOverlay {
+    position: relative;
+  }
   .blockButton {
     display: flex;
     align-items: center;
