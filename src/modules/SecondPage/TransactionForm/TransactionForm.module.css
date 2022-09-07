@@ -38,9 +38,19 @@
 }
 
 .inputCount::placeholder {
-  color: #000;
-}
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
 
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.02em;
+
+  color: #c7ccdc;
+}
+input::placeholder {
+  color: #c7ccdc;
+}
 .buttonWrap {
   /* display: none; */
   justify-content: center;
