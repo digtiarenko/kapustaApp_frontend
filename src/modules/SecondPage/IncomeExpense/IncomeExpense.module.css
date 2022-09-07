@@ -39,18 +39,17 @@
 
 @media screen and (min-width: 768px) {
   .nav {
-    margin-left: 91px;
     width: auto;
   }
   .button {
     width: 138px;
     height: 40px;
-    border-radius: 20px;
+    border-radius: 20px 20px 0px 0px;
   }
   .button_first {
     margin-right: 0;
     width: 138px;
     height: 40px;
-    border-radius: 20px;
+    border-radius: 20px 20px 0px 0px;
   }
 }
