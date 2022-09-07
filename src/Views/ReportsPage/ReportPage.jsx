@@ -47,8 +47,11 @@ export default function ReportPage() {
       arrayOfMonth.indexOf(month) === -1 ||
       arrayOfMonth.indexOf(month) === 0
     ) {
-      dispatch(setReportsDate({ year, month: arrayOfMonth.indexOf(month) }));
-      SetQueryParams(year, arrayOfMonth.indexOf(month));
+      dispatch(
+        setReportsDate({ year, month: arrayOfMonth.indexOf(month) + 12 })
+      );
+
+      SetQueryParams(year, arrayOfMonth.indexOf(month) + 12);
       dispatch(reportsOperations.getReportsFull(QUERY_PARAMS));
       return setMonth(arrayOfMonth[11]);
     }
@@ -63,13 +66,15 @@ export default function ReportPage() {
       setYear(year + 1);
     }
     if (arrayOfMonth.indexOf(month) > 10) {
+      console.log(arrayOfMonth.indexOf(month));
       dispatch(
-        setReportsDate({ year, month: arrayOfMonth.indexOf(month) + 2 })
+        setReportsDate({ year, month: arrayOfMonth.indexOf(month) - 10 })
       );
-      SetQueryParams(year, arrayOfMonth.indexOf(month) + 2);
+      SetQueryParams(year, arrayOfMonth.indexOf(month) - 10);
       dispatch(reportsOperations.getReportsFull(QUERY_PARAMS));
       return setMonth(arrayOfMonth[0]);
     }
+    console.log(arrayOfMonth.indexOf(month));
     dispatch(setReportsDate({ year, month: arrayOfMonth.indexOf(month) + 2 }));
     SetQueryParams(year, arrayOfMonth.indexOf(month) + 2);
     dispatch(reportsOperations.getReportsFull(QUERY_PARAMS));
