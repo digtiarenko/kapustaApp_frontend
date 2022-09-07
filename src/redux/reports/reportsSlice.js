@@ -33,18 +33,8 @@ export const initialState = {
       ],
     },
   ],
-  monthExpenses: {
-    _id: null,
-    date: null,
-    type: null,
-    totalSum: null,
-  },
-  monthIncome: {
-    _id: null,
-    date: null,
-    type: null,
-    totalSum: null,
-  },
+  monthExpenses: [],
+  monthIncome: [],
 };
 
 const reportsSlice = createSlice({

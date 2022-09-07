@@ -37,6 +37,7 @@ const getReportsMonthlyIncome = createAsyncThunk(
     const params = queryParams;
     try {
       const { data } = await axios.get('/reports/monthly-income', { params });
+      console.log(data);
       return data;
     } catch (error) {
       toast.error('Error. Server not answered!');

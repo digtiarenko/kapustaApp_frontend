@@ -1,34 +1,54 @@
+/* ------------------COMMON----------------- */
+
+.table {
+  border-collapse: collapse;
+  cursor: default;
+}
+
+/* ------------------MOBILE----------------- */
+
 @media screen and (max-width: 767px) {
   .table {
-    width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+    margin-bottom: 50px;
+
+    width: 100%;
+    max-width: 350px;
   }
-  .table th {
+
+  .tableHeaderTitle {
     display: none;
   }
 }
 
+/* ------------------TABLET----------------- */
+
 @media screen and (min-width: 768px) {
   .table {
-    width: 100%;
-    max-width: 624px;
+    width: 594px;
     margin-top: 50px;
-    border-collapse: collapse;
   }
 
-  thead {
+  .tableHeader {
+    display: table;
+    width: 100%;
+    max-width: 594px;
+
     font-weight: 700;
     font-size: 12px;
     line-height: 14px;
-
-    text-align: left;
+    text-align: center;
     letter-spacing: 0.02em;
     text-transform: uppercase;
 
     color: #000000;
   }
 
-  .table th {
-    width: 624px;
+  .tableHeaderTitle {
+    width: 25%;
+
     height: 38px;
     padding: 5px;
 
@@ -36,82 +56,105 @@
     background: #f5f6fb;
   }
 
-  .table th:nth-child(3) {
-    text-align: center;
+  .tableHeaderTitle:nth-child(2) {
+    text-align: left;
   }
 
-  .table th:nth-child(4) {
-    text-align: right;
-  }
-
-  .table thead tr th:first-child {
+  .tableHeaderTitle:first-child {
     padding-left: 15px;
+
+    text-align: left;
     border-radius: 20px 0 0 0;
   }
-  .table thead tr th:last-child {
+
+  .tableHeaderTitle:last-child {
     border-radius: 0 20px 0 0;
   }
 
-  .scroll {
+  .tableBody {
     display: inline-block;
+    width: 594px;
+    height: calc(40px * 9 + 1px * 9);
 
-    width: 100%;
-    max-width: 624px;
-    height: 360px;
     overflow-y: scroll;
   }
 
-  .secondTable {
-    width: 100%;
-    max-width: 746px;
-    border-collapse: collapse;
-  }
-
-  .secondTable tr {
+  .tableBody tr {
+    display: table;
+    width: calc(100% - 2px);
     height: 40px;
 
     text-align: center;
     border: none;
     border-bottom: 2px solid #f2f8f8;
     border-left: 2px solid #f2f8f8;
-    border-right: 2px solid #f2f8f8;
   }
 
-  .scroll::-webkit-scrollbar {
-    width: 6px;
+  .tableBody tr td:nth-child(2) {
+    width: 27%;
+    max-width: 50px;
   }
-  .scroll::-webkit-scrollbar-thumb {
+
+  .tableBody::-webkit-scrollbar {
+    width: 6px;
+    background-color: #f2f8f8;
+  }
+
+  .tableBody::-webkit-scrollbar-thumb {
     background-color: #ff751d;
     border-radius: 2px;
   }
 }
 
-@media screen and (min-width: 1024px) {
+/* ------------------DESKTOP----------------- */
+
+@media screen and (min-width: 1280px) {
   .table {
-    max-width: 746px;
-    height: 38px;
+    width: 746px;
 
     margin-top: 60px;
   }
 
-  thead {
-    text-align: left;
-  }
-
-  .scroll {
+  .tableHeader {
+    width: 100%;
     max-width: 746px;
-    height: 360px;
   }
 
-  .secondTable {
+  .tableHeaderTitle {
+    width: 20%;
+  }
+
+  .tableHeaderTitle:first-child {
+    width: 18%;
+  }
+
+  .tableHeaderTitle:nth-child(2) {
+    width: 22%;
+  }
+
+  .tableHeaderTitle:last-child {
+    width: 15%;
+  }
+
+  .tableBody {
     width: 746px;
+    height: calc(38px * 9 + 1px * 9);
   }
 
-  .table th:nth-child(3) {
-    text-align: left;
+  .tableBody tr {
+    height: 38px;
   }
 
-  .table th:nth-child(4) {
-    text-align: left;
+  .tableBody tr td:first-child {
+    width: 18%;
+  }
+
+  .tableBody tr td:nth-child(2) {
+    width: 22%;
+    max-width: 120px;
+  }
+
+  .tableBody tr td:last-child {
+    width: 15%;
   }
 }

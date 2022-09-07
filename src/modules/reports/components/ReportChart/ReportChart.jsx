@@ -1,33 +1,35 @@
-// import { useSelector } from 'react-redux';
-// import { useParams } from 'react-router-dom';
-// import {
-//   getDataByCategory,
-//   getDataByMonth,
-//   getDataByType,
-//   getReportsFull,
-// } from 'redux/reports/reportsSelectors';
-// import ReportChartMobile from './ReportChartMobile';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { getDataByCategory } from 'redux/reports/reportsSelectors';
+import ReportChartMobile from './ReportChartMobile';
 
 //
 const ReportChart = () => {
-  // const { category, type } = useParams();
+  const [screenWidth, setScreenWidth] = useState(window.screen.width);
+  const handleScreenResize = () => setScreenWidth(window.screen.width);
 
+  const { category, type } = useParams();
+
+  useEffect(() => {
+    window.addEventListener('resize', handleScreenResize);
+    return () => window.removeEventListener('resize', handleScreenResize);
+  }, []);
   // const fullData = useSelector(getReportsFull);
   // const dataMonth = useSelector(getDataByMonth);
   // const dataType = useSelector(getDataByType(type));
 
-  // const dataCategory = useSelector(getDataByCategory(type, category));
+  const dataCategory = useSelector(getDataByCategory(type, category));
   // const data = dataCategory.arrOfTransactions;
-
-  // console.log('data:', dataCategory);
+  const data = dataCategory[0].arrOfTransactions;
+  console.log('data:', data);
 
   // console.log('dataByMonth:', dataMonth);
   // console.log('dataByType:', dataType);
   // console.log('dataByCategory:', dataCategory);
   return (
     <>
-      <div>Chart</div>
-      {/* <ReportChartMobile data={data} /> */}
+      {screenWidth < 768 ? <ReportChartMobile data={data} /> : <div>Chart</div>}
     </>
   );
 };

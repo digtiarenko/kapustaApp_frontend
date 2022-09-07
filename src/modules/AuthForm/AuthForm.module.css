@@ -83,11 +83,13 @@
 
 .form__error {
   color: red;
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 400;
   letter-spacing: 0.04em;
   padding: 4px 25px;
   margin-top: 5px;
+  width: 265px;
+  display: block;
 }
 
 .form__list {
@@ -127,7 +129,7 @@
     padding: 4px 85px;
   }
   .form__error {
-    font-size: 11px;
+    font-size: 9px;
     padding: 4px 85px;
   }
 }

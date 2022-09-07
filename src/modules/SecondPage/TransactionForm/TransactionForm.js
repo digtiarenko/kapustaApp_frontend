@@ -43,7 +43,10 @@ function TransactionForm({ date, setDate, type }) {
         setDescription(value);
         break;
       case 'amount':
-        setValue(Number(value));
+        if (NaN) {
+          return;
+        }
+        setValue(value);
         break;
 
       default:
@@ -116,6 +119,7 @@ function TransactionForm({ date, setDate, type }) {
             <input
               aria-label="Number"
               onChange={handleChange}
+              type="number"
               name="amount"
               className={s.inputCount}
               placeholder="0.00"
@@ -127,7 +131,7 @@ function TransactionForm({ date, setDate, type }) {
           </div>
         </div>
 
-        <div className={s.buttonWrap}>
+        {/* <div className={s.buttonWrap}>
           <button aria-label="Input" type="submit" className={s.btnInput}>
             input
           </button>
@@ -139,7 +143,7 @@ function TransactionForm({ date, setDate, type }) {
           >
             clear
           </button>
-        </div>
+        </div> */}
       </div>
       <div className={s.buttonWrap}>
         <button aria-label="Input" type="submit" className={s.btnInput}>
