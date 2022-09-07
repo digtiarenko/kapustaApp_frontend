@@ -1,4 +1,5 @@
 import { createSelector } from '@reduxjs/toolkit';
+import { initialState } from './reportsSlice';
 
 export const getReportsFull = state => state.reports.full;
 export const getReportsMonthlyExpenses = state => state.reports.monthExpenses;
@@ -12,19 +13,28 @@ export const getDataByMonth = createSelector(
       date.year + '-' + date.month < 10
         ? '0' + Number(date.month)
         : Number(date.month);
-
-    return data.filter(item => item.date.includes(searchDate))[0];
+    if (data[0].date !== '') {
+      return data.filter(item => item.date.includes(searchDate));
+    }
+    return initialState.full;
   }
 );
 
 export const getDataByType = type =>
   createSelector([getDataByMonth], dataByMonth => {
-    return dataByMonth.arrOfTypes.filter(item => item.type.includes(type))[0];
+    if (dataByMonth.length !== 0 && dataByMonth[0].arrOfTypes[0].type !== '') {
+      return dataByMonth[0].arrOfTypes.filter(item => item.type.includes(type));
+    }
+    return initialState.full[0].arrOfTypes;
   });
 
 export const getDataByCategory = (type, category) =>
   createSelector([getDataByType(type)], dataByType => {
-    return dataByType.arrOfCategories.filter(item =>
-      item.category.name.toLowerCase().includes(category)
-    )[0];
+    // console.log(dataByType);
+    if (dataByType[0].type !== '') {
+      return dataByType[0].arrOfCategories.filter(item =>
+        item.category.name.toLowerCase().includes(category)
+      );
+    }
+    return initialState.full[0].arrOfTypes[0].arrOfCategories;
   });
