@@ -104,7 +104,7 @@ export default function ReportPage() {
               <Balance type="report" />
             </div>
           </div>
-          <Summary />
+          <Summary year={year} month={arrayOfMonth.indexOf(month) + 1} />
           <Outlet
             context={{ year: year, month: arrayOfMonth.indexOf(month) + 1 }}
           />

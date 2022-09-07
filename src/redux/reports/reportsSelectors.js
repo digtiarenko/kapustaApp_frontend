@@ -4,6 +4,16 @@ import { initialState } from './reportsSlice';
 export const getReportsFull = state => state.reports.full;
 export const getReportsMonthlyExpenses = state => state.reports.monthExpenses;
 export const getReportsMonthlyIncome = state => state.reports.monthIncome;
+export const getTotalSunByMonthlyExpenses = state => {
+  if (state.reports.monthExpenses.length !== 0) {
+    return state.reports.monthExpenses[0].totalSum;
+  }
+};
+export const getTotalSunByMonthlyIncome = state => {
+  if (state.reports.monthIncome.length !== 0) {
+    return state.reports.monthIncome[0].totalSum;
+  }
+};
 export const getReportsDate = state => state.reports.date;
 
 export const getDataByMonth = createSelector(
