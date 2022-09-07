@@ -26,7 +26,7 @@ export default function HomePage() {
 
   useEffect(() => {
     if (
-      location.pathname === '/home' ||
+      (location.pathname === '/home' && notMobile) ||
       location.pathname === '/home/expenses'
     ) {
       navigation('/home/expenses');
@@ -46,6 +46,7 @@ export default function HomePage() {
   const handleShowForm = value => {
     setShowForm(value);
   };
+
   return (
     <Container>
       <section>
