@@ -28,7 +28,7 @@ export const createUserTransaction = createAsyncThunk(
 
 export const getTransactionsByTypeAndDate = createAsyncThunk(
   'transactions/getTransactions',
-  async ({ type, date }, { getState, rejectWithValue }) => {
+  async ({ date, type }, { getState, rejectWithValue }) => {
     const state = getState();
     const persistedToken = state.auth.token;
     if (persistedToken === null) {
@@ -37,7 +37,7 @@ export const getTransactionsByTypeAndDate = createAsyncThunk(
     token.set(persistedToken);
 
     try {
-      const { data } = await axios.get(`/transactions/${type}/${date}`);
+      const { data } = await axios.get(`/transactions/${date}?type=${type}`);
       return data;
     } catch (error) {
       return rejectWithValue();
