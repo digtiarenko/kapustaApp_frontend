@@ -1,6 +1,8 @@
+import s from './EmptyRows.module.css';
+
 export default function EmptyRows() {
   return (
-    <>
+    <div className={s.emptyRows}>
       <tr>
         <td></td>
         <td></td>
@@ -92,6 +94,6 @@ export default function EmptyRows() {
         <td></td>
         <td></td>
       </tr>
-    </>
+    </div>
   );
 }
