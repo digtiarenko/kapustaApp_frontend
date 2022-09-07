@@ -11,8 +11,8 @@ import moment from 'moment';
 // import MobileForm from '../../modules/MobileModal/MobileForm';
 import { useMediaQuery } from 'react-responsive';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import TransactionTableRow from 'modules/SecondPage/TransactionTableRow/TransactionTableRow';
+// import { useSelector } from 'react-redux';
+// import TransactionTableRow from 'modules/SecondPage/TransactionTableRow/TransactionTableRow';
 
 export default function HomePage() {
   const [showForm, setShowForm] = useState(false);

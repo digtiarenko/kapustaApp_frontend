@@ -1,10 +1,10 @@
 import Container from 'modules/navigation/components/Container';
-import s from './AddTransactions.module.css';
+// import s from './AddTransactions.module.css';
 import { useEffect, useState } from 'react';
 import TransactionForm from '../../modules/SecondPage/TransactionForm/TransactionForm';
 import moment from 'moment';
 import { ButtonGoMain } from 'modules/Buttons/ButtonGoMain';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 export default function AddTransactions() {
   const location = useLocation();

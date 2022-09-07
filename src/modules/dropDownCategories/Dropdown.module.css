@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-between;
   width: 170px;
-  height: 40px;
+  height: 50px;
   background-color: white;
   color: white;
   padding: 2px 20px;
@@ -14,6 +14,7 @@
   letter-spacing: 0.02em;
   line-height: 14px;
   color: #c7ccdc;
+  border: 2px solid #f5f6fb;
 }
 
 .dropbtn:hover,

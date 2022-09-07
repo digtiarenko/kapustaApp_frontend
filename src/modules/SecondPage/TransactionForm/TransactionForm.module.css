@@ -11,20 +11,6 @@
   align-items: center;
 }
 
-.description {
-  /* display: none;  */
-
-  /* height: 44px; */
-  /* border-top-left-radius: 16px;
-  font-size: 12px;
-  line-height: 14px;
-  text-align: start;
-  background-color: transparent;
-  padding-left: 30px;
-  border: 2px solid #52555f;
-  color: #52555f; */
-}
-
 .inputCount {
   /* display: none; */
 
@@ -43,14 +29,21 @@
 }
 
 .inputCount::placeholder {
-  color: #000;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.02em;
+
+  color: #c7ccdc;
 }
 
 .buttonWrap {
   /* display: none; */
   justify-content: center;
   margin: 0;
-  margin-top: 32px;
 }
 
 .dateWrapper {
@@ -126,7 +119,6 @@
     background-color: transparent;
     padding-left: 30px;
     border: 2px solid #52555f;
-    color: #52555f;
   }
 
   .dateWrapper {
@@ -143,6 +135,15 @@
   .blockButton {
     display: flex;
     align-items: center;
+  }
+  .inputWrapper {
+    position: relative;
+  }
+  .inputWrapper img {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    padding: 10px 25px;
   }
 
   .iconCalculator {
@@ -174,11 +175,14 @@ outline: red;
   border-radius: 16px 0px 0px 0px;
 }
 
-.description::placeholder {
+::placeholder {
   font-weight: 400;
   color: #c7ccdc;
 }
-
+/* .inputCount::placeholder{
+  font-weight: 400;
+  color: #c7ccdc;
+} */
 .select {
   width: 280px;
   height: 44px;
@@ -253,11 +257,13 @@ outline: red;
     flex-direction: row;
     flex-wrap: nowrap;
     padding: 0;
+    margin-top: 32px;
   }
 
   .wrapInput {
     display: flex;
     align-items: center;
+    margin-right: 32px;
   }
 
   .datePicker {
@@ -267,6 +273,8 @@ outline: red;
 
   .description {
     width: 238px;
+    border: 2px solid #f6f7fc;
+    outline: none;
   }
 
   .inputCountWrapper {
@@ -276,6 +284,10 @@ outline: red;
 
   .inputCount {
     width: 121px;
+    border: 2px solid #f6f7fc;
+    border-radius: 0px 16px 16px 0px;
+    height: 44px;
+    outline: none;
   }
 
   .btnInput {
@@ -286,9 +298,14 @@ outline: red;
     width: 136px;
   }
 
-  .buttonWrap {
+  /* .buttonWrap {
     margin-left: 32px;
     margin-top: 0;
+  } */
+  .buttonWrap {
+    display: flex;
+    justify-content: center;
+    margin: 0;
   }
 
   .inputWrap {
@@ -350,17 +367,24 @@ outline: red;
 .btnInput {
   width: 130px;
   height: 44px;
-  background: #ff751d;
+  background-color: transparent;
   border: none;
   border-radius: 16px;
-  margin-right: 15px;
   font-weight: 700;
   font-size: 12px;
   line-height: 14px;
   text-align: center;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+  margin-right: 15px;
+  color: #2e2f30;
+  box-shadow: 2px 2px 22px 0px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
 
+.btnInput:hover,
+btnInput:focus {
+  background: #ff751d;
   color: #fff;
   box-shadow: 8px 2px 22px 0px rgba(0, 0, 0, 0.38);
   cursor: pointer;
@@ -370,7 +394,7 @@ outline: red;
   width: 130px;
   height: 44px;
   background-color: transparent;
-  border: 2px solid #f6f7fc;
+  border: none;
   border-radius: 16px;
   font-weight: 700;
   font-size: 12px;
@@ -384,11 +408,12 @@ outline: red;
   cursor: pointer;
 }
 
-.buttonWrap {
-  display: flex;
-  justify-content: center;
-  margin: 0;
-  margin-top: 32px;
+.btnClear:hover,
+btnClear:focus {
+  background: #ff751d;
+  color: #fff;
+  box-shadow: 8px 2px 22px 0px rgba(0, 0, 0, 0.38);
+  cursor: pointer;
 }
 
 /*
@@ -602,6 +627,7 @@ outline: red;
     width: auto;
   }
 } */
+
 @media screen and (max-width: 767px) {
   .wrap {
     padding-left: 20px;

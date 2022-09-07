@@ -14,7 +14,11 @@
   width: 49.5%;
   height: 53px;
   background: #fafbfd;
+
+  border-radius: 20px 20px 0px 0px;
+
   border: none;
+  color: #ffffff;
 }
 
 .link {

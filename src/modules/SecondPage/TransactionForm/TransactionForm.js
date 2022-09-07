@@ -4,7 +4,7 @@ import { ReactComponent as CalendarLogo } from 'images/icons/calendar.svg';
 import calculator from '../../../images/icons/calculator.svg';
 import moment from 'moment';
 import Dropdown from 'modules/dropDownCategories/Dropdown';
-import { ReactComponent as CalculatorLogo } from '../../../images/icons/calculator.svg';
+// import { ReactComponent as CalculatorLogo } from '../../../images/icons/calculator.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { createUserTransaction } from 'redux/transactions/transactionsOperations';
 import balanceOperations from 'redux/initialBalance/initialBalanceOperations';
@@ -95,6 +95,7 @@ function TransactionForm({ date, setDate, type }) {
             />
             <CalendarLogo className={s.calendarIcon} />
           </div>
+
           <div className={s.overlay}>
             <input
               aria-label="Text"
@@ -139,6 +140,19 @@ function TransactionForm({ date, setDate, type }) {
             clear
           </button>
         </div>
+      </div>
+      <div className={s.buttonWrap}>
+        <button aria-label="Input" type="submit" className={s.btnInput}>
+          input
+        </button>
+        <button
+          aria-label="Clear"
+          type="button"
+          className={s.btnClear}
+          onClick={onHandleResetForm}
+        >
+          clear
+        </button>
       </div>
     </form>
   );
