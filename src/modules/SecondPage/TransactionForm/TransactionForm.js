@@ -95,32 +95,35 @@ function TransactionForm({ date, setDate, type }) {
             />
             <CalendarLogo className={s.calendarIcon} />
           </div>
-
-          <input
-            aria-label="Text"
-            onChange={handleChange}
-            className={s.description}
-            name="description"
-            type="text"
-            placeholder="Product description"
-            value={description}
-          />
-          <Dropdown
-            type={type}
-            onCategorySet={onCategorySet}
-            categoryName={categoryName}
-          />
-          <input
-            aria-label="Number"
-            onChange={handleChange}
-            name="amount"
-            className={s.inputCount}
-            placeholder="0.00"
-            value={value}
-          />
-          <span className={s.iconCalculator}>
-            <img src={calculator} alt="calculator" />
-          </span>
+          <div className={s.overlay}>
+            <input
+              aria-label="Text"
+              onChange={handleChange}
+              className={s.description}
+              name="description"
+              type="text"
+              placeholder="Product description"
+              value={description}
+            />
+            <Dropdown
+              type={type}
+              onCategorySet={onCategorySet}
+              categoryName={categoryName}
+            />
+          </div>
+          <div className={s.inputCountOverlay}>
+            <input
+              aria-label="Number"
+              onChange={handleChange}
+              name="amount"
+              className={s.inputCount}
+              placeholder="0.00"
+              value={value}
+            />
+            <span className={s.iconCalculator}>
+              <img src={calculator} alt="calculator" className={s.calculator} />
+            </span>
+          </div>
         </div>
 
         <div className={s.buttonWrap}>

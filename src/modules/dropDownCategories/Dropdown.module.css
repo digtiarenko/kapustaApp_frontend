@@ -53,3 +53,13 @@
   background-color: #f5f6fb;
   color: #52555f;
 }
+
+@media screen and (max-width: 767px) {
+  .dropbtn {
+    width: 280px;
+    height: 44px;
+    border: 2px solid #ffffff;
+    border-bottom-right-radius: 25px;
+    background: #f5f6fb;
+  }
+}
