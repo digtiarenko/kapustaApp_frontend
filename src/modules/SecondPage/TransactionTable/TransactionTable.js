@@ -15,8 +15,6 @@ const TransactionTable = ({ date, type }) => {
         getTransactionsByTypeAndDate({
           type,
           date,
-          page: '1',
-          limit: '9',
         })
       );
     // eslint-disable-next-line react-hooks/exhaustive-deps
