@@ -35,6 +35,8 @@ import products from './food.svg';
 import sportshobbies from './hobbies.svg';
 import transport from './transport.svg';
 import technique from './utilities.svg';
+import additionalincome from './additional.svg';
+import salary from './salary.svg';
 
 const icons = {
   alcohol,
@@ -48,6 +50,8 @@ const icons = {
   sportshobbies,
   transport,
   technique,
+  additionalincome,
+  salary,
 };
 
 export default icons;

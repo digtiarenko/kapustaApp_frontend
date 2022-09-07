@@ -3,6 +3,7 @@ import { Summary } from '../../modules/Summary/Summary';
 import s from './ReportPage.module.css';
 import { ButtonGoMain } from 'modules/Buttons/ButtonGoMain';
 import Balance from 'modules/balance/components/Balance';
+import Categories from './Categories';
 import { CurrentPeriod } from '../../modules/CurrentPeriod/CurrentPeriod.jsx';
 import { useEffect, useState } from 'react';
 import Container from 'modules/navigation/components/Container';
@@ -105,6 +106,7 @@ export default function ReportPage() {
             </div>
           </div>
           <Summary />
+          <Categories />
           <Outlet
             context={{ year: year, month: arrayOfMonth.indexOf(month) + 1 }}
           />
