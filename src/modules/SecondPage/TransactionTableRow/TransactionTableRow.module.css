@@ -1,3 +1,5 @@
+/* ----------------COMMON---------------- */
+
 .tableRow {
   border-bottom: 2px solid #f2f8f8;
   position: relative;
@@ -5,7 +7,6 @@
   font-size: 8px;
   line-height: 1.16;
   color: #52555f;
-  cursor: default;
 }
 
 .minus {
@@ -21,6 +22,8 @@
   border: none;
   background-color: transparent;
 }
+
+/* ----------------MOBILE---------------- */
 
 @media screen and (max-width: 767px) {
   .tableRow {
@@ -62,31 +65,32 @@
   }
 }
 
+/* ----------------TABLET & DESKTOP---------------- */
+
 @media screen and (min-width: 768px) {
   .tableRow {
-    width: 624px;
-    height: 32px;
+    width: calc(100% - 2px);
 
     font-size: 12px;
   }
 
+  .tableRow td {
+    width: 20%;
+  }
+
   .tableDataDate {
-    max-width: 40px;
     padding-left: 15px;
     text-align: left;
   }
 
   .tableDataDescription {
-    width: 150px;
+    width: 168px;
+    padding-left: 5px;
 
     text-align: left;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-  }
-
-  .tableDataSum {
-    text-align: right;
   }
 
   .button {
@@ -99,15 +103,5 @@
     border-radius: 50%;
     background-color: #f5f6fb;
     cursor: pointer;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .tableDataDate {
-    max-width: 25px;
-  }
-
-  .tableDataSum {
-    text-align: center;
   }
 }
