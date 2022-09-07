@@ -28,6 +28,11 @@
   color: #52555f;
 }
 
+.inputCount::-webkit-outer-spin-button,
+.inputCount::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
 .inputCount::placeholder {
   font-weight: 400;
   font-size: 12px;
