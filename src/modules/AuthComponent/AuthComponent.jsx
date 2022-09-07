@@ -26,7 +26,7 @@ export default function AuthComponent() {
   };
 
   const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-  const regexPass = /^(.{7,20}|[^0-9]*|[^A-Z]*|[^a-z]*|[a-zA-Z0-9]*)$/;
+  const regexPass = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,63}$/;
 
   const validateByFormik = values => {
     let errors = {};
@@ -34,13 +34,14 @@ export default function AuthComponent() {
     values.password = password;
     if (!values.email) {
       errors.email = 'Email is required';
-    } else if (!regexEmail.test(values.email)) {
+    } else if (!regexEmail.test(values.email) || values.email.length < 6) {
       errors.email = 'Invalid email';
     }
     if (!values.password) {
       errors.password = 'Password is required';
-    } else if (values.password.length < 8) {
-      errors.password = 'Password too short';
+    } else if (!regexPass.test(values.password)) {
+      errors.password =
+        'Password must have minimum eight characters, at least  one letter and one number';
     }
     return errors;
   };
@@ -55,25 +56,31 @@ export default function AuthComponent() {
     if (email === '' && password === '') {
       setErrorsSubmit({ email: 'required', password: 'required' });
       return;
-    } else if (email === '' && password.length < 8) {
+    } else if (email === '' && !regexPass.test(password)) {
       setErrorsSubmit({ email: 'required', password: 'wrong' });
       return;
-    } else if (!regexEmail.test(email) && password === '') {
+    } else if (
+      !regexEmail.test(email) ||
+      (email.length < 6 && password === '')
+    ) {
       setErrorsSubmit({ email: 'wrong', password: 'required' });
       return;
-    } else if (!regexEmail.test(email) && password.length < 8) {
+    } else if (
+      !regexEmail.test(email) ||
+      (email.length < 6 && !regexPass.test(password))
+    ) {
       setErrorsSubmit({ email: 'wrong', password: 'wrong' });
       return;
     } else if (email === '') {
       setErrorsSubmit({ email: 'required', password: '' });
       return;
-    } else if (!regexEmail.test(email)) {
+    } else if (!regexEmail.test(email) || email.length < 6) {
       setErrorsSubmit({ email: 'wrong', password: '' });
       return;
     } else if (password === '') {
       setErrorsSubmit({ email: '', password: 'required' });
       return;
-    } else if (password.length < 8) {
+    } else if (!regexPass.test(password)) {
       setErrorsSubmit({ email: '', password: 'wrong' });
       return;
     }
@@ -86,25 +93,31 @@ export default function AuthComponent() {
     if (email === '' && password === '') {
       setErrorsSubmit({ email: 'required', password: 'required' });
       return;
-    } else if (email === '' && password.length < 8) {
+    } else if (email === '' && !regexPass.test(password)) {
       setErrorsSubmit({ email: 'required', password: 'wrong' });
       return;
-    } else if (!regexEmail.test(email) && password === '') {
+    } else if (
+      !regexEmail.test(email) ||
+      (email.length < 6 && password === '')
+    ) {
       setErrorsSubmit({ email: 'wrong', password: 'required' });
       return;
-    } else if (!regexEmail.test(email) && password.length < 8) {
+    } else if (
+      !regexEmail.test(email) ||
+      (email.length < 6 && !regexPass.test(password))
+    ) {
       setErrorsSubmit({ email: 'wrong', password: 'wrong' });
       return;
     } else if (email === '') {
       setErrorsSubmit({ email: 'required', password: '' });
       return;
-    } else if (!regexEmail.test(email)) {
+    } else if (!regexEmail.test(email) || email.length < 6) {
       setErrorsSubmit({ email: 'wrong', password: '' });
       return;
     } else if (password === '') {
       setErrorsSubmit({ email: '', password: 'required' });
       return;
-    } else if (password.length < 8) {
+    } else if (!regexPass.test(password)) {
       setErrorsSubmit({ email: '', password: 'wrong' });
       return;
     }

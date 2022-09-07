@@ -99,23 +99,20 @@ export default function AuthForm({
                   <span className={s.form__error}>Password is required</span>
                 )}
                 {errorsSubmit.password === 'wrong' && (
-                  <span className={s.form__error}>Password is too short!</span>
+                  <span className={s.form__error}>
+                    Password must have minimum eight characters, at least one
+                    letter and one number
+                  </span>
                 )}
               </div>
               <ul className={s.form__list}>
                 <li className={s.form__item}>
-                  <Button
-                    text={'Log in'}
-                    type="submit"
-                    /*   disabled={disabled} */
-                    onClick={handleLogin}
-                  />
+                  <Button text={'Log in'} type="submit" onClick={handleLogin} />
                 </li>
                 <li className={s.form__item}>
                   <Button
                     text={'Registration'}
                     type="submit"
-                    /*    disabled={disabled} */
                     onClick={handleRegister}
                   />
                 </li>
