@@ -6,10 +6,23 @@ import {
   ResponsiveContainer,
   LabelList,
   YAxis,
+  Tooltip,
 } from 'recharts';
-import EllipsisText from 'react-ellipsis-text';
 
 import styles from './ReportChart.module.css';
+
+const CustomTooltip = ({ active, payload, label }) => {
+  if (active) {
+    return (
+      <div className={styles.customTooltip}>
+        <p
+          className={styles.customTooltipLabel}
+        >{`${label} : ${payload[0].value}`}</p>
+      </div>
+    );
+  }
+  return null;
+};
 
 const ReportChartMobile = ({ data }) => {
   const renderBarLabel = ({ x, y, width, value }) => {
@@ -17,16 +30,20 @@ const ReportChartMobile = ({ data }) => {
     return (
       width > 60 && (
         <text x={width} y={y} textAnchor="middle" fontSize={10} dx={0} dy={-10}>
-          <EllipsisText text={labelText} length={'5'} />
+          {labelText}
         </text>
       )
     );
   };
 
   const renderCategoryLabel = ({ x, y, width, value }) => {
+    let labelText = value;
+    if (value.length > 8) {
+      labelText = value.substr(0, 8) + '...';
+    }
     return (
       <text x={x} y={y} dx={0} dy={-10} fontSize={10}>
-        <EllipsisText text={value} length={'5'} />
+        {labelText}
       </text>
     );
   };
@@ -40,8 +57,10 @@ const ReportChartMobile = ({ data }) => {
           margin={{ top: 0, right: -30, bottom: 0, left: 0 }}
           barGap="5"
         >
+          <Tooltip cursor={false} content={<CustomTooltip />} />
           <XAxis hide axisLine={true} type="number" />
           <YAxis dataKey="description" type="category" hide />
+
           <Bar
             dataKey="value"
             barSize={15}
