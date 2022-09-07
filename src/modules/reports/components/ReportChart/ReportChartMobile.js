@@ -11,7 +11,7 @@ import {
 
 import styles from './ReportChart.module.css';
 
-const CustomTooltip = ({ active, payload, label }) => {
+export const CustomTooltip = ({ active, payload, label }) => {
   if (active) {
     return (
       <div className={styles.customTooltip}>
@@ -54,7 +54,7 @@ const ReportChartMobile = ({ data }) => {
         <BarChart
           layout="vertical"
           data={data}
-          margin={{ top: 0, right: -30, bottom: 0, left: 0 }}
+          margin={{ top: 0, right: -150, bottom: 0, left: 0 }}
           barGap="5"
         >
           <Tooltip cursor={false} content={<CustomTooltip />} />
@@ -69,7 +69,7 @@ const ReportChartMobile = ({ data }) => {
             fill="#52555f"
             minPointSize={10}
           >
-            {data.map((el, idx) => (
+            {data.map((item, idx) => (
               <Cell
                 key={`cell-${idx}`}
                 fill={idx % 3 ? '#FFDAC0' : '#ff751d'}
