@@ -13,18 +13,18 @@ export const getDataByMonth = createSelector(
         ? '0' + Number(date.month)
         : Number(date.month);
 
-    return data.filter(item => item.date.includes(searchDate))[0];
+    return data.filter(item => item.date.includes(searchDate));
   }
 );
 
 export const getDataByType = type =>
   createSelector([getDataByMonth], dataByMonth => {
-    return dataByMonth.arrOfTypes.filter(item => item.type.includes(type))[0];
+    return dataByMonth.arrOfTypes.filter(item => item.type.includes(type));
   });
 
 export const getDataByCategory = (type, category) =>
   createSelector([getDataByType(type)], dataByType => {
-    return dataByType.arrOfCategories.filter(item =>
+    return dataByType[0].arrOfCategories.filter(item =>
       item.category.name.toLowerCase().includes(category)
     )[0];
   });

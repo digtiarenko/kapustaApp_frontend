@@ -25,6 +25,11 @@ const arrayOfMonth = [
   'December',
 ];
 const QUERY_PARAMS = {}; //{ limit: 10 };
+const SetQueryParams = (year, month, limit) => {
+  if (year) QUERY_PARAMS.year = year;
+  if (month) QUERY_PARAMS.month = month;
+  if (limit) QUERY_PARAMS.limit = limit;
+};
 export default function ReportPage() {
   const date = new Date();
   let currentYear = date.getFullYear();
@@ -42,12 +47,14 @@ export default function ReportPage() {
       arrayOfMonth.indexOf(month) === -1 ||
       arrayOfMonth.indexOf(month) === 0
     ) {
-      dispatch(
-        setReportsDate({ year, month: arrayOfMonth.indexOf(month) + 1 })
-      );
+      dispatch(setReportsDate({ year, month: arrayOfMonth.indexOf(month) }));
+      SetQueryParams(year, arrayOfMonth.indexOf(month));
+      dispatch(reportsOperations.getReportsFull(QUERY_PARAMS));
       return setMonth(arrayOfMonth[11]);
     }
-    dispatch(setReportsDate({ year, month: arrayOfMonth.indexOf(month) + 1 }));
+    dispatch(setReportsDate({ year, month: arrayOfMonth.indexOf(month) }));
+    SetQueryParams(year, arrayOfMonth.indexOf(month));
+    dispatch(reportsOperations.getReportsFull(QUERY_PARAMS));
     setMonth(prevState => arrayOfMonth[arrayOfMonth.indexOf(prevState) - 1]);
   };
 
@@ -57,16 +64,21 @@ export default function ReportPage() {
     }
     if (arrayOfMonth.indexOf(month) > 10) {
       dispatch(
-        setReportsDate({ year, month: arrayOfMonth.indexOf(month) + 1 })
+        setReportsDate({ year, month: arrayOfMonth.indexOf(month) + 2 })
       );
+      SetQueryParams(year, arrayOfMonth.indexOf(month) + 2);
+      dispatch(reportsOperations.getReportsFull(QUERY_PARAMS));
       return setMonth(arrayOfMonth[0]);
     }
-    dispatch(setReportsDate({ year, month: arrayOfMonth.indexOf(month) + 1 }));
+    dispatch(setReportsDate({ year, month: arrayOfMonth.indexOf(month) + 2 }));
+    SetQueryParams(year, arrayOfMonth.indexOf(month) + 2);
+    dispatch(reportsOperations.getReportsFull(QUERY_PARAMS));
     setMonth(arrayOfMonth[arrayOfMonth.indexOf(month) + 1]);
   };
 
   useEffect(() => {
     dispatch(setReportsDate({ year, month: arrayOfMonth.indexOf(month) + 1 }));
+    SetQueryParams(year, arrayOfMonth.indexOf(month) + 1);
     dispatch(reportsOperations.getReportsFull(QUERY_PARAMS));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
