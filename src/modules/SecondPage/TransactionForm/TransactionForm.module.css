@@ -10,35 +10,14 @@
   /* display: none;  */
 
   /* height: 44px; */
-  /* border-top-left-radius: 16px;
+  border-top-left-radius: 16px;
   font-size: 12px;
   line-height: 14px;
   text-align: start;
   background-color: transparent;
   padding-left: 30px;
   border: 2px solid #52555f;
-  color: #52555f; */
-}
-
-.inputCount {
-  /* display: none; */
-
-  height: 44px;
-  border: 2px solid #fff;
-  /* padding-right: 55px; */
-  /* padding-left: 55px; */
-  border-radius: 22px;
-  font-weight: 900;
-  font-size: 12px;
-  line-height: 14px;
-  text-align: center;
-  margin-top: 32px;
-  background-color: transparent;
   color: #52555f;
-}
-
-.inputCount::placeholder {
-  color: #000;
 }
 
 .buttonWrap {
@@ -114,15 +93,27 @@
   }
 
   .inputCount {
-    border-left: none;
-    border-radius: 0;
+    border: 2px solid #f5f6fb;
+    /* border-radius: 0 16px 16px 0; */
     border-right: none;
-    margin: 0;
-    padding: 13px 10px;
+    border-left: none;
     width: 80px;
+    padding-left: 20px;
     height: 44px;
+    outline: none;
+    font-weight: 400;
+    font-size: 12px;
+    /* line-height: 14px; */
   }
-
+  .inputCount::placeholder {
+    color: #c7ccdc;
+  }
+  .calculatorSvg {
+    padding: 9px 12px 11px 0;
+    width: 35px;
+    border-radius: 0 16px 16px 0;
+    border-left: none;
+  }
   .description {
     border: 2px solid #f5f6fb;
     border-radius: 16px 0 0 0;
@@ -130,6 +121,9 @@
     width: 181px;
     padding: 0 20px;
     height: 44px;
+  }
+  .description::placeholder {
+    color: #c7ccdc;
   }
 
   .dateWrapper {
@@ -141,6 +135,7 @@
     display: flex;
     /* align-items: center; */
     flex-direction: column;
+    width: 100%;
   }
 
   .blockButton {
@@ -149,13 +144,7 @@
   }
 
   .iconCalculator {
-    /* .blockInput{
-outline: red;
-  } */
-    border-left: none;
-    border-radius: 0 16px 16px 0;
-    padding: 9px 12px 11px 0;
-    width: 35px;
+    display: flex;
   }
   .dateWrapper {
     position: relative;
@@ -182,7 +171,8 @@ outline: red;
     position: relative;
     z-index: 9;
   }
-
+  .calculatorInput {
+  }
   .datePicker:focus {
     outline-color: transparent;
   }
@@ -244,12 +234,12 @@ outline: red;
   }
 }
 
-@media screen and (max-width: 778px) {
-  /* .formControl {
+/* @media screen and (max-width: 778px) {
+  .formControl {
       display: flex;
       padding-top: 24px;
-    } */
-}
+    }
+} */
 
 /* .containerForm {
   padding-top: 32px;

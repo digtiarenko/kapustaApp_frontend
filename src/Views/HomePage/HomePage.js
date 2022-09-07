@@ -81,11 +81,11 @@ export default function HomePage() {
                   </>
                 )}
                 <div className={s.stats}>
-                  {isTablet && (
+                  {/* {isTablet && (
                     <>
                       <TransactionTable date={date} type={type} />
                     </>
-                  )}
+                  )} */}
                 </div>
                 <div className={s.stats}>
                   {isDesktop && (
