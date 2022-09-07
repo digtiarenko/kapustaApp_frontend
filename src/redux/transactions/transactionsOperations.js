@@ -18,7 +18,7 @@ export const createUserTransaction = createAsyncThunk(
     token.set(persistedToken);
     try {
       const { data } = await axios.post('/transactions', transactionBody);
-      console.log(data);
+
       return data;
     } catch (error) {
       return rejectWithValue();
@@ -28,7 +28,7 @@ export const createUserTransaction = createAsyncThunk(
 
 export const getTransactionsByTypeAndDate = createAsyncThunk(
   'transactions/getTransactions',
-  async ({ type, date, page, limit }, { getState, rejectWithValue }) => {
+  async ({ date, type }, { getState, rejectWithValue }) => {
     const state = getState();
     const persistedToken = state.auth.token;
     if (persistedToken === null) {
@@ -37,9 +37,7 @@ export const getTransactionsByTypeAndDate = createAsyncThunk(
     token.set(persistedToken);
 
     try {
-      const { data } = await axios.get(
-        `/transactions/${type}/${date}?page=${page}&limit=${limit}`
-      );
+      const { data } = await axios.get(`/transactions/${date}?type=${type}`);
       return data;
     } catch (error) {
       return rejectWithValue();

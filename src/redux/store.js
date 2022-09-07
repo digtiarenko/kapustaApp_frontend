@@ -14,7 +14,6 @@ import {
 } from 'redux-persist';
 import { authReducer } from './auth';
 import { balanceReducers } from './initialBalance';
-
 import { categoriesSlice } from './categories';
 import { transactionsSlice } from './transactions';
 import { reportsSlice } from './reports';

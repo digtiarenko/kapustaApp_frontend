@@ -1,61 +1,116 @@
-@media screen and (max-width: 767px) {
-  .wrap {
-    padding-left: 20px;
-    padding-right: 20px;
+.wrap {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.inputCountOverlay {
+  display: flex;
+  align-items: center;
+}
+
+.inputCount {
+  /* display: none; */
+
+  height: 44px;
+  border: 2px solid #fff;
+  /* padding-right: 55px; */
+  /* padding-left: 55px; */
+  border-radius: 22px;
+  font-weight: 900;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  margin-top: 32px;
+  background-color: transparent;
+  color: #52555f;
+}
+
+.inputCount::placeholder {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.02em;
+
+  color: #c7ccdc;
+}
+
+.buttonWrap {
+  /* display: none; */
+  justify-content: center;
+  margin: 0;
+}
+
+.dateWrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.calendarIcon {
+  height: 17px;
+  width: 20px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.datePicker {
+  font-weight: 900;
+  font-size: 12px;
+  line-height: 14px;
+  color: #52555f;
+  background-color: transparent;
+  border: none;
+  position: relative;
+  z-index: 1;
+}
+
+.datePicker:focus {
+  outline-color: transparent;
+}
+
+.datePicker::-webkit-calendar-picker-indicator {
+  color: rgba(0, 0, 0, 0);
+  z-index: 9;
+  width: 90px;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .formControl {
     display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
   }
 
-  /* .form {
-  
-  padding-top: 32px;
-} */
-
-  @media screen and (min-width: 768px) {
-    .formControl {
-      display: flex;
-    }
-  }
-
-  @media screen and (max-width: 778px) {
-    .formControl {
-      display: flex;
-      padding-top: 24px;
-    }
-  }
   .containerForm {
-    padding-top: 32px;
-  }
-  @media screen and (min-width: 768px) {
-    .containerForm {
-      display: flex;
-    }
-  }
-
-  .product {
-    border: 2px solid #f6f7fc;
-    width: 288px;
-    height: 38px;
-    border-radius: 16px 0px 0px 0px;
-  }
-
-  .wrapInput {
-    padding-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
     display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 100vw;
-    height: 258px;
-    background-color: #f5f6fb;
-    border-bottom-left-radius: 30%;
+  }
+
+  .svg {
+    position: relative;
+    right: -79px;
+    bottom: 31px;
+  }
+
+  .inputCount {
+    border-left: none;
+    border-radius: 0;
+    border-right: none;
+    margin: 0;
+    /* padding: 13px 10px px; */
+    width: 80px;
   }
 
   .description {
-    width: 280px;
+    width: 181px;
     height: 44px;
     border-top-left-radius: 16px;
     font-size: 12px;
@@ -64,171 +119,309 @@
     background-color: transparent;
     padding-left: 30px;
     border: 2px solid #52555f;
-    color: #52555f;
   }
 
-  .description::placeholder {
-    font-weight: 400;
-    color: #c7ccdc;
-  }
-  .select {
-    width: 280px;
-    height: 44px;
-    border: 2px solid #fff;
-    border-bottom-right-radius: 16px;
-    color: #c7ccdc;
+  .dateWrapper {
+    display: block;
+    /* flex-direction: row-reverse; */
   }
 
-  .text {
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 14px;
+  .wrapInput {
+    display: flex;
+    /* align-items: center; */
+    flex-direction: column;
+  }
+
+  .blockButton {
     display: flex;
     align-items: center;
-    letter-spacing: 0.02em;
-    padding-left: 20px;
-    color: #c7ccdc;
   }
-  .svg {
+  .inputWrapper {
     position: relative;
-    right: 35px;
-    bottom: -4px;
   }
-  @media screen and (max-width: 768px) {
-    .svg {
-      position: relative;
-      right: -79px;
-      bottom: 31px;
-    }
+  .inputWrapper img {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    padding: 10px 25px;
+  }
+
+  .iconCalculator {
+    /* .blockInput{
+outline: red;
+  } */
+    position: absolute;
+    right: 0;
+    border-left: none;
+    border-radius: 0 16px 16px 0;
+    padding: 9px 12px 11px 0;
+    width: 35px;
+  }
+}
+
+@media screen and (max-width: 778px) {
+  /* .formControl {
+      display: flex;
+      padding-top: 24px;
+    } */
+}
+
+.containerForm {
+  padding-top: 32px;
+}
+
+.product {
+  border: 2px solid #f6f7fc;
+  width: 288px;
+  height: 38px;
+  border-radius: 16px 0px 0px 0px;
+}
+
+::placeholder {
+  font-weight: 400;
+  color: #c7ccdc;
+}
+/* .inputCount::placeholder{
+  font-weight: 400;
+  color: #c7ccdc;
+} */
+.select {
+  width: 280px;
+  height: 44px;
+  border: 2px solid #fff;
+  border-bottom-right-radius: 16px;
+  color: #c7ccdc;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.02em;
+  padding-left: 20px;
+  color: #c7ccdc;
+}
+
+.svg {
+  position: relative;
+  right: 35px;
+  bottom: -4px;
+}
+
+.inputCountWrapper {
+  position: relative;
+  width: 183px;
+}
+
+.calculatorIcon {
+  position: absolute;
+  right: 30px;
+  top: 44px;
+}
+
+/* .inputCount {
+  width: 183px;
+  height: 44px;
+  border: 2px solid #fff;
+  padding-right: 55px;
+  padding-left: 55px;
+  border-radius: 22px;
+  font-weight: 900;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  margin-top: 32px;
+  background-color: transparent;
+  color: #52555f;
+} */
+
+.inputCount::placeholder {
+  color: #000;
+}
+
+.btnWrapper {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (min-width: 1280px) {
+  .inputCountOverlay {
+    position: relative;
+  }
+  .blockButton {
+    display: flex;
+    align-items: center;
+    /* justify-content: baseline; */
+  }
+
+  .wrap {
+    width: 1120px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 0;
+    margin-top: 32px;
+  }
+
+  .wrapInput {
+    display: flex;
+    align-items: center;
+    margin-right: 32px;
+  }
+
+  .datePicker {
+    width: 104px;
+    text-align: center;
+  }
+
+  .description {
+    width: 238px;
+    border: 2px solid #f6f7fc;
+    outline: none;
   }
 
   .inputCountWrapper {
     position: relative;
-    width: 183px;
-  }
-
-  .calculatorIcon {
-    position: absolute;
-    right: 30px;
-    top: 44px;
+    width: 121px;
   }
 
   .inputCount {
-    width: 183px;
+    width: 121px;
+    border: 2px solid #f6f7fc;
+    border-radius: 0px 16px 16px 0px;
     height: 44px;
-    border: 2px solid #fff;
-    padding-right: 55px;
-    padding-left: 55px;
-    border-radius: 22px;
-    font-weight: 900;
-    font-size: 12px;
-    line-height: 14px;
-    text-align: center;
-    margin-top: 32px;
-    background-color: transparent;
-    color: #52555f;
-  }
-
-  .inputCount::placeholder {
-    color: #000;
-  }
-  .btnWrapper {
-    display: flex;
-    align-items: center;
-  }
-  @media screen and (max-width: 768px) {
-    .btnWrapper {
-      align-items: center;
-      justify-content: center;
-    }
-  }
-
-  .dateWrapper {
-    position: relative;
-  }
-
-  .calendarIcon {
-    position: absolute;
-    z-index: 2;
-    left: -2px;
-    top: 12px;
-  }
-
-  .datePicker {
-    font-weight: 900;
-    font-size: 12px;
-    line-height: 14px;
-    color: #2e2f30;
-    background-color: transparent;
-    border: none;
-    width: 110px;
-    height: 44px;
-    margin: 0 auto;
-    text-align: center;
-    position: relative;
-    z-index: 9;
-  }
-
-  .datePicker:focus {
-    outline-color: transparent;
-  }
-
-  .datePicker::-webkit-calendar-picker-indicator {
-    color: rgba(0, 0, 0, 0);
-    z-index: 9;
-    width: 110px;
-    height: 44px;
-    opacity: 0;
-    position: absolute;
-    left: 0;
-    top: 0;
-    cursor: pointer;
+    outline: none;
   }
 
   .btnInput {
-    width: 130px;
-    height: 44px;
-    background: #ff751d;
-    border: none;
-    border-radius: 16px;
-    margin-right: 15px;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 14px;
-    text-align: center;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-
-    color: #fff;
-    box-shadow: 8px 2px 22px 0px rgba(0, 0, 0, 0.38);
-    cursor: pointer;
+    width: 136px;
   }
 
   .btnClear {
-    width: 130px;
-    height: 44px;
-    background-color: transparent;
-    border: 2px solid #f6f7fc;
-    border-radius: 16px;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 14px;
-    text-align: center;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-
-    color: #2e2f30;
-    box-shadow: 2px 2px 22px 0px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
+    width: 136px;
   }
+
+  /* .buttonWrap {
+    margin-left: 32px;
+    margin-top: 0;
+  } */
   .buttonWrap {
     display: flex;
     justify-content: center;
     margin: 0;
-    margin-top: 32px;
+  }
+
+  .inputWrap {
+    display: flex;
+    flex-direction: row;
+    width: auto;
   }
 }
 
+@media screen and (max-width: 768px) {
+  .btnWrapper {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.dateWrapper {
+  position: relative;
+}
+
+.calendarIcon {
+  position: absolute;
+  z-index: 2;
+  left: -2px;
+  top: 12px;
+}
+
+.datePicker {
+  font-weight: 900;
+  font-size: 12px;
+  line-height: 14px;
+  color: #2e2f30;
+  background-color: transparent;
+  border: none;
+  width: 110px;
+  height: 44px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 9;
+}
+
+.datePicker:focus {
+  outline-color: transparent;
+}
+
+.datePicker::-webkit-calendar-picker-indicator {
+  color: rgba(0, 0, 0, 0);
+  z-index: 9;
+  width: 110px;
+  height: 44px;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: pointer;
+}
+
+.btnInput {
+  width: 130px;
+  height: 44px;
+  background-color: transparent;
+  border: none;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-right: 15px;
+  color: #2e2f30;
+  box-shadow: 2px 2px 22px 0px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.btnInput:hover,
+btnInput:focus {
+  background: #ff751d;
+  color: #fff;
+  box-shadow: 8px 2px 22px 0px rgba(0, 0, 0, 0.38);
+  cursor: pointer;
+}
+
+.btnClear {
+  width: 130px;
+  height: 44px;
+  background-color: transparent;
+  border: none;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  color: #2e2f30;
+  box-shadow: 2px 2px 22px 0px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.btnClear:hover,
+btnClear:focus {
+  background: #ff751d;
+  color: #fff;
+  box-shadow: 8px 2px 22px 0px rgba(0, 0, 0, 0.38);
+  cursor: pointer;
+}
+
+/*
 @media screen and (min-width: 768px) {
   .wrap {
     width: 100%;
@@ -437,5 +630,65 @@
     display: flex;
     flex-direction: row;
     width: auto;
+  }
+} */
+
+@media screen and (max-width: 767px) {
+  .wrap {
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .blockButton {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .overlay {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .dateWrapper {
+    width: 150px;
+    margin-bottom: 30px;
+  }
+  .datePicker {
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .calendarIcon {
+    width: 30px;
+    height: 30px;
+    margin: auto 0;
+    left: -7px;
+    top: 7px;
+  }
+
+  .description {
+    box-sizing: border-box;
+    width: 280px;
+    height: 44px;
+    border: 2px solid #ffffff;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    padding-left: 20px;
+    background: #f5f6fb;
+  }
+  .calculator {
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+    margin-top: 30px;
+  }
+
+  .buttonWrap {
+    margin-top: 70px;
   }
 }
