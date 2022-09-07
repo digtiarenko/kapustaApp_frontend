@@ -5,7 +5,7 @@ import { ReactComponent as ReactLogo } from '../../../../images/svg/reports.svg'
 export default function ReportsLink() {
   return (
     <div className={s.commonReportBlock}>
-      <Link to="/reports/expenses" className={s.link}>
+      <Link to="/reports" className={s.link}>
         <h2 className={s.name}>Reports</h2>
         <ReactLogo />
       </Link>
