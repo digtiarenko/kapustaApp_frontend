@@ -96,21 +96,23 @@ function TransactionForm({ date, setDate, type }) {
             <CalendarLogo className={s.calendarIcon} />
           </div>
 
-          <input
-            aria-label="Text"
-            onChange={handleChange}
-            className={s.description}
-            name="description"
-            type="text"
-            placeholder="Product description"
-            value={description}
-          />
-          <Dropdown
-            type={type}
-            onCategorySet={onCategorySet}
-            categoryName={categoryName}
-          />
-          <div className={s.inputWrapper}>
+          <div className={s.overlay}>
+            <input
+              aria-label="Text"
+              onChange={handleChange}
+              className={s.description}
+              name="description"
+              type="text"
+              placeholder="Product description"
+              value={description}
+            />
+            <Dropdown
+              type={type}
+              onCategorySet={onCategorySet}
+              categoryName={categoryName}
+            />
+          </div>
+          <div className={s.inputCountOverlay}>
             <input
               aria-label="Number"
               onChange={handleChange}
@@ -120,9 +122,23 @@ function TransactionForm({ date, setDate, type }) {
               value={value}
             />
             <span className={s.iconCalculator}>
-              <img src={calculator} alt="calculator" />
+              <img src={calculator} alt="calculator" className={s.calculator} />
             </span>
           </div>
+        </div>
+
+        <div className={s.buttonWrap}>
+          <button aria-label="Input" type="submit" className={s.btnInput}>
+            input
+          </button>
+          <button
+            aria-label="Clear"
+            type="button"
+            className={s.btnClear}
+            onClick={onHandleResetForm}
+          >
+            clear
+          </button>
         </div>
       </div>
       <div className={s.buttonWrap}>

@@ -1,8 +1,22 @@
+.nav {
+  margin: 0 auto;
+  width: 100%;
+}
+
 .button {
-  width: 138px;
-  height: 40px;
+  width: 49.5%;
+  height: 53px;
   background: #fafbfd;
+  border: none;
+}
+.button_first {
+  margin-right: 3px;
+  width: 49.5%;
+  height: 53px;
+  background: #fafbfd;
+
   border-radius: 20px 20px 0px 0px;
+
   border: none;
   color: #ffffff;
 }
@@ -21,4 +35,22 @@
   cursor: default;
   /* composes: link; */
   color: #e61e17;
+}
+
+@media screen and (min-width: 768px) {
+  .nav {
+    margin-left: 91px;
+    width: auto;
+  }
+  .button {
+    width: 138px;
+    height: 40px;
+    border-radius: 20px;
+  }
+  .button_first {
+    margin-right: 0;
+    width: 138px;
+    height: 40px;
+    border-radius: 20px;
+  }
 }
