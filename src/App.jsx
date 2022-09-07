@@ -15,6 +15,7 @@ import LoaderSection from 'modules/LoaderSection';
 const AuthPage = lazy(() => import('./Views/AuthPage/AuthPage'));
 const HomePage = lazy(() => import('./Views/HomePage'));
 const ReportsPage = lazy(() => import('./Views/ReportsPage'));
+const AddTransactions = lazy(() => import('./Views/AddTransactions'));
 // const Expenses = lazy(() => import('./Views/ReportsPage/Expenses/Expenses'));
 // const Income = lazy(() => import('./Views/ReportsPage/Income/Income'));
 const Category = lazy(() => import('Views/ReportsPage/Categories'));
@@ -78,6 +79,26 @@ export const App = () => {
                   }
                 />
               </Route>
+              <Route
+                path="add_expenses"
+                element={
+                  <ProtectedRoute redirectPath={'/'} isAllowed={isAuth}>
+                    <Suspense fallback={<LoaderPage />}>
+                      <AddTransactions />
+                    </Suspense>
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="add_income"
+                element={
+                  <ProtectedRoute redirectPath={'/'} isAllowed={isAuth}>
+                    <Suspense fallback={<LoaderPage />}>
+                      <AddTransactions />
+                    </Suspense>
+                  </ProtectedRoute>
+                }
+              />
               <Route
                 path="reports"
                 element={

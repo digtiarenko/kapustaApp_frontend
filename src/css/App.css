@@ -34,8 +34,8 @@ ul {
   margin-left: auto;
   margin-right: auto;
   box-sizing: border-box;
-  padding-left: 20px;
-  padding-right: 20px;
+  /*  padding-left: 20px;
+  padding-right: 20px; */
 }
 /* .authBlock {
   position: relative;
@@ -100,7 +100,7 @@ ul {
   }
 
   .background-top_for-mobile {
-    height: 330px;
+    height: 400px;
   }
 
   .home-mob-wrap {
@@ -119,6 +119,8 @@ ul {
 @media screen and (min-width: 1280px) {
   /* desktop */
   .container {
-    max-width: 1090px;
+    padding-left: 87px;
+    padding-right: 110px;
+    max-width: 1280px;
   }
 }
