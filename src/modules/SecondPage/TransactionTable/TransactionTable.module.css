@@ -15,7 +15,7 @@
     /* margin-bottom: 160px; */
 
     width: 100%;
-    max-width: 300px;
+    max-width: 350px;
   }
 
   .tableHeaderTitle {
@@ -47,7 +47,6 @@
   }
 
   .tableHeaderTitle {
-    /* !!!! */
     width: 25%;
 
     height: 38px;
@@ -126,11 +125,15 @@
   }
 
   .tableHeaderTitle:first-child {
-    width: 15%;
+    width: 18%;
   }
 
   .tableHeaderTitle:nth-child(2) {
-    width: 25%;
+    width: 22%;
+  }
+
+  .tableHeaderTitle:last-child {
+    width: 15%;
   }
 
   .tableBody {
@@ -142,12 +145,16 @@
     height: 38px;
   }
 
+  .tableBody tr td:first-child {
+    width: 18%;
+  }
+
   .tableBody tr td:nth-child(2) {
-    width: 25%;
+    width: 22%;
     max-width: 120px;
   }
 
-  .tableBody tr td:first-child {
+  .tableBody tr td:last-child {
     width: 15%;
   }
 }
