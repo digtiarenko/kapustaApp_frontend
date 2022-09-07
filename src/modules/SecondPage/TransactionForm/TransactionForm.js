@@ -127,7 +127,7 @@ function TransactionForm({ date, setDate, type }) {
           </div>
         </div>
 
-        <div className={s.buttonWrap}>
+        {/* <div className={s.buttonWrap}>
           <button aria-label="Input" type="submit" className={s.btnInput}>
             input
           </button>
@@ -139,7 +139,7 @@ function TransactionForm({ date, setDate, type }) {
           >
             clear
           </button>
-        </div>
+        </div> */}
       </div>
       <div className={s.buttonWrap}>
         <button aria-label="Input" type="submit" className={s.btnInput}>
