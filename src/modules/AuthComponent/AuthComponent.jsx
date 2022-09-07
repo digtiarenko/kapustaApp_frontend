@@ -25,7 +25,8 @@ export default function AuthComponent() {
     }
   };
 
-  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+  const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+  const regexPass = /^(.{7,20}|[^0-9]*|[^A-Z]*|[^a-z]*|[a-zA-Z0-9]*)$/;
 
   const validateByFormik = values => {
     let errors = {};
@@ -33,7 +34,7 @@ export default function AuthComponent() {
     values.password = password;
     if (!values.email) {
       errors.email = 'Email is required';
-    } else if (!regex.test(values.email)) {
+    } else if (!regexEmail.test(values.email)) {
       errors.email = 'Invalid email';
     }
     if (!values.password) {
@@ -57,16 +58,16 @@ export default function AuthComponent() {
     } else if (email === '' && password.length < 8) {
       setErrorsSubmit({ email: 'required', password: 'wrong' });
       return;
-    } else if (!regex.test(email) && password === '') {
+    } else if (!regexEmail.test(email) && password === '') {
       setErrorsSubmit({ email: 'wrong', password: 'required' });
       return;
-    } else if (!regex.test(email) && password.length < 8) {
+    } else if (!regexEmail.test(email) && password.length < 8) {
       setErrorsSubmit({ email: 'wrong', password: 'wrong' });
       return;
     } else if (email === '') {
       setErrorsSubmit({ email: 'required', password: '' });
       return;
-    } else if (!regex.test(email)) {
+    } else if (!regexEmail.test(email)) {
       setErrorsSubmit({ email: 'wrong', password: '' });
       return;
     } else if (password === '') {
@@ -88,16 +89,16 @@ export default function AuthComponent() {
     } else if (email === '' && password.length < 8) {
       setErrorsSubmit({ email: 'required', password: 'wrong' });
       return;
-    } else if (!regex.test(email) && password === '') {
+    } else if (!regexEmail.test(email) && password === '') {
       setErrorsSubmit({ email: 'wrong', password: 'required' });
       return;
-    } else if (!regex.test(email) && password.length < 8) {
+    } else if (!regexEmail.test(email) && password.length < 8) {
       setErrorsSubmit({ email: 'wrong', password: 'wrong' });
       return;
     } else if (email === '') {
       setErrorsSubmit({ email: 'required', password: '' });
       return;
-    } else if (!regex.test(email)) {
+    } else if (!regexEmail.test(email)) {
       setErrorsSubmit({ email: 'wrong', password: '' });
       return;
     } else if (password === '') {

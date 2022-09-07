@@ -11,8 +11,8 @@ import moment from 'moment';
 // import MobileForm from '../../modules/MobileModal/MobileForm';
 import { useMediaQuery } from 'react-responsive';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import TransactionTableRow from 'modules/SecondPage/TransactionTableRow/TransactionTableRow';
+// import { useSelector } from 'react-redux';
+// import TransactionTableRow from 'modules/SecondPage/TransactionTableRow/TransactionTableRow';
 
 export default function HomePage() {
   const [showForm, setShowForm] = useState(false);
@@ -26,7 +26,7 @@ export default function HomePage() {
 
   useEffect(() => {
     if (
-      location.pathname === '/home' ||
+      (location.pathname === '/home' && notMobile) ||
       location.pathname === '/home/expenses'
     ) {
       navigation('/home/expenses');
@@ -46,6 +46,7 @@ export default function HomePage() {
   const handleShowForm = value => {
     setShowForm(value);
   };
+
   return (
     <Container>
       <section>

@@ -1,14 +1,50 @@
 import { createSlice } from '@reduxjs/toolkit';
 import reportsOperations from './reportsOperations';
 
-const initialState = {
+export const initialState = {
   date: {
     year: null,
     month: null,
   },
-  full: null,
-  monthExpenses: null,
-  monthIncome: null,
+  full: [
+    {
+      date: '',
+      arrOfTypes: [
+        {
+          type: '',
+          totalSum: 0,
+          arrOfCategories: [
+            {
+              category: {
+                _id: '',
+                name: '',
+                type: '',
+              },
+              totalSum: 0,
+              arrOfTransactions: [
+                {
+                  description: '',
+                  value: '',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+  ],
+  monthExpenses: {
+    _id: null,
+    date: null,
+    type: null,
+    totalSum: null,
+  },
+  monthIncome: {
+    _id: null,
+    date: null,
+    type: null,
+    totalSum: null,
+  },
 };
 
 const reportsSlice = createSlice({
@@ -22,7 +58,10 @@ const reportsSlice = createSlice({
   },
   extraReducers: {
     [reportsOperations.getReportsFull.fulfilled](state, { payload }) {
-      state.full = payload.fullReportByMonth;
+      state.full =
+        payload.fullReportByMonth.length !== 0
+          ? payload.fullReportByMonth
+          : initialState.full;
     },
     [reportsOperations.getReportsMonthlyExpenses.fulfilled](
       state,
