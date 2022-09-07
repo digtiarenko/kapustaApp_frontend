@@ -23,39 +23,32 @@ const TransactionTable = ({ date, type }) => {
   }, [date, type]);
 
   return (
-    <>
-      <table className={s.table}>
-        <thead>
-          <tr>
-            <th>date</th>
-            <th>description</th>
-            <th>category</th>
-            <th>sum</th>
-            <th></th>
-          </tr>
-        </thead>
-      </table>
-
-      <div className={s.scroll}>
-        <table className={s.secondTable}>
-          <tbody>
-            {transactions &&
-              transactions.map(transaction => (
-                <TransactionTableRow
-                  key={transaction._id}
-                  id={transaction._id}
-                  date={transaction.date}
-                  description={transaction.description}
-                  type={transaction.type}
-                  value={transaction.value}
-                  category={transaction.category.name}
-                />
-              ))}
-            <EmptyRows />
-          </tbody>
-        </table>
-      </div>
-    </>
+    <table className={s.table}>
+      <thead className={s.tableHeader}>
+        <tr>
+          <th className={s.tableHeaderTitle}>date</th>
+          <th className={s.tableHeaderTitle}>description</th>
+          <th className={s.tableHeaderTitle}>category</th>
+          <th className={s.tableHeaderTitle}>sum</th>
+          <th className={s.tableHeaderTitle}></th>
+        </tr>
+      </thead>
+      <tbody className={s.tableBody}>
+        {transactions &&
+          transactions.map(transaction => (
+            <TransactionTableRow
+              key={transaction._id}
+              id={transaction._id}
+              date={transaction.date}
+              description={transaction.description}
+              type={transaction.type}
+              value={transaction.value}
+              category={transaction.category.name}
+            />
+          ))}
+        <EmptyRows />
+      </tbody>
+    </table>
   );
 };
 
