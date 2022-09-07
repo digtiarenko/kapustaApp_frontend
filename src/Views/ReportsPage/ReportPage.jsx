@@ -24,7 +24,7 @@ const arrayOfMonth = [
   'November',
   'December',
 ];
-const QUERY_PARAMS = {}; //{ limit: 10 };
+const QUERY_PARAMS = {}; //{year:2022, month:9, limit: 10 };
 const SetQueryParams = (year, month, limit) => {
   if (year) QUERY_PARAMS.year = year;
   if (month) QUERY_PARAMS.month = month;
