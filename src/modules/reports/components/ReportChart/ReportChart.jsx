@@ -23,7 +23,6 @@ const ReportChart = () => {
           .concat(reportFullMonth[0].arrOfTypes[1].arrOfCategories)
           .filter(item => item.category._id === categoryId)[0].arrOfTransactions
       : null;
-  console.log(data);
   return (
     <>
       {screenWidth < 768

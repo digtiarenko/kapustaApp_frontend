@@ -14,12 +14,11 @@ import styles from './ReportChart.module.css';
 import { CustomTooltip } from './ReportChartMobile';
 
 const CustomXAxisTick = props => {
-  // console.log(props.payload.value);
   let labelText = props.payload.value;
   if (props.payload.value.length > 8) {
     labelText = props.payload.value.substr(0, 8) + '...';
   }
-  return <Text {...props}>{labelText} </Text>;
+  return <Text {...props}>{labelText}</Text>;
 };
 
 const renderBarLabel = ({ x, y, width, value }) => {
