@@ -11,17 +11,17 @@ export default function Expenses() {
   const [header, setHeader] = useState('expenses');
   const reportFullMonth = useSelector(getDataByMonth);
 
+  // console.log(reportFullMonth[0].arrOfTypes.find(item => item.type === header));
+
   useEffect(() => {
-    if (reportFullMonth[0] && reportFullMonth[0].date) {
-      const searchType = reportFullMonth[0].arrOfTypes.filter(
-        item => item.type === header
-      );
-      searchType.length !== 0
-        ? setExpenses(searchType[0].arrOfCategories)
-        : setExpenses(null);
-    } else {
-      setExpenses(null);
-    }
+    reportFullMonth[0] &&
+    reportFullMonth[0].date &&
+    reportFullMonth[0].arrOfTypes.find(item => item.type === header)
+      ? setExpenses(
+          reportFullMonth[0].arrOfTypes.filter(item => item.type === header)[0]
+            .arrOfCategories
+        )
+      : setExpenses(null);
   }, [header, reportFullMonth, expenses]);
 
   function switchPage(header) {
