@@ -245,7 +245,10 @@
 }
 
 .inputCount::placeholder {
-  color: #000;
+  color: #c7ccdc;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 12px;
 }
 
 .btnWrapper {
@@ -302,9 +305,9 @@
     outline: none;
   }
 
-  .btnInput {
+  /* .btnInput {
     width: 136px;
-  }
+  } */
 
   .btnClear {
     width: 136px;
@@ -348,8 +351,9 @@
 .datePicker {
   font-weight: 900;
   font-size: 12px;
+  font-family: Roboto;
   line-height: 14px;
-  color: #2e2f30;
+  color: #52555f;
   background-color: transparent;
   border: none;
   width: 110px;
