@@ -11,7 +11,7 @@ import {
 
 import styles from './ReportChart.module.css';
 
-const CustomTooltip = ({ active, payload, label }) => {
+export const CustomTooltip = ({ active, payload, label }) => {
   if (active) {
     return (
       <div className={styles.customTooltip}>
@@ -27,12 +27,14 @@ const CustomTooltip = ({ active, payload, label }) => {
 const ReportChartMobile = ({ data }) => {
   const renderBarLabel = ({ x, y, width, value }) => {
     const labelText = value ? `${value} UAH` : '';
-    return (
-      width > 60 && (
-        <text x={width} y={y} textAnchor="middle" fontSize={10} dx={0} dy={-10}>
-          {labelText}
-        </text>
-      )
+    return width > 100 ? (
+      <text x={width} y={y} textAnchor="middle" fontSize={10} dx={0} dy={-10}>
+        {labelText}
+      </text>
+    ) : (
+      <text x={100} y={y} textAnchor="middle" fontSize={10} dx={0} dy={-10}>
+        {labelText}
+      </text>
     );
   };
 
@@ -54,7 +56,7 @@ const ReportChartMobile = ({ data }) => {
         <BarChart
           layout="vertical"
           data={data}
-          margin={{ top: 0, right: -30, bottom: 0, left: 0 }}
+          margin={{ top: 10, right: 0, bottom: 0, left: 0 }}
           barGap="5"
         >
           <Tooltip cursor={false} content={<CustomTooltip />} />
@@ -69,7 +71,7 @@ const ReportChartMobile = ({ data }) => {
             fill="#52555f"
             minPointSize={10}
           >
-            {data.map((el, idx) => (
+            {data.map((item, idx) => (
               <Cell
                 key={`cell-${idx}`}
                 fill={idx % 3 ? '#FFDAC0' : '#ff751d'}

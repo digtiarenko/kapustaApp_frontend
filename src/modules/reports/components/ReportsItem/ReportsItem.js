@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import s from './ExpensesItem.module.css';
+import s from './ReportsItem.module.css';
 
-export default function ExpensesItem({ category, sum, children }) {
+export default function ReportsItem({ id, category, sum, children }) {
   return (
-    <Link to={`/reports/expenses/${category.toLowerCase()}`} className={s.link}>
+    <Link to={`/reports/${id}`} className={s.link}>
       <p className={`${s.sum} ${s.text}`}>{sum}</p>
       {children}
       <p className={`${s.category} ${s.text}`}>{category.toLowerCase()}</p>

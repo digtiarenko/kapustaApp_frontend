@@ -43,7 +43,10 @@ function TransactionForm({ date, setDate, type }) {
         setDescription(value);
         break;
       case 'amount':
-        setValue(Number(value));
+        if (NaN) {
+          return;
+        }
+        setValue(value);
         break;
 
       default:
@@ -116,6 +119,7 @@ function TransactionForm({ date, setDate, type }) {
             <input
               aria-label="Number"
               onChange={handleChange}
+              type="number"
               name="amount"
               className={s.inputCount}
               placeholder="0.00"
