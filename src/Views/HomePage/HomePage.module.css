@@ -45,15 +45,16 @@
 
   .container {
     /* height: 100vh; */
+
     background-color: #fff;
     border-radius: 0 30px 30px 30px;
     box-shadow: 0 10px 60px rgb(170 178 197 / 20%);
     padding: 28px 30px 48px 31px;
   }
 
-  .stats {
+  /* .stats {
     margin-top: 48px;
-  }
+  } */
 
   .buttonCont {
     display: block;
@@ -78,5 +79,9 @@
     border-radius: 0 30px 30px 30px;
     box-shadow: 0 10px 60px rgb(170 178 197 / 20%);
     padding: 28px 30px 48px 31px; */
+  }
+
+  .overlaySummery {
+    display: flex;
   }
 }
