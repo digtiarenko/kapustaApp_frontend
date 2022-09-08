@@ -27,12 +27,14 @@ export const CustomTooltip = ({ active, payload, label }) => {
 const ReportChartMobile = ({ data }) => {
   const renderBarLabel = ({ x, y, width, value }) => {
     const labelText = value ? `${value} UAH` : '';
-    return (
-      width > 60 && (
-        <text x={width} y={y} textAnchor="middle" fontSize={10} dx={0} dy={-10}>
-          {labelText}
-        </text>
-      )
+    return width > 100 ? (
+      <text x={width} y={y} textAnchor="middle" fontSize={10} dx={0} dy={-10}>
+        {labelText}
+      </text>
+    ) : (
+      <text x={100} y={y} textAnchor="middle" fontSize={10} dx={0} dy={-10}>
+        {labelText}
+      </text>
     );
   };
 

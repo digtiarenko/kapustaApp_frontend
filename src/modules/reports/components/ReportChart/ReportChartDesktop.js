@@ -67,7 +67,7 @@ export default function ReportChartDesktop({ screen, data }) {
           dataKey="description"
           type="category"
           tickSize={0}
-          minTickGap={1}
+          minTickGap={-100}
           tick={
             <CustomXAxisTick
               style={{
