@@ -12,12 +12,16 @@ export default function Expenses() {
   const reportFullMonth = useSelector(getDataByMonth);
 
   useEffect(() => {
-    reportFullMonth[0] && reportFullMonth[0].date
-      ? setExpenses(
-          reportFullMonth[0].arrOfTypes.filter(item => item.type === header)[0]
-            .arrOfCategories
-        )
-      : setExpenses(null);
+    if (reportFullMonth[0] && reportFullMonth[0].date) {
+      const searchType = reportFullMonth[0].arrOfTypes.filter(
+        item => item.type === header
+      );
+      searchType.length !== 0
+        ? setExpenses(searchType[0].arrOfCategories)
+        : setExpenses(null);
+    } else {
+      setExpenses(null);
+    }
   }, [header, reportFullMonth, expenses]);
 
   function switchPage(header) {

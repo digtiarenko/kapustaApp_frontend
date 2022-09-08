@@ -16,13 +16,26 @@ const ReportChart = () => {
     window.addEventListener('resize', handleScreenResize);
     return () => window.removeEventListener('resize', handleScreenResize);
   }, []);
-
-  const data =
+  const arrOfTypes =
     reportFullMonth[0] && reportFullMonth[0].date
-      ? reportFullMonth[0].arrOfTypes[0].arrOfCategories
-          .concat(reportFullMonth[0].arrOfTypes[1].arrOfCategories)
-          .filter(item => item.category._id === categoryId)[0].arrOfTransactions
+      ? reportFullMonth[0].arrOfTypes
       : null;
+
+  const arrOfCategories = arrOfTypes.length
+    ? arrOfTypes.reduce((acc, item) => {
+        return acc.concat(item.arrOfCategories);
+      }, [])
+    : null;
+
+  const arrOfTransaction = arrOfCategories.length
+    ? arrOfCategories.reduce((acc, item) => {
+        if (item.category._id === categoryId) {
+          return acc.concat(item.arrOfTransactions);
+        }
+        return acc;
+      }, [])
+    : null;
+  const data = arrOfTransaction;
   return (
     <>
       {screenWidth < 768
