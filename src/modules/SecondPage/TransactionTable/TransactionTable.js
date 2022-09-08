@@ -46,7 +46,7 @@ const TransactionTable = ({ date, type }) => {
               category={transaction.category.name}
             />
           ))}
-        <EmptyRows />
+        <EmptyRows className={s.emptyRows} />
       </tbody>
     </table>
   );
