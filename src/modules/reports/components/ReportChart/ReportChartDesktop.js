@@ -34,8 +34,8 @@ const renderBarLabel = ({ x, y, width, value }) => {
   );
 };
 
-export default function ReportChartDesktop({ screen, data }) {
-  let chartWidth = screen < 1280 ? 634 : 758;
+export default function ReportChartDesktop({ isDesktop, data }) {
+  let chartWidth = isDesktop ? 758 : 634;
   if (data.length > 10) {
     chartWidth = 65 * data.length;
   }
@@ -45,7 +45,7 @@ export default function ReportChartDesktop({ screen, data }) {
       <BarChart
         width={chartWidth}
         height={366}
-        margin={{ left: 15, top: -20, bottom: 40 }}
+        margin={{ right: 0, left: 0, top: 20, bottom: 40 }}
         data={data}
         barCategoryGap={10}
         barSize={40}
@@ -57,7 +57,11 @@ export default function ReportChartDesktop({ screen, data }) {
           horizontalPoints={[56, 96, 136, 176, 216, 256, 296]}
         />
 
-        <Tooltip cursor={false} content={<CustomTooltip />} />
+        <Tooltip
+          cursor={false}
+          isAnimationActive={false}
+          content={<CustomTooltip />}
+        />
         <XAxis
           hide={false}
           axisLine={false}
