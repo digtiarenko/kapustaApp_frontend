@@ -35,7 +35,7 @@ const renderBarLabel = ({ x, y, width, value }) => {
 };
 
 export default function ReportChartDesktop({ screen, data }) {
-  let chartWidth = screen < 1280 ? 635 : 758;
+  let chartWidth = screen < 1280 ? 634 : 758;
   if (data.length > 10) {
     chartWidth = 65 * data.length;
   }
