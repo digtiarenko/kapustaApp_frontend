@@ -7,18 +7,14 @@ import { useEffect, useState } from 'react';
 import TransactionTable from '../../modules/SecondPage/TransactionTable/TransactionTable';
 import TransactionForm from '../../modules/SecondPage/TransactionForm/TransactionForm';
 import moment from 'moment';
-// import SummaryTest from '../../modules/Summary/Summary_test';
-// import MobileForm from '../../modules/MobileModal/MobileForm';
+import Summary from '../../modules/SecondPage/Summary/Summary';
+
 import { useMediaQuery } from 'react-responsive';
 import { useLocation, useNavigate } from 'react-router-dom';
-// import { useSelector } from 'react-redux';
-// import TransactionTableRow from 'modules/SecondPage/TransactionTableRow/TransactionTableRow';
 
 export default function HomePage() {
-  const [showForm, setShowForm] = useState(false);
   const notMobile = useMediaQuery({ minWidth: 768 });
-  const isDesktop = useMediaQuery({ minWidth: 1280 });
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1279.98 });
+
   const location = useLocation();
   const navigation = useNavigate();
   const [date, setDate] = useState(moment().format('YYYY-MM-DD'));
@@ -43,10 +39,6 @@ export default function HomePage() {
     }
   }, [location.pathname]);
 
-  const handleShowForm = value => {
-    setShowForm(value);
-  };
-
   return (
     <Container>
       <section>
@@ -54,7 +46,8 @@ export default function HomePage() {
           {/* {showForm ? (
             <MobileForm onClick={handleShowForm} date={date} />
           ) : ( */}
-          <>
+
+          <div>
             <div className={s.rel}>
               <h1 className={s.pageName}>Page for Revenue and Expenses</h1>
               <p className={s.pageName}>
@@ -65,7 +58,6 @@ export default function HomePage() {
                 <Balance type="home" />
               </div>
             </div>
-
             <div className={s.buttonCont}>
               <div className={s.ab}>
                 <IncomeExpense />
@@ -73,7 +65,6 @@ export default function HomePage() {
               <div className={s.container}>
                 {notMobile && (
                   <>
-                    {' '}
                     <TransactionForm
                       date={date}
                       setDate={setDate}
@@ -81,19 +72,18 @@ export default function HomePage() {
                     />
                   </>
                 )}
-                <div className={s.stats}>
-                  <TransactionTable date={date} type={type} />
+                <div className={s.overlaySummery}>
+                  {' '}
+                  <div className={s.stats}>
+                    <TransactionTable date={date} type={type} />
+                  </div>
+                  <div>
+                    <Summary />
+                  </div>
                 </div>
               </div>
-              {/* <div>
-                  {isTablet && (
-                    <>
-                      <SummaryTest />
-                    </>
-                  )}
-                </div> */}
             </div>
-          </>
+          </div>
         </div>
       </section>
     </Container>
