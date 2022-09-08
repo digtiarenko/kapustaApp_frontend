@@ -94,7 +94,9 @@
   .formControl {
     display: flex;
   }
-
+  .overlay {
+    display: flex;
+  }
   .containerForm {
     display: flex;
   }
@@ -104,26 +106,40 @@
     right: -79px;
     bottom: 31px;
   }
+  .inputCountOverlay {
+    /* border-left: none;
+      border-radius: 0;
+      border-left: none;
+      border-right: none;
+      margin: 0;
+      border: 2px solid #f5f6fb; */
+    /* padding: 13px 10px px; */
+    /* width: 80px;
+        height: 44px; */
+  }
 
+  .inputCount::placeholder {
+    color: #c7ccdc;
+  }
   .inputCount {
+    border: 2px solid #f5f6fb;
     border-left: none;
     border-radius: 0;
+    border-left: none;
     border-right: none;
     margin: 0;
-    /* padding: 13px 10px px; */
+
     width: 80px;
+    height: 42px;
   }
 
   .description {
+    border: 2px solid #f5f6fb;
+    border-radius: 16px 0 0 0;
+    border-right: none;
     width: 181px;
+    padding: 0 20px;
     height: 44px;
-    border-top-left-radius: 16px;
-    font-size: 12px;
-    line-height: 14px;
-    text-align: start;
-    background-color: transparent;
-    padding-left: 30px;
-    border: 2px solid #52555f;
   }
 
   .dateWrapper {
@@ -150,17 +166,31 @@
     top: 5px;
     padding: 10px 25px;
   }
-
+  .buttonWrap {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    margin-top: 32px;
+  }
   .iconCalculator {
-    /* .blockInput{
-outline: red;
-  } */
-    position: absolute;
-    right: 0;
-    border-left: none;
+    height: 44px;
+
+    display: block;
     border-radius: 0 16px 16px 0;
-    padding: 9px 12px 11px 0;
+    margin-left: auto;
+    margin-right: auto;
+
+    position: relative;
     width: 35px;
+    border: 2px solid #f5f6fb;
+    border-left: none;
+  }
+  .calculator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
   }
 }
 
@@ -294,9 +324,9 @@ outline: red;
 
   .inputCount {
     width: 121px;
-    border: 2px solid #f6f7fc;
-    border-radius: 0px 16px 16px 0px;
-    height: 44px;
+    /* border: 2px solid #f6f7fc; */
+    /* border-radius: 0px 16px 16px 0px; */
+    height: 42px;
     outline: none;
   }
 
