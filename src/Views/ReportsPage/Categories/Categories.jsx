@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import s from './Categories.module.css';
 import ReportsSlider from 'modules/reports/components/ReportsSlider';
 import ReportsList from 'modules/reports/components/ReportsList';
-import { Outlet } from 'react-router-dom';
 
 import { getDataByMonth } from 'redux/reports/reportsSelectors';
 
@@ -38,7 +37,6 @@ export default function Expenses() {
           <ReportsList expenses={expenses} header={header} />
         </div>
       </div>
-      <Outlet />
     </>
   );
 }

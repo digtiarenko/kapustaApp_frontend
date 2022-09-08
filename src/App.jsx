@@ -64,7 +64,7 @@ export const App = () => {
                 path="home"
                 element={
                   <ProtectedRoute redirectPath={'/'} isAllowed={isAuth}>
-                    <Suspense fallback={<div>Loading...</div>}>
+                    <Suspense fallback={<LoaderPage />}>
                       <HomePage />
                     </Suspense>
                   </ProtectedRoute>
@@ -110,22 +110,13 @@ export const App = () => {
                 }
               >
                 <Route
-                  path=":type"
+                  path=":categoryId"
                   element={
                     <Suspense fallback={<LoaderSection />}>
-                      <Category />
+                      <ReportChart />
                     </Suspense>
                   }
-                >
-                  <Route
-                    path=":category"
-                    element={
-                      <Suspense fallback={<LoaderSection />}>
-                        <ReportChart />
-                      </Suspense>
-                    }
-                  />
-                </Route>
+                />
               </Route>
               <Route
                 path="google-redirect"
