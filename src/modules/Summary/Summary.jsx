@@ -30,14 +30,26 @@ export const Summary = ({ year, month }) => {
   return (
     <div className={s.wrapper}>
       <ul className={s.list}>
-        <li className={s.listItem}>
-          Expenses:
-          {<div className={s.expenses}>- {monthlyExpenses} грн.</div>}
-        </li>
-        <li className={s.listItem}>
-          Income:
-          {<div className={s.income}> {monthlyIncome} грн.</div>}
-        </li>
+        {monthlyExpenses ? (
+          <li className={s.listItem}>
+            Expenses:
+            {<div className={s.expenses}>- {monthlyExpenses} грн.</div>}
+          </li>
+        ) : (
+          <li className={s.listItem}>
+            {<div className={s.expenses}> No expenses yet</div>}
+          </li>
+        )}
+        {monthlyIncome ? (
+          <li className={s.listItem}>
+            Income:
+            {<div className={s.income}> {monthlyIncome} грн.</div>}
+          </li>
+        ) : (
+          <li className={s.listItem}>
+            {<div className={s.income}> No income yet</div>}
+          </li>
+        )}
       </ul>
     </div>
   );

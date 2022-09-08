@@ -29,6 +29,8 @@
   text-align: center;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+  padding: 14px;
+
 }
 
 .activeLink {
