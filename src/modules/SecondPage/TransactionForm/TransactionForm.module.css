@@ -173,7 +173,7 @@
     margin-top: 32px;
   }
   .iconCalculator {
-    height: 43px;
+    height: 44px;
 
     display: block;
     border-radius: 0 16px 16px 0;
@@ -324,9 +324,9 @@
 
   .inputCount {
     width: 121px;
-    border: 2px solid #f6f7fc;
+    /* border: 2px solid #f6f7fc; */
     /* border-radius: 0px 16px 16px 0px; */
-    height: 44px;
+    height: 42px;
     outline: none;
   }
 
