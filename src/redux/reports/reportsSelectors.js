@@ -48,3 +48,14 @@ export const getDataByCategory = (type, category) =>
     }
     return initialState.full[0].arrOfTypes[0].arrOfCategories;
   });
+
+export const getDataByCategoryId = (type, categoryId) =>
+  createSelector([getDataByType(type)], dataByType => {
+    // console.log(dataByType);
+    if (dataByType[0].type !== '') {
+      return dataByType[0].arrOfCategories.filter(item =>
+        item.category._id.includes(categoryId)
+      );
+    }
+    return initialState.full[0].arrOfTypes[0].arrOfCategories;
+  });

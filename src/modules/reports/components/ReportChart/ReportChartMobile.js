@@ -54,7 +54,7 @@ const ReportChartMobile = ({ data }) => {
         <BarChart
           layout="vertical"
           data={data}
-          margin={{ top: 0, right: -150, bottom: 0, left: 0 }}
+          margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
           barGap="5"
         >
           <Tooltip cursor={false} content={<CustomTooltip />} />

@@ -107,9 +107,7 @@ export default function ReportPage() {
           </div>
           <Summary year={year} month={arrayOfMonth.indexOf(month) + 1} />
           <Categories />
-          <Outlet
-            context={{ year: year, month: arrayOfMonth.indexOf(month) + 1 }}
-          />
+          <Outlet />
         </section>
       </Container>
     </>
