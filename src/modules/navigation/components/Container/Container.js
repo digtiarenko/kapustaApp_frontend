@@ -1,13 +1,14 @@
+import '../../../../css/App.css';
 import PropTypes from 'prop-types';
-
-import s from './Container.module.css';
 
 function Container({ children }) {
   return (
     <>
-      <div className={s.backgroundBottom}></div>
-      <div className={s.backgroundTop}></div>
-      <div className={s.container}>{children}</div>
+      <div className="authBlock">
+        <div className="background-bottom"></div>
+        <div className="background-top background-top_for-mobile"></div>
+        <div className="container">{children}</div>
+      </div>
     </>
   );
 }

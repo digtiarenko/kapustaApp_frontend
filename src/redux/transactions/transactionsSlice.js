@@ -3,7 +3,6 @@ import {
   createUserTransaction,
   getTransactionsByTypeAndDate,
   deleteTransactionById,
-  getTransactionsByDate,
 } from './transactionsOperations';
 
 const initialState = {
@@ -23,11 +22,6 @@ const transactionsSlice = createSlice({
       state.message = 'Transaction with such data is incorrect';
     },
     [getTransactionsByTypeAndDate.fulfilled](state, { payload }) {
-      console.log(payload);
-      state.message = payload.message;
-      state.transactions = payload.transactions;
-    },
-    [getTransactionsByDate.fulfilled](state, { payload }) {
       console.log(payload);
       state.message = payload.message;
       state.transactions = payload.transactions;
