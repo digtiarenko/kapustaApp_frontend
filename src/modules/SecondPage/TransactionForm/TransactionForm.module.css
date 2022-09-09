@@ -131,6 +131,11 @@
     padding: 0 20px;
     height: 44px;
     outline: none;
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    line-height: 14px;
   }
 
   .dateWrapper {
@@ -362,13 +367,14 @@
   text-align: center;
   position: relative;
   z-index: 9;
+  outline: none;
 }
 
 .datePicker:focus {
   outline-color: transparent;
 }
 
-.datePicker::-webkit-calendar-picker-indicator {
+/* .datePicker::-webkit-calendar-picker-indicator {
   color: rgba(0, 0, 0, 0);
   z-index: 9;
   width: 110px;
@@ -378,7 +384,7 @@
   left: 0;
   top: 0;
   cursor: pointer;
-}
+} */
 
 .btnInput {
   width: 130px;
@@ -466,7 +472,7 @@ btnClear:focus {
     width: 30px;
     height: 30px;
     margin: auto 0;
-    left: -7px;
+    left: -12px;
     top: 7px;
   }
 
