@@ -11,13 +11,11 @@
     margin-right: auto;
     margin-top: 32px;
     margin-bottom: 80px;
-    padding: 20px 50px;
-    width: 604px;
-    overflow: auto;
+    padding: 5px 35px;
+    overflow-x: auto;
   }
   .chart {
-    width: 704px;
-    margin-left: 40px;
+    margin-left: 0px;
   }
 
   .chartView::-webkit-scrollbar-track {
@@ -49,11 +47,9 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 40px;
-    padding: 20px 138px;
-    width: 758px;
+    padding: 5px 138px;
   }
   .chart {
-    width: 1034px;
     margin: 0 auto;
   }
 }
@@ -68,6 +64,9 @@
 }
 
 .customTooltip {
+  display: block;
+  width: 150px;
+  word-wrap: break-word;
   border: none;
   background-color: transparent;
 }

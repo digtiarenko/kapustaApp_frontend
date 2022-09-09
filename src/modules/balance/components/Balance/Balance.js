@@ -53,7 +53,6 @@ export default function Balance({ type }) {
           <NumberFormat
             className={type === 'home' ? s.input : s.reportInputStyle}
             fixedDecimalScale={'true'}
-            thousandSeparator=" "
             decimalScale={'2'}
             value={balance}
             placeholder={'00.00 UAH'}
