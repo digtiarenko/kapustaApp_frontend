@@ -24,3 +24,9 @@
 .reportLogo {
   fill: black;
 }
+
+@media screen and (min-width: 1280px) {
+  .commonReportBlock {
+    margin: 0;
+  }
+}

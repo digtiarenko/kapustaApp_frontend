@@ -4,7 +4,7 @@ function Summary() {
   return (
     <div className={s.container}>
       <p className={s.title}> Summary</p>
-      <ul>
+      <ul className={s.list}>
         <li className={s.item}>
           <p>month</p>
           <p>value</p>
