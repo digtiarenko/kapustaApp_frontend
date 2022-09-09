@@ -30,10 +30,11 @@
 }
 
 .input {
+  display: block;
   border: 2px solid #ffffff;
   text-align: right;
   width: 105px;
-  height: 20px;
+  height: 44px;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
@@ -64,7 +65,7 @@
 .confirm {
   width: 142px;
 
-  padding: 0;
+  padding: 12px 22px 12px 18px;
   background-color: transparent;
 
   font-family: 'Roboto';
@@ -161,7 +162,7 @@ p {
   .input {
     margin-right: 15px;
     width: 105px;
-    height: 20px;
+    height: 44px;
 
     padding: 12px 20px 12px 0px;
     background-color: transparent;
@@ -169,7 +170,7 @@ p {
   }
   .confirm {
     width: 125px;
-    padding: 0;
+    padding: 12px 6px 12px 6px;
     background-color: transparent;
     border: 2px solid #ffffff;
     border-radius: 16px;
@@ -194,6 +195,7 @@ p {
   }
   .input {
     margin-right: 16px;
+    padding: 12px 20px 12px 8px;
   }
   .reportButtonStyle {
     display: block;

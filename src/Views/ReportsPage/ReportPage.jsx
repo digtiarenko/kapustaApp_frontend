@@ -6,7 +6,7 @@ import Balance from 'modules/balance/components/Balance';
 import Categories from './Categories';
 import { CurrentPeriod } from '../../modules/CurrentPeriod/CurrentPeriod.jsx';
 import { useEffect, useState } from 'react';
-import Container from 'modules/navigation/components/Container';
+import Container from 'modules/Container';
 import { useDispatch } from 'react-redux';
 import reportsOperations from 'redux/reports/reportsOperations';
 import { setReportsDate } from 'redux/reports/reportsSlice';

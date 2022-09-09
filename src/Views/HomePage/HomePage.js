@@ -1,6 +1,6 @@
 import Balance from '../../modules/balance/components/Balance';
 import ReportsLink from '../../modules/reports/components/ReportsLink';
-import Container from 'modules/navigation/components/Container';
+import Container from 'modules/Container';
 import s from './HomePage.module.css';
 import IncomeExpense from '../../modules/SecondPage/IncomeExpense/IncomeExpense';
 import { useEffect, useState } from 'react';
