@@ -103,7 +103,7 @@ p {
 }
 .modal {
   position: absolute;
-  left: 3px;
+  left: -7px;
   top: 62px;
 }
 

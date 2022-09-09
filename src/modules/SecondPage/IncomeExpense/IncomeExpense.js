@@ -11,29 +11,29 @@ function IncomeExpense() {
   const isMobile = useMediaQuery({ maxWidth: 767 });
   return (
     <nav className={s.nav}>
-      <button className={s.button_first}>
-        {isMobile ? (
-          <NavLink to="/add_expenses" className={s.link} style={setActive}>
-            Expenses
-          </NavLink>
-        ) : (
+      {isMobile ? (
+        <NavLink to="/add_expenses" className={s.mobLink} style={setActive}>
+          <span className={s.mobLinkText}>Expenses</span>
+        </NavLink>
+      ) : (
+        <button className={s.button_first}>
           <NavLink to="/home/expenses" className={s.link} style={setActive}>
             Expenses
           </NavLink>
-        )}
-      </button>
+        </button>
+      )}
 
-      <button className={s.button}>
-        {isMobile ? (
-          <NavLink to="/add_income" className={s.link} style={setActive}>
-            Income
-          </NavLink>
-        ) : (
+      {isMobile ? (
+        <NavLink to="/add_income" className={s.mobLink} style={setActive}>
+          <span className={s.mobLinkText}>Income</span>
+        </NavLink>
+      ) : (
+        <button className={s.button}>
           <NavLink to="/home/income" className={s.link} style={setActive}>
             Income
           </NavLink>
-        )}
-      </button>
+        </button>
+      )}
     </nav>
   );
 }

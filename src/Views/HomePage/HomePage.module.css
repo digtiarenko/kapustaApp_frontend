@@ -56,10 +56,6 @@
     margin-top: 48px;
   } */
 
-  .buttonCont {
-    display: block;
-  }
-
   .ab {
     position: relative;
 
@@ -68,6 +64,19 @@
     /* margin: 58px auto 0; */
     z-index: inherit;
   }
+}
+.content {
+  flex: 1 0 auto;
+}
+.buttonCont {
+  flex: 0 0 auto;
+  display: block;
+}
+
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 56px);
 }
 
 @media screen and (min-width: 1280px) {
