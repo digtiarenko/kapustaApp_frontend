@@ -1,3 +1,4 @@
+import Container from 'modules/navigation/components/Container';
 import s from './Modal.module.css';
 
 export default function Modal() {

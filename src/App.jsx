@@ -44,7 +44,7 @@ export const App = () => {
                 index
                 element={
                   <ProtectedRoute redirectPath={'/home'} isAllowed={!isAuth}>
-                    <Suspense fallback={<div>Loading...</div>}>
+                    <Suspense fallback={<LoaderPage />}>
                       <AuthPage />
                     </Suspense>
                   </ProtectedRoute>

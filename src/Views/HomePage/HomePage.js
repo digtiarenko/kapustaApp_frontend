@@ -14,6 +14,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function HomePage() {
   const notMobile = useMediaQuery({ minWidth: 768 });
+  const isMobile = useMediaQuery({ maxWidth: 767 });
 
   const location = useLocation();
   const navigation = useNavigate();
@@ -21,14 +22,15 @@ export default function HomePage() {
   const [type, setType] = useState('');
 
   useEffect(() => {
-    if (
-      (location.pathname === '/home' && notMobile) ||
-      location.pathname === '/home/expenses'
-    ) {
+    if (notMobile) {
       navigation('/home/expenses');
     }
+    if (isMobile) {
+      setType('expenses-income');
+      navigation('/home');
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [isMobile, notMobile]);
 
   useEffect(() => {
     if (location.pathname === '/home/expenses') {
@@ -40,52 +42,58 @@ export default function HomePage() {
   }, [location.pathname]);
 
   return (
-    <Container>
-      <section>
-        <div className={s.c}>
-          {/* {showForm ? (
+    <div className={s.pageWrapper}>
+      <div className={s.content}>
+        <Container>
+          <section>
+            <div className={s.c}>
+              {/* {showForm ? (
             <MobileForm onClick={handleShowForm} date={date} />
           ) : ( */}
 
-          <div>
-            <div className={s.rel}>
-              <h1 className={s.pageName}>Page for Revenue and Expenses</h1>
-              <p className={s.pageName}>
-                Welcome to the best resource for managing budget
-              </p>
-              <div className={s.balanceBlock}>
-                <ReportsLink />
-                <Balance type="home" />
-              </div>
-            </div>
-            <div className={s.buttonCont}>
-              <div className={s.ab}>
-                <IncomeExpense />
-              </div>
-              <div className={s.container}>
-                {notMobile && (
-                  <>
-                    <TransactionForm
-                      date={date}
-                      setDate={setDate}
-                      type={type}
-                    />
-                  </>
-                )}
-                <div className={s.overlaySummery}>
-                  {' '}
-                  <div className={s.stats}>
-                    <TransactionTable date={date} type={type} />
+              <div>
+                <div className={s.rel}>
+                  <h1 className={s.pageName}>Page for Revenue and Expenses</h1>
+                  <p className={s.pageName}>
+                    Welcome to the best resource for managing budget
+                  </p>
+                  <div className={s.balanceBlock}>
+                    <ReportsLink />
+                    <Balance type="home" />
                   </div>
-                  <div>
-                    <Summary />
+                </div>
+                <div className={s.buttonCont}>
+                  <div className={s.ab}>{notMobile && <IncomeExpense />}</div>
+                  <div className={s.container}>
+                    {notMobile && (
+                      <>
+                        <TransactionForm
+                          date={date}
+                          setDate={setDate}
+                          type={type}
+                        />
+                      </>
+                    )}
+                    <div className={s.overlaySummery}>
+                      <div className={s.stats}>
+                        <TransactionTable date={date} type={type} />
+                      </div>
+                      <div>
+                        <Summary />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </section>
+        </Container>
+      </div>
+      {isMobile && (
+        <div className={s.buttonCont}>
+          <IncomeExpense />
         </div>
-      </section>
-    </Container>
+      )}
+    </div>
   );
 }
