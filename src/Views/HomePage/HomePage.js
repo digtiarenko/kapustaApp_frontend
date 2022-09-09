@@ -47,39 +47,33 @@ export default function HomePage() {
             <MobileForm onClick={handleShowForm} date={date} />
           ) : ( */}
 
-          <div>
-            <div className={s.rel}>
-              <h1 className={s.pageName}>Page for Revenue and Expenses</h1>
-              <p className={s.pageName}>
-                Welcome to the best resource for managing budget
-              </p>
-              <div className={s.balanceBlock}>
-                <ReportsLink />
-                <Balance type="home" />
-              </div>
+          <div className={s.rel}>
+            <h1 className={s.pageName}>Page for Revenue and Expenses</h1>
+            <p className={s.pageName}>
+              Welcome to the best resource for managing budget
+            </p>
+            <div className={s.balanceBlock}>
+              <ReportsLink />
+              <Balance type="home" />
             </div>
-            <div className={s.buttonCont}>
-              <div className={s.ab}>
-                <IncomeExpense />
-              </div>
-              <div className={s.container}>
-                {notMobile && (
-                  <>
-                    <TransactionForm
-                      date={date}
-                      setDate={setDate}
-                      type={type}
-                    />
-                  </>
-                )}
-                <div className={s.overlaySummery}>
-                  {' '}
-                  <div className={s.stats}>
-                    <TransactionTable date={date} type={type} />
-                  </div>
-                  <div>
-                    <Summary />
-                  </div>
+          </div>
+          <div className={s.buttonCont}>
+            <div className={s.ab}>
+              <IncomeExpense />
+            </div>
+            <div className={s.container}>
+              {notMobile && (
+                <>
+                  <TransactionForm date={date} setDate={setDate} type={type} />
+                </>
+              )}
+              <div className={s.overlaySummery}>
+                {' '}
+                <div className={s.stats}>
+                  <TransactionTable date={date} type={type} />
+                </div>
+                <div>
+                  <Summary />
                 </div>
               </div>
             </div>
