@@ -37,9 +37,9 @@
     height: 100%;
     width: 100%;
     z-index: -1;
-    /* background-image: url('images/Kapusta_bottom_tablet.svg');
+    background-image: url('/src/images/Kapusta_bottom_tablet.svg');
     background-repeat: no-repeat;
-    background-position: 80% 95%; */
+    background-position: 80% 95%;
   }
   .container {
     padding: 0px 32px;
