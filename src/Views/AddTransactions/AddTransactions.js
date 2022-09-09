@@ -1,4 +1,4 @@
-import Container from 'modules/navigation/components/Container';
+import Container from 'modules/Container';
 // import s from './AddTransactions.module.css';
 import { useEffect, useState } from 'react';
 import TransactionForm from '../../modules/SecondPage/TransactionForm/TransactionForm';

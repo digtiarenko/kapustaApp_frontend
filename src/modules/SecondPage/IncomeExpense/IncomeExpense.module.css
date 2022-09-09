@@ -57,6 +57,7 @@
     height: 40px;
     border: none;
     border-radius: 20px 20px 0px 0px;
+    background-color: #fafbfd;
   }
   .button_first {
     margin-right: 0;
@@ -64,6 +65,7 @@
     height: 40px;
     border: none;
     border-radius: 20px 20px 0px 0px;
+    background-color: #fafbfd;
   }
 
   .activeLink {

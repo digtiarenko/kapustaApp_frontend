@@ -55,6 +55,9 @@
 
 @media screen and (max-width: 767px) {
   /* only mobile */
+  .container {
+    padding-bottom: 105px;
+  }
   .backgroundElements {
     background-image: url('../../images/kapusta-single2.png'),
       url('../../images/kapusta_single.png');
@@ -77,6 +80,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 436px;
+    padding-bottom: 155px;
   }
 
   .backgroundElements {
