@@ -130,20 +130,6 @@ function TransactionForm({ date, setDate, type }) {
             </span>
           </div>
         </div>
-
-        {/* <div className={s.buttonWrap}>
-          <button aria-label="Input" type="submit" className={s.btnInput}>
-            input
-          </button>
-          <button
-            aria-label="Clear"
-            type="button"
-            className={s.btnClear}
-            onClick={onHandleResetForm}
-          >
-            clear
-          </button>
-        </div> */}
       </div>
       <div className={s.buttonWrap}>
         <button aria-label="Input" type="submit" className={s.btnInput}>
