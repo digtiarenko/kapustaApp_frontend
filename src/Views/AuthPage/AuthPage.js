@@ -9,7 +9,7 @@ function AuthPage() {
     <>
       <div className={s.authBlock}>
         <div className={s.backgroundElements}></div>
-        <div className="background-top"></div>
+        <div className={s.backgroundTop}></div>
         <div className={s.container}>
           <div className={s.wrapper}>
             <div className={s.header}>
