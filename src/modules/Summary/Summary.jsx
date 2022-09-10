@@ -22,7 +22,7 @@ export const Summary = ({ year, month }) => {
         month,
       })
     );
-  }, [month, year]);
+  }, [dispatch, month, year]);
 
   const monthlyExpenses = useSelector(getTotalSunByMonthlyExpenses);
   const monthlyIncome = useSelector(getTotalSunByMonthlyIncome);

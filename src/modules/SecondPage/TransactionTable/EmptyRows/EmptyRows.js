@@ -1,4 +1,4 @@
-import s from './EmptyRows.module.css';
+// import s from './EmptyRows.module.css';
 
 export default function EmptyRows() {
   return (

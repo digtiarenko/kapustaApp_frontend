@@ -8,6 +8,7 @@ import TransactionTable from '../../modules/SecondPage/TransactionTable/Transact
 import TransactionForm from '../../modules/SecondPage/TransactionForm/TransactionForm';
 import moment from 'moment';
 import Summary from '../../modules/SecondPage/Summary/Summary';
+import { ReactComponent as CalendarLogo } from 'images/icons/calendar.svg';
 
 import { useMediaQuery } from 'react-responsive';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -47,10 +48,6 @@ export default function HomePage() {
         <Container>
           <section>
             <div className={s.c}>
-              {/* {showForm ? (
-            <MobileForm onClick={handleShowForm} date={date} />
-          ) : ( */}
-
               <div>
                 <div className={s.rel}>
                   <h1 className={s.pageName}>Page for Revenue and Expenses</h1>
@@ -65,7 +62,7 @@ export default function HomePage() {
                 <div className={s.buttonCont}>
                   <div className={s.ab}>{notMobile && <IncomeExpense />}</div>
                   <div className={s.container}>
-                    {notMobile && (
+                    {notMobile ? (
                       <>
                         <TransactionForm
                           date={date}
@@ -73,11 +70,21 @@ export default function HomePage() {
                           type={type}
                         />
                       </>
+                    ) : (
+                      <div className={s.dateWrapper}>
+                        <input
+                          aria-label="Date"
+                          name="date"
+                          onChange={e => setDate(e.target.value)}
+                          type="date"
+                          className={s.datePicker}
+                          value={date}
+                        />
+                        <CalendarLogo className={s.calendarIcon} />
+                      </div>
                     )}
                     <div className={s.overlaySummery}>
-                      <div className={s.stats}>
-                        <TransactionTable date={date} type={type} />
-                      </div>
+                      <TransactionTable date={date} type={type} />
                       <div>
                         <Summary />
                       </div>

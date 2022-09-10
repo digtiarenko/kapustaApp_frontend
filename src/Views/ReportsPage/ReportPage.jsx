@@ -104,7 +104,7 @@ export default function ReportPage() {
                 month={month}
                 year={year}
               />
-              <Balance type="report" />
+              <Balance type="home" />
             </div>
           </div>
           <Summary year={year} month={arrayOfMonth.indexOf(month) + 1} />
