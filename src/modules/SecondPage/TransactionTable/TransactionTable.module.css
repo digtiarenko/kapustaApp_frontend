@@ -162,6 +162,13 @@
 }
 
 @media screen and (max-width: 767px) {
+  .tableBody {
+    display: inline-block;
+    width: 100%;
+    height: 150px;
+
+    overflow-y: scroll;
+  }
   .emptyRows {
     display: none;
   }

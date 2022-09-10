@@ -5,7 +5,7 @@ import { getSortedTransactions } from '../../../redux/transactions/transactionsS
 import { TransactionTableRow } from '../TransactionTableRow/TransactionTableRow';
 import EmptyRows from './EmptyRows';
 
-const TransactionTable = ({ date, type }) => {
+const TransactionTable = () => {
   const [transactions, setTransactions] = useState();
   const sortedTransactions = useSelector(getSortedTransactions);
 

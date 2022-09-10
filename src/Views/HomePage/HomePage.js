@@ -47,7 +47,27 @@ export default function HomePage() {
   const dispatch = useDispatch();
   const [date, setDate] = useState(moment().format('YYYY-MM-DD'));
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [type, setType] = useState('expenses');
+  const [type, setType] = useState('');
+
+  useEffect(() => {
+    if (notMobile) {
+      navigation('/home/expenses');
+    }
+    if (isMobile) {
+      setType('expenses-income');
+      navigation('/home');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isMobile, notMobile]);
+
+  useEffect(() => {
+    if (location.pathname === '/home/expenses') {
+      setType('expenses');
+    }
+    if (location.pathname === '/home/income') {
+      setType('income');
+    }
+  }, [location.pathname]);
 
   useEffect(() => {
     if (notMobile) {
@@ -58,27 +78,15 @@ export default function HomePage() {
             type,
           })
         );
-      navigation('/home/expenses');
     }
     if (isMobile) {
-      setType('expenses-income');
       dispatch(
         getTransactionsByDate({
           date: formatDate(selectedDate),
         })
       );
-      navigation('/home');
     }
   }, [date, dispatch, isMobile, navigation, notMobile, selectedDate, type]);
-
-  useEffect(() => {
-    if (location.pathname === '/home/expenses') {
-      setType('expenses');
-    }
-    if (location.pathname === '/home/income') {
-      setType('income');
-    }
-  }, [location.pathname]);
 
   return (
     <div className={s.pageWrapper}>
@@ -119,7 +127,7 @@ export default function HomePage() {
                         type={type}
                       />
                       <div className={s.overlaySummery}>
-                        <TransactionTable date={date} type={type} />
+                        <TransactionTable />
                         <div>
                           <Summary />
                         </div>
@@ -127,21 +135,18 @@ export default function HomePage() {
                     </div>
                   </div>
                 ) : (
-                  <TransactionTable
-                    date={formatDate(selectedDate)}
-                    type={type}
-                  />
+                  <TransactionTable />
                 )}
               </div>
             </div>
           </section>
-          {isMobile && (
-            <div className={s.buttonCont}>
-              <IncomeExpense />
-            </div>
-          )}
         </Container>
       </div>
+      {isMobile && (
+        <div className={s.buttonCont}>
+          <IncomeExpense />
+        </div>
+      )}
     </div>
   );
 }
