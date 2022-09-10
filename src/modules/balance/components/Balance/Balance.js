@@ -52,6 +52,7 @@ export default function Balance({ type }) {
         <div className={s.balanceInputBlock}>
           <NumberFormat
             className={type === 'home' ? s.input : s.reportInputStyle}
+            thousandSeparator={' '}
             fixedDecimalScale={'true'}
             decimalScale={'2'}
             value={balance}

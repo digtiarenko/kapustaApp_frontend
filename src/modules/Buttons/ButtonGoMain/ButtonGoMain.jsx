@@ -4,7 +4,6 @@ import s from './buttonGoMain.module.css';
 export const ButtonGoMain = () => {
   return (
     <NavLink to={'/home'} className={s.buttonLink}>
-      {/* <button type="button" className={s.buttonGoBack}> */}
       <svg
         width="18"
         height="12"
@@ -17,7 +16,6 @@ export const ButtonGoMain = () => {
           fill="#FF751D"
         />
       </svg>
-      {/* </button> */}
       <p className={s.buttonText}>Main page</p>
     </NavLink>
   );
