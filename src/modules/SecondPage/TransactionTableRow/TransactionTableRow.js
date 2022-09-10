@@ -4,6 +4,7 @@ import s from './TransactionTableRow.module.css';
 import balanceOperations from 'redux/initialBalance/initialBalanceOperations';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteTransactionById } from '../../../redux/transactions/transactionsOperations';
+import NumberFormat from 'react-number-format';
 
 const getSumTypeStyle = type => {
   switch (type) {
@@ -64,8 +65,18 @@ export function TransactionTableRow({
       </td>
       <td className={s.tableDataCategory}>{category}</td>
       <td className={s.tableDataSum} style={sumStyle}>
-        {type === 'expenses' && value > 0 && <span className={s.minus}>-</span>}
-        {value} грн
+        <NumberFormat
+          allowNegative={false}
+          thousandSeparator={' '}
+          fixedDecimalScale={'true'}
+          decimalScale={'2'}
+          value={value}
+          placeholder={'00.00 UAH'}
+          displayType={'text'}
+          prefix={type === 'expenses' ? '- ' : ''}
+          suffix={' UAH'}
+          disabled={true}
+        />
       </td>
       <td className={s.tableDataBtn}>
         <button
