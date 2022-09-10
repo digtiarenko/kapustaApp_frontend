@@ -59,6 +59,7 @@
 }
 
 .dateWrapper {
+  position: relative;
   display: flex;
   flex-direction: row-reverse;
 }
@@ -339,6 +340,7 @@
 }
 
 .datePicker {
+  position: relative;
   font-weight: 900;
   font-size: 12px;
   font-family: Roboto;
@@ -454,7 +456,7 @@ btnClear:focus {
     width: 30px;
     height: 30px;
     margin: auto 0;
-    left: -4px;
+    left: -24px;
     top: 7px;
   }
 
