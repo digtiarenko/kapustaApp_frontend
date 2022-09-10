@@ -54,7 +54,7 @@ export function TransactionTableRow({
     getUpdatedBalance(type, value);
     dispatch(deleteTransactionById(id));
   };
-
+  console.log(value);
   const sumStyle = getSumTypeStyle(type);
 
   return (
@@ -66,7 +66,6 @@ export function TransactionTableRow({
       <td className={s.tableDataCategory}>{category}</td>
       <td className={s.tableDataSum} style={sumStyle}>
         <NumberFormat
-          allowNegative={false}
           thousandSeparator={' '}
           fixedDecimalScale={'true'}
           decimalScale={'2'}

@@ -50,7 +50,7 @@ export default function HomePage() {
   const [type, setType] = useState('');
 
   useEffect(() => {
-    if (notMobile) {
+    if (notMobile && location.pathname !== '/home/income') {
       navigation('/home/expenses');
     }
     if (isMobile) {

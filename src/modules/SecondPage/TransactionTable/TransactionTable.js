@@ -8,7 +8,7 @@ import EmptyRows from './EmptyRows';
 const TransactionTable = () => {
   const [transactions, setTransactions] = useState();
   const sortedTransactions = useSelector(getSortedTransactions);
-
+  console.log(sortedTransactions);
   useEffect(() => {
     setTransactions(sortedTransactions);
   }, [sortedTransactions]);
