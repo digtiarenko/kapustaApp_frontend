@@ -5,6 +5,12 @@
   flex-direction: column;
   width: 100%;
 }
+.calendarIcon {
+  position: absolute;
+  z-index: 2;
+  left: -4px;
+  top: 12px;
+}
 
 .inputCountOverlay {
   display: flex;
@@ -60,7 +66,6 @@
 .calendarIcon {
   height: 17px;
   width: 20px;
-  margin-right: 8px;
   cursor: pointer;
 }
 
@@ -120,7 +125,7 @@
     margin: 0;
 
     width: 80px;
-    height: 42px;
+    height: 44px;
   }
 
   .description {
@@ -131,16 +136,21 @@
     padding: 0 20px;
     height: 44px;
     outline: none;
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    line-height: 14px;
   }
 
   .dateWrapper {
+    position: relative;
     display: block;
-    /* flex-direction: row-reverse; */
+    margin-right: 44px;
   }
 
   .wrapInput {
     display: flex;
-    /* align-items: center; */
     flex-direction: column;
   }
 
@@ -183,13 +193,6 @@
     margin-right: -50%;
     transform: translate(-50%, -50%);
   }
-}
-
-@media screen and (max-width: 778px) {
-  /* .formControl {
-      display: flex;
-      padding-top: 24px;
-    } */
 }
 
 .containerForm {
@@ -245,7 +248,10 @@
 }
 
 .inputCount::placeholder {
-  color: #000;
+  color: #c7ccdc;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 12px;
 }
 
 .btnWrapper {
@@ -260,22 +266,21 @@
   .blockButton {
     display: flex;
     align-items: center;
-    /* justify-content: baseline; */
   }
 
   .wrap {
-    width: 1120px;
+    width: 100%;
     display: flex;
+    justify-content: flex-end;
     flex-direction: row;
     flex-wrap: nowrap;
     padding: 0;
-    margin-top: 32px;
   }
 
   .wrapInput {
     display: flex;
     align-items: center;
-    margin-right: 32px;
+    /* margin-right: 32px; */
   }
 
   .datePicker {
@@ -284,7 +289,7 @@
   }
 
   .description {
-    width: 238px;
+    width: 250px;
     border: 2px solid #f6f7fc;
     outline: none;
   }
@@ -296,34 +301,33 @@
 
   .inputCount {
     width: 121px;
-    /* border: 2px solid #f6f7fc; */
-    /* border-radius: 0px 16px 16px 0px; */
-    height: 42px;
+    height: 44px;
     outline: none;
   }
 
-  .btnInput {
-    width: 136px;
+  .dateWrapper {
+    margin-right: 32px;
+    position: relative;
   }
 
   .btnClear {
     width: 136px;
   }
 
-  /* .buttonWrap {
-    margin-left: 32px;
-    margin-top: 0;
-  } */
   .buttonWrap {
     display: flex;
     justify-content: center;
     margin: 0;
+    margin-left: 32px;
   }
 
   .inputWrap {
     display: flex;
     flex-direction: row;
     width: auto;
+  }
+  .calendarIcon {
+    left: -3px;
   }
 }
 
@@ -334,22 +338,12 @@
   }
 }
 
-.dateWrapper {
-  position: relative;
-}
-
-.calendarIcon {
-  position: absolute;
-  z-index: 2;
-  left: -2px;
-  top: 12px;
-}
-
 .datePicker {
   font-weight: 900;
   font-size: 12px;
+  font-family: Roboto;
   line-height: 14px;
-  color: #2e2f30;
+  color: #52555f;
   background-color: transparent;
   border: none;
   width: 110px;
@@ -358,6 +352,7 @@
   text-align: center;
   position: relative;
   z-index: 9;
+  outline: none;
 }
 
 .datePicker:focus {
@@ -377,7 +372,7 @@
 }
 
 .btnInput {
-  width: 130px;
+  width: 136px;
   height: 44px;
   background-color: transparent;
   border: none;
@@ -388,7 +383,7 @@
   text-align: center;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  margin-right: 15px;
+  margin-right: 16px;
   color: #2e2f30;
   box-shadow: 2px 2px 22px 0px rgba(0, 0, 0, 0.2);
   cursor: pointer;
@@ -430,6 +425,7 @@ btnClear:focus {
 
 @media screen and (max-width: 767px) {
   .wrap {
+    margin-top: -20px;
     padding-left: 20px;
     padding-right: 20px;
     display: flex;
@@ -449,10 +445,6 @@ btnClear:focus {
     flex-direction: column;
   }
 
-  .dateWrapper {
-    width: 150px;
-    margin-bottom: 30px;
-  }
   .datePicker {
     font-size: 15px;
     font-weight: 700;
@@ -462,11 +454,14 @@ btnClear:focus {
     width: 30px;
     height: 30px;
     margin: auto 0;
-    left: -7px;
+    left: -4px;
     top: 7px;
   }
 
   .description {
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 12px;
     box-sizing: border-box;
     width: 280px;
     height: 44px;
@@ -477,6 +472,14 @@ btnClear:focus {
     background: #f5f6fb;
     outline: none;
   }
+
+  .description::placeholder {
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.02em;
+  }
   .calculator {
     width: 30px;
     height: 30px;
@@ -485,6 +488,10 @@ btnClear:focus {
   }
 
   .buttonWrap {
-    margin-top: 70px;
+    display: flex;
+    margin-top: 80px;
+  }
+  .btnInput {
+    margin-right: 20px;
   }
 }

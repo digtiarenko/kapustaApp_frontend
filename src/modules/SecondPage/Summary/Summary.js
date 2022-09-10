@@ -1,14 +1,16 @@
 import s from './Summary.module.css';
 
-import React from 'react';
-
 function Summary() {
   return (
-    <>
-      <ul className={s.summary}>
-        <li className={s.title}>Summary</li>
+    <div className={s.container}>
+      <p className={s.title}> Summary</p>
+      <ul className={s.list}>
+        <li className={s.item}>
+          <p>month</p>
+          <p>value</p>
+        </li>
       </ul>
-    </>
+    </div>
   );
 }
 

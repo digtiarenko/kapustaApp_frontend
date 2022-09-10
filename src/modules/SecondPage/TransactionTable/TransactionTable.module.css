@@ -27,14 +27,14 @@
 
 @media screen and (min-width: 768px) {
   .table {
-    width: 594px;
+    width: 100%;
     margin-top: 50px;
   }
 
   .tableHeader {
     display: table;
     width: 100%;
-    max-width: 594px;
+    max-width: 624px;
 
     font-weight: 700;
     font-size: 12px;
@@ -73,7 +73,7 @@
 
   .tableBody {
     display: inline-block;
-    width: 594px;
+    width: 100%;
     height: calc(40px * 9 + 1px * 9);
 
     overflow-y: scroll;
@@ -156,5 +156,11 @@
 
   .tableBody tr td:last-child {
     width: 15%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .emptyRows {
+    display: none;
   }
 }

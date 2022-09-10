@@ -1,6 +1,17 @@
 .authBlock {
   position: relative;
 }
+.backgroundTop {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+  width: 100%;
+  height: 583px;
+  /*check*/
+  background-color: #f5f6fb;
+  border-bottom-left-radius: 120px;
+}
 .container {
   display: flex;
   justify-content: center;
@@ -55,6 +66,9 @@
 
 @media screen and (max-width: 767px) {
   /* only mobile */
+  .container {
+    padding-bottom: 105px;
+  }
   .backgroundElements {
     background-image: url('../../images/kapusta-single2.png'),
       url('../../images/kapusta_single.png');
@@ -77,6 +91,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 436px;
+    padding-bottom: 155px;
   }
 
   .backgroundElements {
