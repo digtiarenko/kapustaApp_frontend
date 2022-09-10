@@ -1,41 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import s from './TransactionTable.module.css';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  getTransactionsByDate,
-  getTransactionsByTypeAndDate,
-} from '../../../redux/transactions/transactionsOperations';
-import { getTransactions } from '../../../redux/transactions/transactionsSelectors';
+import { useSelector } from 'react-redux';
+import { getSortedTransactions } from '../../../redux/transactions/transactionsSelectors';
 import { TransactionTableRow } from '../TransactionTableRow/TransactionTableRow';
 import EmptyRows from './EmptyRows';
 
-const TransactionTable = ({ date, type }) => {
-  const transactions = useSelector(getTransactions);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    if (type === 'expenses-income') {
-      transactions &&
-        dispatch(
-          getTransactionsByDate({
-            date,
-          })
-        );
-    } else {
-      transactions &&
-        type &&
-        dispatch(
-          getTransactionsByTypeAndDate({
-            date,
-            type,
-          })
-        );
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [date, type]);
+const TransactionTable = () => {
+  const [transactions, setTransactions] = useState();
+  const sortedTransactions = useSelector(getSortedTransactions);
 
-  const sortTransactions = [...transactions].sort((a, b) => {
-    return b.createdAt.localeCompare(a.createdAt);
-  });
+  useEffect(() => {
+    setTransactions(sortedTransactions);
+  }, [sortedTransactions]);
 
   return (
     <table className={s.table}>
@@ -49,8 +25,8 @@ const TransactionTable = ({ date, type }) => {
         </tr>
       </thead>
       <tbody className={s.tableBody}>
-        {sortTransactions &&
-          sortTransactions.map(transaction => (
+        {transactions &&
+          transactions.map(transaction => (
             <TransactionTableRow
               key={transaction._id}
               id={transaction._id}
