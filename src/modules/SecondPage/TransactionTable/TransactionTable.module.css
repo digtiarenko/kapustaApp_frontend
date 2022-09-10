@@ -169,6 +169,15 @@
 
     overflow-y: scroll;
   }
+  .tableBody::-webkit-scrollbar {
+    width: 6px;
+    background-color: #f2f8f8;
+  }
+
+  .tableBody::-webkit-scrollbar-thumb {
+    background-color: #ff751d;
+    border-radius: 2px;
+  }
   .emptyRows {
     display: none;
   }
