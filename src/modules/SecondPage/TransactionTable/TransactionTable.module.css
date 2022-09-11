@@ -170,6 +170,7 @@
     overflow-y: scroll;
   }
   .tableBody::-webkit-scrollbar {
+    display: none;
     width: 6px;
     background-color: #f2f8f8;
   }

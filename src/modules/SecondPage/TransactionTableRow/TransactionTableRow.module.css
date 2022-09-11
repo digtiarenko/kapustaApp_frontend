@@ -27,6 +27,7 @@
 .button {
   border: none;
   background-color: transparent;
+  padding: 0;
 }
 
 /* ----------------MOBILE---------------- */
@@ -43,6 +44,8 @@
 
   .tableDataDate {
     vertical-align: bottom;
+    width: 25%;
+    padding-right: 20px;
   }
 
   .tableDataDescription {
@@ -57,12 +60,14 @@
 
   .tableDataCategory {
     vertical-align: bottom;
-    width: 50%;
+    width: 30%;
+    padding-right: 12px;
   }
 
   .tableDataSum {
     text-align: right;
-    padding-right: 10px;
+    padding-right: 20px;
+    width: 50%;
   }
 
   .tableDataBtn {
