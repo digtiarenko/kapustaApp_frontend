@@ -1,5 +1,5 @@
 import s from './TransactionForm.module.css';
-import React, { useState } from 'react';
+import React, { forwardRef, useState } from 'react';
 import { ReactComponent as CalendarLogo } from 'images/icons/calendar.svg';
 import calculator from '../../../images/icons/calculator.svg';
 import moment from 'moment';
@@ -8,6 +8,17 @@ import Dropdown from 'modules/dropDownCategories/Dropdown';
 import { useDispatch, useSelector } from 'react-redux';
 import { createUserTransaction } from 'redux/transactions/transactionsOperations';
 import balanceOperations from 'redux/initialBalance/initialBalanceOperations';
+
+import DatePicker from 'react-datepicker';
+
+import 'react-datepicker/dist/react-datepicker.css';
+
+export const DatePickerCustomInput = forwardRef(({ value, onClick }, ref) => (
+  <button className={s.dateButton} onClick={onClick} ref={ref}>
+    <CalendarLogo className={s.calendarIcon} />
+    <span className={s.dateButtonText}>{value}</span>
+  </button>
+));
 
 function TransactionForm({ date, setDate, type }) {
   const [description, setDescription] = useState('');
@@ -98,7 +109,6 @@ function TransactionForm({ date, setDate, type }) {
             />
             <CalendarLogo className={s.calendarIcon} />
           </div>
-
           <div className={s.overlay}>
             <input
               aria-label="Text"
