@@ -3,12 +3,13 @@ import ReportsLink from '../../modules/reports/components/ReportsLink';
 import Container from 'modules/Container';
 import s from './HomePage.module.css';
 import IncomeExpense from '../../modules/SecondPage/IncomeExpense/IncomeExpense';
-import { forwardRef, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import TransactionTable from '../../modules/SecondPage/TransactionTable/TransactionTable';
-import TransactionForm from '../../modules/SecondPage/TransactionForm/TransactionForm';
+import TransactionForm, {
+  DatePickerCustomInput,
+} from '../../modules/SecondPage/TransactionForm/TransactionForm';
 import moment from 'moment';
 import Summary from '../../modules/SecondPage/Summary/Summary';
-import { ReactComponent as CalendarLogo } from 'images/icons/calendar.svg';
 
 import { useMediaQuery } from 'react-responsive';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -20,23 +21,7 @@ import {
 import DatePicker from 'react-datepicker';
 
 import 'react-datepicker/dist/react-datepicker.css';
-
-const DatePickerCustomInput = forwardRef(({ value, onClick }, ref) => (
-  <button className={s.dateButton} onClick={onClick} ref={ref}>
-    <CalendarLogo className={s.calendarIcon} />
-    <span className={s.dateButtonText}>{value}</span>
-  </button>
-));
-
-const formatDate = date => {
-  const year = date.getFullYear();
-  const month =
-    date.getMonth() + 1 < 10
-      ? '0' + (date.getMonth() + 1)
-      : date.getMonth() + 1;
-  const day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
-  return year + '-' + month + '-' + day;
-};
+import { formatDate } from 'utils/formatDate';
 
 export default function HomePage() {
   const notMobile = useMediaQuery({ minWidth: 768 });

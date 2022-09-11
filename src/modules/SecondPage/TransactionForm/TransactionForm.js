@@ -1,19 +1,32 @@
 import s from './TransactionForm.module.css';
-import React, { useState } from 'react';
+import React, { forwardRef, useState } from 'react';
 import { ReactComponent as CalendarLogo } from 'images/icons/calendar.svg';
 import calculator from '../../../images/icons/calculator.svg';
-import moment from 'moment';
 import Dropdown from 'modules/dropDownCategories/Dropdown';
 // import { ReactComponent as CalculatorLogo } from '../../../images/icons/calculator.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { createUserTransaction } from 'redux/transactions/transactionsOperations';
 import balanceOperations from 'redux/initialBalance/initialBalanceOperations';
 
+import DatePicker from 'react-datepicker';
+
+import 'react-datepicker/dist/react-datepicker.css';
+import { formatDate } from 'utils/formatDate';
+
+export const DatePickerCustomInput = forwardRef(({ value, onClick }, ref) => (
+  <button type="button" className={s.dateButton} onClick={onClick} ref={ref}>
+    <CalendarLogo className={s.calendarIcon} />
+    <span className={s.dateButtonText}>{value}</span>
+  </button>
+));
+
 function TransactionForm({ date, setDate, type }) {
   const [description, setDescription] = useState('');
   const [categoryName, setCategoryName] = useState(null);
   const [categoryID, setCategoryID] = useState(null);
   const [value, setValue] = useState('');
+  const [selectedDate, setSelectedDate] = useState(new Date());
+
   const dispatch = useDispatch();
   const initialBalance = useSelector(state => state.balance.balance);
   const addInitialBalance = data =>
@@ -36,9 +49,6 @@ function TransactionForm({ date, setDate, type }) {
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
-      case 'date':
-        setDate(value);
-        break;
       case 'description':
         setDescription(value);
         break;
@@ -61,9 +71,10 @@ function TransactionForm({ date, setDate, type }) {
 
   const handleSubmit = e => {
     e.preventDefault();
+
     dispatch(
       createUserTransaction({
-        date,
+        date: formatDate(selectedDate),
         description,
         category: categoryID,
         value,
@@ -77,7 +88,7 @@ function TransactionForm({ date, setDate, type }) {
   };
 
   const onHandleResetForm = () => {
-    setDate(moment(new Date()).format('YYYY-MM-DD'));
+    setSelectedDate(Date.now());
     setDescription('');
     setCategoryName('');
     setValue('');
@@ -88,17 +99,13 @@ function TransactionForm({ date, setDate, type }) {
       <div className={s.wrapInput}>
         <div className={s.blockButton}>
           <div className={s.dateWrapper}>
-            <input
-              aria-label="Date"
-              name="date"
-              onChange={handleChange}
-              type="date"
-              className={s.datePicker}
-              value={date}
+            <DatePicker
+              dateFormat="dd.MM.yyyy"
+              selected={selectedDate}
+              onChange={date => setSelectedDate(date)}
+              customInput={<DatePickerCustomInput />}
             />
-            <CalendarLogo className={s.calendarIcon} />
           </div>
-
           <div className={s.overlay}>
             <input
               aria-label="Text"
