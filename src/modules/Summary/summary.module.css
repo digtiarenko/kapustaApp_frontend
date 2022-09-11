@@ -74,6 +74,10 @@
 }
 
 @media screen and (max-width: 771px) {
+  .expenses {
+    margin-left: 15px;
+  }
+
   .wrapper {
     background-color: white;
   }
