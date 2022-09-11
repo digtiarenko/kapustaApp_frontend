@@ -128,7 +128,7 @@ export default function HomePage() {
                       />
                       <div className={s.overlaySummery}>
                         <TransactionTable />
-                        <div>
+                        <div className={s.summary}>
                           <Summary />
                         </div>
                       </div>
@@ -140,6 +140,10 @@ export default function HomePage() {
               </div>
             </div>
           </section>
+
+          <div className={s.sammaryTablet}>
+            <Summary />
+          </div>
         </Container>
       </div>
       {isMobile && (
