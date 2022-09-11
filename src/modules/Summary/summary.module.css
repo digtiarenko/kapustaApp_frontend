@@ -7,19 +7,16 @@
 }
 
 .wrapper {
-  
   margin-left: auto;
   margin-right: auto;
   margin-top: 32px;
-
-  width: 280px;
 }
 
 @media screen and (min-width: 768px) {
   .wrapper {
     width: 704px;
-      justify-content: center;
-  display: flex;
+    justify-content: center;
+    display: flex;
     background: #ffffff;
     box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
     border-radius: 30px;
@@ -28,12 +25,11 @@
   .wrap {
     width: 704px;
   }
-
 }
 
 @media screen and (min-width: 1280px) {
   .wrapper {
-    width: 100%
+    width: 100%;
   }
 }
 
@@ -54,10 +50,8 @@
   border-right: 1px solid #e0e5eb;
 }
 
-
-
 .expenses {
-      background: #ffffff;
+  background: #ffffff;
   font-size: 14px;
   font-weight: 700;
   line-height: 16px;
@@ -67,7 +61,7 @@
 }
 
 .income {
-      background: #ffffff;
+  background: #ffffff;
   font-size: 14px;
   font-weight: 700;
   line-height: 16px;
@@ -89,7 +83,7 @@
     padding: 20px 10px 25px 13px;
   }
 
-  .transactionType{
+  .transactionType {
     margin-bottom: 5px;
   }
 }
@@ -100,12 +94,11 @@
     padding: 15px 20px 15px 20px;
   }
 
-  .expenses{
-   margin-left: 15px;
-  }
-
-  .income{
+  .expenses {
     margin-left: 15px;
   }
 
+  .income {
+    margin-left: 15px;
+  }
 }

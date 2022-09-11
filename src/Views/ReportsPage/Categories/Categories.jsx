@@ -11,8 +11,6 @@ export default function Expenses() {
   const [header, setHeader] = useState('expenses');
   const reportFullMonth = useSelector(getDataByMonth);
 
-  // console.log(reportFullMonth[0].arrOfTypes.find(item => item.type === header));
-
   useEffect(() => {
     reportFullMonth[0] &&
     reportFullMonth[0].date &&

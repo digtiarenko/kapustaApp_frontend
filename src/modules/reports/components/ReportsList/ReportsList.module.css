@@ -1,7 +1,7 @@
 .list {
+  padding: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
   justify-content: center;
 
   background-image: repeating-linear-gradient(
@@ -20,6 +20,7 @@
     brightness(90%) contrast(97%);
 }
 .item {
+  width: 33%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -44,6 +45,9 @@
 }
 
 @media screen and (min-width: 768px) {
+  .item {
+    width: auto;
+  }
   .list {
     background-image: none;
   }
