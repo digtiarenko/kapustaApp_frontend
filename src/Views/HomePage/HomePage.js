@@ -140,6 +140,10 @@ export default function HomePage() {
               </div>
             </div>
           </section>
+
+          <div className={s.sammaryTablet}>
+            <Summary />
+          </div>
         </Container>
       </div>
       {isMobile && (
