@@ -7,6 +7,7 @@ import Dropdown from 'modules/dropDownCategories/Dropdown';
 import { useDispatch, useSelector } from 'react-redux';
 import { createUserTransaction } from 'redux/transactions/transactionsOperations';
 import balanceOperations from 'redux/initialBalance/initialBalanceOperations';
+import { toast } from 'react-toastify';
 
 import DatePicker from 'react-datepicker';
 
@@ -72,6 +73,24 @@ function TransactionForm({ date, setDate, type }) {
   const handleSubmit = e => {
     e.preventDefault();
 
+    if (description.length < 3) {
+      toast.error('Too short description');
+      return;
+    }
+    if (description.length > 20) {
+      toast.error('Too long description');
+      return;
+    }
+    if (value.match('-')) {
+      toast.error('Еnter a number without a minus');
+      return;
+    }
+
+    if (!categoryName) {
+      toast.error('Select the category of transaction');
+      return;
+    }
+
     dispatch(
       createUserTransaction({
         date: formatDate(selectedDate),
@@ -92,6 +111,14 @@ function TransactionForm({ date, setDate, type }) {
     setDescription('');
     setCategoryName('');
     setValue('');
+  };
+
+  const onClose = e => {
+    console.log('onClose');
+  };
+
+  const onFocus = e => {
+    console.log('onFocus');
   };
 
   return (
@@ -115,12 +142,16 @@ function TransactionForm({ date, setDate, type }) {
               type="text"
               placeholder="Product description"
               value={description}
+              required
             />
-            <Dropdown
-              type={type}
-              onCategorySet={onCategorySet}
-              categoryName={categoryName}
-            />
+            <div>
+              <Dropdown
+                type={type}
+                onCategorySet={onCategorySet}
+                categoryName={categoryName}
+                required
+              />
+            </div>
           </div>
           <div className={s.inputCountOverlay}>
             <input
@@ -131,6 +162,7 @@ function TransactionForm({ date, setDate, type }) {
               className={s.inputCount}
               placeholder="0.00"
               value={value}
+              required
             />
             <span className={s.iconCalculator}>
               <img src={calculator} alt="calculator" className={s.calculator} />
