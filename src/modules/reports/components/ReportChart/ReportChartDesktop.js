@@ -15,8 +15,8 @@ import { CustomTooltip } from './ReportChartMobile';
 
 const CustomXAxisTick = props => {
   let labelText = props.payload.value;
-  if (props.payload.value.length > 8) {
-    labelText = props.payload.value.substr(0, 8) + '...';
+  if (props.payload.value.length > 10) {
+    labelText = props.payload.value.substr(0, 10) + '...';
   }
   return <Text {...props}>{labelText}</Text>;
 };
@@ -44,8 +44,8 @@ export default function ReportChartDesktop({ isDesktop, data }) {
     <div className={styles.chartView}>
       <BarChart
         width={chartWidth}
-        height={366}
-        margin={{ right: 0, left: 0, top: 20, bottom: 40 }}
+        height={415}
+        margin={{ right: 0, left: 0, top: 40, bottom: 0 }}
         data={data}
         barCategoryGap={10}
         barSize={40}
@@ -54,7 +54,7 @@ export default function ReportChartDesktop({ isDesktop, data }) {
         <CartesianGrid
           x={0}
           vertical={false}
-          horizontalPoints={[56, 96, 136, 176, 216, 256, 296]}
+          horizontalPoints={[65, 105, 145, 185, 225, 265, 305, 345, 385]}
         />
 
         <Tooltip
@@ -66,8 +66,7 @@ export default function ReportChartDesktop({ isDesktop, data }) {
           hide={false}
           axisLine={false}
           tickLine={false}
-          textAnchor="end"
-          angle={-70}
+          textAnchor="middle"
           dataKey="description"
           type="category"
           tickSize={0}
@@ -86,7 +85,7 @@ export default function ReportChartDesktop({ isDesktop, data }) {
           fontSize={12}
           color={'#52555F'}
         />
-        <YAxis hide type="number" />
+        <YAxis hide type="number" scale="linear" />
 
         <Bar
           dataKey="value"

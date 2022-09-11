@@ -23,7 +23,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .datePicker {
@@ -51,11 +51,24 @@
   top: 0;
   cursor: pointer;
 }
+.dateButton {
+  background-color: transparent;
+  border: none;
+  position: relative;
+  padding: 20px 40px;
+  cursor: pointer;
+}
+.dateButtonText {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  color: #52555f;
+}
 .calendarIcon {
   position: absolute;
   z-index: 2;
-  left: 67px;
-  top: -2px;
+  left: 12px;
+  top: 20px;
 }
 
 @media screen and (min-width: 768px) {
@@ -101,7 +114,6 @@
 .pageWrapper {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 56px);
 }
 
 @media screen and (min-width: 1280px) {

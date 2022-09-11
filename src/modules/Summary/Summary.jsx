@@ -6,6 +6,7 @@ import {
   getTotalSunByMonthlyExpenses,
   getTotalSunByMonthlyIncome,
 } from 'redux/reports/reportsSelectors';
+import NumberFormat from 'react-number-format';
 export const Summary = ({ year, month }) => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -32,8 +33,22 @@ export const Summary = ({ year, month }) => {
       <ul className={s.list}>
         {monthlyExpenses ? (
           <li className={s.listItem}>
-            Expenses:
-            {<div className={s.expenses}>- {monthlyExpenses} грн.</div>}
+            <p className={s.transactionType}>Expenses:</p>
+            {
+              <NumberFormat
+                className={s.expenses}
+                allowNegative={false}
+                thousandSeparator={' '}
+                fixedDecimalScale={'true'}
+                decimalScale={'2'}
+                value={monthlyExpenses}
+                placeholder={'00.00 UAH'}
+                displayType={'text'}
+                prefix={'- '}
+                suffix={' UAH'}
+                disabled={true}
+              />
+            }
           </li>
         ) : (
           <li className={s.listItem}>
@@ -42,8 +57,21 @@ export const Summary = ({ year, month }) => {
         )}
         {monthlyIncome ? (
           <li className={s.listItem}>
-            Income:
-            {<div className={s.income}> {monthlyIncome} грн.</div>}
+            <p className={s.transactionType}>Income:</p>
+            {
+              <NumberFormat
+                className={s.income}
+                thousandSeparator={' '}
+                fixedDecimalScale={'true'}
+                decimalScale={'2'}
+                value={monthlyIncome}
+                placeholder={'00.00 UAH'}
+                prefix={'+ '}
+                displayType={'text'}
+                suffix={' UAH'}
+                disabled={true}
+              />
+            }
           </li>
         ) : (
           <li className={s.listItem}>
