@@ -34,6 +34,7 @@
 
 @media screen and (max-width: 767px) {
   .tableRow {
+    display: flex;
     position: relative;
   }
 
@@ -43,14 +44,14 @@
   }
 
   .tableDataDate {
-    vertical-align: bottom;
-    width: 25%;
-    padding-right: 20px;
+    position: absolute;
+    width: 23%;
+    top: 25%;
   }
 
   .tableDataDescription {
     position: absolute;
-    top: 15%;
+    top: 10%;
     left: 0;
     max-width: 50%;
 
@@ -59,15 +60,17 @@
   }
 
   .tableDataCategory {
-    vertical-align: bottom;
+    position: absolute;
+    top: 25%;
+    left: 23%;
     width: 30%;
-    padding-right: 12px;
   }
 
   .tableDataSum {
     text-align: right;
+    padding-left: 50%;
     padding-right: 20px;
-    width: 50%;
+    width: 100%;
   }
 
   .tableDataBtn {
