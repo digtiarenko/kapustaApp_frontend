@@ -48,6 +48,7 @@ export default function AuthForm({
                   value={email}
                   onChange={handleChange}
                   onBlur={handleBlur}
+                  placeholder="your@email.com"
                   className={
                     (errors.email && touched.email) ||
                     errorsSubmit.email !== '' ||
@@ -81,6 +82,7 @@ export default function AuthForm({
                   value={password}
                   onChange={handleChange}
                   onBlur={handleBlur}
+                  placeholder="Password"
                   className={
                     (errors.password && touched.password) ||
                     errorsSubmit.email !== '' ||
