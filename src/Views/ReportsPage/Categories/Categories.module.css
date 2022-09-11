@@ -2,8 +2,6 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 32px;
-
-  width: 280px;
 }
 .wrap {
   display: flex;
@@ -30,6 +28,6 @@
 
 @media screen and (min-width: 1280px) {
   .wrapper {
-    width: 100%
+    width: 100%;
   }
 }

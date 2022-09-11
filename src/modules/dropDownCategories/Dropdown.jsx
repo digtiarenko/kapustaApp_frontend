@@ -28,7 +28,7 @@ export default function Dropdown({ type, onCategorySet, categoryName }) {
   return (
     <>
       <div className={styles.dropdown}>
-        <button onClick={toggling} className={styles.dropbtn}>
+        <button onClick={toggling} type="button" className={styles.dropbtn}>
           {categoryName || 'Product category'}
           <Arrowdown />
         </button>
