@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 
 function Summary({ month }) {
   const { type } = useParams();
-  console.log(type);
+
   const getReportsMonthlyExpenses = useSelector(
     state => state.reports.monthExpenses
   );

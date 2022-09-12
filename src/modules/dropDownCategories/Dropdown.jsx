@@ -57,29 +57,3 @@ export default function Dropdown({ type, onCategorySet, categoryName }) {
     </div>
   );
 }
-
-// const categories = async () => {
-//   const data = await axios.get(
-//     'https://kapustaapplication.herokuapp.com/api/categories'
-//   );
-//   console.log('categories:', data);
-// };
-
-// useEffect(() => {
-//   console.log(category);
-// }, [category]);
-
-// useEffect(() => {
-//   const handleKeydown = event => {
-//     if (event.target !== event.currentTarget) {
-//       console.log(event.target);
-//       console.log(event.currentTarget);
-//       setIsOpen(false);
-//     }
-//   };
-//   window.addEventListener('click', handleKeydown);
-
-//   return () => {
-//     window.removeEventListener('click', handleKeydown);
-//   };
-// });
