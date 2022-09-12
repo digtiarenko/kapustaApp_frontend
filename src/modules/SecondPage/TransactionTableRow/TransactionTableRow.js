@@ -54,7 +54,6 @@ export function TransactionTableRow({
     getUpdatedBalance(type, value);
     dispatch(deleteTransactionById(id));
   };
-  console.log(value);
   const sumStyle = getSumTypeStyle(type);
 
   return (

@@ -40,7 +40,6 @@ export const getDataByType = type =>
 
 export const getDataByCategory = (type, category) =>
   createSelector([getDataByType(type)], dataByType => {
-    // console.log(dataByType);
     if (dataByType[0].type !== '') {
       return dataByType[0].arrOfCategories.filter(item =>
         item.category.name.toLowerCase().includes(category)
@@ -51,7 +50,6 @@ export const getDataByCategory = (type, category) =>
 
 export const getDataByCategoryId = (type, categoryId) =>
   createSelector([getDataByType(type)], dataByType => {
-    // console.log(dataByType);
     if (dataByType[0].type !== '') {
       return dataByType[0].arrOfCategories.filter(item =>
         item.category._id.includes(categoryId)
