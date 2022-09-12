@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './Dropdown.module.css';
 import { ReactComponent as Arrowdown } from '../../images/icons/arrow-bottom.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import categoriesOperations from 'redux/categories/categoriesOperations';
 import { getCategoriesList } from '../../redux/categories/categoriesSelectors';
+import { createRef } from 'react';
+import { useDetectClickOutside } from 'react-detect-click-outside';
 
 export default function Dropdown({ type, onCategorySet, categoryName }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,6 +16,10 @@ export default function Dropdown({ type, onCategorySet, categoryName }) {
     dispatch(categoriesOperations.getCategoriesList());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const closeDropdown = () => setIsOpen(false);
+
+  const ref = useDetectClickOutside({ onTriggered: closeDropdown });
 
   const toggling = e => {
     e.preventDefault();
@@ -26,7 +32,7 @@ export default function Dropdown({ type, onCategorySet, categoryName }) {
   };
 
   return (
-    <>
+    <div ref={ref}>
       <div className={styles.dropdown}>
         <button onClick={toggling} type="button" className={styles.dropbtn}>
           {categoryName || 'Product category'}
@@ -49,7 +55,7 @@ export default function Dropdown({ type, onCategorySet, categoryName }) {
           </ul>
         )}
       </div>
-    </>
+    </div>
   );
 }
 
