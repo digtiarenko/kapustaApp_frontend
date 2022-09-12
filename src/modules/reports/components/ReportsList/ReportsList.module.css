@@ -68,6 +68,9 @@
   .item {
     width: auto;
   }
+  .itemActive {
+    width: auto;
+  }
   .list {
     background-image: none;
     justify-content: center;

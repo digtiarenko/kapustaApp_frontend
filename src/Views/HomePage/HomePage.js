@@ -8,7 +8,6 @@ import TransactionTable from '../../modules/SecondPage/TransactionTable/Transact
 import TransactionForm, {
   DatePickerCustomInput,
 } from '../../modules/SecondPage/TransactionForm/TransactionForm';
-import moment from 'moment';
 import Summary from '../../modules/SecondPage/Summary/Summary';
 
 import { useMediaQuery } from 'react-responsive';
