@@ -29,7 +29,7 @@ export default function HomePage() {
   const location = useLocation();
   const navigation = useNavigate();
   const dispatch = useDispatch();
-  const [date, setDate] = useState(moment().format('YYYY-MM-DD'));
+  const [date, setDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [type, setType] = useState('');
 
@@ -45,6 +45,7 @@ export default function HomePage() {
   }, [isMobile, notMobile]);
 
   useEffect(() => {
+    setDate(new Date());
     if (location.pathname === '/home/expenses') {
       setType('expenses');
     }
@@ -55,13 +56,22 @@ export default function HomePage() {
 
   useEffect(() => {
     if (notMobile) {
-      if (type === 'expenses' || type === 'income')
+      if (type === 'expenses' && location.pathname === '/home/expenses') {
         dispatch(
           getTransactionsByTypeAndDate({
-            date,
+            date: formatDate(date),
             type,
           })
         );
+      }
+      if (type === 'income' && location.pathname === '/home/income') {
+        dispatch(
+          getTransactionsByTypeAndDate({
+            date: formatDate(date),
+            type,
+          })
+        );
+      }
     }
     if (isMobile) {
       dispatch(
@@ -70,6 +80,7 @@ export default function HomePage() {
         })
       );
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [date, dispatch, isMobile, navigation, notMobile, selectedDate, type]);
 
   return (

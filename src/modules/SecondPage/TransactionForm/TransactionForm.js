@@ -3,7 +3,6 @@ import React, { forwardRef, useState } from 'react';
 import { ReactComponent as CalendarLogo } from 'images/icons/calendar.svg';
 import calculator from '../../../images/icons/calculator.svg';
 import Dropdown from 'modules/dropDownCategories/Dropdown';
-// import { ReactComponent as CalculatorLogo } from '../../../images/icons/calculator.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { createUserTransaction } from 'redux/transactions/transactionsOperations';
 import balanceOperations from 'redux/initialBalance/initialBalanceOperations';
@@ -26,7 +25,6 @@ function TransactionForm({ date, setDate, type }) {
   const [categoryName, setCategoryName] = useState(null);
   const [categoryID, setCategoryID] = useState(null);
   const [value, setValue] = useState('');
-  const [selectedDate, setSelectedDate] = useState(new Date());
 
   const dispatch = useDispatch();
   const initialBalance = useSelector(state => state.balance.balance);
@@ -93,7 +91,7 @@ function TransactionForm({ date, setDate, type }) {
 
     dispatch(
       createUserTransaction({
-        date: formatDate(selectedDate),
+        date: formatDate(date),
         description,
         category: categoryID,
         value,
@@ -107,20 +105,11 @@ function TransactionForm({ date, setDate, type }) {
   };
 
   const onHandleResetForm = () => {
-    setSelectedDate(Date.now());
+    setDate(new Date());
     setDescription('');
     setCategoryName('');
     setValue('');
   };
-
-  // const onClose = e => {
-  //   console.log('onClose');
-  // };
-
-  // const onFocus = e => {
-  //   console.log('onFocus');
-  // };
-
   return (
     <form className={s.wrap} onSubmit={handleSubmit} autoComplete="off">
       <div className={s.wrapInput}>
@@ -128,8 +117,8 @@ function TransactionForm({ date, setDate, type }) {
           <div className={s.dateWrapper}>
             <DatePicker
               dateFormat="dd.MM.yyyy"
-              selected={selectedDate}
-              onChange={date => setSelectedDate(date)}
+              selected={date}
+              onChange={date => setDate(date)}
               customInput={<DatePickerCustomInput />}
             />
           </div>

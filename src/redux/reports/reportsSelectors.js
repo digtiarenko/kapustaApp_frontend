@@ -2,6 +2,8 @@ import { createSelector } from '@reduxjs/toolkit';
 import { initialState } from './reportsSlice';
 
 export const getReportsFull = state => state.reports.full;
+export const getIsRefreshingReportsFull = state =>
+  state.reports.full.isRefreshing;
 export const getReportsMonthlyExpenses = state => state.reports.monthExpenses;
 export const getReportsMonthlyIncome = state => state.reports.monthIncome;
 export const getTotalSunByMonthlyExpenses = state => {

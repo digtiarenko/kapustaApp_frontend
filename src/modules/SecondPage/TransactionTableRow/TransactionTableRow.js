@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ReactComponent as Delete } from '../../../images/icons/delete.svg';
 import s from './TransactionTableRow.module.css';
 import balanceOperations from 'redux/initialBalance/initialBalanceOperations';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteTransactionById } from '../../../redux/transactions/transactionsOperations';
 import NumberFormat from 'react-number-format';
+import Modal from '../../Modal/Modal';
 
 const getSumTypeStyle = type => {
   switch (type) {
@@ -29,6 +30,8 @@ export function TransactionTableRow({
   value,
   type,
 }) {
+  const [showModal, setShowModal] = useState(false);
+
   const dispatch = useDispatch();
 
   const initialBalance = useSelector(state => state.balance.balance);
@@ -58,6 +61,15 @@ export function TransactionTableRow({
 
   return (
     <tr key={id} className={s.tableRow}>
+      {showModal && (
+        <Modal
+          onDeny={() => {
+            setShowModal(false);
+          }}
+          handleAgreeButtonClick={onDelete(id, type, value)}
+          question="Are you sure you want to delete the transaction?"
+        />
+      )}
       <td className={s.tableDataDate}>{date}</td>
       <td title={description} className={s.tableDataDescription}>
         {description}
@@ -80,7 +92,7 @@ export function TransactionTableRow({
         <button
           type="button"
           className={s.button}
-          onClick={onDelete(id, type, value)}
+          onClick={() => setShowModal(true)}
         >
           <Delete className={s.svg} />
         </button>
