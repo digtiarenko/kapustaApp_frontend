@@ -70,7 +70,6 @@
 
   .activeLink {
     cursor: default;
-    /* composes: link; */
     color: #e61e17;
   }
 }

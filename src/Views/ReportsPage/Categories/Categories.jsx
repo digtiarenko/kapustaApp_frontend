@@ -5,11 +5,13 @@ import ReportsSlider from 'modules/reports/components/ReportsSlider';
 import ReportsList from 'modules/reports/components/ReportsList';
 
 import { getDataByMonth } from 'redux/reports/reportsSelectors';
+import { useNavigate } from 'react-router-dom';
 
 export default function Expenses() {
   const [expenses, setExpenses] = useState(null);
   const [header, setHeader] = useState('expenses');
   const reportFullMonth = useSelector(getDataByMonth);
+  const navigation = useNavigate();
 
   useEffect(() => {
     reportFullMonth[0] &&
@@ -20,6 +22,9 @@ export default function Expenses() {
             .arrOfCategories
         )
       : setExpenses(null);
+    if (expenses && expenses.length !== 0)
+      navigation(`${expenses[0].category._id}`);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [header, reportFullMonth, expenses]);
 
   function switchPage(header) {

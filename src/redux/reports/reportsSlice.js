@@ -6,6 +6,7 @@ export const initialState = {
     year: null,
     month: null,
   },
+  isRefreshing: false,
   full: [
     {
       date: '',
@@ -47,12 +48,22 @@ const reportsSlice = createSlice({
     },
   },
   extraReducers: {
+    [reportsOperations.getReportsFull.pending](state) {
+      state.isRefreshing = true;
+      state.full = initialState.full;
+    },
     [reportsOperations.getReportsFull.fulfilled](state, { payload }) {
       state.full =
         payload.fullReportByMonth.length !== 0
           ? payload.fullReportByMonth
           : initialState.full;
+      state.isRefreshing = false;
     },
+    [reportsOperations.getReportsFull.rejected](state) {
+      state.full = initialState.full;
+      state.isRefreshing = false;
+    },
+
     [reportsOperations.getReportsMonthlyExpenses.fulfilled](
       state,
       { payload }

@@ -1,36 +1,34 @@
-import Balance from '../../modules/balance/components/Balance';
-import ReportsLink from '../../modules/reports/components/ReportsLink';
-import Container from 'modules/Container';
-import s from './HomePage.module.css';
-import IncomeExpense from '../../modules/SecondPage/IncomeExpense/IncomeExpense';
-import { useEffect, useState } from 'react';
-import TransactionTable from '../../modules/SecondPage/TransactionTable/TransactionTable';
-import TransactionForm, {
-  DatePickerCustomInput,
-} from '../../modules/SecondPage/TransactionForm/TransactionForm';
-import moment from 'moment';
-import Summary from '../../modules/SecondPage/Summary/Summary';
-
-import { useMediaQuery } from 'react-responsive';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import {
   getTransactionsByDate,
   getTransactionsByTypeAndDate,
 } from 'redux/transactions/transactionsOperations';
+import { useEffect, useState } from 'react';
+import s from './HomePage.module.css';
 import DatePicker from 'react-datepicker';
-
+import { useMediaQuery } from 'react-responsive';
 import 'react-datepicker/dist/react-datepicker.css';
+import Balance from '../../modules/balance/components/Balance';
+import ReportsLink from '../../modules/reports/components/ReportsLink';
+import Container from 'modules/Container';
+import IncomeExpense from '../../modules/SecondPage/IncomeExpense/IncomeExpense';
+import TransactionTable from '../../modules/SecondPage/TransactionTable/TransactionTable';
+import TransactionForm, {
+  DatePickerCustomInput,
+} from '../../modules/SecondPage/TransactionForm/TransactionForm';
+import Summary from '../../modules/SecondPage/Summary/Summary';
 import { formatDate } from 'utils/formatDate';
+import screenRes from 'utils/mediaConstants';
 
 export default function HomePage() {
-  const notMobile = useMediaQuery({ minWidth: 768 });
-  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const notMobile = useMediaQuery(screenRes.NOT_MOBILE);
+  const isMobile = useMediaQuery(screenRes.IS_MOBILE);
 
   const location = useLocation();
   const navigation = useNavigate();
   const dispatch = useDispatch();
-  const [date, setDate] = useState(moment().format('YYYY-MM-DD'));
+  const [date, setDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [type, setType] = useState('');
 
@@ -46,6 +44,7 @@ export default function HomePage() {
   }, [isMobile, notMobile]);
 
   useEffect(() => {
+    setDate(new Date());
     if (location.pathname === '/home/expenses') {
       setType('expenses');
     }
@@ -56,13 +55,22 @@ export default function HomePage() {
 
   useEffect(() => {
     if (notMobile) {
-      if (type === 'expenses' || type === 'income')
+      if (type === 'expenses' && location.pathname === '/home/expenses') {
         dispatch(
           getTransactionsByTypeAndDate({
-            date,
+            date: formatDate(date),
             type,
           })
         );
+      }
+      if (type === 'income' && location.pathname === '/home/income') {
+        dispatch(
+          getTransactionsByTypeAndDate({
+            date: formatDate(date),
+            type,
+          })
+        );
+      }
     }
     if (isMobile) {
       dispatch(
@@ -71,6 +79,7 @@ export default function HomePage() {
         })
       );
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [date, dispatch, isMobile, navigation, notMobile, selectedDate, type]);
 
   return (

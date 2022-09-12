@@ -4,10 +4,11 @@ import { useMediaQuery } from 'react-responsive';
 import { getDataByMonth } from 'redux/reports/reportsSelectors';
 import ReportChartMobile from './ReportChartMobile';
 import ReportChartDesktop from './ReportChartDesktop';
+import screenRes from 'utils/mediaConstants';
 
 const ReportChart = () => {
-  const notMobile = useMediaQuery({ minWidth: 768 });
-  const isDesktop = useMediaQuery({ minWidth: 1280 });
+  const notMobile = useMediaQuery(screenRes.NOT_MOBILE);
+  const isDesktop = useMediaQuery(screenRes.IS_DESKTOP);
   const { categoryId } = useParams();
 
   const reportFullMonth = useSelector(getDataByMonth);

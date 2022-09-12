@@ -6,9 +6,8 @@ const getReportsFull = createAsyncThunk(
   'reports/getFull',
   async (queryParams, thunkAPI) => {
     const params = queryParams;
-
     try {
-      const { data } = await axios.get('/reports', { params });
+      const { data } = await axios.get('/reports/', { params });
       return data;
     } catch (error) {
       toast.error('Error. Server not answered!');

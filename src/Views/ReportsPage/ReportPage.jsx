@@ -7,24 +7,12 @@ import Categories from './Categories';
 import { CurrentPeriod } from '../../modules/CurrentPeriod/CurrentPeriod.jsx';
 import { useEffect, useState } from 'react';
 import Container from 'modules/Container';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import reportsOperations from 'redux/reports/reportsOperations';
 import { setReportsDate } from 'redux/reports/reportsSlice';
+import { getIsRefreshingReportsFull } from 'redux/reports/reportsSelectors';
+import { ARRAY_OF_MONTHS } from 'utils/arrayOfMonth';
 
-const arrayOfMonth = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December',
-];
 const QUERY_PARAMS = {}; //{year:2022, month:9, limit: 10 };
 const SetQueryParams = (year, month, limit) => {
   if (year) QUERY_PARAMS.year = year;
@@ -34,34 +22,37 @@ const SetQueryParams = (year, month, limit) => {
 export default function ReportPage() {
   const date = new Date();
   let currentYear = date.getFullYear();
-  let currentMonth = arrayOfMonth[date.getMonth()];
+  let currentMonth = ARRAY_OF_MONTHS[date.getMonth()];
   const [month, setMonth] = useState(currentMonth);
   const [year, setYear] = useState(currentYear);
   const navigate = useNavigate();
+  const isRefreshing = useSelector(getIsRefreshingReportsFull);
 
   const dispatch = useDispatch();
 
   const onPreviousMonth = () => {
     navigate('/reports');
-    if (arrayOfMonth.indexOf(month) < 1) {
+    if (ARRAY_OF_MONTHS.indexOf(month) < 1) {
       setYear(year - 1);
     }
     if (
-      arrayOfMonth.indexOf(month) === -1 ||
-      arrayOfMonth.indexOf(month) === 0
+      ARRAY_OF_MONTHS.indexOf(month) === -1 ||
+      ARRAY_OF_MONTHS.indexOf(month) === 0
     ) {
       dispatch(
-        setReportsDate({ year, month: arrayOfMonth.indexOf(month) + 12 })
+        setReportsDate({ year, month: ARRAY_OF_MONTHS.indexOf(month) + 12 })
       );
 
-      SetQueryParams(year, arrayOfMonth.indexOf(month) + 12);
+      SetQueryParams(year, ARRAY_OF_MONTHS.indexOf(month) + 12);
       dispatch(reportsOperations.getReportsFull(QUERY_PARAMS));
-      return setMonth(arrayOfMonth[11]);
+      return setMonth(ARRAY_OF_MONTHS[11]);
     }
-    dispatch(setReportsDate({ year, month: arrayOfMonth.indexOf(month) }));
-    SetQueryParams(year, arrayOfMonth.indexOf(month));
+    dispatch(setReportsDate({ year, month: ARRAY_OF_MONTHS.indexOf(month) }));
+    SetQueryParams(year, ARRAY_OF_MONTHS.indexOf(month));
     dispatch(reportsOperations.getReportsFull(QUERY_PARAMS));
-    setMonth(prevState => arrayOfMonth[arrayOfMonth.indexOf(prevState) - 1]);
+    setMonth(
+      prevState => ARRAY_OF_MONTHS[ARRAY_OF_MONTHS.indexOf(prevState) - 1]
+    );
   };
 
   const onNextMonth = () => {
@@ -69,25 +60,30 @@ export default function ReportPage() {
     if (month === 'December') {
       setYear(year + 1);
     }
-    if (arrayOfMonth.indexOf(month) > 10) {
+    if (ARRAY_OF_MONTHS.indexOf(month) > 10) {
       dispatch(
-        setReportsDate({ year, month: arrayOfMonth.indexOf(month) - 10 })
+        setReportsDate({ year, month: ARRAY_OF_MONTHS.indexOf(month) - 10 })
       );
-      SetQueryParams(year, arrayOfMonth.indexOf(month) - 10);
+      SetQueryParams(year, ARRAY_OF_MONTHS.indexOf(month) - 10);
       dispatch(reportsOperations.getReportsFull(QUERY_PARAMS));
-      return setMonth(arrayOfMonth[0]);
+      return setMonth(ARRAY_OF_MONTHS[0]);
     }
 
-    dispatch(setReportsDate({ year, month: arrayOfMonth.indexOf(month) + 2 }));
-    SetQueryParams(year, arrayOfMonth.indexOf(month) + 2);
+    dispatch(
+      setReportsDate({ year, month: ARRAY_OF_MONTHS.indexOf(month) + 2 })
+    );
+    SetQueryParams(year, ARRAY_OF_MONTHS.indexOf(month) + 2);
     dispatch(reportsOperations.getReportsFull(QUERY_PARAMS));
-    setMonth(arrayOfMonth[arrayOfMonth.indexOf(month) + 1]);
+    setMonth(ARRAY_OF_MONTHS[ARRAY_OF_MONTHS.indexOf(month) + 1]);
   };
 
   useEffect(() => {
-    dispatch(setReportsDate({ year, month: arrayOfMonth.indexOf(month) + 1 }));
-    SetQueryParams(year, arrayOfMonth.indexOf(month) + 1);
+    dispatch(
+      setReportsDate({ year, month: ARRAY_OF_MONTHS.indexOf(month) + 1 })
+    );
+    SetQueryParams(year, ARRAY_OF_MONTHS.indexOf(month) + 1);
     dispatch(reportsOperations.getReportsFull(QUERY_PARAMS));
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
@@ -107,9 +103,13 @@ export default function ReportPage() {
               <Balance type="report" />
             </div>
           </div>
-          <Summary year={year} month={arrayOfMonth.indexOf(month) + 1} />
-          <Categories />
-          <Outlet />
+          {!isRefreshing && (
+            <>
+              <Summary year={year} month={ARRAY_OF_MONTHS.indexOf(month) + 1} />
+              <Categories />
+              <Outlet />
+            </>
+          )}
         </section>
       </Container>
     </>
