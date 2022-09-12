@@ -6,8 +6,6 @@ import ReportChartMobile from './ReportChartMobile';
 import ReportChartDesktop from './ReportChartDesktop';
 import screenRes from 'utils/mediaConstants';
 
-console.log(screenRes.NOTMOBILE);
-
 const ReportChart = () => {
   const notMobile = useMediaQuery(screenRes.NOT_MOBILE);
   const isDesktop = useMediaQuery(screenRes.IS_DESKTOP);
