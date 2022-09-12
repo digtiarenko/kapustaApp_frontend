@@ -1,24 +1,24 @@
-import Balance from '../../modules/balance/components/Balance';
-import ReportsLink from '../../modules/reports/components/ReportsLink';
-import Container from 'modules/Container';
-import s from './HomePage.module.css';
-import IncomeExpense from '../../modules/SecondPage/IncomeExpense/IncomeExpense';
-import { useEffect, useState } from 'react';
-import TransactionTable from '../../modules/SecondPage/TransactionTable/TransactionTable';
-import TransactionForm, {
-  DatePickerCustomInput,
-} from '../../modules/SecondPage/TransactionForm/TransactionForm';
-import moment from 'moment';
-import Summary from '../../modules/SecondPage/Summary/Summary';
-import { useMediaQuery } from 'react-responsive';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import {
   getTransactionsByDate,
   getTransactionsByTypeAndDate,
 } from 'redux/transactions/transactionsOperations';
+import { useEffect, useState } from 'react';
+import moment from 'moment';
+import s from './HomePage.module.css';
 import DatePicker from 'react-datepicker';
+import { useMediaQuery } from 'react-responsive';
 import 'react-datepicker/dist/react-datepicker.css';
+import Balance from '../../modules/balance/components/Balance';
+import ReportsLink from '../../modules/reports/components/ReportsLink';
+import Container from 'modules/Container';
+import IncomeExpense from '../../modules/SecondPage/IncomeExpense/IncomeExpense';
+import TransactionTable from '../../modules/SecondPage/TransactionTable/TransactionTable';
+import TransactionForm, {
+  DatePickerCustomInput,
+} from '../../modules/SecondPage/TransactionForm/TransactionForm';
+import Summary from '../../modules/SecondPage/Summary/Summary';
 import { formatDate } from 'utils/formatDate';
 import screenRes from 'utils/mediaConstants';
 
