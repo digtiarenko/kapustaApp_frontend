@@ -14,6 +14,7 @@
 
 @media screen and (min-width: 768px) {
   .wrapper {
+    height: 50px;
     width: 704px;
     justify-content: center;
     display: flex;
@@ -71,16 +72,21 @@
 }
 
 @media screen and (max-width: 771px) {
+  .expenses {
+    margin-left: 15px;
+  }
+
   .wrapper {
     background-color: white;
   }
 
   .listItem:first-child {
-    padding: 20px 15px 25px 13px;
+    display: flex;
+    padding: 15px 20px 15px 20px;
   }
 
   .listItem:last-child {
-    padding: 20px 10px 25px 13px;
+    padding: 15px 20px 15px 20px;
   }
 
   .transactionType {
