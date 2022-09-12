@@ -15,7 +15,7 @@ function Summary({ month }) {
   useEffect(() => {
     dispatch(reportsOperations.getReportsMonthlyExpenses({ limit: 6 }));
     dispatch(reportsOperations.getReportsMonthlyIncome({ limit: 6 }));
-  }, [transaction.length]);
+  }, [dispatch, transaction.length]);
   const date = new Date();
   const year = date.getFullYear();
   const { type } = useParams();
@@ -26,19 +26,6 @@ function Summary({ month }) {
   const getReportsMonthlyIncome = useSelector(
     state => state.reports.monthIncome
   );
-  console.log(
-    getReportsMonthlyExpenses
-      .filter(
-        getReportsMonthlyExpenses =>
-          getReportsMonthlyExpenses.date.split('-')[0] == year
-      )
-      .map(
-        getReportsMonthlyExpenses =>
-          ARRAY_OF_MONTHS[
-            parseInt(10, getReportsMonthlyExpenses.date.split('-')[1]) - 1
-          ]
-      )
-  );
   return (
     <div className={s.container}>
       <p className={s.title}> Summary</p>
@@ -48,7 +35,8 @@ function Summary({ month }) {
             getReportsMonthlyExpenses
               .filter(
                 getReportsMonthlyExpenses =>
-                  getReportsMonthlyExpenses.date.split('-')[0] == year
+                  getReportsMonthlyExpenses.date.split('-')[0] ===
+                  year.toString()
               )
               .map(getReportsMonthlyExpenses => (
                 <li className={s.item} key={getReportsMonthlyExpenses._id}>
@@ -82,7 +70,7 @@ function Summary({ month }) {
             getReportsMonthlyIncome
               .filter(
                 getReportsMonthlyIncome =>
-                  getReportsMonthlyIncome.date.split('-')[0] == year
+                  getReportsMonthlyIncome.date.split('-')[0] === year.toString()
               )
               .map(getReportsMonthlyIncome => (
                 <li className={s.item} key={getReportsMonthlyIncome._id}>
