@@ -35,14 +35,12 @@
   padding: 0;
   position: absolute;
   background-color: white;
-  /* min-width: 170px; */
   overflow: auto;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
 .dropdownItem {
-  /* color: inherit; */
   padding: 12px 16px;
   text-decoration: none;
   display: block;
