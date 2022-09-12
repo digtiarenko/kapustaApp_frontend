@@ -30,7 +30,7 @@ export default function HomePage() {
   const location = useLocation();
   const navigation = useNavigate();
   const dispatch = useDispatch();
-  const [date, setDate] = useState(moment().format('YYYY-MM-DD'));
+  const [date, setDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [type, setType] = useState('');
 
@@ -48,21 +48,24 @@ export default function HomePage() {
   useEffect(() => {
     if (location.pathname === '/home/expenses') {
       setType('expenses');
+      setDate(new Date());
     }
     if (location.pathname === '/home/income') {
       setType('income');
+      setDate(new Date());
     }
   }, [location.pathname]);
 
   useEffect(() => {
     if (notMobile) {
-      if (type === 'expenses' || type === 'income')
+      if (type === 'expenses' || type === 'income') {
         dispatch(
           getTransactionsByTypeAndDate({
-            date,
+            date: formatDate(date),
             type,
           })
         );
+      }
     }
     if (isMobile) {
       dispatch(
