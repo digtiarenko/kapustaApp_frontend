@@ -29,7 +29,7 @@ const TransactionTable = () => {
             <TransactionTableRow
               key={transaction._id}
               id={transaction._id}
-              date={transaction.date}
+              date={transaction.date.split('-').reverse().join('.')}
               description={transaction.description}
               type={transaction.type}
               value={transaction.value}

@@ -1,5 +1,5 @@
 import s from './TransactionForm.module.css';
-import React, { forwardRef, useEffect, useState } from 'react';
+import React, { forwardRef, useState } from 'react';
 import { ReactComponent as CalendarLogo } from 'images/icons/calendar.svg';
 import calculator from '../../../images/icons/calculator.svg';
 import Dropdown from 'modules/dropDownCategories/Dropdown';
@@ -109,14 +109,6 @@ function TransactionForm({ date, setDate, type }) {
     setDescription('');
     setCategoryName('');
     setValue('');
-  };
-
-  const onClose = e => {
-    console.log('onClose');
-  };
-
-  const onFocus = e => {
-    console.log('onFocus');
   };
 
   return (

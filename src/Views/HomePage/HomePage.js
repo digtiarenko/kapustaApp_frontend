@@ -45,19 +45,26 @@ export default function HomePage() {
   }, [isMobile, notMobile]);
 
   useEffect(() => {
+    setDate(new Date());
     if (location.pathname === '/home/expenses') {
       setType('expenses');
-      setDate(new Date());
     }
     if (location.pathname === '/home/income') {
       setType('income');
-      setDate(new Date());
     }
   }, [location.pathname]);
 
   useEffect(() => {
     if (notMobile) {
-      if (type === 'expenses' || type === 'income') {
+      if (type === 'expenses' && location.pathname === '/home/expenses') {
+        dispatch(
+          getTransactionsByTypeAndDate({
+            date: formatDate(date),
+            type,
+          })
+        );
+      }
+      if (type === 'income' && location.pathname === '/home/income') {
         dispatch(
           getTransactionsByTypeAndDate({
             date: formatDate(date),
@@ -73,6 +80,7 @@ export default function HomePage() {
         })
       );
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [date, dispatch, isMobile, navigation, notMobile, selectedDate, type]);
 
   return (
