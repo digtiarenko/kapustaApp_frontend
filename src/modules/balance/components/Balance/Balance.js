@@ -20,14 +20,14 @@ export default function Balance({ type }) {
 
   useEffect(() => {
     getInitialBalance();
+    if (initialBalance === null) {
+      return;
+    }
     if (initialBalance) {
       setBalance(initialBalance);
       setIsReadable(false);
     } else {
-      //setTimeout to avoid blinking the modal when page rendering
-      setTimeout(() => {
-        setLoading(true);
-      }, 500);
+      setLoading(true);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialBalance]);
@@ -52,7 +52,6 @@ export default function Balance({ type }) {
         <div className={s.balanceInputBlock}>
           <NumberFormat
             className={type === 'home' ? s.input : s.reportInputStyle}
-            thousandSeparator={' '}
             fixedDecimalScale={'true'}
             decimalScale={'2'}
             value={balance}
