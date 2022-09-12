@@ -2,7 +2,6 @@ import Container from 'modules/Container';
 // import s from './AddTransactions.module.css';
 import { useEffect, useState } from 'react';
 import TransactionForm from '../../modules/SecondPage/TransactionForm/TransactionForm';
-import moment from 'moment';
 import { ButtonGoMain } from 'modules/Buttons/ButtonGoMain';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
@@ -13,7 +12,7 @@ export default function AddTransactions() {
   const isMobile = useMediaQuery(screenRes.IS_MOBILE);
   const location = useLocation();
   const navigation = useNavigate();
-  const [date, setDate] = useState(moment().format('YYYY-MM-DD'));
+  const [date, setDate] = useState(new Date());
   const [type, setType] = useState('');
 
   useEffect(() => {
