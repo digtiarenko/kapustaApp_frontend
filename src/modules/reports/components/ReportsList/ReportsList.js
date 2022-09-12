@@ -1,13 +1,18 @@
 import s from './ReportsList.module.css';
 import ReportsItem from '../ReportsItem';
 import icons from '../../../../images/icons/category/reports/categoryIcons';
+import { useParams } from 'react-router-dom';
 
 export default function ExpensesList({ expenses, header }) {
+  const { categoryId } = useParams();
   return (
     <ul className={s.list}>
       {expenses ? (
         expenses.map(item => (
-          <div className={s.item} key={item.category.name}>
+          <div
+            className={item.category._id !== categoryId ? s.item : s.itemActive}
+            key={item.category.name}
+          >
             <ReportsItem
               id={item.category._id}
               category={item.category.name}

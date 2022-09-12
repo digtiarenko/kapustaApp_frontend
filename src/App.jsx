@@ -16,12 +16,8 @@ const AuthPage = lazy(() => import('./Views/AuthPage/AuthPage'));
 const HomePage = lazy(() => import('./Views/HomePage'));
 const ReportsPage = lazy(() => import('./Views/ReportsPage'));
 const AddTransactions = lazy(() => import('./Views/AddTransactions'));
-// const Expenses = lazy(() => import('./Views/ReportsPage/Expenses/Expenses'));
-// const Income = lazy(() => import('./Views/ReportsPage/Income/Income'));
 const Category = lazy(() => import('Views/ReportsPage/Categories'));
-const ReportChart = lazy(() =>
-  import('modules/reports/components/ReportChart')
-);
+const Chart = lazy(() => import('Views/ReportsPage/Chart'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -113,7 +109,7 @@ export const App = () => {
                   path=":categoryId"
                   element={
                     <Suspense fallback={<LoaderSection />}>
-                      <ReportChart />
+                      <Chart />
                     </Suspense>
                   }
                 />

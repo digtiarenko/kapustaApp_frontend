@@ -7,9 +7,10 @@ import Categories from './Categories';
 import { CurrentPeriod } from '../../modules/CurrentPeriod/CurrentPeriod.jsx';
 import { useEffect, useState } from 'react';
 import Container from 'modules/Container';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import reportsOperations from 'redux/reports/reportsOperations';
 import { setReportsDate } from 'redux/reports/reportsSlice';
+import { getIsRefreshingReportsFull } from 'redux/reports/reportsSelectors';
 
 const arrayOfMonth = [
   'January',
@@ -38,6 +39,7 @@ export default function ReportPage() {
   const [month, setMonth] = useState(currentMonth);
   const [year, setYear] = useState(currentYear);
   const navigate = useNavigate();
+  const isRefreshing = useSelector(getIsRefreshingReportsFull);
 
   const dispatch = useDispatch();
 
@@ -88,6 +90,7 @@ export default function ReportPage() {
     dispatch(setReportsDate({ year, month: arrayOfMonth.indexOf(month) + 1 }));
     SetQueryParams(year, arrayOfMonth.indexOf(month) + 1);
     dispatch(reportsOperations.getReportsFull(QUERY_PARAMS));
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
@@ -107,9 +110,13 @@ export default function ReportPage() {
               <Balance type="report" />
             </div>
           </div>
-          <Summary year={year} month={arrayOfMonth.indexOf(month) + 1} />
-          <Categories />
-          <Outlet />
+          {!isRefreshing && (
+            <>
+              <Summary year={year} month={arrayOfMonth.indexOf(month) + 1} />
+              <Categories />
+              <Outlet />
+            </>
+          )}
         </section>
       </Container>
     </>
