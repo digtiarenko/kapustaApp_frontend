@@ -36,8 +36,9 @@
 
 .list {
   display: flex;
-  margin: 7px 0px 7px 0px;
+  margin: 0;
   padding: 0;
+  align-items: center;
 }
 
 .listItem {
@@ -72,25 +73,29 @@
 }
 
 @media screen and (max-width: 771px) {
-  .expenses {
-    margin-left: 15px;
-  }
-
   .wrapper {
     background-color: white;
   }
 
   .listItem:first-child {
     display: flex;
-    padding: 15px 20px 15px 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px 5px 25px 5px;
+    width: 50%;
   }
 
   .listItem:last-child {
-    padding: 15px 20px 15px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px 5px 25px 5px;
+    width: 50%;
   }
 
   .transactionType {
     margin-bottom: 5px;
+    width: 50%;
   }
 }
 
