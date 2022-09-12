@@ -1,11 +1,23 @@
 import PropTypes from 'prop-types';
 import s from './Summary.module.css';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import NumberFormat from 'react-number-format';
 import { ARRAY_OF_MONTHS } from 'utils/arrayOfMonth';
 import { useParams } from 'react-router-dom';
+import reportsOperations from 'redux/reports/reportsOperations';
+import { useEffect } from 'react';
+import { getTransactions } from 'redux/transactions/transactionsSelectors';
 
 function Summary({ month }) {
+  const dispatch = useDispatch();
+  const transaction = useSelector(getTransactions);
+
+  useEffect(() => {
+    dispatch(reportsOperations.getReportsMonthlyExpenses({ limit: 6 }));
+    dispatch(reportsOperations.getReportsMonthlyIncome({ limit: 6 }));
+  }, [transaction.length]);
+  const date = new Date();
+  const year = date.getFullYear();
   const { type } = useParams();
 
   const getReportsMonthlyExpenses = useSelector(
@@ -14,64 +26,88 @@ function Summary({ month }) {
   const getReportsMonthlyIncome = useSelector(
     state => state.reports.monthIncome
   );
-
+  console.log(
+    getReportsMonthlyExpenses
+      .filter(
+        getReportsMonthlyExpenses =>
+          getReportsMonthlyExpenses.date.split('-')[0] == year
+      )
+      .map(
+        getReportsMonthlyExpenses =>
+          ARRAY_OF_MONTHS[
+            parseInt(10, getReportsMonthlyExpenses.date.split('-')[1]) - 1
+          ]
+      )
+  );
   return (
     <div className={s.container}>
       <p className={s.title}> Summary</p>
       {type === 'expenses' && (
         <ul className={s.list}>
           {getReportsMonthlyExpenses &&
-            getReportsMonthlyExpenses.map(getReportsMonthlyExpenses => (
-              <li className={s.item} key={getReportsMonthlyExpenses.id}>
-                <p>
-                  {
-                    ARRAY_OF_MONTHS[
-                      parseInt(
-                        10,
-                        getReportsMonthlyExpenses.date.split('-')[1]
-                      ) - 1
-                    ]
-                  }
-                </p>
-                <NumberFormat
-                  className={s.expenses}
-                  allowNegative={false}
-                  thousandSeparator={' '}
-                  fixedDecimalScale={'true'}
-                  decimalScale={'2'}
-                  value={getReportsMonthlyExpenses.totalSum}
-                  displayType={'text'}
-                  disabled={true}
-                ></NumberFormat>
-              </li>
-            ))}
+            getReportsMonthlyExpenses
+              .filter(
+                getReportsMonthlyExpenses =>
+                  getReportsMonthlyExpenses.date.split('-')[0] == year
+              )
+              .map(getReportsMonthlyExpenses => (
+                <li className={s.item} key={getReportsMonthlyExpenses._id}>
+                  <p>
+                    {
+                      ARRAY_OF_MONTHS[
+                        parseInt(
+                          10,
+                          getReportsMonthlyExpenses.date.split('-')[1]
+                        ) - 1
+                      ]
+                    }
+                  </p>
+                  <NumberFormat
+                    className={s.expenses}
+                    allowNegative={false}
+                    thousandSeparator={' '}
+                    fixedDecimalScale={'true'}
+                    decimalScale={'2'}
+                    value={getReportsMonthlyExpenses.totalSum}
+                    displayType={'text'}
+                    disabled={true}
+                  ></NumberFormat>
+                </li>
+              ))}
         </ul>
       )}
       {type === 'income' && (
         <ul className={s.list}>
           {getReportsMonthlyIncome &&
-            getReportsMonthlyIncome.map(getReportsMonthlyIncome => (
-              <li className={s.item} key={getReportsMonthlyIncome.id}>
-                <p>
-                  {
-                    ARRAY_OF_MONTHS[
-                      parseInt(10, getReportsMonthlyIncome.date.split('-')[1]) -
-                        1
-                    ]
-                  }
-                </p>
-                <NumberFormat
-                  className={s.expenses}
-                  allowNegative={false}
-                  thousandSeparator={' '}
-                  fixedDecimalScale={'true'}
-                  decimalScale={'2'}
-                  value={getReportsMonthlyIncome.totalSum}
-                  displayType={'text'}
-                  disabled={true}
-                ></NumberFormat>
-              </li>
-            ))}
+            getReportsMonthlyIncome
+              .filter(
+                getReportsMonthlyIncome =>
+                  getReportsMonthlyIncome.date.split('-')[0] == year
+              )
+              .map(getReportsMonthlyIncome => (
+                <li className={s.item} key={getReportsMonthlyIncome._id}>
+                  <p>
+                    {
+                      ARRAY_OF_MONTHS[
+                        parseInt(
+                          10,
+                          getReportsMonthlyIncome.date.split('-')[1]
+                        ) - 1
+                      ]
+                    }
+                  </p>
+                  <NumberFormat
+                    className={s.expenses}
+                    allowNegative={false}
+                    thousandSeparator={' '}
+                    fixedDecimalScale={'true'}
+                    decimalScale={'2'}
+                    value={getReportsMonthlyIncome.totalSum}
+                    displayType={'text'}
+                    disabled={true}
+                  ></NumberFormat>
+                </li>
+              ))}
         </ul>
       )}
     </div>

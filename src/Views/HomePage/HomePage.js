@@ -20,7 +20,6 @@ import TransactionForm, {
 import Summary from '../../modules/SecondPage/Summary/Summary';
 import { formatDate } from 'utils/formatDate';
 import screenRes from 'utils/mediaConstants';
-import reportsOperations from 'redux/reports/reportsOperations';
 
 export default function HomePage() {
   const notMobile = useMediaQuery(screenRes.NOT_MOBILE);
@@ -72,8 +71,6 @@ export default function HomePage() {
           })
         );
       }
-      dispatch(reportsOperations.getReportsMonthlyExpenses());
-      dispatch(reportsOperations.getReportsMonthlyIncome());
     }
     if (isMobile) {
       dispatch(
