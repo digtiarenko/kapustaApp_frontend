@@ -26,12 +26,9 @@
 }
 
 .inputCount {
-  /* display: none; */
   width: 120px;
   height: 44px;
   border: 2px solid #fff;
-  /* padding-right: 55px; */
-  /* padding-left: 55px; */
   border-radius: 22px 0 0 22px;
   font-weight: 900;
   font-size: 12px;
@@ -61,7 +58,6 @@
 }
 
 .buttonWrap {
-  /* display: none; */
   justify-content: center;
   margin: 0;
 }
@@ -302,7 +298,6 @@
   .wrapInput {
     display: flex;
     align-items: center;
-    /* margin-right: 32px; */
   }
 
   .datePicker {

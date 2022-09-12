@@ -5,7 +5,6 @@ import {
   getTransactionsByTypeAndDate,
 } from 'redux/transactions/transactionsOperations';
 import { useEffect, useState } from 'react';
-import moment from 'moment';
 import s from './HomePage.module.css';
 import DatePicker from 'react-datepicker';
 import { useMediaQuery } from 'react-responsive';
