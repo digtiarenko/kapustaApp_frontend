@@ -7,21 +7,17 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import AppBar from './modules/navigation/components/AppBar';
-import GoogleRedirectPage from 'Views/GoogleRedirectPage/GoogleRedirectPage';
+import GoogleRedirectPage from 'views/GoogleRedirectPage/GoogleRedirectPage';
 import { ProtectedRoute } from 'hoc/ProtectedRoute';
 import LoaderPage from './modules/LoaderPage';
 import LoaderSection from 'modules/LoaderSection';
 
-const AuthPage = lazy(() => import('./Views/AuthPage/AuthPage'));
-const HomePage = lazy(() => import('./Views/HomePage'));
-const ReportsPage = lazy(() => import('./Views/ReportsPage'));
-const AddTransactions = lazy(() => import('./Views/AddTransactions'));
-// const Expenses = lazy(() => import('./Views/ReportsPage/Expenses/Expenses'));
-// const Income = lazy(() => import('./Views/ReportsPage/Income/Income'));
-const Category = lazy(() => import('Views/ReportsPage/Categories'));
-const ReportChart = lazy(() =>
-  import('modules/reports/components/ReportChart')
-);
+const AuthPage = lazy(() => import('./views/AuthPage/AuthPage'));
+const HomePage = lazy(() => import('./views/HomePage'));
+const ReportsPage = lazy(() => import('./views/ReportsPage'));
+const AddTransactions = lazy(() => import('./views/AddTransactions'));
+const Category = lazy(() => import('views/ReportsPage/Categories'));
+const Chart = lazy(() => import('views/ReportsPage/Chart'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -113,7 +109,7 @@ export const App = () => {
                   path=":categoryId"
                   element={
                     <Suspense fallback={<LoaderSection />}>
-                      <ReportChart />
+                      <Chart />
                     </Suspense>
                   }
                 />

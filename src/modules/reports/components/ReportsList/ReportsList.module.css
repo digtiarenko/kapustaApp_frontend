@@ -32,6 +32,26 @@
   background-repeat: no-repeat;
   background-position: 50% 55%;
 }
+
+.itemActive {
+  width: 33%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  background-image: url('../../../../images/icons/category/background/onHover.svg');
+  background-repeat: no-repeat;
+  background-position: 50% 55%;
+}
+
+.itemActive .icon {
+  filter: invert(71%) sepia(65%) saturate(5152%) hue-rotate(345deg)
+    brightness(99%) contrast(104%);
+}
+
 .item:hover {
   background-image: url('../../../../images/icons/category/background/onHover.svg');
 }
@@ -46,6 +66,9 @@
 
 @media screen and (min-width: 768px) {
   .item {
+    width: auto;
+  }
+  .itemActive {
     width: auto;
   }
   .list {
