@@ -2,7 +2,7 @@
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
 
   background-image: repeating-linear-gradient(
     to bottom,
@@ -50,5 +50,6 @@
   }
   .list {
     background-image: none;
+    justify-content: center;
   }
 }
