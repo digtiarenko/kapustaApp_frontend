@@ -23,8 +23,8 @@ import { formatDate } from 'utils/formatDate';
 import screenRes from 'utils/mediaConstants';
 
 export default function HomePage() {
-  const notMobile = useMediaQuery(screenRes.NOTMOBILE);
-  const isMobile = useMediaQuery(screenRes.ISMOBILE);
+  const notMobile = useMediaQuery(screenRes.NOT_MOBILE);
+  const isMobile = useMediaQuery(screenRes.IS_MOBILE);
 
   const location = useLocation();
   const navigation = useNavigate();

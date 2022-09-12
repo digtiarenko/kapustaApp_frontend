@@ -9,8 +9,8 @@ import { useMediaQuery } from 'react-responsive';
 import screenRes from 'utils/mediaConstants';
 
 export default function AddTransactions() {
-  const notMobile = useMediaQuery(screenRes.NOTMOBILE);
-  const isMobile = useMediaQuery(screenRes.ISMOBILE);
+  const notMobile = useMediaQuery(screenRes.NOT_MOBILE);
+  const isMobile = useMediaQuery(screenRes.IS_MOBILE);
   const location = useLocation();
   const navigation = useNavigate();
   const [date, setDate] = useState(moment().format('YYYY-MM-DD'));

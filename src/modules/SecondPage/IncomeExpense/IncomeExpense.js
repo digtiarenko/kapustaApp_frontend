@@ -10,7 +10,7 @@ const setActive = ({ isActive }) => {
   };
 };
 function IncomeExpense() {
-  const isMobile = useMediaQuery(screenRes.ISMOBILE);
+  const isMobile = useMediaQuery(screenRes.IS_MOBILE);
   return (
     <nav className={s.nav}>
       {isMobile ? (

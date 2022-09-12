@@ -9,8 +9,8 @@ import screenRes from 'utils/mediaConstants';
 console.log(screenRes.NOTMOBILE);
 
 const ReportChart = () => {
-  const notMobile = useMediaQuery(screenRes.NOTMOBILE);
-  const isDesktop = useMediaQuery(screenRes.ISDESKTOP);
+  const notMobile = useMediaQuery(screenRes.NOT_MOBILE);
+  const isDesktop = useMediaQuery(screenRes.IS_DESKTOP);
   const { categoryId } = useParams();
 
   const reportFullMonth = useSelector(getDataByMonth);
