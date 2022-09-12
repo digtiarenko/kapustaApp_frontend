@@ -1,10 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Dropdown.module.css';
 import { ReactComponent as Arrowdown } from '../../images/icons/arrow-bottom.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import categoriesOperations from 'redux/categories/categoriesOperations';
 import { getCategoriesList } from '../../redux/categories/categoriesSelectors';
-import { createRef } from 'react';
 import { useDetectClickOutside } from 'react-detect-click-outside';
 
 export default function Dropdown({ type, onCategorySet, categoryName }) {
