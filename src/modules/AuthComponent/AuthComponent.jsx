@@ -25,9 +25,12 @@ export default function AuthComponent() {
     }
   };
   // eslint-disable-next-line
-  const regexEmail = /^\w([\.-]?\w+)*(\@\w{2,})*(\.\w{2,})$/;
+  const regexEmail = /^\w([\.-]?\w+)*(\@\w{1,})*(\.\w{2,})$/;
   const errorEmail =
-    !regexEmail.test(email) || email.length < 10 || email.length > 63;
+    !regexEmail.test(email) ||
+    email.length < 10 ||
+    email.length > 63 ||
+    email.slice(0, email.indexOf('@')).length < 2;
   const regexPass = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,63}$/;
 
   const validateByFormik = values => {
@@ -39,7 +42,8 @@ export default function AuthComponent() {
     } else if (
       !regexEmail.test(values.email) ||
       values.email.length < 10 ||
-      values.email.length > 63
+      values.email.length > 63 ||
+      values.email.slice(0, values.email.indexOf('@')).length < 2
     ) {
       errors.email = 'Invalid email';
     }
