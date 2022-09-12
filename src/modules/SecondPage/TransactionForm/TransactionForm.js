@@ -110,6 +110,7 @@ function TransactionForm({ date, setDate, type }) {
     setCategoryName('');
     setValue('');
   };
+
   return (
     <form className={s.wrap} onSubmit={handleSubmit} autoComplete="off">
       <div className={s.wrapInput}>
