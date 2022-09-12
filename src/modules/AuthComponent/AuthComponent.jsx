@@ -24,7 +24,7 @@ export default function AuthComponent() {
         return;
     }
   };
-
+  // eslint-disable-next-line
   const regexEmail = /^\w([\.-]?\w+)*(\@\w{2,})*(\.\w{2,})$/;
   const errorEmail =
     !regexEmail.test(email) || email.length < 10 || email.length > 63;

@@ -10,7 +10,6 @@ import TransactionForm, {
 } from '../../modules/SecondPage/TransactionForm/TransactionForm';
 import moment from 'moment';
 import Summary from '../../modules/SecondPage/Summary/Summary';
-
 import { useMediaQuery } from 'react-responsive';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -19,13 +18,13 @@ import {
   getTransactionsByTypeAndDate,
 } from 'redux/transactions/transactionsOperations';
 import DatePicker from 'react-datepicker';
-
 import 'react-datepicker/dist/react-datepicker.css';
 import { formatDate } from 'utils/formatDate';
+import screenRes from 'utils/mediaConstants';
 
 export default function HomePage() {
-  const notMobile = useMediaQuery({ minWidth: 768 });
-  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const notMobile = useMediaQuery(screenRes.NOTMOBILE);
+  const isMobile = useMediaQuery(screenRes.ISMOBILE);
 
   const location = useLocation();
   const navigation = useNavigate();

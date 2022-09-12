@@ -113,13 +113,13 @@ function TransactionForm({ date, setDate, type }) {
     setValue('');
   };
 
-  const onClose = e => {
-    console.log('onClose');
-  };
+  // const onClose = e => {
+  //   console.log('onClose');
+  // };
 
-  const onFocus = e => {
-    console.log('onFocus');
-  };
+  // const onFocus = e => {
+  //   console.log('onFocus');
+  // };
 
   return (
     <form className={s.wrap} onSubmit={handleSubmit} autoComplete="off">
