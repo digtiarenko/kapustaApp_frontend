@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import s from './Summary.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import NumberFormat from 'react-number-format';
@@ -8,7 +7,7 @@ import reportsOperations from 'redux/reports/reportsOperations';
 import { useEffect } from 'react';
 import { getTransactions } from 'redux/transactions/transactionsSelectors';
 
-function Summary({ month }) {
+function Summary() {
   const dispatch = useDispatch();
   const transaction = useSelector(getTransactions);
 
@@ -101,9 +100,5 @@ function Summary({ month }) {
     </div>
   );
 }
-
-Summary.propType = {
-  month: PropTypes.string.isRequired,
-};
 
 export default Summary;
