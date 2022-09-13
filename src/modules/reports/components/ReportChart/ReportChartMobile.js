@@ -56,7 +56,7 @@ const ReportChartMobile = ({ data }) => {
         height={50 * data.length}
         layout="vertical"
         data={data}
-        margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
+        margin={{ top: 10, right: 0, bottom: 0, left: 0 }}
       >
         <Tooltip cursor={false} content={<CustomTooltip />} />
         <XAxis hide axisLine={true} type="number" scale="linear" />

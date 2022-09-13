@@ -22,10 +22,13 @@ export default function Expenses() {
             .arrOfCategories
         )
       : setExpenses(null);
+  }, [header, reportFullMonth]);
+
+  useEffect(() => {
     if (expenses && expenses.length !== 0)
       navigation(`${expenses[0].category._id}`);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [header, reportFullMonth, expenses]);
+  }, [expenses]);
 
   function switchPage(header) {
     if (header === 'expenses') {

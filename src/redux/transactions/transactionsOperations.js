@@ -37,7 +37,9 @@ export const getTransactionsByTypeAndDate = createAsyncThunk(
     token.set(persistedToken);
 
     try {
-      const { data } = await axios.get(`/transactions/${date}?type=${type}`);
+      const { data } = await axios.get(
+        `/transactions/${date}?type=${type}&page=1&limit=1000`
+      );
       return data;
     } catch (error) {
       return rejectWithValue();
@@ -56,7 +58,9 @@ export const getTransactionsByDate = createAsyncThunk(
     token.set(persistedToken);
 
     try {
-      const { data } = await axios.get(`/transactions/${date}`);
+      const { data } = await axios.get(
+        `/transactions/${date}?page=1&limit=1000`
+      );
       return data;
     } catch (error) {
       return rejectWithValue();
