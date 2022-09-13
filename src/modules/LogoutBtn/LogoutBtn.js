@@ -39,7 +39,7 @@ const LogoutBtn = () => {
             setShowModal(false);
           }}
           handleAgreeButtonClick={logoutBtn}
-          question="Are you sure?"
+          question="Are you sure you want to exit?"
         />
       )}
       <span className={s.avatar}>{userEmail[0]}</span>
