@@ -4,12 +4,14 @@
   flex-wrap: wrap;
   justify-content: space-around;
 
+  padding-bottom: 20px;
+
   background-image: repeating-linear-gradient(
     to bottom,
     transparent,
-    transparent 143px,
-    #e0e5eb 143px,
-    #e0e5eb 144px
+    transparent 158px,
+    #e0e5eb 158px,
+    #e0e5eb 159px
   );
 }
 .icon {
@@ -21,6 +23,7 @@
 }
 .item {
   width: 33%;
+  height: 118px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -35,6 +38,7 @@
 
 .itemActive {
   width: 33%;
+  height: 118px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
