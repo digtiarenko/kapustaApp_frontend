@@ -36,8 +36,10 @@ const ReportChart = () => {
   return (
     <>
       {notMobile
-        ? data && <ReportChartDesktop isDesktop={isDesktop} data={data} />
-        : data && <ReportChartMobile data={data} />}
+        ? data.length !== 0 && (
+            <ReportChartDesktop isDesktop={isDesktop} data={data} />
+          )
+        : data.length !== 0 && <ReportChartMobile data={data} />}
     </>
   );
 };
