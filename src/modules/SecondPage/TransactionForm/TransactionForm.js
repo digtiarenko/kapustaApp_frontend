@@ -28,6 +28,7 @@ function TransactionForm({ date, setDate, type }) {
 
   useEffect(() => {
     onHandleResetForm();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [type]);
 
   const dispatch = useDispatch();
