@@ -9,9 +9,9 @@ import {
   YAxis,
   Text,
 } from 'recharts';
+import { CustomTooltip } from './ReportChartMobile';
 
 import styles from './ReportChart.module.css';
-import { CustomTooltip } from './ReportChartMobile';
 
 const CustomXAxisTick = props => {
   let labelText = props.payload.value;

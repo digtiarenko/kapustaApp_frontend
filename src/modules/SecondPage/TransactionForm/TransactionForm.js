@@ -1,5 +1,5 @@
 import s from './TransactionForm.module.css';
-import React, { forwardRef, useState } from 'react';
+import React, { forwardRef, useEffect, useState } from 'react';
 import { ReactComponent as CalendarLogo } from 'images/icons/calendar.svg';
 import calculator from '../../../images/icons/calculator.svg';
 import Dropdown from 'modules/dropDownCategories/Dropdown';
@@ -25,6 +25,10 @@ function TransactionForm({ date, setDate, type }) {
   const [categoryName, setCategoryName] = useState(null);
   const [categoryID, setCategoryID] = useState(null);
   const [value, setValue] = useState('');
+
+  useEffect(() => {
+    onHandleResetForm();
+  }, [type]);
 
   const dispatch = useDispatch();
   const initialBalance = useSelector(state => state.balance.balance);
