@@ -26,7 +26,7 @@ export const App = () => {
 
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
-  }, [dispatch]);
+  }, [dispatch, isAuth]);
 
   return (
     <>

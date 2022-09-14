@@ -60,6 +60,14 @@ export default function ReportChartDesktop({ isDesktop, data }) {
         <Tooltip
           cursor={false}
           isAnimationActive={false}
+          wrapperStyle={{
+            display: 'block',
+            width: '150px',
+            wordWrap: 'break-word',
+            outline: 'none',
+            border: 'none',
+            backgroundColor: 'transparent',
+          }}
           content={<CustomTooltip />}
         />
         <XAxis
@@ -88,6 +96,7 @@ export default function ReportChartDesktop({ isDesktop, data }) {
         <YAxis hide type="number" scale="linear" />
 
         <Bar
+          isAnimationActive={false}
           dataKey="value"
           radius={[10, 10, 0, 0]}
           className={styles.chartBar}
