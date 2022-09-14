@@ -13,11 +13,9 @@ import styles from './ReportChart.module.css';
 export const CustomTooltip = ({ active, payload, label }) => {
   if (active) {
     return (
-      <div className={styles.customTooltip}>
-        <p
-          className={styles.customTooltipLabel}
-        >{`${label} : ${payload[0].value}`}</p>
-      </div>
+      <p
+        className={styles.customTooltipLabel}
+      >{`${label} : ${payload[0].value}`}</p>
     );
   }
   return null;
@@ -58,11 +56,24 @@ const ReportChartMobile = ({ data }) => {
         data={data}
         margin={{ top: 10, right: 0, bottom: 0, left: 0 }}
       >
-        <Tooltip cursor={false} content={<CustomTooltip />} />
+        <Tooltip
+          cursor={false}
+          isAnimationActive={false}
+          wrapperStyle={{
+            display: 'block',
+            width: '150px',
+            wordWrap: 'break-word',
+            outline: 'none',
+            border: 'none',
+            backgroundColor: 'transparent',
+          }}
+          content={<CustomTooltip />}
+        />
         <XAxis hide axisLine={true} type="number" scale="linear" />
         <YAxis dataKey="description" type="category" hide />
 
         <Bar
+          isAnimationActive={false}
           dataKey="value"
           barSize={15}
           radius={[0, 10, 10, 0]}

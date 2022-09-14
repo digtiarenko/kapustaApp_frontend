@@ -7,6 +7,8 @@
   width: 93px;
 
   text-decoration: none;
+
+  hyphens: auto;
 }
 .text {
   font-weight: 400;
@@ -18,6 +20,16 @@
   text-align: center;
 
   color: #52555f;
+
+  width: 93px;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.text:hover {
+  -ms-text-overflow: unset;
+  text-overflow: unset;
+  overflow: visible;
 }
 .category {
   letter-spacing: 0.02em;
@@ -25,6 +37,9 @@
 
 @media screen and (min-width: 768px) {
   .link {
+    width: 104px;
+  }
+  .text {
     width: 104px;
   }
 }

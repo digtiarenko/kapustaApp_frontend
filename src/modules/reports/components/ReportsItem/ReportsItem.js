@@ -3,10 +3,14 @@ import s from './ReportsItem.module.css';
 
 export default function ReportsItem({ id, category, sum, children }) {
   return (
-    <Link to={`/reports/${id}`} className={s.link}>
-      <p className={`${s.sum} ${s.text}`}>{sum}</p>
+    <Link to={`/reports/${id}`} className={s.link} lang="en">
+      <p className={`${s.sum} ${s.text}`} lang="en">
+        {sum}
+      </p>
       {children}
-      <p className={`${s.category} ${s.text}`}>{category.toLowerCase()}</p>
+      <p className={`${s.category} ${s.text}`} lang="en" data-tip={category}>
+        {category.toLowerCase()}
+      </p>
     </Link>
   );
 }
