@@ -60,6 +60,14 @@ export default function ReportChartDesktop({ isDesktop, data }) {
         <Tooltip
           cursor={false}
           isAnimationActive={false}
+          wrapperStyle={{
+            display: 'block',
+            width: '150px',
+            wordWrap: 'break-word',
+            outline: 'none',
+            border: 'none',
+            backgroundColor: 'transparent',
+          }}
           content={<CustomTooltip />}
         />
         <XAxis
