@@ -63,6 +63,7 @@ const ReportChartMobile = ({ data }) => {
         <YAxis dataKey="description" type="category" hide />
 
         <Bar
+          isAnimationActive={false}
           dataKey="value"
           barSize={15}
           radius={[0, 10, 10, 0]}

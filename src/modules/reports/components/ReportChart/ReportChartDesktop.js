@@ -88,6 +88,7 @@ export default function ReportChartDesktop({ isDesktop, data }) {
         <YAxis hide type="number" scale="linear" />
 
         <Bar
+          isAnimationActive={false}
           dataKey="value"
           radius={[10, 10, 0, 0]}
           className={styles.chartBar}
