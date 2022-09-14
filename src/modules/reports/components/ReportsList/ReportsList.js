@@ -8,33 +8,39 @@ export default function ExpensesList({ expenses, header }) {
   return (
     <ul className={s.list}>
       {expenses ? (
-        expenses.map(item => (
-          <div
-            className={item.category._id !== categoryId ? s.item : s.itemActive}
-            key={item.category.name}
-          >
-            <ReportsItem
-              id={item.category._id}
-              category={item.category.name}
-              sum={item.totalSum}
+        expenses.map(item => {
+          return (
+            <li
+              className={
+                item.category._id !== categoryId ? s.item : s.itemActive
+              }
+              key={item.category.name}
+              lang="en"
+              data-title={item.category.name}
             >
-              <img
-                src={
-                  icons[
-                    `${item.category.name
-                      .split(', ')
-                      .join('')
-                      .split(' ')
-                      .join('')
-                      .toLowerCase()}`
-                  ]
-                }
-                alt={`${item.category.name}`}
-                className={s.icon}
-              />
-            </ReportsItem>
-          </div>
-        ))
+              <ReportsItem
+                id={item.category._id}
+                category={item.category.name}
+                sum={item.totalSum}
+              >
+                <img
+                  src={
+                    icons[
+                      `${item.category.name
+                        .split(', ')
+                        .join('')
+                        .split(' ')
+                        .join('')
+                        .toLowerCase()}`
+                    ]
+                  }
+                  alt={`${item.category.name}`}
+                  className={s.icon}
+                />
+              </ReportsItem>
+            </li>
+          );
+        })
       ) : header === 'expenses' ? (
         <p className={s.noData}>No expenses in this month</p>
       ) : (
