@@ -34,6 +34,8 @@
   background-image: url('../../../../images/icons/category/background/normal.svg');
   background-repeat: no-repeat;
   background-position: 50% 55%;
+
+  hyphens: auto;
 }
 
 .itemActive {
@@ -49,6 +51,8 @@
   background-image: url('../../../../images/icons/category/background/onHover.svg');
   background-repeat: no-repeat;
   background-position: 50% 55%;
+
+  hyphens: auto;
 }
 
 .itemActive .icon {
